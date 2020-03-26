@@ -9,6 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".AboutUsActivity"></activity>
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".ReportIncidentActivity" />
+        <activity android:name=".IncidentDetailsActivity" />
+        <activity android:name=".IncidentsActivity" />
+        <activity android:name=".AfterGoButtonActivity" />
+        <activity android:name=".DirectionSearchResultActivity" />
+        <activity android:name=".DirectionsSearchBarActivity" />
+        <activity android:name=".DirectionsActivity" />
+        <activity android:name=".SearchBarActivity" />
+        <activity android:name=".MenuActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
