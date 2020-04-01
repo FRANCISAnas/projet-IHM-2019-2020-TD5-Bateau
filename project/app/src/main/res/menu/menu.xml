@@ -3,11 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     tools:showIn="navigation_view">
     <group android:checkableBehavior="single">
-        <item android:id="@+id/item1" android:title="Home"/>
-        <item android:id="@+id/item2" android:title="Directions"/>
-        <item android:id="@+id/item3" android:title="Incidents"/>
-        <item android:id="@+id/item4" android:title="Settings"/>
-        <item android:id="@+id/item5" android:title="About Us"/>
+        <item android:id="@+id/item1" android:title="@string/home"/>
+        <item android:id="@+id/item2" android:title="@string/directions"/>
+        <item android:id="@+id/item3" android:title="@string/incidents"/>
+        <item android:id="@+id/item4" android:title="@string/settings"/>
+        <item android:id="@+id/item5" android:title="@string/about_us"/>
     </group>
 
 </menu>
