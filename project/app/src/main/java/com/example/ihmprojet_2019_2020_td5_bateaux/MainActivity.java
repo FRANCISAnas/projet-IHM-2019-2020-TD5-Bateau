@@ -8,6 +8,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.ihmprojet_2019_2020_td5_bateaux.Service.Service;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
 
     }
 
