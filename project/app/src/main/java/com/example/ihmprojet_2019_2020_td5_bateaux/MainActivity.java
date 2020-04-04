@@ -3,13 +3,18 @@ package com.example.ihmprojet_2019_2020_td5_bateaux;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.app.Activity;
+import android.app.Notification;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
+import android.widget.EditText;
 
 import androidx.appcompat.widget.Toolbar;
 
@@ -22,8 +27,14 @@ import com.example.ihmprojet_2019_2020_td5_bateaux.Fragments.IncidentsFragment;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Fragments.SettingsFragment;
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+import static com.example.ihmprojet_2019_2020_td5_bateaux.NeptuneNotification.CHANNEL_CLASSIQUE;
+import static com.example.ihmprojet_2019_2020_td5_bateaux.NeptuneNotification.CHANNEL_URGENTE;
 
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    public static int nbOfNotification = 0;
+
+    private NotificationManagerCompat notificationManager;
+    private EditText editText;
     private DrawerLayout drawer;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
@@ -32,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setNotficationManagerCompat();
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -50,6 +62,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
+    private void setNotficationManagerCompat() {
+        notificationManager = NotificationManagerCompat.from(this);
+        editText = findViewById(R.id.incident_description);
+    }
+
+    public void sendOnUrgent(View v){
+        if(nbOfNotification == 3)nbOfNotification = 0;
+        // String description = editText.getText().toString();
+        if(editText == null) System.out.print("hello World!");
+        Notification notification = new NotificationCompat.Builder(this, CHANNEL_URGENTE)
+                .setSmallIcon(R.drawable.ic_alert)
+                .setPriority(NotificationCompat.PRIORITY_HIGH).build();
+        notificationManager.notify(nbOfNotification++, notification);
+
+    }
+
+    public void sendOnClassic(View v){
+        if(nbOfNotification == 3)nbOfNotification = 0;
+        // String description = editText.getText().toString();
+        if(editText == null) System.out.print("hello World!");
+        Notification notification = new NotificationCompat.Builder(this, CHANNEL_CLASSIQUE)
+                .setSmallIcon(R.drawable.ic_alert)
+                .setPriority(NotificationCompat.PRIORITY_LOW).build();
+        notificationManager.notify(nbOfNotification++, notification);
+    }
 
     @Override
     public void onBackPressed(){
