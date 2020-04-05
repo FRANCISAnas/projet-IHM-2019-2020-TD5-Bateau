@@ -10,6 +10,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.app.Activity;
 import android.app.Notification;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +19,7 @@ import android.view.Window;
 import android.widget.EditText;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 
 import com.example.ihmprojet_2019_2020_td5_bateaux.Service.Service;
 
@@ -69,21 +72,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public void sendOnUrgent(View v){
         if(nbOfNotification == 3)nbOfNotification = 0;
+        Intent intent = new Intent(getApplicationContext(), IncidentsActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
         // String description = editText.getText().toString();
-        if(editText == null) System.out.print("hello World!");
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_URGENTE)
                 .setSmallIcon(R.drawable.ic_alert)
+                .setContentIntent(pendingIntent)
                 .setPriority(NotificationCompat.PRIORITY_HIGH).build();
         notificationManager.notify(nbOfNotification++, notification);
-
     }
 
     public void sendOnClassic(View v){
         if(nbOfNotification == 3)nbOfNotification = 0;
+        Intent intent = new Intent(getApplicationContext(), IncidentsActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
         // String description = editText.getText().toString();
-        if(editText == null) System.out.print("hello World!");
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_CLASSIQUE)
                 .setSmallIcon(R.drawable.ic_alert)
+                .setContentIntent(pendingIntent)
                 .setPriority(NotificationCompat.PRIORITY_LOW).build();
         notificationManager.notify(nbOfNotification++, notification);
     }
