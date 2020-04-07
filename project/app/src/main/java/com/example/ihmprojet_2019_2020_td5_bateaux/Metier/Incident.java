@@ -3,6 +3,8 @@ package com.example.ihmprojet_2019_2020_td5_bateaux.Metier;
 public class Incident {
 
     private final int id;
+    private String nature;
+    private String description;
 
     public int getId() {
         return id;
@@ -24,8 +26,7 @@ public class Incident {
         this.description = description;
     }
 
-    private String nature;
-    private String description;
+
 
     public Incident(int id, String nature, String description) {
         this.id = id;

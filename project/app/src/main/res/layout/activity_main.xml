@@ -16,7 +16,7 @@
         android:layout_height="100dp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="Welcome frome Home Activity"
+        android:text="@string/welcome_from_home_activity"
         android:background="@color/design_default_color_primary"
         android:textColor="#FFFFFF"
         android:textSize="24sp" />
