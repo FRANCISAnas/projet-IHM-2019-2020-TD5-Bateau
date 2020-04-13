@@ -11,4 +11,8 @@
     <string name="about_us">About Us</string>
     <string name="welcome_from_home_activity">Welcome from Home Activity</string>
 
+    <string-array name="tempSpinner">
+        <item>Fehrnhite</item>
+        <item>Celecius</item>
+    </string-array>
 </resources>
