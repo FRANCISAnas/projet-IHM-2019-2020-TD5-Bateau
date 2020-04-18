@@ -12,6 +12,12 @@ public class NeptuneNotification extends Application {
 
 
 
+    @Override
+    public void onCreate(){
+        super.onCreate();
+        createNotificationChannels();
+    }
+
     private void createNotificationChannels() {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             NotificationChannel urgentChannel = new NotificationChannel(CHANNEL_URGENTE, "Urgent Channel", NotificationManager.IMPORTANCE_HIGH);

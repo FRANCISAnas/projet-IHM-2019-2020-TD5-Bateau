@@ -17,11 +17,13 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.ihmprojet_2019_2020_td5_bateaux.Service.Service;
 
@@ -39,7 +41,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public static int nbOfNotification = 0;
 
     private NotificationManagerCompat notificationManager;
-    private EditText editText;
     private DrawerLayout drawer;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
@@ -57,10 +58,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setNotficationManagerCompat();
         setContentView(R.layout.activity_main);
 
+        FragmentTransaction frag = getSupportFragmentManager().beginTransaction();
+        frag.add(R.id.fragment_container, new IncidentsFragment());
+        frag.commit();
+
         Toolbar toolbar = findViewById(R.id.toolbar);
 
-
-        // setSupportActionBar(toolbar);
 
         drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
@@ -74,19 +77,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
+
+
     private void setNotficationManagerCompat() {
-        notificationManager = NotificationManagerCompat.from(this);
-        editText = findViewById(R.id.incident_description);
+        this.notificationManager = NotificationManagerCompat.from(this);
+        EditText editText = findViewById(R.id.incident_description);
     }
+
 
     public void sendOnUrgent(View v){
         if(nbOfNotification == 3)nbOfNotification = 0;
         Intent intent = new Intent(getApplicationContext(), IncidentsActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
-        // String description = editText.getText().toString();
+        final String desccription = ((EditText) findViewById(R.id.incident_description)).getText().toString();
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_URGENTE)
                 .setSmallIcon(R.drawable.ic_alert)
-                .setContentIntent(pendingIntent)
+                .setContentIntent(pendingIntent).setContentTitle(desccription)
                 .setPriority(NotificationCompat.PRIORITY_HIGH).build();
         notificationManager.notify(nbOfNotification++, notification);
     }
@@ -95,10 +101,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if(nbOfNotification == 3)nbOfNotification = 0;
         Intent intent = new Intent(getApplicationContext(), IncidentsActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
-        // String description = editText.getText().toString();
+        final String desccription = ((EditText) findViewById(R.id.incident_description)).getText().toString();
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_CLASSIQUE)
                 .setSmallIcon(R.drawable.ic_alert)
                 .setContentIntent(pendingIntent)
+                .setContentTitle(desccription)
                 .setPriority(NotificationCompat.PRIORITY_LOW).build();
         notificationManager.notify(nbOfNotification++, notification);
     }
@@ -137,4 +144,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         return true;
     }
+
 }

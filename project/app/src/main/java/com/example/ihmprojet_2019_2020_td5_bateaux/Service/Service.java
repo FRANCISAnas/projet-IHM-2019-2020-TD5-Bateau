@@ -96,4 +96,6 @@ public class Service extends AsyncTask<Void,Void,Void> {
         listView.setAdapter(incidentListAdapter);
 
     }
+
+
 }
