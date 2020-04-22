@@ -10,10 +10,22 @@
     android:fitsSystemWindows="true"
     tools:oppenDrawer = "start">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/welcome_from_home_activity"
+        android:background="@color/design_default_color_primary"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/fragment_container">
+
 
     </FrameLayout>
 
@@ -28,7 +40,7 @@
             android:id="@+id/toolbar"
             android:layout_centerInParent="true"
             android:visibility="gone"
-            android:elevation="20dp"/>
+            android:elevation="10dp"/>
     </RelativeLayout>
 
 
@@ -38,10 +50,8 @@
         android:layout_height="match_parent"
         android:id="@+id/nav_view"
         android:layout_gravity="start"
-        app:headerLayout="@layout/activity_menu_parameters"
+        app:headerLayout="@layout/fragment_home"
         app:menu="@menu/menu" />
-
-
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
