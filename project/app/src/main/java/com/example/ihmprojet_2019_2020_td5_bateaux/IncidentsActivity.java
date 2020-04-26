@@ -23,9 +23,9 @@ public class IncidentsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_incidents);
 
-        //ListView listView = (ListView) findViewById(R.id.myListView);
-        //Service incidentService = new Service(this,listView); //getWindow().getDecorView().getRootView()
-        //incidentService.execute();
+        ListView listView = (ListView) findViewById(R.id.myListView);
+        Service incidentService = new Service(this,listView); //getWindow().getDecorView().getRootView()
+        incidentService.execute();
 
         PostService service = new PostService(this);
         service.execute();
