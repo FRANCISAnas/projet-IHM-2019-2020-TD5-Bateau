@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="#FFFFFF"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:id="@+id/fragment_incidents"
     tools:context=".MainActivity">
 
@@ -16,7 +16,6 @@
         android:hint="Description"/>
 
     <Button
-        android:id="@+id/urgent_notification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Notification Urgente"
@@ -25,7 +24,6 @@
         android:onClick="sendOnUrgent"/>
 
     <Button
-        android:id="@+id/default_notification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
