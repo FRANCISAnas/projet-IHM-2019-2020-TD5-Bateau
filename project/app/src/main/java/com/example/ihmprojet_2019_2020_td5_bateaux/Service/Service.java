@@ -2,8 +2,10 @@ package com.example.ihmprojet_2019_2020_td5_bateaux.Service;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.view.View;
 import android.webkit.HttpAuthHandler;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.ihmprojet_2019_2020_td5_bateaux.IncidentsActivity;
@@ -28,11 +30,16 @@ import java.util.ArrayList;
 public class Service extends AsyncTask<Void,Void,Void> {
     ArrayList<Incident> incidentArrayList;
     private Context mContext;
+    private int progress = 0;
+    private View rootView;
+
+
     ListView listView;
 
-    public Service(Context context,ListView listView){
+    public Service(Context context,ListView listView) { //, View view)
         mContext=context;
         this.listView = listView;
+        //rootView = view;
     }
 
     @Override
@@ -86,6 +93,7 @@ public class Service extends AsyncTask<Void,Void,Void> {
             i++;
         }
         IncidentsActivity.incidentArrayList = incidentArrayList;
+        progress++;
         return null;
     }
 
@@ -97,5 +105,14 @@ public class Service extends AsyncTask<Void,Void,Void> {
 
     }
 
+
+    @Override
+    protected void onProgressUpdate(Void... values) {
+        super.onProgressUpdate(values);
+        //ProgressBar progressBar = (ProgressBar) rootView.findViewById(R.id.progressBar);
+        ///progressBar.setMax(10);
+        //progressBar.setProgress(progress,true);
+
+    }
 
 }
