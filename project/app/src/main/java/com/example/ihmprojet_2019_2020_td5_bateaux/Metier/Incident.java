@@ -33,4 +33,16 @@ public class Incident {
         this.nature = nature;
         this.description = description;
     }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (this.id == ((Incident)obj).id) {
+            return true;
+        }
+        return false;
+    }
 }

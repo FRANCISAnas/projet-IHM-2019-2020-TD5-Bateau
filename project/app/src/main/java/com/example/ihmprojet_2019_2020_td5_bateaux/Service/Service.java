@@ -87,6 +87,14 @@ public class Service extends AsyncTask<Void,Void,Void> {
                 Incident incident = new Incident(id,nature,description);
                 incidentArrayList.add(incident);
 
+              /*  if(!incidentArrayList.contains(incident)){
+                    incidentArrayList.add(incident);
+                    if(IncidentsActivity.resume){
+                        System.out.println("incident added ! ");
+                    }
+                }*/
+
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }
