@@ -53,7 +53,16 @@ public class IncidentsFragment extends Fragment {
         Service incidentGetService = new Service(rootView.getContext(),listView); //getWindow().getDecorView().getRootView()
         incidentGetService.execute();
 
+        Button addIncident =  rootView.findViewById(R.id.addIncident);
+        addIncident.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction frag = getFragmentManager().beginTransaction();
+                frag.replace(R.id.fragment_container, new PostFragment());
+                frag.commit();
 
+            }
+        });
 
 
 

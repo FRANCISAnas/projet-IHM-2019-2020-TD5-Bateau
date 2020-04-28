@@ -8,9 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.ihmprojet_2019_2020_td5_bateaux.R;
+import com.example.ihmprojet_2019_2020_td5_bateaux.Service.PostService;
 
 
 public class PostFragment extends Fragment {
@@ -24,14 +27,29 @@ public class PostFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView =  inflater.inflate(R.layout.incident_submission, container, false);
+        View rootView =  inflater.inflate(R.layout.fragment_incident_submission, container, false);
 
         Spinner spinner = (Spinner) rootView.findViewById(R.id.natures);
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(container.getContext(),android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.natures));
         myAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         spinner.setAdapter(myAdapter);
+
+        final String nature = spinner.getSelectedItem().toString();
+        EditText editText = rootView.findViewById(R.id.editTextDescription);
+        final String description = editText.getText().toString();
+
+
+        Button post = rootView.findViewById(R.id.post);
+        post.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PostService postService = new PostService(container.getContext(),nature,description);
+                postService.execute();
+            }
+        });
+
 
         return rootView;
     }

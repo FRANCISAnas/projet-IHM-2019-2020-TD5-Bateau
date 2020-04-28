@@ -20,11 +20,14 @@ import java.util.Map;
 
 public class PostService extends AsyncTask<String,String, String> {
 
-    String incidentToSend ="{ \"fromPostExexute\", \"fromPostExexute test\" }";
+    String nature;
+    String description;
     private Context mContext;
 
-    public PostService(Context context){
+    public PostService(Context context,String nature, String description){
         mContext=context;
+        this.nature = nature;
+        this.description = description;
     }
 
     @Override
@@ -37,56 +40,49 @@ public class PostService extends AsyncTask<String,String, String> {
 
     @Override
     protected String doInBackground(String... strings) {
-        try{
+            try {
 
-            URL url = new URL("http://www.neptune.dinelhost.com/api/incident.php");
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("POST");
-            conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-            //conn.setRequestProperty("Accept","application/json");
-            conn.setDoInput(true);
-            conn.setDoOutput(true);
+                URL url = new URL("http://www.neptune.dinelhost.com/api/incident.php");
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("POST");
+                conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+                conn.setDoInput(true);
+                conn.setDoOutput(true);
 
-            /*JSONObject jsonObject = new JSONObject();
-            jsonObject.put("nature","nature from post service");
-            jsonObject.put("description","nature from post service");*/
 
-            Map<String,String> params = new HashMap<>();
-            params.put("nature","test de post");
-            params.put("description","this is a test from post service");
+                Map<String, String> params = new HashMap<>();
+                params.put("nature", this.nature);
+                params.put("description", this.description);
 
-            StringBuilder postData = new StringBuilder();
-            for (Map.Entry<String,String> pa : params.entrySet()) {
-                postData.append("&");
-                postData.append(URLEncoder.encode(pa.getKey(),"UTF-8"));
-                postData.append("=");
-                postData.append(URLEncoder.encode(pa.getValue(),"UTF-8"));
+                StringBuilder postData = new StringBuilder();
+                for (Map.Entry<String, String> pa : params.entrySet()) {
+                    postData.append("&");
+                    postData.append(URLEncoder.encode(pa.getKey(), "UTF-8"));
+                    postData.append("=");
+                    postData.append(URLEncoder.encode(pa.getValue(), "UTF-8"));
+                }
+
+                byte[] paramBytes = postData.toString().getBytes("UTF-8");
+
+                DataOutputStream os = new DataOutputStream(conn.getOutputStream());
+
+                os.write(paramBytes);
+
+                os.flush();
+                os.close();
+
+                int responseCode = conn.getResponseCode();
+                conn.disconnect();
+                if (responseCode == HttpURLConnection.HTTP_OK) {
+                    System.out.println("success");
+                    return "success";
+
+                } else
+                    return "";
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-
-            byte[] paramBytes = postData.toString().getBytes("UTF-8");
-
-            DataOutputStream os = new DataOutputStream(conn.getOutputStream());
-
-            //os.writeBytes(URLEncoder.encode(postData.toString(), "UTF-8"));
-            os.write(paramBytes);
-
-            os.flush();
-            os.close();
-
-            int responseCode=conn.getResponseCode();
-            conn.disconnect();
-            if (responseCode == HttpURLConnection.HTTP_OK) {
-                System.out.println("success");
-                return "success";
-
-            }
-            else
-                return "";
-        }catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-
+        
 
         return null;
     }
