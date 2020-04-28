@@ -81,7 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="250dp"
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="300dp"
         android:text="Post" />
 
 </RelativeLayout>
