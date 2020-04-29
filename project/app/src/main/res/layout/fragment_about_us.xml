@@ -1,17 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0000FF"
+    android:background="#E9967A"
+    android:orientation="horizontal"
     android:id="@+id/fragment_about_us">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="hello from About us page"
-        android:textSize="24sp"
+        android:text="About Us"
         android:gravity="center"
-        android:layout_centerInParent="true" />
+        android:layout_marginTop="30dp"
+        android:textColor="#000000"
+        android:textSize="24sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:text=" Neptune is a marine weather application, jam-packed with information at just a glance.
+        Although not a great option for daily planning, the Neptune really shines as a weeklong forecast so you can plan the perfect time for that weekend cruise.
+ Neptune allows you to consult detailed weather forecasts for more than 15 days, with the possibility of receiving alerts,the application is available in several languages.
+Its simple slide navigation also makes storm-tracking a mesmerizing experience.  Thanks to Neptune you can save forecasts and navigate safely in the ocean"
+        android:textSize="24sp"
+        android:textColor="#000000"
+        android:gravity="center" />
+
+      <ImageView
+          android:id="@+id/imageView2"
+          android:layout_width="50dp"
+          android:layout_height="450dp"
+          android:layout_marginTop="460dp"
+          android:layout_marginLeft="30dp"
+          app:srcCompat="@drawable/facebook" />
+
+      <TextView
+          android:layout_width="200dp"
+          android:layout_height="400dp"
+          android:layout_marginTop="710dp"
+          android:textSize="24sp"
+          android:textColor="#000000"
+          android:layout_marginLeft="30dp"
+          android:text="Facbook" />
+
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="50dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="650dp"
+        android:layout_marginLeft="30dp"
+        app:srcCompat="@drawable/twitter" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="830dp"
+        android:textSize="24sp"
+        android:textColor="#000000"
+        android:layout_marginLeft="30dp"
+        android:text="Twitter" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="60dp"
+        android:layout_height="400dp"
+        android:layout_marginLeft="400dp"
+        android:layout_marginTop="480dp"
+        app:srcCompat="@drawable/email" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="710dp"
+        android:textSize="24sp"
+        android:layout_marginLeft="400dp"
+        android:textColor="#000000"
+        android:text="EMAIL" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="60dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="650dp"
+        android:layout_marginLeft="400dp"
+        app:srcCompat="@drawable/faq" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="830dp"
+        android:layout_marginLeft="400dp"
+        android:textSize="24sp"
+        android:textColor="#000000"
+        android:text="FAQ" />
+
 
 </RelativeLayout>
