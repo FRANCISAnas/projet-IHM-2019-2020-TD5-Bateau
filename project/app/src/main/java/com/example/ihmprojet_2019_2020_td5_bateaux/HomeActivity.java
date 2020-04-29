@@ -72,7 +72,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     public void sendOnUrgent(View v) {
         if (nbOfNotification == 3) nbOfNotification = 0;
-        Intent intent = new Intent(getApplicationContext(), IncidentsActivity.class);
+        Intent intent = new Intent(getApplicationContext(), IncidentsFragment.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
         final String desccription = ((EditText) findViewById(R.id.incident_description)).getText().toString();
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_URGENTE)
@@ -84,7 +84,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     public void sendOnClassic(View v) {
         if (nbOfNotification == 3) nbOfNotification = 0;
-        Intent intent = new Intent(getApplicationContext(), IncidentsActivity.class);
+        Intent intent = new Intent(getApplicationContext(), IncidentsFragment.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
         final String desccription = ((EditText) findViewById(R.id.incident_description)).getText().toString();
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_CLASSIQUE)

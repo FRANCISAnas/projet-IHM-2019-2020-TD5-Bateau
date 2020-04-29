@@ -3,13 +3,9 @@ package com.example.ihmprojet_2019_2020_td5_bateaux.Service;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.view.View;
-import android.webkit.HttpAuthHandler;
 import android.widget.ListView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 
-import com.example.ihmprojet_2019_2020_td5_bateaux.IncidentsActivity;
-import com.example.ihmprojet_2019_2020_td5_bateaux.MainActivity;
+import com.example.ihmprojet_2019_2020_td5_bateaux.Fragments.IncidentsFragment;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.IncidentListAdapter;
 import com.example.ihmprojet_2019_2020_td5_bateaux.R;
@@ -100,7 +96,7 @@ public class Service extends AsyncTask<Void,Void,Void> {
             }
             i++;
         }
-        IncidentsActivity.incidentArrayList = incidentArrayList;
+        IncidentsFragment.incidentArrayList = incidentArrayList;
         progress++;
         return null;
     }

@@ -14,7 +14,7 @@
         android:layout_width="388dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="230dp"
         android:layout_marginEnd="7dp"
 
         android:ems="10"
@@ -83,5 +83,18 @@
         android:layout_marginLeft="250dp"
         android:layout_marginTop="350dp"
         android:text="Post" />
+
+    <EditText
+        android:id="@+id/naturetype"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="160dp"
+        android:ems="10"
+
+        android:inputType="textPersonName"
+        android:visibility="invisible"
+        android:hint="Nature"
+        />
 
 </RelativeLayout>

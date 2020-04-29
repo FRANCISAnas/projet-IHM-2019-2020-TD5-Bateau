@@ -1,6 +1,7 @@
 package com.example.ihmprojet_2019_2020_td5_bateaux.Fragments;
 
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

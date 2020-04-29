@@ -6,7 +6,7 @@
     <string-array name="natures">
         <item>Heavy Rain</item>
         <item>Storm</item>
-        <item>Nature 3</item>
+        <item>Autre</item>
     </string-array>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>

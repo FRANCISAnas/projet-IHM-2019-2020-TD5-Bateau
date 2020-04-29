@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.view.WindowManager;
 
 import static java.lang.Thread.sleep;
@@ -24,8 +25,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
                 System.out.println("splash screen");
+
             }
         }, SPLASH_TIME_OUT);
     }
+
 
 }
