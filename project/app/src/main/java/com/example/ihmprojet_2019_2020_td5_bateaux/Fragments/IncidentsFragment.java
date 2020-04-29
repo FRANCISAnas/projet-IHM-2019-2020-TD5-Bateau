@@ -8,16 +8,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.ihmprojet_2019_2020_td5_bateaux.IncidentsActivity;
 import com.example.ihmprojet_2019_2020_td5_bateaux.MainActivity;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
 import com.example.ihmprojet_2019_2020_td5_bateaux.R;
-import com.example.ihmprojet_2019_2020_td5_bateaux.Service.Service;
+import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentPostService;
 
 import java.util.ArrayList;
 
@@ -25,8 +29,8 @@ public class IncidentsFragment extends Fragment {
 
     public static ArrayList<Incident> incidentArrayList;
     public static boolean resume = false;
-    Service incidentGetService;
     View root;
+    IncidentPostService service;
 
     public IncidentsFragment(){
         // Empty constructor required
@@ -51,7 +55,7 @@ public class IncidentsFragment extends Fragment {
 
         ListView listView = (ListView) rootView.findViewById(R.id.myListView);
         registerForContextMenu(listView);
-        incidentGetService = new Service(rootView.getContext(),listView); //getWindow().getDecorView().getRootView()
+        IncidentGetService incidentGetService = new IncidentGetService(rootView.getContext(), listView); //getWindow().getDecorView().getRootView()
         incidentGetService.execute();
 
         Button addIncident =  rootView.findViewById(R.id.addIncident);
@@ -64,8 +68,6 @@ public class IncidentsFragment extends Fragment {
 
             }
         });
-
-
 
 
 

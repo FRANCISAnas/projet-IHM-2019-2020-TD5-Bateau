@@ -14,8 +14,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import androidx.fragment.app.Fragment;
+
 import com.example.ihmprojet_2019_2020_td5_bateaux.R;
-import com.example.ihmprojet_2019_2020_td5_bateaux.Service.PostService;
+import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentPostService;
 
 
 public class PostFragment extends Fragment {
@@ -68,7 +70,7 @@ public class PostFragment extends Fragment {
                 }
                 EditText editText = rootView.findViewById(R.id.editTextDescription);
                 final String description = editText.getText().toString();
-                PostService postService = new PostService(container.getContext(),nature,description);
+                IncidentPostService postService = new PostService(container.getContext(),nature,description);
                 postService.execute();
                 FragmentTransaction frag = getFragmentManager().beginTransaction();
                 frag.replace(R.id.fragment_container, new IncidentsFragment());

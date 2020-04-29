@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">IHMProjet_2019_2020_TD5_Bateaux_2</string>
+
+    <string-array name="natures">
+        <item>Pluie forte</item>
+        <item>Tempête</item>
+        <item>Nature 3</item>
+    </string-array>
+
+    <string name="navigation_drawer_open">Ouvrir le tiroir de navigation</string>
+    <string name="navigation_drawer_close">Fermer le tiroir de navigation</string>
+
+    <string name="home">Accueil</string>
+    <string name="directions">Directions</string>
+    <string name="incidents">Incidents</string>
+    <string name="settings">Réglages</string>
+    <string name="about_us">A propos de nous</string>
+    <string name="welcome_from_home_activity">Bienvenue à l\'activité d\'accueil</string>
+
+    <string-array name="tempSpinner">
+        <item>Fehrnhite</item>
+        <item>Celesius</item>
+    </string-array>
+
+    <string-array name="langue">
+        <item>Anglais</item>
+        <item>Français</item>
+    </string-array>
+
+    <string-array name="format">
+        <item>24 Heures</item>
+        <item>12 Heures</item>
+    </string-array>
+
+
+    <string-array name="notification">
+        <item>Recevoir uniquement des notifications urgentes</item>
+        <item>Recevoir toutes les notifications</item>
+    </string-array>
+
+    <string-array name="precipitation">
+        <item>Pourcentage</item>
+        <item>milimètre</item>
+    </string-array>
+
+
+    <string-array name="windspeed">
+        <item>KM/H</item>
+    </string-array>
+
+
+    <string-array name="pressure">
+        <item>hPa</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Bonjour, fragment vierge</string>
+    <string name="temperature">Température</string>
+    <string name="langauage">Langues</string>
+    <string name="timeformat">Format de l\'heure</string>
+    <string name="precipitation">Precipitation</string>
+    <string name="windspeed">Vitesse du vent</string>
+    <string name="pressure">Pression</string>
+    <string name="notificatin">Notification</string>
+    <string name="welcome" translatable="false">Bienvenue</string>
+</resources>

@@ -2,7 +2,7 @@ package com.example.ihmprojet_2019_2020_td5_bateaux;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Example local unit test, which will execute on the development machine (host).

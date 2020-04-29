@@ -23,7 +23,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class Service extends AsyncTask<Void,Void,Void> {
+public class IncidentGetService extends AsyncTask<Void,Void,Void> {
     ArrayList<Incident> incidentArrayList;
     private Context mContext;
     private int progress = 0;
@@ -32,7 +32,7 @@ public class Service extends AsyncTask<Void,Void,Void> {
 
     ListView listView;
 
-    public Service(Context context,ListView listView) { //, View view)
+    public IncidentGetService(Context context, ListView listView) { //, View view)
         mContext=context;
         this.listView = listView;
         //rootView = view;
