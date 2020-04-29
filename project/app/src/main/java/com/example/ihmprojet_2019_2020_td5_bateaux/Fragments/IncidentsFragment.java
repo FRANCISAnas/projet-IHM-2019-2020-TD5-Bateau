@@ -14,8 +14,8 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.ihmprojet_2019_2020_td5_bateaux.MainActivity;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
 import com.example.ihmprojet_2019_2020_td5_bateaux.R;
-import com.example.ihmprojet_2019_2020_td5_bateaux.Service.PostService;
-import com.example.ihmprojet_2019_2020_td5_bateaux.Service.Service;
+import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentPostService;
+import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentGetService;
 
 import java.util.ArrayList;
 
@@ -23,7 +23,7 @@ public class IncidentsFragment extends Fragment {
 
     public static ArrayList<Incident> incidentArrayList;
     public static boolean resume = false;
-    PostService service;
+    IncidentPostService service;
 
     public IncidentsFragment() {
         // Empty constructor required
@@ -45,7 +45,7 @@ public class IncidentsFragment extends Fragment {
         });*/
 
         ListView listView = (ListView) rootView.findViewById(R.id.myListView);
-        Service incidentGetService = new Service(rootView.getContext(), listView); //getWindow().getDecorView().getRootView()
+        IncidentGetService incidentGetService = new IncidentGetService(rootView.getContext(), listView); //getWindow().getDecorView().getRootView()
         incidentGetService.execute();
 
         Button addIncident = rootView.findViewById(R.id.addIncident);

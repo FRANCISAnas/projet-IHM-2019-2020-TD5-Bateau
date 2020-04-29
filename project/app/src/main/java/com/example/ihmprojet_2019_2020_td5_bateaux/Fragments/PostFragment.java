@@ -12,7 +12,7 @@ import android.widget.Spinner;
 import androidx.fragment.app.Fragment;
 
 import com.example.ihmprojet_2019_2020_td5_bateaux.R;
-import com.example.ihmprojet_2019_2020_td5_bateaux.Service.PostService;
+import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentPostService;
 
 
 public class PostFragment extends Fragment {
@@ -44,8 +44,8 @@ public class PostFragment extends Fragment {
         post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PostService postService = new PostService(container.getContext(),nature,description);
-                postService.execute();
+                IncidentPostService incidentPostService = new IncidentPostService(container.getContext(),nature,description);
+                incidentPostService.execute();
             }
         });
 

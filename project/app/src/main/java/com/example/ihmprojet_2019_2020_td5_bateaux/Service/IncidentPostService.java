@@ -11,13 +11,13 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PostService extends AsyncTask<String,String, String> {
+public class IncidentPostService extends AsyncTask<String,String, String> {
 
     String nature;
     String description;
     private Context mContext;
 
-    public PostService(Context context,String nature, String description){
+    public IncidentPostService(Context context, String nature, String description){
         mContext=context;
         this.nature = nature;
         this.description = description;

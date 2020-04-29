@@ -6,8 +6,8 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
-import com.example.ihmprojet_2019_2020_td5_bateaux.Service.PostService;
-import com.example.ihmprojet_2019_2020_td5_bateaux.Service.Service;
+import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentPostService;
+import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentGetService;
 
 import java.util.ArrayList;
 
@@ -16,7 +16,7 @@ public class IncidentsActivity extends AppCompatActivity {
     public static ArrayList<Incident> incidentArrayList;
     public static boolean resume = false;
 
-    PostService service;
+    IncidentPostService service;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +24,8 @@ public class IncidentsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_incidents);
 
         ListView listView = (ListView) findViewById(R.id.myListView);
-        Service incidentService = new Service(this,listView); //getWindow().getDecorView().getRootView()
-        incidentService.execute();
+        IncidentGetService incidentIncidentGetService = new IncidentGetService(this,listView); //getWindow().getDecorView().getRootView()
+        incidentIncidentGetService.execute();
 
         //service = new PostService(this);
         //service.execute();
