@@ -23,38 +23,31 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class IncidentGetService extends AsyncTask<Void,Void,Void> {
+public class IncidentGetService extends AsyncTask<Void, Void, Void> {
     ArrayList<Incident> incidentArrayList;
     private Context mContext;
     private int progress = 0;
     private View rootView;
-
-
     ListView listView;
 
     public IncidentGetService(Context context, ListView listView) { //, View view)
-        mContext=context;
+        mContext = context;
         this.listView = listView;
         //rootView = view;
     }
 
     @Override
     protected Void doInBackground(Void... voids) {
-        String data="";
-
-
-
+        String data = "";
         try {
             URL url = new URL("http://www.neptune.dinelhost.com/api/incident.php");
-
-            HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
+            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
             String line = "";
-            JSONObject jsonObject;
-            while(line!=null){
+            while (line != null) {
                 line = bufferedReader.readLine();
-                data+=line;
+                data += line;
             }
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -67,30 +60,23 @@ public class IncidentGetService extends AsyncTask<Void,Void,Void> {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
         JSONObject jsonObject;
-
-         incidentArrayList =new ArrayList<>();
-
-        int i = 0 ;
-        while(i<jsonArray.length()){
+        incidentArrayList = new ArrayList<>();
+        int i = 0;
+        while (i < jsonArray.length()) {
             try {
                 jsonObject = jsonArray.getJSONObject(i);
                 int id = jsonObject.getInt("id");
                 String nature = jsonObject.getString("nature");
                 String description = jsonObject.getString("description");
-
-                Incident incident = new Incident(id,nature,description);
+                Incident incident = new Incident(id, nature, description);
                 incidentArrayList.add(incident);
-
               /*  if(!incidentArrayList.contains(incident)){
                     incidentArrayList.add(incident);
                     if(IncidentsActivity.resume){
                         System.out.println("incident added ! ");
                     }
                 }*/
-
-
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -104,11 +90,9 @@ public class IncidentGetService extends AsyncTask<Void,Void,Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-        IncidentListAdapter incidentListAdapter = new IncidentListAdapter(mContext,R.layout.custom_list_view,incidentArrayList);
+        IncidentListAdapter incidentListAdapter = new IncidentListAdapter(mContext, R.layout.custom_list_view, incidentArrayList);
         listView.setAdapter(incidentListAdapter);
-
     }
-
 
     @Override
     protected void onProgressUpdate(Void... values) {
@@ -116,7 +100,5 @@ public class IncidentGetService extends AsyncTask<Void,Void,Void> {
         //ProgressBar progressBar = (ProgressBar) rootView.findViewById(R.id.progressBar);
         ///progressBar.setMax(10);
         //progressBar.setProgress(progress,true);
-
     }
-
 }

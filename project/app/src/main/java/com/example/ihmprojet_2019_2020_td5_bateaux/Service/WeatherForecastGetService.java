@@ -3,12 +3,6 @@ package com.example.ihmprojet_2019_2020_td5_bateaux.Service;
 import android.location.Location;
 import android.os.AsyncTask;
 
-import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
