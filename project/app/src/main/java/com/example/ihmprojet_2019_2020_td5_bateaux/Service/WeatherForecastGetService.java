@@ -47,4 +47,9 @@ public class WeatherForecastGetService extends AsyncTask<Void, Void, Void> {
         }
         return null;
     }
+
+    public void setLocation(Location location) {
+        longitude = location.getLongitude();
+        latitude = location.getLatitude();
+    }
 }
