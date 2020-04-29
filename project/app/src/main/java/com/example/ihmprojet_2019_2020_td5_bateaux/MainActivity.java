@@ -1,13 +1,11 @@
 package com.example.ihmprojet_2019_2020_td5_bateaux;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
 
-import static java.lang.Thread.sleep;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 

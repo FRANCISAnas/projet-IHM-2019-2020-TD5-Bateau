@@ -7,8 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
-import android.provider.Settings.Secure;
-
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -26,7 +24,6 @@ public class IncidentsFragment extends Fragment {
     public static ArrayList<Incident> incidentArrayList;
     public static boolean resume = false;
     PostService service;
-    private final String android_id = Secure.getString(getContext().getContentResolver(),Secure.ANDROID_ID);
 
     public IncidentsFragment() {
         // Empty constructor required
