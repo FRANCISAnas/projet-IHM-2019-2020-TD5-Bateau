@@ -10,6 +10,7 @@ import android.view.WindowManager;
 import static java.lang.Thread.sleep;
 
 public class MainActivity extends AppCompatActivity {
+
     private static int SPLASH_TIME_OUT = 4000;
 
     @Override
