@@ -6,8 +6,8 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
-import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentPostService;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentGetService;
+import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentPostService;
 
 import java.util.ArrayList;
 

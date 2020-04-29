@@ -42,8 +42,6 @@ public class IncidentGetService extends AsyncTask<Void,Void,Void> {
     protected Void doInBackground(Void... voids) {
         String data="";
 
-
-
         try {
             URL url = new URL("http://www.neptune.dinelhost.com/api/incident.php");
 
@@ -61,6 +59,7 @@ public class IncidentGetService extends AsyncTask<Void,Void,Void> {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        /*
         JSONArray jsonArray = null;
         try {
             jsonArray = new JSONArray(data);
@@ -83,12 +82,12 @@ public class IncidentGetService extends AsyncTask<Void,Void,Void> {
                 Incident incident = new Incident(id,nature,description);
                 incidentArrayList.add(incident);
 
-              /*  if(!incidentArrayList.contains(incident)){
+               if(!incidentArrayList.contains(incident)){
                     incidentArrayList.add(incident);
                     if(IncidentsActivity.resume){
                         System.out.println("incident added ! ");
                     }
-                }*/
+                }
 
 
             } catch (JSONException e) {
@@ -98,6 +97,7 @@ public class IncidentGetService extends AsyncTask<Void,Void,Void> {
         }
         IncidentsActivity.incidentArrayList = incidentArrayList;
         progress++;
+        */
         return null;
     }
 
