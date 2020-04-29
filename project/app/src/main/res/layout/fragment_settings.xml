@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="209dp"
-        android:layout_marginRight="200dp"
+        android:layout_marginEnd="200dp"
 
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="166dp"
@@ -45,7 +45,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="290dp"
         android:text="@string/langauage"
-        android:textSize="24dp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/natures"
         app:layout_constraintHorizontal_bias="0.0"
@@ -62,7 +62,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="292dp"
-        android:layout_marginRight="200dp"
+        android:layout_marginEnd="200dp"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="166dp"
         tools:layout_editor_absoluteY="183dp" />
@@ -76,7 +76,7 @@
         android:layout_marginTop="380dp"
         android:text="@string/timeformat"
         android:textColor="#000000"
-        android:textSize="24dp">
+        android:textSize="24sp">
 
     </TextView>
 
@@ -85,7 +85,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="382dp"
-        android:layout_marginRight="200dp"
+        android:layout_marginEnd="200dp"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="166dp"
         tools:layout_editor_absoluteY="183dp" />
@@ -98,7 +98,7 @@
         android:layout_marginTop="470dp"
         android:text="@string/precipitation"
         android:textColor="#000000"
-        android:textSize="24dp">
+        android:textSize="24sp">
 
     </TextView>
 
@@ -107,7 +107,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="472dp"
-        android:layout_marginRight="200dp"
+        android:layout_marginEnd="200dp"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="166dp"
         tools:layout_editor_absoluteY="183dp" />
@@ -120,7 +120,7 @@
         android:layout_marginTop="550dp"
         android:text="@string/windspeed"
         android:textColor="#000000"
-        android:textSize="24dp">
+        android:textSize="24sp">
 
     </TextView>
 
@@ -129,7 +129,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="552dp"
-        android:layout_marginRight="200dp"
+        android:layout_marginEnd="200dp"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="166dp"
         tools:layout_editor_absoluteY="183dp" />
@@ -142,7 +142,7 @@
         android:layout_marginTop="630dp"
         android:text="@string/pressure"
         android:textColor="#000000"
-        android:textSize="24dp">
+        android:textSize="24sp">
 
     </TextView>
 
@@ -151,7 +151,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="632dp"
-        android:layout_marginRight="200dp"
+        android:layout_marginEnd="200dp"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="166dp"
         tools:layout_editor_absoluteY="183dp" />
@@ -164,7 +164,7 @@
         android:layout_marginTop="720dp"
         android:text="@string/notificatin"
         android:textColor="#000000"
-        android:textSize="24dp">
+        android:textSize="24sp">
 
     </TextView>
 
@@ -173,20 +173,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="722dp"
-        android:layout_marginRight="200dp"
+        android:layout_marginEnd="200dp"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="166dp"
         tools:layout_editor_absoluteY="183dp" />
-
-
-
-
-
-
-
-
-
-
-
 
 </RelativeLayout>

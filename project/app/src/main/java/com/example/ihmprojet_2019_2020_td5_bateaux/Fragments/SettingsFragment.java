@@ -31,6 +31,8 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstaceState){
 
+        currentLanguage = getIntent().getStringExtra(currentLang);
+
         View rootView = inflater.inflate(R.layout.fragment_settings, container, false);
         Spinner spinner = rootView.findViewById(R.id.spinnerTemp);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.tempSpinner, android.R.layout.simple_spinner_item);
@@ -79,6 +81,10 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
         return rootView;
     }
 
+    private Intent getIntent() {
+        Intent intent = new Intent();
+        return intent;
+    }
 
 
     @Override
@@ -86,12 +92,15 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
        // String text = parent.getItemAtPosition(position).toString();
       //  Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
 
-
         switch (pos) {
             case 0:
                 break;
 
             case 1:
+                setLocale("en");
+                break;
+
+            case 2:
                 setLocale("fr");
                 break;
         }
