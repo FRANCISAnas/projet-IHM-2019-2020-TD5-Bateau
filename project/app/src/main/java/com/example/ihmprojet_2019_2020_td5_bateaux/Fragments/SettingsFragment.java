@@ -92,6 +92,7 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
        // String text = parent.getItemAtPosition(position).toString();
       //  Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
 
+        Configuration config;
         switch (pos) {
             case 0:
                 break;

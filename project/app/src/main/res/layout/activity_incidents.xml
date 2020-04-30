@@ -8,7 +8,7 @@
         android:id="@+id/addIncident"
         android:layout_width="match_parent"
         android:layout_height="57dp"
-        android:text="ADD INCIDENT" />
+        android:text="@string/add_incident" />
 
     <ListView
         android:id="@+id/myListView"
