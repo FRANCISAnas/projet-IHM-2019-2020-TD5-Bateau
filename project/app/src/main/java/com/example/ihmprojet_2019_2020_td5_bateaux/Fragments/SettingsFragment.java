@@ -1,13 +1,10 @@
 package com.example.ihmprojet_2019_2020_td5_bateaux.Fragments;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +30,8 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
     String currentLanguage = "en", currentLang;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstaceState){
+
+        currentLanguage = getIntent().getStringExtra(currentLang);
 
         View rootView = inflater.inflate(R.layout.fragment_settings, container, false);
         Spinner spinner = rootView.findViewById(R.id.spinnerTemp);
@@ -82,6 +81,10 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
         return rootView;
     }
 
+    private Intent getIntent() {
+        Intent intent = new Intent();
+        return intent;
+    }
 
 
     @Override
@@ -89,12 +92,16 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
        // String text = parent.getItemAtPosition(position).toString();
       //  Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
 
-
+        Configuration config;
         switch (pos) {
             case 0:
                 break;
 
             case 1:
+                setLocale("en");
+                break;
+
+            case 2:
                 setLocale("fr");
                 break;
         }

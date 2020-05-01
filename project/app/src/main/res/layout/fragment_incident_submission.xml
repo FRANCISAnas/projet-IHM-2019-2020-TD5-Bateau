@@ -14,11 +14,11 @@
         android:layout_width="388dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="230dp"
         android:layout_marginEnd="7dp"
 
         android:ems="10"
-        android:hint="Give a brief description here about the inciden"
+        android:hint="@string/give_des"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -39,7 +39,7 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ADD FILE"
+        android:text="@string/add_file"
         android:layout_marginTop="300dp"
         android:layout_marginLeft="50dp"
 
@@ -56,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:layout_marginLeft="23dp"
-        android:text="Select the nature"
+        android:text="@string/select_nature"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/natures"
 
@@ -70,7 +70,7 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Report"
+        android:text="@string/repport"
         android:layout_marginTop="50dp"
         android:layout_marginLeft="150dp"
 
@@ -82,6 +82,19 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="250dp"
         android:layout_marginTop="300dp"
-        android:text="Post" />
+        android:text="@string/post" />
+
+    <EditText
+        android:id="@+id/naturetype"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="160dp"
+        android:ems="10"
+
+        android:inputType="textPersonName"
+        android:visibility="invisible"
+        android:hint="Nature"
+        />
 
 </RelativeLayout>

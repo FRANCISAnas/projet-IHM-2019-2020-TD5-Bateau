@@ -4,27 +4,20 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedWriter;
 import java.io.DataOutputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PostService extends AsyncTask<String,String, String> {
+public class IncidentPostService extends AsyncTask<String,String, String> {
 
     String nature;
     String description;
     private Context mContext;
 
-    public PostService(Context context,String nature, String description){
+    public IncidentPostService(Context context, String nature, String description){
         mContext=context;
         this.nature = nature;
         this.description = description;
@@ -82,7 +75,7 @@ public class PostService extends AsyncTask<String,String, String> {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        
+
 
         return null;
     }

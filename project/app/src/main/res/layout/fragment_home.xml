@@ -1,31 +1,246 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FF00FF"
+    android:background="#FFFFFF"
     android:id="@+id/fragment_home">
 
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="hello from home page"
-        android:textSize="24sp"
+
+        android:id="@+id/city_name_id"
+        android:layout_width="365dp"
+        android:layout_height="73dp"
+        android:textColor="#000"
+        android:textSize="30dp"
+        android:text="NICE"
         android:gravity="center"
-        android:layout_centerInParent="true" />
+        tools:ignore="MissingConstraints"
 
-    <Button
-        android:id="@+id/go_to_main_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:text="Incidents" />
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="28dp" />
 
-    <Button
-        android:id="@+id/go_to_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:text="Directions" />
 
-</RelativeLayout>
+    <TableLayout
+        android:layout_width="399dp"
+        android:layout_height="301dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="246dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="144dp"
+        android:stretchColumns="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TableRow>
+
+            <TextView
+                android:padding="3dip"
+                android:text="longitude"
+                android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/attribut_1"
+                android:layout_height="match_parent"
+                android:layout_column="10"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="attribut1"
+                android:textColor="#000" />
+        </TableRow>
+
+
+
+        <View
+            android:layout_height="1dip"
+            android:background="#FF909090" />
+
+        <TableRow>
+
+            <TextView
+                android:padding="3dip"
+                android:text="Description"
+                android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/attribut_3"
+                android:layout_column="10"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="attribut3"
+                android:textColor="#000" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:padding="3dip"
+                android:text="Temperature"
+                android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/attribut_4"
+                android:layout_column="10"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="attribut4"
+                android:textColor="#000" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:padding="3dip"
+                android:text="Pressure"
+                android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/attribut_5"
+                android:layout_column="10"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="attribut5"
+                android:textColor="#000" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:gravity="left"
+                android:padding="3dip"
+                android:text="Humidity"
+                android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/attribut_6"
+                android:layout_column="10"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="attribut6"
+                android:textColor="#000" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:gravity="left"
+                android:padding="3dip"
+                android:text="Temp_min"
+                android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/attribut_7"
+                android:layout_column="10"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="attribut7"
+                android:textColor="#000" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:gravity="left"
+                android:padding="3dip"
+                android:text="Temp_max"
+                android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/attribut_8"
+                android:layout_column="10"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="attribut8"
+                android:textColor="#000" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:gravity="left"
+                android:padding="3dip"
+                android:text="Sea_level"
+                android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/attribut_9"
+                android:layout_column="10"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="attribut9"
+                android:textColor="#000" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:gravity="left"
+                android:padding="3dip"
+                android:text="Ground_level"
+                android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/attribut_10"
+                android:layout_column="10"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="attribut10"
+                android:textColor="#000" />
+        </TableRow>
+
+        <View
+            android:layout_height="2dip"
+            android:background="#FF909090" />
+
+
+        <TableRow>
+
+            <TextView
+                android:padding="3dip"
+                android:text="Wind speed"
+                android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/attribut_11"
+                android:layout_column="10"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="attribut11"
+                android:textColor="#000" />
+        </TableRow>
+
+        <View
+            android:layout_height="1dip"
+            android:background="#FF909090" />
+
+        <TableRow>
+
+            <TextView
+                android:padding="3dip"
+                android:text="Timezone"
+                android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/attribut_12"
+                android:layout_column="10"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="attribut12"
+                android:textColor="#000" />
+        </TableRow>
+
+
+        <View
+            android:layout_height="1dip"
+            android:background="#FF909090" />
+
+    </TableLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

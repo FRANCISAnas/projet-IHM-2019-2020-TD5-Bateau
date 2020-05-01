@@ -19,38 +19,45 @@
     <string name="welcome_from_home_activity">Bienvenue à l\'activité d\'accueil</string>
 
     <string-array name="tempSpinner">
+        <item></item>
         <item>Fehrnhite</item>
         <item>Celesius</item>
     </string-array>
 
     <string-array name="langue">
+        <item></item>
         <item>Anglais</item>
         <item>Français</item>
     </string-array>
 
     <string-array name="format">
+        <item></item>
         <item>24 Heures</item>
         <item>12 Heures</item>
     </string-array>
 
 
     <string-array name="notification">
+        <item></item>
         <item>Recevoir uniquement des notifications urgentes</item>
         <item>Recevoir toutes les notifications</item>
     </string-array>
 
     <string-array name="precipitation">
+        <item></item>
         <item>Pourcentage</item>
         <item>milimètre</item>
     </string-array>
 
 
     <string-array name="windspeed">
+        <item></item>
         <item>KM/H</item>
     </string-array>
 
 
     <string-array name="pressure">
+        <item></item>
         <item>hPa</item>
     </string-array>
 
@@ -64,4 +71,15 @@
     <string name="pressure">Pression</string>
     <string name="notificatin">Notification</string>
     <string name="welcome" translatable="false">Bienvenue</string>
+    <string name="about_title"> A propos de nous</string>
+    <string name="add_incident">AJOUTER UN INCIDENT</string>
+    <string name="select_nature">Sélectionner la nature</string>
+    <string name="repport">Rapporter</string>
+    <string name="post">PuUBLIER</string>
+    <string name="give_des">Donnez ici une brève description de l\'incident</string>
+    <string name="add_file">AJOUTER LE FICHIER</string>
+    <string name="about_text"> Neptune est une application de météo marine, bourrée d\'informations en un coup d\'œil.
+         Bien que ce ne soit pas une excellente option pour la planification quotidienne, le Neptune brille vraiment comme une prévision d\'une semaine afin que vous puissiez planifier le moment idéal pour cette croisière le week-end.
+  Neptune vous permet de consulter des prévisions météo détaillées sur plus de 15 jours, avec la possibilité de recevoir des alertes, l\'application est disponible en plusieurs langues.
+Sa navigation simple sur les diapositives fait également du suivi des tempêtes une expérience fascinante. Grâce à Neptune, vous pouvez enregistrer des prévisions et naviguer en toute sécurité dans l\'océan.</string>
 </resources>
