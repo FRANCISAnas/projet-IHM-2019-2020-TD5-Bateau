@@ -21,4 +21,11 @@
         android:layout_marginTop="200dp"
         android:text="Incidents" />
 
+    <Button
+        android:id="@+id/go_to_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:text="Directions" />
+
 </RelativeLayout>
