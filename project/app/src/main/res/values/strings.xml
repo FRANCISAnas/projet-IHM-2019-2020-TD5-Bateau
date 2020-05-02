@@ -80,6 +80,15 @@
     <string name="post">POST</string>
     <string name="give_des">Give a brief description here about the incident</string>
     <string name="add_file">ADD FILE</string>
+    <string name="city">NICE</string>
+    <string name="longitude">Longitude</string>
+    <string name="humidity">Humidity</string>
+    <string name="description">Description</string>
+    <string name="sea">Sea_level</string>
+    <string name="ground">Ground_level</string>
+    <string name="time_zone">Timezone</string>
+    <string name="setting">SETTINGS</string>
+    <string name="des_frag">hello from directions page</string>
     <string name="about_text">Neptune is a marine weather application, jam-packed with information at just a glance.
     Although not a great option for daily planning, the Neptune really shines as a weeklong forecast so you can plan the perfect time for that weekend cruise.
     Neptune allows you to consult detailed weather forecasts for more than 15 days, with the possibility of receiving alerts,the application is available in several languages.

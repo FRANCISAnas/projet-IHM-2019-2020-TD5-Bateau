@@ -17,5 +17,9 @@
 
 
 
+        android:text="@string/des_frag"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:layout_centerInParent="true" />
 
 </RelativeLayout>
