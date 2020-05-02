@@ -16,7 +16,7 @@
         android:layout_height="73dp"
         android:textColor="#000"
         android:textSize="30dp"
-        android:text="NICE"
+        android:text="@string/city"
         android:gravity="center"
         tools:ignore="MissingConstraints"
 
@@ -41,7 +41,7 @@
 
             <TextView
                 android:padding="3dip"
-                android:text="longitude"
+                android:text="@string/longitude"
                 android:textColor="#000" />
 
             <TextView
@@ -64,7 +64,24 @@
 
             <TextView
                 android:padding="3dip"
-                android:text="Description"
+                android:text="@string/description"
+                android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/attribut_2"
+                android:layout_column="10"
+                android:gravity="right"
+                android:padding="3dip"
+                android:text="attribut2"
+                android:textColor="#000" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:padding="3dip"
+                android:text="@string/temperature"
                 android:textColor="#000" />
 
             <TextView
@@ -74,14 +91,13 @@
                 android:padding="3dip"
                 android:text="attribut3"
                 android:textColor="#000" />
-
         </TableRow>
 
         <TableRow>
 
             <TextView
                 android:padding="3dip"
-                android:text="Temperature"
+                android:text="@string/pressure"
                 android:textColor="#000" />
 
             <TextView
@@ -96,25 +112,9 @@
         <TableRow>
 
             <TextView
-                android:padding="3dip"
-                android:text="Pressure"
-                android:textColor="#000" />
-
-            <TextView
-                android:id="@+id/attribut_5"
-                android:layout_column="10"
-                android:gravity="right"
-                android:padding="3dip"
-                android:text="attribut5"
-                android:textColor="#000" />
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
                 android:gravity="left"
                 android:padding="3dip"
-                android:text="Humidity"
+                android:text="Temp_min"
                 android:textColor="#000" />
 
             <TextView
@@ -131,7 +131,7 @@
             <TextView
                 android:gravity="left"
                 android:padding="3dip"
-                android:text="Temp_min"
+                android:text="Temp_max"
                 android:textColor="#000" />
 
             <TextView
@@ -148,7 +148,7 @@
             <TextView
                 android:gravity="left"
                 android:padding="3dip"
-                android:text="Temp_max"
+                android:text="@string/sea"
                 android:textColor="#000" />
 
             <TextView
@@ -165,7 +165,7 @@
             <TextView
                 android:gravity="left"
                 android:padding="3dip"
-                android:text="Sea_level"
+                android:text="@string/ground"
                 android:textColor="#000" />
 
             <TextView
@@ -174,23 +174,6 @@
                 android:gravity="right"
                 android:padding="3dip"
                 android:text="attribut9"
-                android:textColor="#000" />
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:gravity="left"
-                android:padding="3dip"
-                android:text="Ground_level"
-                android:textColor="#000" />
-
-            <TextView
-                android:id="@+id/attribut_10"
-                android:layout_column="10"
-                android:gravity="right"
-                android:padding="3dip"
-                android:text="attribut10"
                 android:textColor="#000" />
         </TableRow>
 
@@ -203,15 +186,15 @@
 
             <TextView
                 android:padding="3dip"
-                android:text="Wind speed"
+                android:text="@string/windspeed"
                 android:textColor="#000" />
 
             <TextView
-                android:id="@+id/attribut_11"
+                android:id="@+id/attribut_10"
                 android:layout_column="10"
                 android:gravity="right"
                 android:padding="3dip"
-                android:text="attribut11"
+                android:text="attribut10"
                 android:textColor="#000" />
         </TableRow>
 
@@ -223,15 +206,15 @@
 
             <TextView
                 android:padding="3dip"
-                android:text="Timezone"
+                android:text="@string/time_zone"
                 android:textColor="#000" />
 
             <TextView
-                android:id="@+id/attribut_12"
+                android:id="@+id/attribut_11"
                 android:layout_column="10"
                 android:gravity="right"
                 android:padding="3dip"
-                android:text="attribut12"
+                android:text="attribut11"
                 android:textColor="#000" />
         </TableRow>
 

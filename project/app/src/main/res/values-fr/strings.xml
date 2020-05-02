@@ -78,6 +78,15 @@
     <string name="post">PuUBLIER</string>
     <string name="give_des">Donnez ici une brève description de l\'incident</string>
     <string name="add_file">AJOUTER LE FICHIER</string>
+    <string name="city">NICE</string>
+    <string name="longitude">Longitude</string>
+    <string name="humidity">Humidité</string>
+    <string name="description">Description</string>
+    <string name="sea">Niveau de la mer</string>
+    <string name="ground">Niveau du sol</string>
+    <string name="time_zone">Fuseau horaire</string>
+    <string name="setting">RÉGLAGES</string>
+    <string name="des_frag">bonjour de la page des directions</string>
     <string name="about_text"> Neptune est une application de météo marine, bourrée d\'informations en un coup d\'œil.
          Bien que ce ne soit pas une excellente option pour la planification quotidienne, le Neptune brille vraiment comme une prévision d\'une semaine afin que vous puissiez planifier le moment idéal pour cette croisière le week-end.
   Neptune vous permet de consulter des prévisions météo détaillées sur plus de 15 jours, avec la possibilité de recevoir des alertes, l\'application est disponible en plusieurs langues.
