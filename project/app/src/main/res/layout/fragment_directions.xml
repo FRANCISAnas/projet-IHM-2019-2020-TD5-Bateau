@@ -2,7 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="#FFFFFF"
     android:id="@+id/fragment_directions">
 
@@ -15,11 +15,22 @@
         android:layout_marginTop="200dp"
         android:text="go" />
 
+    <EditText
+        android:id="@+id/depart_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Départ"
+        android:textColorHint="#2196F3" />
+
+    <EditText
+        android:id="@+id/arrivee_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:textColorHint="#2196F3"
+        android:hint="Arrivée"/>
 
 
-        android:text="@string/des_frag"
-        android:textSize="24sp"
-        android:gravity="center"
-        android:layout_centerInParent="true" />
+
 
 </RelativeLayout>
