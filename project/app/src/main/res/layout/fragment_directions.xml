@@ -7,7 +7,6 @@
     android:id="@+id/fragment_directions">
 
 
-
     <Button
         android:id="@+id/go_to_Directions_button"
         android:layout_width="match_parent"
@@ -19,7 +18,7 @@
         android:id="@+id/depart_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Départ"
+        android:hint="@string/departure"
         android:textColorHint="#2196F3" />
 
     <EditText
@@ -28,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:textColorHint="#2196F3"
-        android:hint="Arrivée"/>
+        android:hint="@string/arrival"/>
 
 
 

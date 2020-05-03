@@ -89,6 +89,9 @@
     <string name="time_zone">Timezone</string>
     <string name="setting">SETTINGS</string>
     <string name="des_frag">hello from directions page</string>
+    <string name="departure">Departure</string>
+    <string name="arrival">Arrival</string>
+    <string name="search">Search</string>
     <string name="about_text">Neptune is a marine weather application, jam-packed with information at just a glance.
     Although not a great option for daily planning, the Neptune really shines as a weeklong forecast so you can plan the perfect time for that weekend cruise.
     Neptune allows you to consult detailed weather forecasts for more than 15 days, with the possibility of receiving alerts,the application is available in several languages.
