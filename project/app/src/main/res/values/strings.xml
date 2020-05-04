@@ -96,4 +96,7 @@
     Although not a great option for daily planning, the Neptune really shines as a weeklong forecast so you can plan the perfect time for that weekend cruise.
     Neptune allows you to consult detailed weather forecasts for more than 15 days, with the possibility of receiving alerts,the application is available in several languages.
     Its simple slide navigation also makes storm-tracking a mesmerizing experience.  Thanks to Neptune you can save forecasts and navigate safely in the ocean.</string>
+    <string name="option">Do you want to post it on Facebook too?</string>
+    <string name="yes">yes</string>
+    <string name="No">No</string>
 </resources>

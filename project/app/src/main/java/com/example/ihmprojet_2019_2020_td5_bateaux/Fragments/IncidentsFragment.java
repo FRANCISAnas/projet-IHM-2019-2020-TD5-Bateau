@@ -28,7 +28,6 @@ public class IncidentsFragment extends Fragment {
     public static boolean resume = false;
     View root;
     IncidentPostService service;
-
     public IncidentsFragment() {
         // Empty constructor required
     }
@@ -59,6 +58,7 @@ public class IncidentsFragment extends Fragment {
         addIncident.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 FragmentTransaction frag = getFragmentManager().beginTransaction();
                 frag.replace(R.id.fragment_container, new PostFragment());
                 frag.commit();
@@ -69,6 +69,8 @@ public class IncidentsFragment extends Fragment {
 
         return rootView;
     }
+
+
 
 
     private void incidentActivityOpen() {

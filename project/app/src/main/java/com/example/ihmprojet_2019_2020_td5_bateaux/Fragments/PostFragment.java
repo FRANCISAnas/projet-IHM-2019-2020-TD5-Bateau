@@ -20,6 +20,8 @@ import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentPostService;
 public class PostFragment extends Fragment {
 
 
+    private final static String TAG = "dialgue message";
+
     public PostFragment() {
         // Required empty public constructor
     }
@@ -65,15 +67,20 @@ public class PostFragment extends Fragment {
                 }
                 EditText editText = rootView.findViewById(R.id.editTextDescription);
                 final String description = editText.getText().toString();
-                IncidentPostService postService = new IncidentPostService(container.getContext(), nature, description);
-                postService.execute();
-                FragmentTransaction frag = getFragmentManager().beginTransaction();
-                frag.replace(R.id.fragment_container, new IncidentsFragment());
-                frag.commit();
+                openDialog(nature, description, container);
+
             }
+
+
         });
 
 
         return rootView;
+    }
+    private void openDialog(String nature, String description, ViewGroup container) {
+
+        DialogueMessage dialogueMessage = new DialogueMessage(nature, description, container);
+        dialogueMessage.show(getFragmentManager(), TAG);
+
     }
 }

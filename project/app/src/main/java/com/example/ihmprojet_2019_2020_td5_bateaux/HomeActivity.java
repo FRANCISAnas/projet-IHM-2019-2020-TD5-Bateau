@@ -58,6 +58,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         setNotficationManagerCompat();
 
         drawer = findViewById(R.id.drawer_layout);
+
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -76,6 +77,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
+
                 return false;
             }
 

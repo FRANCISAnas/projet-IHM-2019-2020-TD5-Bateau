@@ -25,10 +25,10 @@
 
 
     <TableLayout
+        android:id="@+id/tableLayout"
         android:layout_width="399dp"
         android:layout_height="301dp"
         android:layout_marginStart="6dp"
-        android:layout_marginTop="246dp"
         android:layout_marginEnd="6dp"
         android:layout_marginBottom="144dp"
         android:stretchColumns="2"
@@ -53,7 +53,6 @@
                 android:text="attribut1"
                 android:textColor="#000" />
         </TableRow>
-
 
 
         <View
@@ -224,6 +223,7 @@
             android:background="#FF909090" />
 
     </TableLayout>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
