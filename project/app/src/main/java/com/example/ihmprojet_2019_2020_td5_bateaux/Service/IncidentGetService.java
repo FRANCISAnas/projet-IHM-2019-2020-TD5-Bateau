@@ -114,10 +114,12 @@ public class IncidentGetService extends AsyncTask<Void, Void, Void> {
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                incidentListAdapter.getFilter().filter(s.toString());
             }
         });
     }
+
+
 
     @Override
     protected void onProgressUpdate(Void... values) {

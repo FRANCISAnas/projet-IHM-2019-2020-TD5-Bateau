@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,13 +34,14 @@ import static com.example.ihmprojet_2019_2020_td5_bateaux.NeptuneNotification.CH
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    private static final int MAX_NUMBER_OF_NOTIFICATIONS = 3;
     public static int nbOfNotification = 0;
 
     private NotificationManagerCompat notificationManager;
     private DrawerLayout drawer;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
-
+    public final static String TAG = "FRANCIS";
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
@@ -96,22 +98,24 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
 
     public void sendOnUrgent(View v) {
-        if (nbOfNotification == 3) nbOfNotification = 0;
-        Intent intent = new Intent(getApplicationContext(), IncidentsFragment.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
-        final String desccription = ((EditText) findViewById(R.id.incident_description)).getText().toString();
+        if (nbOfNotification == MAX_NUMBER_OF_NOTIFICATIONS) nbOfNotification = 0;
+        /*Intent intent = new Intent(getApplicationContext(), IncidentsFragment.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);*/
+        final String desccription = ((EditText) findViewById(R.id.editTextDescription)).getText().toString();
+        Log.d(TAG, desccription + " On est là !!!!! ");
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_URGENTE)
                 .setSmallIcon(R.drawable.ic_alert)
-                .setContentIntent(pendingIntent).setContentTitle(desccription)
-                .setPriority(NotificationCompat.PRIORITY_HIGH).build();
+                .setContentText(desccription)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .build();
         notificationManager.notify(nbOfNotification++, notification);
     }
 
     public void sendOnClassic(View v) {
-        if (nbOfNotification == 3) nbOfNotification = 0;
+        if (nbOfNotification == MAX_NUMBER_OF_NOTIFICATIONS) nbOfNotification = 0;
         Intent intent = new Intent(getApplicationContext(), IncidentsFragment.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
-        final String desccription = ((EditText) findViewById(R.id.incident_description)).getText().toString();
+        final String desccription = ((EditText) findViewById(R.id.editTextDescription)).getText().toString();
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_CLASSIQUE)
                 .setSmallIcon(R.drawable.ic_alert)
                 .setContentIntent(pendingIntent)
