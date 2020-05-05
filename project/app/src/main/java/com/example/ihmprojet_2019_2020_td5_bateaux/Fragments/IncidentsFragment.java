@@ -2,11 +2,16 @@ package com.example.ihmprojet_2019_2020_td5_bateaux.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -16,6 +21,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.ihmprojet_2019_2020_td5_bateaux.MainActivity;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
+import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.IncidentListAdapter;
 import com.example.ihmprojet_2019_2020_td5_bateaux.R;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentGetService;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentPostService;
@@ -26,8 +32,13 @@ public class IncidentsFragment extends Fragment {
 
     public static ArrayList<Incident> incidentArrayList;
     public static boolean resume = false;
-    View root;
-    IncidentPostService service;
+    private View root;
+    private IncidentPostService service;
+
+    private ArrayAdapter adapter;
+
+    private static final String TAG = "FRANCIS";
+
     public IncidentsFragment() {
         // Empty constructor required
     }
@@ -37,7 +48,6 @@ public class IncidentsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstaceState) {
         View rootView = inflater.inflate(R.layout.activity_incidents, container, false);
         setHasOptionsMenu(true);
-
         root = rootView;
        /* Button button = (Button) rootView.findViewById(R.id.go_to_Incidents_button);
         button.setOnClickListener(new View.OnClickListener() {
@@ -51,8 +61,11 @@ public class IncidentsFragment extends Fragment {
 
         ListView listView = (ListView) rootView.findViewById(R.id.myListView);
         registerForContextMenu(listView);
-        IncidentGetService incidentGetService = new IncidentGetService(rootView.getContext(), listView); //getWindow().getDecorView().getRootView()
+        IncidentGetService incidentGetService = new IncidentGetService(rootView.getContext(), listView, container); //getWindow().getDecorView().getRootView()
         incidentGetService.execute();
+
+
+
 
         Button addIncident = rootView.findViewById(R.id.addIncident);
         addIncident.setOnClickListener(new View.OnClickListener() {

@@ -2,7 +2,12 @@ package com.example.ihmprojet_2019_2020_td5_bateaux.Service;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.ihmprojet_2019_2020_td5_bateaux.Fragments.IncidentsFragment;
@@ -27,13 +32,15 @@ public class IncidentGetService extends AsyncTask<Void, Void, Void> {
     ArrayList<Incident> incidentArrayList;
     private Context mContext;
     private int progress = 0;
-    private View rootView;
+    private ViewGroup rootView;
+    IncidentListAdapter incidentListAdapter;
+    private EditText theFilter;
     ListView listView;
 
-    public IncidentGetService(Context context, ListView listView) { //, View view)
+    public IncidentGetService(Context context, ListView listView, ViewGroup view) { //, View view)
         mContext = context;
         this.listView = listView;
-        //rootView = view;
+        rootView = view;
     }
 
     @Override
@@ -90,8 +97,26 @@ public class IncidentGetService extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-        IncidentListAdapter incidentListAdapter = new IncidentListAdapter(mContext, R.layout.custom_list_view, incidentArrayList);
+        theFilter = rootView.findViewById(R.id.filter_incident);
+
+        incidentListAdapter = new IncidentListAdapter(mContext, R.layout.custom_list_view, incidentArrayList);
         listView.setAdapter(incidentListAdapter);
+        theFilter.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                (IncidentGetService.this).incidentListAdapter.getFilter().filter(s);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 
     @Override

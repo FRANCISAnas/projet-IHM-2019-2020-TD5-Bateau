@@ -9,15 +9,15 @@
     android:id="@+id/fragment_settings"
     android:orientation="vertical">
 
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
         android:gravity="center"
         android:text="@string/setting"
-        android:layout_marginTop="100dp"
-        android:textSize="40sp"
-        android:textColor="#000000" />
-
+        android:textColor="#000000"
+        android:textSize="40sp" />
 
     <Spinner
         android:id="@+id/spinnerTemp"
@@ -143,34 +143,11 @@
         tools:layout_editor_absoluteX="166dp"
         tools:layout_editor_absoluteY="183dp" />
 
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="580dp"
-        android:text="@string/pressure"
-        android:textColor="#000000"
-        android:textSize="24sp">
-
-    </TextView>
-
-    <Spinner
-        android:id="@+id/spinnerTempPR"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="580dp"
-        android:layout_marginEnd="200dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="166dp"
-        tools:layout_editor_absoluteY="183dp" />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="650dp"
         android:text="@string/notificatin"
         android:textColor="#000000"
         android:textSize="24sp">
@@ -181,11 +158,34 @@
         android:id="@+id/spinnerTempN"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="580dp"
+        android:layout_marginEnd="200dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="166dp"
+        tools:layout_editor_absoluteY="183dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="650dp"
+        android:text="@string/pressure"
+        android:textColor="#000000"
+        android:textSize="24sp">
+
+    </TextView>
+
+    <Spinner
+        android:id="@+id/spinnerTempPR"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="650dp"
         android:layout_marginEnd="200dp"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="166dp"
         tools:layout_editor_absoluteY="183dp" />
+
+
 
 
 </RelativeLayout>
