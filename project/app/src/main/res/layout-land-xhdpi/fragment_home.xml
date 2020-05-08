@@ -6,11 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    android:id="@+id/fragment_home"
-    tools:context=".MainActivity"
-    android:fitsSystemWindows="true"
-    tools:oppenDrawer = "start">
+    android:id="@+id/fragment_home">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
 
@@ -29,8 +33,8 @@
 
     <TableLayout
         android:id="@+id/tableLayout"
-        android:layout_width="400dp"
-        android:layout_height="@dimen/fragment_home_layout_height"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/fragment_home_layout_marginStart"
         android:layout_marginEnd="@dimen/fragment_home_layout_marginEnd"
         android:layout_marginBottom="@dimen/fragment_home_layout_marginBottom"
@@ -44,6 +48,7 @@
 
             <TextView
                 android:padding="@dimen/fragment_home_text_2_padding"
+                android:textSize="17sp"
                 android:text="@string/longitude"
                 android:textColor="#000" />
 
@@ -53,6 +58,7 @@
                 android:layout_column="10"
                 android:gravity="right"
                 android:padding="@dimen/fragment_home_text_3_padding"
+                android:textSize="17sp"
                 android:text="attribut1"
                 android:textColor="#000" />
         </TableRow>
@@ -67,6 +73,7 @@
             <TextView
                 android:padding="@dimen/fragment_home_text_4_padding"
                 android:text="@string/description"
+                android:textSize="17sp"
                 android:textColor="#000" />
 
             <TextView
@@ -74,6 +81,7 @@
                 android:layout_column="10"
                 android:gravity="right"
                 android:padding="@dimen/fragment_home_text_5_padding"
+                android:textSize="17sp"
                 android:text="attribut2"
                 android:textColor="#000" />
 
@@ -84,6 +92,7 @@
             <TextView
                 android:padding="@dimen/fragment_home_text_6_padding"
                 android:text="@string/temperature"
+                android:textSize="17sp"
                 android:textColor="#000" />
 
             <TextView
@@ -91,6 +100,7 @@
                 android:layout_column="10"
                 android:gravity="right"
                 android:padding="@dimen/fragment_home_text_7_padding"
+                android:textSize="17sp"
                 android:text="attribut3"
                 android:textColor="#000" />
         </TableRow>
@@ -100,6 +110,7 @@
             <TextView
                 android:padding="@dimen/fragment_home_text_8_padding"
                 android:text="@string/pressure"
+                android:textSize="17sp"
                 android:textColor="#000" />
 
             <TextView
@@ -107,6 +118,7 @@
                 android:layout_column="10"
                 android:gravity="right"
                 android:padding="@dimen/fragment_home_text_9_padding"
+                android:textSize="17sp"
                 android:text="attribut4"
                 android:textColor="#000" />
         </TableRow>
@@ -116,6 +128,7 @@
             <TextView
                 android:gravity="left"
                 android:padding="@dimen/fragment_home_text_10_padding"
+                android:textSize="17sp"
                 android:text="Temp_min"
                 android:textColor="#000" />
 
@@ -124,6 +137,7 @@
                 android:layout_column="10"
                 android:gravity="right"
                 android:padding="@dimen/fragment_home_text_11_padding"
+                android:textSize="17sp"
                 android:text="attribut6"
                 android:textColor="#000" />
         </TableRow>
@@ -134,6 +148,7 @@
                 android:gravity="left"
                 android:padding="@dimen/fragment_home_text_12_padding"
                 android:text="Temp_max"
+                android:textSize="17sp"
                 android:textColor="#000" />
 
             <TextView
@@ -141,6 +156,7 @@
                 android:layout_column="10"
                 android:gravity="right"
                 android:padding="@dimen/fragment_home_text_13_padding"
+                android:textSize="17sp"
                 android:text="attribut7"
                 android:textColor="#000" />
         </TableRow>
@@ -151,6 +167,7 @@
                 android:gravity="left"
                 android:padding="@dimen/fragment_home_text_14_padding"
                 android:text="@string/sea"
+                android:textSize="17sp"
                 android:textColor="#000" />
 
             <TextView
@@ -158,6 +175,7 @@
                 android:layout_column="10"
                 android:gravity="right"
                 android:padding="@dimen/fragment_home_text_15_padding"
+                android:textSize="17sp"
                 android:text="attribut8"
                 android:textColor="#000" />
         </TableRow>
@@ -168,6 +186,7 @@
                 android:gravity="left"
                 android:padding="@dimen/fragment_home_text_16_padding"
                 android:text="@string/ground"
+                android:textSize="17sp"
                 android:textColor="#000" />
 
             <TextView
@@ -175,6 +194,7 @@
                 android:layout_column="10"
                 android:gravity="right"
                 android:padding="@dimen/fragment_home_text_17_padding"
+                android:textSize="17sp"
                 android:text="attribut9"
                 android:textColor="#000" />
         </TableRow>
@@ -189,6 +209,7 @@
             <TextView
                 android:padding="@dimen/fragment_home_text_18_padding"
                 android:text="@string/windspeed"
+                android:textSize="17sp"
                 android:textColor="#000" />
 
             <TextView
@@ -196,6 +217,7 @@
                 android:layout_column="10"
                 android:gravity="right"
                 android:padding="@dimen/fragment_home_text_19_padding"
+                android:textSize="17sp"
                 android:text="attribut10"
                 android:textColor="#000" />
         </TableRow>
@@ -209,6 +231,7 @@
             <TextView
                 android:padding="@dimen/fragment_home_text_20_padding"
                 android:text="@string/time_zone"
+                android:textSize="17sp"
                 android:textColor="#000" />
 
             <TextView
@@ -216,6 +239,7 @@
                 android:layout_column="10"
                 android:gravity="right"
                 android:padding="@dimen/fragment_home_text_21_padding"
+                android:textSize="17sp"
                 android:text="attribut11"
                 android:textColor="#000" />
         </TableRow>
@@ -225,7 +249,10 @@
             android:layout_height="@dimen/fragment_home_layout_view_4_height"
             android:background="#FF909090" />
 
-    </TableLayout>
+      </TableLayout>
 
+</LinearLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

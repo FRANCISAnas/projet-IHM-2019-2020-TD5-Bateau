@@ -6,21 +6,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
-    android:background="#FFFFFF"
     tools:context=".MainActivity"
+    android:background="#FFFFFF"
     android:fitsSystemWindows="true"
     tools:oppenDrawer = "start">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
-        android:layout_height="100dp"
+        android:layout_height="@dimen/activity_home_height"
         android:layout_gravity="center"
         android:gravity="center"
         android:text="@string/welcome_from_home_activity"
         android:background="@color/design_default_color_primary"
-        android:textColor="#FF00FF"
-        android:textSize="24sp" />
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/activity_home_text_size" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,18 +35,16 @@
             android:id="@+id/toolbar"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            android:elevation="4dp"
-            />
-
+            android:elevation="@dimen/activity_home_elevation"
+         />
         <FrameLayout
-            android:id="@+id/fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:id="@+id/fragment_container">
 
 
         </FrameLayout>
     </LinearLayout>
-
 
     <com.google.android.material.navigation.NavigationView
 

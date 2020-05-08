@@ -21,7 +21,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="@dimen/activ_main_marginTop"
+        android:layout_marginTop="240dp"
         android:textColor="#296bff"
         android:textStyle="italic"
         android:textSize="@dimen/activity_main_Text_size"

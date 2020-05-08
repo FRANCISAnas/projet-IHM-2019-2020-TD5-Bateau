@@ -10,6 +10,7 @@
         android:id="@+id/imageView"
         android:layout_width="@dimen/activity_main_widht"
         android:layout_height="@dimen/activity_main_height"
+        android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:src="@drawable/logo" />
@@ -21,7 +22,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="@dimen/activ_main_marginTop"
+        android:layout_marginTop="290dp"
         android:textColor="#296bff"
         android:textStyle="italic"
         android:textSize="@dimen/activity_main_Text_size"

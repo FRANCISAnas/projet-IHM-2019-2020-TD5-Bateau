@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- TextView activity_home -->
+    <dimen name="activity_home_height">100dp</dimen>
+    <dimen name="activity_home_elevation">4sp</dimen>
+    <dimen name="activity_home_text_size">24sp</dimen>
+
+    <!--Button activity_incident -->
+    <dimen name="activity_incidents_heightB">57dp</dimen>
+
+    <!--ListView -->
+    <dimen name="activity_incidents_heightL">641dp</dimen>
+
+    <!--Image activity_main -->
+    <dimen name="activity_main_widht">300dp</dimen>
+    <dimen name="activity_main_height">150dp</dimen>
+
+    <!--TextView activity_main -->
+    <dimen name="activ_main_marginTop">500dp</dimen>
+    <dimen name="activity_main_Text_size">30dp</dimen>
+    
+    <!-- LinearLayout custom_list_view -->
+    <dimen name="custom_list_view_layout_weight">33.3</dimen>
+
+    <!-- TextView_1 custom_list_view -->
+    <dimen name="custom_list_view_height">30dp</dimen>
+    <dimen name="custom_list_view_weight">33.3</dimen>
+    <dimen name="custom_list_view_height2">30dp</dimen>
+    <dimen name="custom_list_view_weight2">66.3</dimen>
+
+    <!-- Image custom_list_view -->
+    <dimen name="custome_list_view_image_height">30dp</dimen>
+
+    <!--TextView fragment_about_us -->
+    <dimen name="fragment_about_us_textview1_MarginTop">30dp</dimen>
+    <dimen name="fragment_about_us_textview1_text_size">30sp</dimen>
+    <dimen name="fragment_about_us_textview2_MarginTop">330dp</dimen>
+    <dimen name="fragment_about_us_textview2_text_size">24sp</dimen>
+    <dimen name="fragment_about_us_textview3_MarginTop">620dp</dimen>
+    <dimen name="fragment_about_us_textview3_text_size">24sp</dimen>
+    <dimen name="fragment_about_us_textview3_MarginLeft">20dp</dimen>
+    <dimen name="fragment_about_us_textview3_width">200dp</dimen>
+    <dimen name="fragment_about_us_textview3_height">400dp</dimen>
+    <dimen name="fragment_about_us_textview4_MarginTop">650dp</dimen>
+    <dimen name="fragment_about_us_textview4_text_size">24sp</dimen>
+    <dimen name="fragment_about_us_textview4_MarginLeft">60dp</dimen>
+    <dimen name="fragment_about_us_textview4_width">200dp</dimen>
+    <dimen name="fragment_about_us_textview4_height">400dp</dimen>
+    <dimen name="fragment_about_us_textview5_MarginTop">590dp</dimen>
+    <dimen name="fragment_about_us_textview5_text_size">24sp</dimen>
+    <dimen name="fragment_about_us_textview5_MarginLeft">400dp</dimen>
+    <dimen name="fragment_about_us_textview5_width">200dp</dimen>
+    <dimen name="fragment_about_us_textview5_height">400dp</dimen>
+    <dimen name="fragment_about_us_textview6_MarginTop">620dp</dimen>
+    <dimen name="fragment_about_us_textview6_text_size">24sp</dimen>
+    <dimen name="fragment_about_us_textview6_MarginLeft">250dp</dimen>
+    <dimen name="fragment_about_us_textview6_width">60dp</dimen>
+    <dimen name="fragment_about_us_textview6_height">400dp</dimen>
+
+
+    <!--Image fragment_about_us -->
+    <dimen name="fragment_about_us_image_1_width">50dp</dimen>
+    <dimen name="fragment_about_us_image_1_height">300dp</dimen>
+    <dimen name="fragment_about_us_image_1_marginTop">330dp</dimen>
+    <dimen name="fragment_about_us_image_1_marginLeft">10dp</dimen>
+    <dimen name="fragment_about_us_image_2_width">50dp</dimen>
+    <dimen name="fragment_about_us_image_2_height">300dp</dimen>
+    <dimen name="fragment_about_us_image_2_marginTop">600dp</dimen>
+    <dimen name="fragment_about_us_image_2_marginLeft">10dp</dimen>
+    <dimen name="fragment_about_us_image_3_width">60dp</dimen>
+    <dimen name="fragment_about_us_image_3_height">400dp</dimen>
+    <dimen name="fragment_about_us_image_3_marginTop">480dp</dimen>
+    <dimen name="fragment_about_us_image_3_marginLeft">250dp</dimen>
+    <dimen name="fragment_about_us_image_4_width">60dp</dimen>
+    <dimen name="fragment_about_us_image_4_height">400dp</dimen>
+    <dimen name="fragment_about_us_image_4_marginTop">620dp</dimen>
+    <dimen name="fragment_about_us_image_4_marginLeft">250dp</dimen>
+
+    <!--Button fragment_direction -->
+    <dimen name="fragment_direction_marginTop">200dp</dimen>
+
+    <!--TextView fragment_home -->
+    <dimen name="fragment_home_text_1_width">365dp</dimen>
+    <dimen name="fragment_home_text_1_height">73dp</dimen>
+    <dimen name="fragment_home_text_1_size">30dp</dimen>
+    <dimen name="fragment_home_text_1_absolutex">30dp</dimen>
+    <dimen name="fragment_home_text_1_absolutey">28dp</dimen>
+    <dimen name="fragment_home_text_2_padding">3dip</dimen>
+    <dimen name="fragment_home_text_3_column">10</dimen>
+    <dimen name="fragment_home_text_3_padding">3dip</dimen>
+    <dimen name="fragment_home_text_4_padding">3dip</dimen>
+    <dimen name="fragment_home_text_5_column">10</dimen>
+    <dimen name="fragment_home_text_5_padding">3dip</dimen>
+    <dimen name="fragment_home_text_6_padding">3dip</dimen>
+    <dimen name="fragment_home_text_7_column">10</dimen>
+    <dimen name="fragment_home_text_7_padding">3dip</dimen>
+    <dimen name="fragment_home_text_8_padding">3dip</dimen>
+    <dimen name="fragment_home_text_9_column">10</dimen>
+    <dimen name="fragment_home_text_9_padding">3dip</dimen>
+    <dimen name="fragment_home_text_10_padding">3dip</dimen>
+    <dimen name="fragment_home_text_11_column">10</dimen>
+    <dimen name="fragment_home_text_11_padding">3dip</dimen>
+    <dimen name="fragment_home_text_12_padding">3dip</dimen>
+    <dimen name="fragment_home_text_13_column">10</dimen>
+    <dimen name="fragment_home_text_13_padding">3dip</dimen>
+    <dimen name="fragment_home_text_14_padding">3dip</dimen>
+    <dimen name="fragment_home_text_15_column">10</dimen>
+    <dimen name="fragment_home_text_15_padding">3dip</dimen>
+    <dimen name="fragment_home_text_16_padding">3dip</dimen>
+    <dimen name="fragment_home_text_17_column">10</dimen>
+    <dimen name="fragment_home_text_17_padding">3dip</dimen>
+    <dimen name="fragment_home_text_18_padding">3dip</dimen>
+    <dimen name="fragment_home_text_19_column">10</dimen>
+    <dimen name="fragment_home_text_19_padding">3dip</dimen>
+    <dimen name="fragment_home_text_20_padding">3dip</dimen>
+    <dimen name="fragment_home_text_21_column">10</dimen>
+    <dimen name="fragment_home_text_21_padding">3dip</dimen>
+
+
+    <!--TableLayout fragment_home -->
+    <dimen name="fragment_home_layout_width">499dp</dimen>
+    <dimen name="fragment_home_layout_height">301dp</dimen>
+    <dimen name="fragment_home_layout_marginStart">6dp</dimen>
+    <dimen name="fragment_home_layout_marginEnd">6dp</dimen>
+    <dimen name="fragment_home_layout_marginBottom">144dp</dimen>
+    <dimen name="fragment_home_layout_column">2</dimen>
+    <dimen name="fragment_home_layout_horizontal_bias">1.0</dimen>
+
+    <!--View fragment_home -->
+    <dimen name="fragment_home_layout_view_1_height">1dip</dimen>
+    <dimen name="fragment_home_layout_view_2_height">2dip</dimen>
+    <dimen name="fragment_home_layout_view_3_height">1dip</dimen>
+    <dimen name="fragment_home_layout_view_4_height">1dip</dimen>
+
+
+    <!--EditText fragment_incident_submission -->
+    <dimen name="fragment_incident_submission_edit_text_1_width">388dp</dimen>
+    <dimen name="fragment_incident_submission_edit_text_1_height">48dp</dimen>
+    <dimen name="fragment_incident_submission_edit_text_1_marginStart">16dp</dimen>
+    <dimen name="fragment_incident_submission_edit_text_1_marginTop">230dp</dimen>
+    <dimen name="fragment_incident_submission_edit_text_1marginEnd">7dp</dimen>
+    <dimen name="fragment_incident_submission_edit_text_1_ems">10</dimen>
+    <dimen name="fragment_incident_submission_edit_text_1_horizontal_bias">0.0</dimen>
+    <dimen name="fragment_incident_submission_edit_text_1_absolutey">318dp</dimen>
+    <dimen name="fragment_incident_submission_edit_text_2_width">388dp</dimen>
+    <dimen name="fragment_incident_submission_edit_text_2_height">48dp</dimen>
+    <dimen name="fragment_incident_submission_edit_text_2_marginLeft">16dp</dimen>
+    <dimen name="fragment_incident_submission_edit_text_2_marginTop">230dp</dimen>
+    <dimen name="fragment_incident_submission_edit_text_2_ems">10</dimen>
+
+    <!--Spinner fragment_incident_submission -->
+    <dimen name="fragment_incident_submission_width_spinner">409dp</dimen>*
+    <dimen name="fragment_incident_submission_marginStart_spinner">16dp</dimen>
+    <dimen name="fragment_incident_submission_marginTop_spinner">130dp</dimen>
+    <dimen name="fragment_incident_submission_absolutey_spinner">252dp</dimen>
+
+    <!--Button fragment_incident_submission -->
+    <dimen name="fragment_incident_submission_button_1_marginTop">300dp</dimen>
+    <dimen name="fragment_incident_submission_button_1_marginLeft">50dp</dimen>
+    <dimen name="fragment_incident_submission_button_1_horizontal_bias">0.114</dimen>
+    <dimen name="fragment_incident_submission_button_1_vertical_bias">0.126</dimen>
+    <dimen name="fragment_incident_submission_button_2_marginTop">300dp</dimen>
+    <dimen name="fragment_incident_submission_button_2_marginLeft">250dp</dimen>
+
+    <!--TextView fragment_incident_submission -->
+    <dimen name="fragment_incident_submission_text_view_1_marginTop">100dp</dimen>
+    <dimen name="fragment_incident_submission_text_view_1_marginLeft">23dp</dimen>
+    <dimen name="fragment_incident_submission_text_view_1_text_size">18sp</dimen>
+    <dimen name="fragment_incident_submission_text_view_1_horizontal_bias">0.088</dimen>
+    <dimen name="fragment_incident_submission_text_view_1_vertical_bias">0.813</dimen>
+    <dimen name="fragment_incident_submission_text_view_2_marginTop">50dp</dimen>
+    <dimen name="fragment_incident_submission_text_view_2_marginLeft">150dp</dimen>
+    <dimen name="fragment_incident_submission_text_view_2_text_size">24sp</dimen>
+
+
+    <!--TextView fragment_settings -->
+    <dimen name="fragment_settings_text_view_1_marginTop">100dp</dimen>
+    <dimen name="fragment_settings_text_view_1_text_size">40sp</dimen>
+    <dimen name="fragment_settings_text_view_2_marginTop">230dp</dimen>
+    <dimen name="fragment_settings_text_view_2_marginStart">30dp</dimen>
+    <dimen name="fragment_settings_text_view_2_marginEnd">126dp</dimen>
+    <dimen name="fragment_settings_text_view_2_text_size">24sp</dimen>
+    <dimen name="fragment_settings_text_view_2_horizonatl_bias">0.0</dimen>
+    <dimen name="fragment_settings_text_view_2_vertical_bias">0.0</dimen>
+    <dimen name="fragment_settings_text_view_3_marginTop">300dp</dimen>
+    <dimen name="fragment_settings_text_view_3_marginStart">30dp</dimen>
+    <dimen name="fragment_settings_text_view_3_text_size">24sp</dimen>
+    <dimen name="fragment_settings_text_view_3_horizonatl_bias">0.0</dimen>
+    <dimen name="fragment_settings_text_view_3_vertical_bias">0.0</dimen>
+    <dimen name="fragment_settings_text_view_4_marginTop">370dp</dimen>
+    <dimen name="fragment_settings_text_view_4_marginStart">30dp</dimen>
+    <dimen name="fragment_settings_text_view_4_text_size">24sp</dimen>
+    <dimen name="fragment_settings_text_view_5_marginTop">440dp</dimen>
+    <dimen name="fragment_settings_text_view_5_marginStart">30dp</dimen>
+    <dimen name="fragment_settings_text_view_5_text_size">24sp</dimen>
+    <dimen name="fragment_settings_text_view_6_marginTop">510dp</dimen>
+    <dimen name="fragment_settings_text_view_6_marginStart">30dp</dimen>
+    <dimen name="fragment_settings_text_view_6_text_size">24sp</dimen>
+    <dimen name="fragment_settings_text_view_7_marginTop">580dp</dimen>
+    <dimen name="fragment_settings_text_view_7_marginStart">30dp</dimen>
+    <dimen name="fragment_settings_text_view_7_text_size">24sp</dimen>
+    <dimen name="fragment_settings_text_view_8_marginTop">650dp</dimen>
+    <dimen name="fragment_settings_text_view_8_marginStart">30dp</dimen>
+    <dimen name="fragment_settings_text_view_8_text_size">24sp</dimen>
+
+    <!--Spinner fragment_settings -->
+    <dimen name="fragment_settings_spinner_1_marginTop">230dp</dimen>
+    <dimen name="fragment_settings_spinner_1_marginEnd">200dp</dimen>
+    <dimen name="fragment_settings_spinner_1_absolutex">166dp</dimen>
+    <dimen name="fragment_settings_spinner_1_absolutey">183dp</dimen>
+    <dimen name="fragment_settings_spinner_2_marginTop">300dp</dimen>
+    <dimen name="fragment_settings_spinner_2_marginEnd">200dp</dimen>
+    <dimen name="fragment_settings_spinner_2_absolutex">166dp</dimen>
+    <dimen name="fragment_settings_spinner_2_absolutey">183dp</dimen>
+    <dimen name="fragment_settings_spinner_3_marginTop">370dp</dimen>
+    <dimen name="fragment_settings_spinner_3_marginEnd">200dp</dimen>
+    <dimen name="fragment_settings_spinner_3_absolutex">166dp</dimen>
+    <dimen name="fragment_settings_spinner_3_absolutey">183dp</dimen>
+    <dimen name="fragment_settings_spinner_4_marginTop">440dp</dimen>
+    <dimen name="fragment_settings_spinner_4_marginEnd">200dp</dimen>
+    <dimen name="fragment_settings_spinner_4_absolutex">166dp</dimen>
+    <dimen name="fragment_settings_spinner_4_absolutey">183dp</dimen>
+    <dimen name="fragment_settings_spinner_5_marginTop">510dp</dimen>
+    <dimen name="fragment_settings_spinner_5_marginEnd">200dp</dimen>
+    <dimen name="fragment_settings_spinner_5_absolutex">166dp</dimen>
+    <dimen name="fragment_settings_spinner_5_absolutey">183dp</dimen>
+    <dimen name="fragment_settings_spinner_6_marginTop">580dp</dimen>
+    <dimen name="fragment_settings_spinner_6_marginEnd">200dp</dimen>
+    <dimen name="fragment_settings_spinner_6_absolutex">166dp</dimen>
+    <dimen name="fragment_settings_spinner_6_absolutey">183dp</dimen>
+    <dimen name="fragment_settings_spinner_7_marginTop">650dp</dimen>
+    <dimen name="fragment_settings_spinner_7_marginEnd">200dp</dimen>
+    <dimen name="fragment_settings_spinner_7_absolutex">166dp</dimen>
+    <dimen name="fragment_settings_spinner_7_absolutey">183dp</dimen>
+
+    <!--TextView option_dialog_layout -->
+    <dimen name="option_dialog_layout_text_view_width">369dp</dimen>
+    <dimen name="option_dialog_layout_text_view_marginLeft">10dp</dimen>
+    <dimen name="option_dialog_layout_text_view_marginTop">100dp</dimen>
+    <dimen name="option_dialog_layout_text_view_text_size">20sp</dimen>
+
+</resources>
