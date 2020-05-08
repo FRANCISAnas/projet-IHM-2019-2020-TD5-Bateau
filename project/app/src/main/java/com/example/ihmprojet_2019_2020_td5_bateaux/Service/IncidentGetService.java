@@ -2,7 +2,11 @@ package com.example.ihmprojet_2019_2020_td5_bateaux.Service;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.ihmprojet_2019_2020_td5_bateaux.Fragments.IncidentsFragment;
@@ -23,13 +27,18 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class IncidentGetService extends AsyncTask<Void,Void,Void> {
+public class IncidentGetService extends AsyncTask<Void, Void, Void> {
     ArrayList<Incident> incidentArrayList;
     private Context mContext;
 
 
 
     private ListView listView;
+
+    private ViewGroup rootView;
+    IncidentListAdapter incidentListAdapter;
+    private EditText theFilter;
+
 
     public IncidentGetService(Context context, ListView listView) { //, View view)
         mContext=context;
@@ -39,14 +48,10 @@ public class IncidentGetService extends AsyncTask<Void,Void,Void> {
 
     @Override
     protected Void doInBackground(Void... voids) {
-        String data="";
-
-
-
+        String data = "";
         try {
             URL url = new URL("http://www.neptune.dinelhost.com/api/incident.php");
-
-            HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
+            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
             String line = "";
@@ -65,13 +70,10 @@ public class IncidentGetService extends AsyncTask<Void,Void,Void> {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
         JSONObject jsonObject;
-
-         incidentArrayList =new ArrayList<>();
-
-        int i = 0 ;
-        while(i<jsonArray.length()){
+        incidentArrayList = new ArrayList<>();
+        int i = 0;
+        while (i < jsonArray.length()) {
             try {
                 jsonObject = jsonArray.getJSONObject(i);
                 int id = jsonObject.getInt("id");
@@ -86,7 +88,7 @@ public class IncidentGetService extends AsyncTask<Void,Void,Void> {
                 incidentArrayList.add(incident);
 
                 if(!IncidentsFragment.incidentArrayList.contains(incident)){
-                    
+
                 }
 
 
@@ -102,10 +104,28 @@ public class IncidentGetService extends AsyncTask<Void,Void,Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-        IncidentListAdapter incidentListAdapter = new IncidentListAdapter(mContext,R.layout.custom_list_view,incidentArrayList);
-        listView.setAdapter(incidentListAdapter);
+        theFilter = rootView.findViewById(R.id.filter_incident);
 
+        incidentListAdapter = new IncidentListAdapter(mContext, R.layout.custom_list_view, incidentArrayList);
+        listView.setAdapter(incidentListAdapter);
+        theFilter.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                (IncidentGetService.this).incidentListAdapter.getFilter().filter(s);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                incidentListAdapter.getFilter().filter(s.toString());
+            }
+        });
     }
+
 
 
     @Override
@@ -114,7 +134,5 @@ public class IncidentGetService extends AsyncTask<Void,Void,Void> {
         //ProgressBar progressBar = (ProgressBar) rootView.findViewById(R.id.progressBar);
         ///progressBar.setMax(10);
         //progressBar.setProgress(progress,true);
-
     }
-
 }

@@ -14,8 +14,11 @@ import android.view.WindowManager;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.example.ihmprojet_2019_2020_td5_bateaux.Service.WeatherForecastGetService;
+
 public class MainActivity extends AppCompatActivity {
 
+    public static WeatherForecastGetService weatherForecastGetService = null;
     public static Location location;
     private static int SPLASH_TIME_OUT = 3000;
 
@@ -44,13 +47,20 @@ public class MainActivity extends AppCompatActivity {
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
-        assert lm != null;
         lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 2000, 10, locationListener);
     }
 
     private final LocationListener locationListener = new LocationListener() {
         public void onLocationChanged(Location location) {
             MainActivity.location = location;
+            if(location == null){
+                return;
+            }
+            if(weatherForecastGetService == null){
+                weatherForecastGetService = new WeatherForecastGetService(location);
+            } else{
+                weatherForecastGetService.setLocation(location);
+            }
         }
 
         @Override

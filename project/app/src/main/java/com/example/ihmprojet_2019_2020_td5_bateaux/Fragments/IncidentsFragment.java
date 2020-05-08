@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.PopupWindow;
@@ -18,7 +19,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.ihmprojet_2019_2020_td5_bateaux.Dialog.DeleteDialog;
@@ -34,9 +34,12 @@ import java.util.ArrayList;
 public class IncidentsFragment extends Fragment {
 
     public static ArrayList<Incident> incidentArrayList;
-    public static boolean resume = false;
-    View root;
-    IncidentPostService service;
+
+    private IncidentPostService service;
+
+    private ArrayAdapter adapter;
+
+    private static final String TAG = "FRANCIS";
 
     public IncidentsFragment(){
         // Empty constructor required
@@ -49,7 +52,6 @@ public class IncidentsFragment extends Fragment {
         final View rootView = inflater.inflate(R.layout.activity_incidents, container, false);
         setHasOptionsMenu(true);
 
-        root = rootView;
        /* Button button = (Button) rootView.findViewById(R.id.go_to_Incidents_button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,9 +88,6 @@ public class IncidentsFragment extends Fragment {
 
             }
         });
-
-
-
 
 
         return rootView;

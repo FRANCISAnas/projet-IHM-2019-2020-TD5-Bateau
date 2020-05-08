@@ -7,14 +7,23 @@
     <Button
         android:id="@+id/addIncident"
         android:layout_width="match_parent"
-        android:layout_height="57dp"
-        android:text="ADD INCIDENT" />
+        android:layout_height="@dimen/activity_incidents_heightB"
+        android:text="@string/add_incident" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_incidents_height"
+        android:id="@+id/filter_incident"
+        android:hint="filter"
+
+        />
+
 
     <ListView
         android:id="@+id/myListView"
         android:layout_width="match_parent"
 
-        android:layout_height="641dp" >
+        android:layout_height="@dimen/activity_incidents_heightL" >
 
     </ListView>
 
