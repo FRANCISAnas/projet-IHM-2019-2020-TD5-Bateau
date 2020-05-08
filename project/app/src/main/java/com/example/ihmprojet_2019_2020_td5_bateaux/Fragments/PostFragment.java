@@ -28,9 +28,7 @@ public class PostFragment extends Fragment {
 
     private NotificationManagerCompat notificationManager;
 
-    public static int nbOfNotification = 0;
 
-    private static final int MAX_NUMBER_OF_NOTIFICATIONS = 3;
     public final static String TAG = "FRANCIS";
 
 
@@ -45,7 +43,6 @@ public class PostFragment extends Fragment {
         final View rootView = inflater.inflate(R.layout.fragment_incident_submission, container, false);
 
         final Spinner spinner = (Spinner) rootView.findViewById(R.id.natures);
-        notificationManager = NotificationManagerCompat.from(getContext());
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(container.getContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.natures));
         myAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         spinner.setAdapter(myAdapter);
@@ -80,7 +77,6 @@ public class PostFragment extends Fragment {
                 EditText editText = rootView.findViewById(R.id.editTextDescription);
                 final String description = editText.getText().toString();
                 openDialog(nature, description, container);
-                sendOnUrgent(v);
             }
 
 
@@ -99,17 +95,4 @@ public class PostFragment extends Fragment {
 
 
 
-    public void sendOnUrgent(View v) {
-        if (nbOfNotification == MAX_NUMBER_OF_NOTIFICATIONS) nbOfNotification = 0;
-        /*Intent intent = new Intent(getApplicationContext(), IncidentsFragment.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);*/
-        final String desccription = ((EditText) getView().findViewById(R.id.editTextDescription)).getText().toString();
-
-        Notification notification = new NotificationCompat.Builder(getContext(), CHANNEL_URGENTE)
-                .setSmallIcon(R.drawable.ic_alert)
-                .setContentText(desccription)
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .build();
-        notificationManager.notify(nbOfNotification++, notification);
-    }
 }
