@@ -26,11 +26,10 @@ import java.util.ArrayList;
 public class IncidentGetService extends AsyncTask<Void,Void,Void> {
     ArrayList<Incident> incidentArrayList;
     private Context mContext;
-    private int progress = 0;
-    private View rootView;
 
 
-    ListView listView;
+
+    private ListView listView;
 
     public IncidentGetService(Context context, ListView listView) { //, View view)
         mContext=context;
@@ -51,7 +50,6 @@ public class IncidentGetService extends AsyncTask<Void,Void,Void> {
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
             String line = "";
-            JSONObject jsonObject;
             while(line!=null){
                 line = bufferedReader.readLine();
                 data+=line;
@@ -79,16 +77,17 @@ public class IncidentGetService extends AsyncTask<Void,Void,Void> {
                 int id = jsonObject.getInt("id");
                 String nature = jsonObject.getString("nature");
                 String description = jsonObject.getString("description");
+                String date = jsonObject.getString("date");
+                String longitude = jsonObject.getString("longitude");
+                String latitude = jsonObject.getString("latitude");
+                String android_id = jsonObject.getString("android_id");
 
-                Incident incident = new Incident(id,nature,description);
+                Incident incident = new Incident(id,nature,description,date,longitude,latitude,android_id);
                 incidentArrayList.add(incident);
 
-              /*  if(!incidentArrayList.contains(incident)){
-                    incidentArrayList.add(incident);
-                    if(IncidentsActivity.resume){
-                        System.out.println("incident added ! ");
-                    }
-                }*/
+                if(!IncidentsFragment.incidentArrayList.contains(incident)){
+                    
+                }
 
 
             } catch (JSONException e) {
@@ -97,7 +96,6 @@ public class IncidentGetService extends AsyncTask<Void,Void,Void> {
             i++;
         }
         IncidentsFragment.incidentArrayList = incidentArrayList;
-        progress++;
         return null;
     }
 

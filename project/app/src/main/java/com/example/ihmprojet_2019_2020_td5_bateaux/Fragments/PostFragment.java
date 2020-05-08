@@ -13,20 +13,27 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
 import com.example.ihmprojet_2019_2020_td5_bateaux.R;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentPostService;
 
 
 public class PostFragment extends Fragment {
 
+    boolean fromAddButton = false;
+
 
     public PostFragment() {
         // Required empty public constructor
-    }
+}
 
+public PostFragment(boolean fromAddButton) {
+    this.fromAddButton = fromAddButton;
+}
 
 
 
@@ -58,7 +65,15 @@ public class PostFragment extends Fragment {
             }
         });
 
+
+
         Button post = rootView.findViewById(R.id.post);
+        if(fromAddButton) {
+            post.setText("Post");
+            TextView tv = rootView.findViewById(R.id.textView5);
+            tv.setText("Report");
+        }
+
         post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,7 +85,10 @@ public class PostFragment extends Fragment {
                 }
                 EditText editText = rootView.findViewById(R.id.editTextDescription);
                 final String description = editText.getText().toString();
-                IncidentPostService postService = new PostService(container.getContext(),nature,description);
+
+                Incident incident = new Incident(nature,description);
+
+                IncidentPostService postService = new IncidentPostService(container.getContext(),nature,description);
                 postService.execute();
                 FragmentTransaction frag = getFragmentManager().beginTransaction();
                 frag.replace(R.id.fragment_container, new IncidentsFragment());

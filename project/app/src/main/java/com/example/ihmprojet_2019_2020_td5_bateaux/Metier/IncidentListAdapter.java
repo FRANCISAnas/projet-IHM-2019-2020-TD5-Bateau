@@ -30,7 +30,7 @@ public class IncidentListAdapter extends ArrayAdapter {
     @Override
     public View getView(int position,  View convertView,  ViewGroup parent) {
         String nature  = items.get(position).getNature();
-        String description  = items.get(position).getDescription();
+        String date  = items.get(position).getDate();
 
         LayoutInflater layoutInflater = LayoutInflater.from(mContext);
         convertView = layoutInflater.inflate(nRessource,parent,false);
@@ -39,7 +39,7 @@ public class IncidentListAdapter extends ArrayAdapter {
         TextView textView = (TextView) convertView.findViewById(R.id.Nature);
         TextView textView2 = (TextView) convertView.findViewById(R.id.Description);
         textView.setText(nature);
-        textView2.setText(description);
+        textView2.setText(date);
 
 
         return convertView;
