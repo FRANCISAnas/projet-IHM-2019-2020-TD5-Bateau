@@ -159,7 +159,8 @@
     <dimen name="fragment_incident_submission_button_1_marginLeft">50dp</dimen>
     <dimen name="fragment_incident_submission_button_1_horizontal_bias">0.114</dimen>
     <dimen name="fragment_incident_submission_button_1_vertical_bias">0.126</dimen>
-    <dimen name="fragment_incident_submission_button_2_marginTop">300dp</dimen>
+    <dimen name="fragment_incident_submission_button_2_urgent_marginTop">300dp</dimen>
+    <dimen name="fragment_incident_submission_button_2_classic_marginTop">350dp</dimen>
     <dimen name="fragment_incident_submission_button_2_marginLeft">250dp</dimen>
 
     <!--TextView fragment_incident_submission -->

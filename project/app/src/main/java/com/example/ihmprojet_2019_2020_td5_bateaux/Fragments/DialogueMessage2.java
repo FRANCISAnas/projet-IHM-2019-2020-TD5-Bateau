@@ -23,22 +23,24 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.ihmprojet_2019_2020_td5_bateaux.R;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentPostService;
 
+import static com.example.ihmprojet_2019_2020_td5_bateaux.NeptuneNotification.CHANNEL_CLASSIQUE;
 import static com.example.ihmprojet_2019_2020_td5_bateaux.NeptuneNotification.CHANNEL_URGENTE;
 
-public class DialogueMessage extends AppCompatDialogFragment {
+public class DialogueMessage2 extends AppCompatDialogFragment {
     private String nature;
     private String description;
     private static final String FACEBOOK_PAGE_ID = "151932215253161";
     private NotificationManagerCompat notificationManager;
-    public static int nbOfNotification = 0;
+
     private static final int MAX_NUMBER_OF_NOTIFICATIONS = 3;
     final ViewGroup container;
 
-    DialogueMessage(String nature, String desc, ViewGroup container){
+    DialogueMessage2(String nature, String desc, ViewGroup container){
         this.nature = nature;
         this.description = desc;
         this.container = container;
     }
+
 
     @NonNull
     @Override
@@ -52,13 +54,13 @@ public class DialogueMessage extends AppCompatDialogFragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 portAnIncident();
-                sendOnUrgent();
+                sendOnclassic();
             }
         }).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) { // si l'utilsiateur click oui donc on fait appelle à la service de FaceBook
                 goToFaceBookPage(FACEBOOK_PAGE_ID);
-                sendOnUrgent();
+                sendOnclassic();
             }
         });
         return builder.create();
@@ -83,17 +85,18 @@ public class DialogueMessage extends AppCompatDialogFragment {
         frag.commit();
     }
 
-    public void sendOnUrgent() {
-        if (nbOfNotification == MAX_NUMBER_OF_NOTIFICATIONS) nbOfNotification = 0;
+    public void sendOnclassic() {
+        if (DialogueMessage.nbOfNotification == MAX_NUMBER_OF_NOTIFICATIONS) DialogueMessage.nbOfNotification = 0;
         /*Intent intent = new Intent(getApplicationContext(), IncidentsFragment.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);*/
         final String desccription = ((EditText) container.findViewById(R.id.editTextDescription)).getText().toString();
 
-        Notification notification = new NotificationCompat.Builder(container.getContext(), CHANNEL_URGENTE)
+        Notification notification = new NotificationCompat.Builder(container.getContext(), CHANNEL_CLASSIQUE)
                 .setSmallIcon(R.drawable.ic_alert)
                 .setContentText(desccription)
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .build();
-        notificationManager.notify(nbOfNotification++, notification);
+        notificationManager.notify(DialogueMessage.nbOfNotification++, notification);
     }
+
 }

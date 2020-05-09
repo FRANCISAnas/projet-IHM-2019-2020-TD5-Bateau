@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
     tools:context=".MainActivity"
-    android:background="#FFFFFF"
+
     android:fitsSystemWindows="true"
     tools:oppenDrawer = "start">
 

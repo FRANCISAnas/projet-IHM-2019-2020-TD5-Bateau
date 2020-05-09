@@ -41,7 +41,7 @@ public class PostFragment extends Fragment {
 
     public PostFragment() {
         // Required empty public constructor
-}
+    }
 
 public PostFragment(boolean fromAddButton) {
     this.fromAddButton = fromAddButton;
@@ -61,9 +61,9 @@ public PostFragment(boolean fromAddButton) {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String value = (String )parent.getItemAtPosition(position);
+                String value = (String) parent.getItemAtPosition(position);
 
-                if(value.equals("Autre")){
+                if (value.equals("Autre")) {
                     EditText editText = rootView.findViewById(R.id.naturetype);
                     editText.setVisibility(View.VISIBLE);
                 }
@@ -110,12 +110,7 @@ public PostFragment(boolean fromAddButton) {
 
         return rootView;
     }
-    private void openDialog(String nature, String description, ViewGroup container) {
 
-        DialogueMessage dialogueMessage = new DialogueMessage(nature, description, container);
-        dialogueMessage.show(getFragmentManager(), TAG);
-
-    }
 
 
 

@@ -75,7 +75,8 @@
     <string name="add_incident">AJOUTER UN INCIDENT</string>
     <string name="select_nature">Sélectionner la nature</string>
     <string name="repport">Rapporter</string>
-    <string name="post">PuUBLIER</string>
+    <string name="uregent_post">PuUBLIER urgent</string>
+    <string name="classic_post">PuUBLIER classic</string>
     <string name="give_des">Donnez ici une brève description de l\'incident</string>
     <string name="add_file">AJOUTER LE FICHIER</string>
     <string name="city">NICE</string>
