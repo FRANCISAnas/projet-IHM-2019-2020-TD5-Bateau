@@ -1,15 +1,11 @@
 package com.example.ihmprojet_2019_2020_td5_bateaux;
 
-import android.app.Notification;
-import android.app.PendingIntent;
-import android.content.Intent;
+
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
+
 
 
 import androidx.annotation.NonNull;
@@ -17,8 +13,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -29,15 +23,10 @@ import com.example.ihmprojet_2019_2020_td5_bateaux.Fragments.IncidentsFragment;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Fragments.SettingsFragment;
 import com.google.android.material.navigation.NavigationView;
 
-import static com.example.ihmprojet_2019_2020_td5_bateaux.NeptuneNotification.CHANNEL_CLASSIQUE;
-import static com.example.ihmprojet_2019_2020_td5_bateaux.NeptuneNotification.CHANNEL_URGENTE;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private static final int MAX_NUMBER_OF_NOTIFICATIONS = 3;
-    public static int nbOfNotification = 0;
 
-    private NotificationManagerCompat notificationManager;
     private DrawerLayout drawer;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
@@ -57,7 +46,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_home);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        setNotficationManagerCompat();
 
         drawer = findViewById(R.id.drawer_layout);
 
@@ -91,38 +79,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         return super.onCreateOptionsMenu(menu);
     }
 
-    private void setNotficationManagerCompat() {
-        this.notificationManager = NotificationManagerCompat.from(this);
-        EditText editText = findViewById(R.id.incident_description);
-    }
 
-
-    public void sendOnUrgent(View v) {
-        if (nbOfNotification == MAX_NUMBER_OF_NOTIFICATIONS) nbOfNotification = 0;
-        /*Intent intent = new Intent(getApplicationContext(), IncidentsFragment.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);*/
-        final String desccription = ((EditText) findViewById(R.id.editTextDescription)).getText().toString();
-        Log.d(TAG, desccription + " On est là !!!!! ");
-        Notification notification = new NotificationCompat.Builder(this, CHANNEL_URGENTE)
-                .setSmallIcon(R.drawable.ic_alert)
-                .setContentText(desccription)
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .build();
-        notificationManager.notify(nbOfNotification++, notification);
-    }
-
-    public void sendOnClassic(View v) {
-        if (nbOfNotification == MAX_NUMBER_OF_NOTIFICATIONS) nbOfNotification = 0;
-        Intent intent = new Intent(getApplicationContext(), IncidentsFragment.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
-        final String desccription = ((EditText) findViewById(R.id.editTextDescription)).getText().toString();
-        Notification notification = new NotificationCompat.Builder(this, CHANNEL_CLASSIQUE)
-                .setSmallIcon(R.drawable.ic_alert)
-                .setContentIntent(pendingIntent)
-                .setContentTitle(desccription)
-                .setPriority(NotificationCompat.PRIORITY_LOW).build();
-        notificationManager.notify(nbOfNotification++, notification);
-    }
 
     @Override
     public void onBackPressed() {

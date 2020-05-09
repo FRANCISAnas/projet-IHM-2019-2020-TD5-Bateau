@@ -23,6 +23,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.ihmprojet_2019_2020_td5_bateaux.R;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentPostService;
 
+import static com.example.ihmprojet_2019_2020_td5_bateaux.Fragments.DialogueMessage2.MAX_NUMBER_OF_NOTIFICATIONS;
 import static com.example.ihmprojet_2019_2020_td5_bateaux.NeptuneNotification.CHANNEL_URGENTE;
 
 public class DialogueMessage extends AppCompatDialogFragment {
@@ -31,7 +32,7 @@ public class DialogueMessage extends AppCompatDialogFragment {
     private static final String FACEBOOK_PAGE_ID = "151932215253161";
     private NotificationManagerCompat notificationManager;
     public static int nbOfNotification = 0;
-    private static final int MAX_NUMBER_OF_NOTIFICATIONS = 3;
+
     final ViewGroup container;
 
     DialogueMessage(String nature, String desc, ViewGroup container){

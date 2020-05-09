@@ -24,7 +24,6 @@ import com.example.ihmprojet_2019_2020_td5_bateaux.R;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentPostService;
 
 import static com.example.ihmprojet_2019_2020_td5_bateaux.NeptuneNotification.CHANNEL_CLASSIQUE;
-import static com.example.ihmprojet_2019_2020_td5_bateaux.NeptuneNotification.CHANNEL_URGENTE;
 
 public class DialogueMessage2 extends AppCompatDialogFragment {
     private String nature;
@@ -32,7 +31,7 @@ public class DialogueMessage2 extends AppCompatDialogFragment {
     private static final String FACEBOOK_PAGE_ID = "151932215253161";
     private NotificationManagerCompat notificationManager;
 
-    private static final int MAX_NUMBER_OF_NOTIFICATIONS = 3;
+    public static final int MAX_NUMBER_OF_NOTIFICATIONS = 3;
     final ViewGroup container;
 
     DialogueMessage2(String nature, String desc, ViewGroup container){
