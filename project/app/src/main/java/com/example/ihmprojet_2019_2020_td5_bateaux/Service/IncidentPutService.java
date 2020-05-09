@@ -4,8 +4,6 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
-import com.example.ihmprojet_2019_2020_td5_bateaux.MainActivity;
-
 import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -13,24 +11,24 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
-public class IncidentPostService extends AsyncTask<String, String, String> {
-
+public class IncidentPutService extends AsyncTask<String, String, String> {
     String nature;
     String description;
     private Context mContext;
 
-    public IncidentPostService(Context context, String nature, String description) {
+    public IncidentPutService(Context context, String nature, String description) {
         mContext = context;
         this.nature = nature;
         this.description = description;
     }
+
 
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
 
         // create a Toast
-        Toast.makeText(mContext, "Incident Submited successfully", Toast.LENGTH_SHORT).show();
+        Toast.makeText(mContext, "Incident Edited successfully", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -39,7 +37,7 @@ public class IncidentPostService extends AsyncTask<String, String, String> {
 
             URL url = new URL("http://www.neptune.dinelhost.com/api/incident.php");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("POST");
+            conn.setRequestMethod("PUT");
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             conn.setDoInput(true);
             conn.setDoOutput(true);
@@ -48,8 +46,7 @@ public class IncidentPostService extends AsyncTask<String, String, String> {
             Map<String, String> params = new HashMap<>();
             params.put("nature", this.nature);
             params.put("description", this.description);
-            params.put("longitude", "" + MainActivity.currentLocation.getLongitude());
-            params.put("latitude", "" + MainActivity.currentLocation.getLatitude());
+
 
             StringBuilder postData = new StringBuilder();
             for (Map.Entry<String, String> pa : params.entrySet()) {

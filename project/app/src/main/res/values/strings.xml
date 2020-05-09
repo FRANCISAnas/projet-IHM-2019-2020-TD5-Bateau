@@ -67,6 +67,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="temperature">Temperature</string>
+    <string name="Edit_Report" translatable="false">Edit_eport</string>
+    <string name="Apply_Changes" translatable="false">Apply_Changes</string>
     <string name="langauage">Language</string>
     <string name="timeformat">Time format</string>
     <string name="precipitation">Precipitation</string>
@@ -100,4 +102,5 @@
     <string name="option">Do you want to post it on Facebook too?</string>
     <string name="yes">yes</string>
     <string name="No">No</string>
+    <string name="map_key" translatable="false">AIzaSyB_qsP8AOP_P0MdlPz-48TDaJYjTP3vbjo</string>
 </resources>

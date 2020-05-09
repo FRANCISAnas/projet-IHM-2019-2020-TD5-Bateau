@@ -3,19 +3,15 @@ package com.example.ihmprojet_2019_2020_td5_bateaux.Service;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
-import android.os.AsyncTask;
 import android.provider.Settings;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.ListView;
 
+import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
+import androidx.work.Worker;
+import androidx.work.WorkerParameters;
 
 import com.example.ihmprojet_2019_2020_td5_bateaux.Fragments.IncidentsFragment;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
-import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.IncidentListAdapter;
 import com.example.ihmprojet_2019_2020_td5_bateaux.R;
 
 import org.json.JSONArray;
@@ -33,30 +29,29 @@ import java.util.ArrayList;
 
 import static com.example.ihmprojet_2019_2020_td5_bateaux.NeptuneNotification.CHANNEL_URGENTE;
 
-public class IncidentGetService extends AsyncTask<Void, Void, Void> {
-    public static final int MAX_NUMBER_OF_NOTIFICATIONS = 3;
-    public static boolean RUNNING = false;
-    public static int nbOfNotification = 0;
+public class MyAsyncTaskWorker extends Worker {
+
+
+    public final static String TAG = "FRANCIS";
     ArrayList<Incident> incidentArrayList;
-    boolean newIncident = false;
-    IncidentListAdapter incidentListAdapter;
     private Context mContext;
-    private ListView listView;
-    private View rootView;
-    private EditText theFilter;
+    private boolean newIncident = false;
 
 
-    public IncidentGetService(Context context, ListView listView, View view) { //, )
+    public MyAsyncTaskWorker(@NonNull Context context, WorkerParameters workerParams) {
+        super(context, workerParams);
         mContext = context;
-        this.listView = listView;
-        rootView = view;
+
     }
 
+    @NonNull
     @Override
-    protected Void doInBackground(Void... voids) {
-        RUNNING = true;
+    public Result doWork() {
+
         String data = "";
         try {
+
+
             URL url = new URL("http://www.neptune.dinelhost.com/api/incident.php");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
@@ -96,7 +91,8 @@ public class IncidentGetService extends AsyncTask<Void, Void, Void> {
 
                 if (IncidentsFragment.incidentArrayList != null && IncidentsFragment.newIncident(incident.getId())) {
                     if (!incident.getAndroid_id().equals("null") && !incident.getAndroid_id().equals(Settings.Secure.getString(mContext.getContentResolver(), Settings.Secure.ANDROID_ID)))
-                        sendOnUrgent(incident);
+                        IncidentsFragment.newIncident = true;
+                    sendOnUrgent(incident);
                 }
 
 
@@ -106,41 +102,15 @@ public class IncidentGetService extends AsyncTask<Void, Void, Void> {
             i++;
         }
         IncidentsFragment.incidentArrayList = incidentArrayList;
-        return null;
-    }
 
-    @Override
-    protected void onPostExecute(Void aVoid) {
-        RUNNING = false;
-        super.onPostExecute(aVoid);
-        theFilter = rootView.findViewById(R.id.filter_incident);
 
-        incidentListAdapter = new IncidentListAdapter(mContext, R.layout.custom_list_view, incidentArrayList);
-        listView.setAdapter(incidentListAdapter);
-
-        theFilter.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                (IncidentGetService.this).incidentListAdapter.getFilter().filter(s);
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                incidentListAdapter.getFilter().filter(s.toString());
-            }
-        });
-
+        return Result.success();
 
     }
-
 
     public void sendOnUrgent(Incident incident) { //View v
-        if (nbOfNotification == MAX_NUMBER_OF_NOTIFICATIONS) nbOfNotification = 0;
+        if (IncidentGetService.nbOfNotification == IncidentGetService.MAX_NUMBER_OF_NOTIFICATIONS)
+            IncidentGetService.nbOfNotification = 0;
         /*Intent intent = new Intent(getApplicationContext(), IncidentsFragment.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);*/
         // final String desccription = ((EditText) getView().findViewById(R.id.editTextDescription)).getText().toString();
@@ -152,6 +122,8 @@ public class IncidentGetService extends AsyncTask<Void, Void, Void> {
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .build();
 
-        mNotificationManager.notify(nbOfNotification++, notification);
+        mNotificationManager.notify(IncidentGetService.nbOfNotification++, notification);
     }
+
+
 }

@@ -2,54 +2,47 @@ package com.example.ihmprojet_2019_2020_td5_bateaux.Service;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.widget.Toast;
 
-import com.example.ihmprojet_2019_2020_td5_bateaux.MainActivity;
+import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
 
 import java.io.DataOutputStream;
+import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
-public class IncidentPostService extends AsyncTask<String, String, String> {
+public class IncidentDeleteService extends AsyncTask<String, String, String> {
 
-    String nature;
-    String description;
+
+    Incident incident;
+
     private Context mContext;
 
-    public IncidentPostService(Context context, String nature, String description) {
+    public IncidentDeleteService(Context context, Incident incident) {
         mContext = context;
-        this.nature = nature;
-        this.description = description;
+        this.incident = incident;
     }
 
-    @Override
-    protected void onPostExecute(String s) {
-        super.onPostExecute(s);
-
-        // create a Toast
-        Toast.makeText(mContext, "Incident Submited successfully", Toast.LENGTH_SHORT).show();
-    }
 
     @Override
     protected String doInBackground(String... strings) {
         try {
 
+            //URL url = new URL(String.format("%s/&id=%d","http://www.neptune.dinelhost.com/api/incident.php",incident.getId()));
             URL url = new URL("http://www.neptune.dinelhost.com/api/incident.php");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("POST");
+            conn.setRequestMethod("DELETE");
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             conn.setDoInput(true);
             conn.setDoOutput(true);
 
 
             Map<String, String> params = new HashMap<>();
-            params.put("nature", this.nature);
-            params.put("description", this.description);
-            params.put("longitude", "" + MainActivity.currentLocation.getLongitude());
-            params.put("latitude", "" + MainActivity.currentLocation.getLatitude());
+            params.put("nature", Integer.toString(this.incident.getId()));
+
+            //
 
             StringBuilder postData = new StringBuilder();
             for (Map.Entry<String, String> pa : params.entrySet()) {
@@ -68,6 +61,7 @@ public class IncidentPostService extends AsyncTask<String, String, String> {
             os.flush();
             os.close();
 
+
             int responseCode = conn.getResponseCode();
             conn.disconnect();
             if (responseCode == HttpURLConnection.HTTP_OK) {
@@ -76,7 +70,8 @@ public class IncidentPostService extends AsyncTask<String, String, String> {
 
             } else
                 return "";
-        } catch (Exception e) {
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
 

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/incident_submission"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/incident_submission"
     tools:context=".HomeActivity">
 
     <!-- A completer ici  -->
@@ -40,9 +39,9 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/add_file"
-        android:layout_marginTop="300dp"
         android:layout_marginLeft="50dp"
+        android:layout_marginTop="300dp"
+        android:text="@string/add_file"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,8 +54,8 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
         android:layout_marginLeft="23dp"
+        android:layout_marginTop="100dp"
         android:text="@string/select_nature"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/natures"
@@ -71,28 +70,20 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/repport"
-        android:layout_marginTop="50dp"
         android:layout_marginLeft="150dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/Edit_Report"
 
         android:textSize="24sp" />
 
     <Button
-        android:id="@+id/post_on_urgent"
+        android:id="@+id/post"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/fragment_incident_submission_button_2_marginLeft"
-        android:layout_marginTop="@dimen/fragment_incident_submission_button_2_urgent_marginTop"
-        android:text="@string/uregent_post" />
-
-    <Button
-        android:id="@+id/post_on_classic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/fragment_incident_submission_button_2_marginLeft"
-        android:layout_marginTop="@dimen/fragment_incident_submission_button_2_classic_marginTop"
-        android:layout_marginRight="300dp"
-        android:text="@string/classic_post" />
+        android:layout_marginLeft="230dp"
+        android:layout_marginTop="300dp"
+        android:onClick="sendOnUrgent"
+        android:text="@string/Apply_Changes" />
 
     <EditText
         android:id="@+id/naturetype"
@@ -102,9 +93,8 @@
         android:layout_marginTop="160dp"
         android:ems="10"
 
-        android:inputType="textPersonName"
-        android:visibility="invisible"
         android:hint="Nature"
-        />
+        android:inputType="textPersonName"
+        android:visibility="invisible" />
 
 </RelativeLayout>

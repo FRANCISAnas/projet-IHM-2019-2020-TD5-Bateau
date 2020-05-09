@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/incident_submission"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/incident_submission">
+    android:layout_height="match_parent">
 
     <!-- A completer ici  -->
 
@@ -39,9 +38,9 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/add_file"
-        android:layout_marginTop="@dimen/fragment_incident_submission_button_1_marginTop"
         android:layout_marginLeft="@dimen/fragment_incident_submission_button_1_marginLeft"
+        android:layout_marginTop="@dimen/fragment_incident_submission_button_1_marginTop"
+        android:text="@string/add_file"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,8 +53,8 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/fragment_incident_submission_text_view_1_marginTop"
         android:layout_marginLeft="@dimen/fragment_incident_submission_text_view_1_marginLeft"
+        android:layout_marginTop="@dimen/fragment_incident_submission_text_view_1_marginTop"
         android:text="@string/select_nature"
         android:textSize="@dimen/fragment_incident_submission_text_view_1_text_size"
         app:layout_constraintBottom_toTopOf="@+id/natures"
@@ -70,9 +69,9 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/repport"
-        android:layout_marginTop="@dimen/fragment_incident_submission_text_view_2_marginTop"
         android:layout_marginLeft="@dimen/fragment_incident_submission_text_view_2_marginLeft"
+        android:layout_marginTop="@dimen/fragment_incident_submission_text_view_2_marginTop"
+        android:text="@string/repport"
 
         android:textSize="@dimen/fragment_incident_submission_text_view_2_text_size" />
 
@@ -101,9 +100,8 @@
         android:layout_marginTop="@dimen/fragment_incident_submission_edit_text_2_marginTop"
         android:ems="10"
 
-        android:inputType="textPersonName"
-        android:visibility="invisible"
         android:hint="Nature"
-        />
+        android:inputType="textPersonName"
+        android:visibility="invisible" />
 
 </RelativeLayout>
