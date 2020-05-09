@@ -99,4 +99,6 @@
     <string name="option">Do you want to post it on Facebook too?</string>
     <string name="yes">yes</string>
     <string name="No">No</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="placeName">Ville:inconnue</string>
 </resources>
