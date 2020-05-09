@@ -104,7 +104,7 @@ public class IncidentsFragment extends Fragment {
                 DeleteDialog deleteDialog = new DeleteDialog(incidentArrayList.get(adapterContextMenuInfo.position));
                 deleteDialog.show(getFragmentManager(), "gg");
             } else {
-                Toast.makeText(getContext(), "Now why would you do that ehh! not cool man not cool", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "You are not allowed to delete an incident you didn't publish.", Toast.LENGTH_SHORT).show();
             }
 
 
