@@ -78,13 +78,21 @@
         android:textSize="24sp" />
 
     <Button
-        android:id="@+id/post"
+        android:id="@+id/post_on_urgent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="300dp"
-        android:text="@string/post"
-        android:onClick="sendOnUrgent"/>
+        android:layout_marginLeft="@dimen/fragment_incident_submission_button_2_marginLeft"
+        android:layout_marginTop="@dimen/fragment_incident_submission_button_2_urgent_marginTop"
+        android:text="@string/uregent_post" />
+
+    <Button
+        android:id="@+id/post_on_classic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/fragment_incident_submission_button_2_marginLeft"
+        android:layout_marginTop="@dimen/fragment_incident_submission_button_2_classic_marginTop"
+        android:layout_marginRight="300dp"
+        android:text="@string/classic_post" />
 
     <EditText
         android:id="@+id/naturetype"

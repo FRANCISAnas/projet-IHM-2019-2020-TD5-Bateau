@@ -64,8 +64,8 @@ public class PostFragment extends Fragment {
             }
         });
 
-        Button post = rootView.findViewById(R.id.post);
-        post.setOnClickListener(new View.OnClickListener() {
+        Button post_urgent = rootView.findViewById(R.id.post_on_urgent);
+        post_urgent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String nature;
@@ -82,6 +82,23 @@ public class PostFragment extends Fragment {
 
         });
 
+        Button post_classic = rootView.findViewById(R.id.post_on_classic);
+        post_classic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String nature;
+                nature = spinner.getSelectedItem().toString();
+                if (nature.equals("Autre")) {
+                    EditText editText = rootView.findViewById(R.id.naturetype);
+                    nature = editText.getText().toString();
+                }
+                EditText editText = rootView.findViewById(R.id.editTextDescription);
+                final String description = editText.getText().toString();
+                openDialog2(nature, description, container);
+            }
+
+
+        });
 
         return rootView;
     }
@@ -93,6 +110,12 @@ public class PostFragment extends Fragment {
     }
 
 
+    private void openDialog2(String nature, String description, ViewGroup container) {
+
+        DialogueMessage2 dialogueMessage2 = new DialogueMessage2(nature, description, container);
+        dialogueMessage2.show(getFragmentManager(), TAG);
+
+    }
 
 
 }

@@ -77,7 +77,8 @@
     <string name="add_incident">ADD INCIDENT</string>
     <string name="select_nature">Select the nature</string>
     <string name="repport">Report</string>
-    <string name="post">POST</string>
+    <string name="uregent_post">Urgent POST</string>
+    <string name="classic_post">classic POST</string>
     <string name="give_des">Give a brief description here about the incident</string>
     <string name="add_file">ADD FILE</string>
     <string name="city">NICE</string>
