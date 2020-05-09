@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/incident_submission"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- A completer ici  -->
+
+    <EditText
+        android:id="@+id/editTextDescription"
+        android:layout_width="@dimen/fragment_incident_submission_edit_text_1_width"
+        android:layout_height="@dimen/fragment_incident_submission_edit_text_1_height"
+        android:layout_marginStart="@dimen/fragment_incident_submission_edit_text_1_marginStart"
+        android:layout_marginTop="@dimen/fragment_incident_submission_edit_text_1_marginTop"
+        android:layout_marginEnd="@dimen/fragment_incident_submission_edit_text_1marginEnd"
+
+        android:ems="10"
+        android:hint="@string/give_des"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="318dp" />
+
+    <Spinner
+        android:id="@+id/natures"
+        android:layout_width="@dimen/fragment_incident_submission_width_spinner"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/fragment_incident_submission_marginStart_spinner"
+        android:layout_marginTop="@dimen/fragment_incident_submission_marginTop_spinner"
+
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="252dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/fragment_incident_submission_button_1_marginLeft"
+        android:layout_marginTop="@dimen/fragment_incident_submission_button_1_marginTop"
+        android:text="@string/add_file"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDescription"
+        app:layout_constraintVertical_bias="0.126" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/fragment_incident_submission_text_view_1_marginLeft"
+        android:layout_marginTop="@dimen/fragment_incident_submission_text_view_1_marginTop"
+        android:text="@string/select_nature"
+        android:textSize="@dimen/fragment_incident_submission_text_view_1_text_size"
+        app:layout_constraintBottom_toTopOf="@+id/natures"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.813" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/fragment_incident_submission_text_view_2_marginLeft"
+        android:layout_marginTop="@dimen/fragment_incident_submission_text_view_2_marginTop"
+        android:text="@string/repport"
+
+        android:textSize="@dimen/fragment_incident_submission_text_view_2_text_size" />
+
+    <Button
+        android:id="@+id/post_on_urgent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/fragment_incident_submission_button_2_marginLeft"
+        android:layout_marginTop="@dimen/fragment_incident_submission_button_2_urgent_marginTop"
+        android:text="@string/uregent_post" />
+
+    <Button
+        android:id="@+id/post_on_classic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/fragment_incident_submission_button_2_marginLeft"
+        android:layout_marginTop="@dimen/fragment_incident_submission_button_2_classic_marginTop"
+        android:layout_marginRight="300dp"
+        android:text="@string/classic_post" />
+
+    <EditText
+        android:id="@+id/naturetype"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/fragment_incident_submission_edit_text_2_marginLeft"
+        android:layout_marginTop="@dimen/fragment_incident_submission_edit_text_2_marginTop"
+        android:ems="10"
+
+        android:hint="Nature"
+        android:inputType="textPersonName"
+        android:visibility="invisible" />
+
+</RelativeLayout>

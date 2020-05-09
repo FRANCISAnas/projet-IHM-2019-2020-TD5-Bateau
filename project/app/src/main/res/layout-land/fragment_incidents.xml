@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_incidents"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="#FFFFFF"
-    android:orientation="horizontal"
-    android:id="@+id/fragment_incidents"
+    android:orientation="vertical"
     tools:context=".HomeActivity">
 
 
@@ -13,23 +13,25 @@
         android:id="@+id/incident_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Description"/>
+        android:hint="Description" />
 
     <Button
+        android:id="@+id/urgent_notification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Notification Urgente"
-        android:textSize="24sp"
         android:layout_marginTop="50dp"
-        android:onClick="sendOnUrgent"/>
+        android:onClick="sendOnUrgent"
+        android:text="Notification Urgente"
+        android:textSize="24sp" />
 
     <Button
+        android:id="@+id/default_notification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:textSize="24sp"
+        android:onClick="sendOnClassic"
         android:text="Notifier"
-        android:onClick="sendOnClassic"/>
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/go_to_Incidents_button"

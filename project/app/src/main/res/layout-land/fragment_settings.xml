@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_settings"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/fragment_settings_text_view_1_marginTop"
+                android:gravity="center"
+                android:text="@string/setting"
+                android:textColor="#000000"
+                android:textSize="@dimen/fragment_settings_text_view_1_text_size" />
+
+
+            <Spinner
+                android:id="@+id/spinnerTemp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/fragment_settings_spinner_1_marginTop"
+                android:layout_marginEnd="@dimen/fragment_settings_spinner_1_marginEnd"
+
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="166dp"
+                tools:layout_editor_absoluteY="183dp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/fragment_settings_text_view_2_marginStart"
+                android:layout_marginTop="@dimen/fragment_settings_text_view_2_marginTop"
+                android:layout_marginEnd="@dimen/fragment_settings_text_view_2_marginEnd"
+                android:text="@string/temperature"
+                android:textColor="#000000"
+                android:textSize="@dimen/fragment_settings_text_view_2_text_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/natures"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fragment_settings_text_view_3_marginStart"
+                android:layout_marginTop="@dimen/fragment_settings_text_view_3_marginTop"
+                android:text="@string/langauage"
+                android:textColor="#000000"
+                android:textSize="@dimen/fragment_settings_text_view_3_text_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/natures"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                tools:ignore="MissingConstraints">
+
+            </TextView>
+
+            <Spinner
+                android:id="@+id/spinnerTempL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/fragment_settings_spinner_2_marginTop"
+                android:layout_marginEnd="@dimen/fragment_settings_spinner_2_marginEnd"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="166dp"
+                tools:layout_editor_absoluteY="183dp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fragment_settings_text_view_4_marginStart"
+                android:layout_marginTop="@dimen/fragment_settings_text_view_4_marginTop"
+                android:text="@string/timeformat"
+                android:textColor="#000000"
+                android:textSize="@dimen/fragment_settings_text_view_4_text_size">
+
+            </TextView>
+
+            <Spinner
+                android:id="@+id/spinnerTempF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/fragment_settings_spinner_3_marginTop"
+                android:layout_marginEnd="@dimen/fragment_settings_spinner_3_marginEnd"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="166dp"
+                tools:layout_editor_absoluteY="183dp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fragment_settings_text_view_5_marginStart"
+                android:layout_marginTop="@dimen/fragment_settings_text_view_5_marginTop"
+                android:text="@string/precipitation"
+                android:textColor="#000000"
+                android:textSize="@dimen/fragment_settings_text_view_5_text_size">
+
+            </TextView>
+
+            <Spinner
+                android:id="@+id/spinnerTempP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/fragment_settings_spinner_4_marginTop"
+                android:layout_marginEnd="@dimen/fragment_settings_spinner_4_marginEnd"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="166dp"
+                tools:layout_editor_absoluteY="183dp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fragment_settings_text_view_6_marginStart"
+                android:layout_marginTop="@dimen/fragment_settings_text_view_6_marginTop"
+                android:text="@string/windspeed"
+                android:textColor="#000000"
+                android:textSize="@dimen/fragment_settings_text_view_6_text_size">
+
+            </TextView>
+
+            <Spinner
+                android:id="@+id/spinnerTempWSP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/fragment_settings_spinner_5_marginTop"
+                android:layout_marginEnd="@dimen/fragment_settings_spinner_5_marginEnd"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="166dp"
+                tools:layout_editor_absoluteY="183dp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fragment_settings_text_view_7_marginStart"
+                android:layout_marginTop="@dimen/fragment_settings_text_view_7_marginTop"
+                android:text="@string/pressure"
+                android:textColor="#000000"
+                android:textSize="@dimen/fragment_settings_text_view_7_text_size">
+
+            </TextView>
+
+            <Spinner
+                android:id="@+id/spinnerTempPR"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/fragment_settings_spinner_6_marginTop"
+                android:layout_marginEnd="@dimen/fragment_settings_spinner_6_marginEnd"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="166dp"
+                tools:layout_editor_absoluteY="183dp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fragment_settings_text_view_8_marginStart"
+                android:layout_marginTop="@dimen/fragment_settings_text_view_8_marginTop"
+                android:text="@string/notificatin"
+                android:textColor="#000000"
+                android:textSize="@dimen/fragment_settings_text_view_8_text_size">
+
+            </TextView>
+
+            <Spinner
+                android:id="@+id/spinnerTempN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/fragment_settings_spinner_7_marginTop"
+                android:layout_marginEnd="@dimen/fragment_settings_spinner_7_marginEnd"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="166dp"
+                tools:layout_editor_absoluteY="183dp" />
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

@@ -67,6 +67,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="temperature">Temperature</string>
+    <string name="Edit_Report" translatable="false">Edit_eport</string>
+    <string name="Apply_Changes" translatable="false">Apply_Changes</string>
     <string name="langauage">Language</string>
     <string name="timeformat">Time format</string>
     <string name="precipitation">Precipitation</string>
@@ -77,7 +79,8 @@
     <string name="add_incident">ADD INCIDENT</string>
     <string name="select_nature">Select the nature</string>
     <string name="repport">Report</string>
-    <string name="post">POST</string>
+    <string name="uregent_post">Urgent POST</string>
+    <string name="classic_post">classic POST</string>
     <string name="give_des">Give a brief description here about the incident</string>
     <string name="add_file">ADD FILE</string>
     <string name="city">NICE</string>
@@ -99,6 +102,10 @@
     <string name="option">Do you want to post it on Facebook too?</string>
     <string name="yes">yes</string>
     <string name="No">No</string>
-    <string name="title_activity_maps">Map</string>
-    <string name="placeName">Ville:inconnue</string>
+
+    <string name="title_activity_maps" translatable="false">Map</string>
+    <string name="placeName" translatable="false">Ville:inconnue</string>
+
+    <string name="map_key" translatable="false">AIzaSyB_qsP8AOP_P0MdlPz-48TDaJYjTP3vbjo</string>
+
 </resources>

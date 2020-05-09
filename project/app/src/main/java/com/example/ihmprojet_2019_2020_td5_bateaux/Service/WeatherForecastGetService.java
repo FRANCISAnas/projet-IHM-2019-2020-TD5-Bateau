@@ -16,7 +16,7 @@ public class WeatherForecastGetService extends AsyncTask<Void, Void, Void> {
     private double longitude;
     private double latitude;
 
-    public WeatherForecastGetService(Location location){
+    public WeatherForecastGetService(Location location) {
         longitude = location.getLongitude();
         latitude = location.getLatitude();
     }
@@ -25,7 +25,7 @@ public class WeatherForecastGetService extends AsyncTask<Void, Void, Void> {
     protected Void doInBackground(Void... voids) {
         String data = "";
         try {
-            URL url = new URL("api.openweathermap.org/data/2.5/weather?lat="+latitude+"&lon="+longitude+"&appid=edd48555b608285b51b1abb1d4cc1a8e");
+            URL url = new URL("api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&appid=edd48555b608285b51b1abb1d4cc1a8e");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));

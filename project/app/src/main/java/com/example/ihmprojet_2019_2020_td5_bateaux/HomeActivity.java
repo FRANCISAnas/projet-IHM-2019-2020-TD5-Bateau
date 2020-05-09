@@ -11,7 +11,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,12 +35,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     private static final int MAX_NUMBER_OF_NOTIFICATIONS = 3;
     public static int nbOfNotification = 0;
-
-    private NotificationManagerCompat notificationManager;
-    private DrawerLayout drawer;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
-    public final static String TAG = "FRANCIS";
+    private NotificationManagerCompat notificationManager;
+    private DrawerLayout drawer;
+
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
@@ -102,7 +100,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         /*Intent intent = new Intent(getApplicationContext(), IncidentsFragment.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);*/
         final String desccription = ((EditText) findViewById(R.id.editTextDescription)).getText().toString();
-        Log.d(TAG, desccription + " On est là !!!!! ");
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_URGENTE)
                 .setSmallIcon(R.drawable.ic_alert)
                 .setContentText(desccription)
