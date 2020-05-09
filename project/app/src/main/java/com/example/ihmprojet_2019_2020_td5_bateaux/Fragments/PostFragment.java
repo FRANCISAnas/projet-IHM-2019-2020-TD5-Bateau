@@ -29,15 +29,15 @@ import static com.example.ihmprojet_2019_2020_td5_bateaux.NeptuneNotification.CH
 
 public class PostFragment extends Fragment {
 
+    public final static String TAG = "FRANCIS";
+    private static final int MAX_NUMBER_OF_NOTIFICATIONS = 3;
+    public static int nbOfNotification = 0;
     boolean fromAddButton = false;
 
 
     private NotificationManagerCompat notificationManager;
 
-    public static int nbOfNotification = 0;
-
-    private static final int MAX_NUMBER_OF_NOTIFICATIONS = 3;
-    public final static String TAG = "FRANCIS";
+    private final static String AUTRE= "Autre";
 
 
     public PostFragment() {
@@ -54,7 +54,6 @@ public PostFragment(boolean fromAddButton) {
         final View rootView = inflater.inflate(R.layout.fragment_incident_submission, container, false);
 
         final Spinner spinner = (Spinner) rootView.findViewById(R.id.natures);
-        notificationManager = NotificationManagerCompat.from(getContext());
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(container.getContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.natures));
         myAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         spinner.setAdapter(myAdapter);
@@ -65,7 +64,7 @@ public PostFragment(boolean fromAddButton) {
                 String value = (String) parent.getItemAtPosition(position);
 
                 EditText editText = rootView.findViewById(R.id.naturetype);
-                if (value.equals("Autre")) {
+                if (value.equals(AUTRE)) {
 
                     editText.setVisibility(View.VISIBLE);
                 }else{
@@ -102,40 +101,39 @@ public PostFragment(boolean fromAddButton) {
         post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (fromAddButton) {
+                    String nature;
 
-                String nature;
-                 nature = spinner.getSelectedItem().toString();
-                if(nature.equals("Autre")){
-                    EditText editText = rootView.findViewById(R.id.naturetype);
-                    nature = editText.getText().toString();
+                    rootView.findViewById(R.id.editTextDescription);
+                    EditText editText;
+
+                    nature = spinner.getSelectedItem().toString();
+                    if(nature.equals(AUTRE)){
+                        editText = rootView.findViewById(R.id.naturetype);
+                        nature = editText.getText().toString();
+                    }
+                    editText = rootView.findViewById(R.id.editTextDescription);
+                    final String description = editText.getText().toString();
+
+                    if(fromAddButton) {
+                        IncidentPostService postService = new IncidentPostService(container.getContext(), nature, description);
+                        postService.execute();
+                    }else {
+                        IncidentPutService incidentPutService = new IncidentPutService(container.getContext(), nature, description);
+                        incidentPutService.execute();
+                    }
+
+                    FragmentTransaction frag = getFragmentManager().beginTransaction();
+                    frag.replace(R.id.fragment_container, new IncidentsFragment());
+                    frag.commit();
+
                 }
-                EditText editText = rootView.findViewById(R.id.editTextDescription);
-                final String description = editText.getText().toString();
-
-                if(fromAddButton) {
-                    IncidentPostService postService = new IncidentPostService(container.getContext(), nature, description);
-                    postService.execute();
-                }else {
-                    IncidentPutService incidentPutService = new IncidentPutService(container.getContext(), nature, description);
-                    incidentPutService.execute();
-                }
-
-                FragmentTransaction frag = getFragmentManager().beginTransaction();
-                frag.replace(R.id.fragment_container, new IncidentsFragment());
-                frag.commit();
-
-
-
-                }
+            }
         });
 
 
         return rootView;
     }
-
-
-
-
 
 
 }

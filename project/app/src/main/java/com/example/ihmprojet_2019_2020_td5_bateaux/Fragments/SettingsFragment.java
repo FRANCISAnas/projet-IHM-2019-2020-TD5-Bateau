@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ import java.util.Locale;
 public class SettingsFragment extends Fragment implements AdapterView.OnItemSelectedListener {
     Locale myLocale;
     String currentLanguage = "en", currentLang;
+    public static boolean URGENT_NOTIFICATIONS = true;
     public SettingsFragment() {
         // Empty constructor required
     }
@@ -54,11 +56,13 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
         spinner2.setAdapter(adapter2);
         spinner2.getBackground().setColorFilter(getResources().getColor(R.color.design_default_color_primary_dark), PorterDuff.Mode.SRC_ATOP);
 
-        Spinner spinner3 = rootView.findViewById(R.id.spinnerTempN);
+        Spinner spinner3 = rootView.findViewById(R.id.spinnerTempN); // Notifications
         ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(getActivity(), R.array.notification, android.R.layout.simple_spinner_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner3.setAdapter(adapter3);
         spinner3.getBackground().setColorFilter(getResources().getColor(R.color.design_default_color_primary_dark), PorterDuff.Mode.SRC_ATOP);
+        notificationsChoice(spinner3);
+
 
         Spinner spinner4 = rootView.findViewById(R.id.spinnerTempP);
         ArrayAdapter<CharSequence> adapter4 = ArrayAdapter.createFromResource(getActivity(), R.array.precipitation, android.R.layout.simple_spinner_item);
@@ -79,6 +83,23 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
         spinner6.getBackground().setColorFilter(getResources().getColor(R.color.design_default_color_primary_dark), PorterDuff.Mode.SRC_ATOP);
 
         return rootView;
+    }
+
+    private void notificationsChoice(Spinner spinner3) {
+        spinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String value = (String) parent.getItemAtPosition(position);
+                if (value.equals("All notifications") || value.equals("Toutes les Notifications")){
+                    URGENT_NOTIFICATIONS = false;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
     private Intent getIntent() {

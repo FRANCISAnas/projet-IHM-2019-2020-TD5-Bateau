@@ -39,8 +39,8 @@
 
     <string-array name="notification">
         <item></item>
-        <item>Recevoir uniquement des notifications urgentes</item>
-        <item>Recevoir toutes les notifications</item>
+        <item>Notifications urgentes</item>
+        <item>Toutes les Notifications</item>
     </string-array>
 
     <string-array name="precipitation">
@@ -69,7 +69,7 @@
     <string name="precipitation">Precipitation</string>
     <string name="windspeed">Vitesse du vent</string>
     <string name="pressure">Pression</string>
-    <string name="notificatin">Notification</string>
+    <string name="notificatin">Notification urgente</string>
     <string name="welcome" translatable="false">Bienvenue</string>
     <string name="about_title"> A propos de nous</string>
     <string name="add_incident">AJOUTER UN INCIDENT</string>
@@ -90,7 +90,6 @@
     <string name="des_frag">bonjour de la page des directions</string>
     <string name="departure">Départ</string>
     <string name="arrival">Arrivée</string>
-    <string name="search">Chercher</string>
     <string name="about_text"> Neptune est une application de météo marine, bourrée d\'informations en un coup d\'œil. Bien que ce ne soit pas une excellente option pour la planification quotidienne, le Neptune brille vraiment comme une prévision d\'une semaine afin que vous puissiez planifier le moment idéal pour cette croisière le week-end.
   Neptune vous permet de consulter des prévisions météo détaillées sur plus de 15 jours, avec la possibilité de recevoir des alertes, l\'application est disponible en plusieurs langues.
 Sa navigation simple sur les diapositives fait également du suivi des tempêtes une expérience fascinante. Grâce à Neptune, vous pouvez enregistrer des prévisions et naviguer en toute sécurité dans l\'océan.</string>

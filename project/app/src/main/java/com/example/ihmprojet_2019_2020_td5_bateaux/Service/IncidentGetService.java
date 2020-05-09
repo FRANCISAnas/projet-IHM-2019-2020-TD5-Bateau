@@ -13,7 +13,10 @@ import android.widget.ListView;
 
 import androidx.core.app.NotificationCompat;
 
+import com.example.ihmprojet_2019_2020_td5_bateaux.Data;
+import com.example.ihmprojet_2019_2020_td5_bateaux.Fragments.DialogueMessage;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Fragments.IncidentsFragment;
+import com.example.ihmprojet_2019_2020_td5_bateaux.Fragments.SettingsFragment;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.IncidentListAdapter;
 import com.example.ihmprojet_2019_2020_td5_bateaux.R;
@@ -31,6 +34,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
+import static com.example.ihmprojet_2019_2020_td5_bateaux.NeptuneNotification.CHANNEL_CLASSIQUE;
 import static com.example.ihmprojet_2019_2020_td5_bateaux.NeptuneNotification.CHANNEL_URGENTE;
 
 public class IncidentGetService extends AsyncTask<Void, Void, Void> {
@@ -83,20 +87,20 @@ public class IncidentGetService extends AsyncTask<Void, Void, Void> {
         while (i < jsonArray.length()) {
             try {
                 jsonObject = jsonArray.getJSONObject(i);
-                int id = jsonObject.getInt("id");
-                String nature = jsonObject.getString("nature");
-                String description = jsonObject.getString("description");
-                String date = jsonObject.getString("date");
-                String longitude = jsonObject.getString("longitude");
-                String latitude = jsonObject.getString("latitude");
-                String android_id = jsonObject.getString("android_id");
+                int id = jsonObject.getInt(String.valueOf(Data.id));
+                String nature = jsonObject.getString(String.valueOf(Data.nature));
+                String description = jsonObject.getString(String.valueOf(Data.description));
+                String date = jsonObject.getString(String.valueOf(Data.date));
+                String longitude = jsonObject.getString(String.valueOf(Data.longitude));
+                String latitude = jsonObject.getString(String.valueOf(Data.latitude));
+                String android_id = jsonObject.getString(String.valueOf(Data.android_id));
 
                 Incident incident = new Incident(id, nature, description, date, longitude, latitude, android_id);
                 incidentArrayList.add(incident);
 
                 if (IncidentsFragment.incidentArrayList != null && IncidentsFragment.newIncident(incident.getId())) {
                     if (!incident.getAndroid_id().equals("null") && !incident.getAndroid_id().equals(Settings.Secure.getString(mContext.getContentResolver(), Settings.Secure.ANDROID_ID)))
-                        sendOnUrgent(incident);
+                        sendNotification(incident, this.mContext);
                 }
 
 
@@ -108,6 +112,8 @@ public class IncidentGetService extends AsyncTask<Void, Void, Void> {
         IncidentsFragment.incidentArrayList = incidentArrayList;
         return null;
     }
+
+
 
     @Override
     protected void onPostExecute(Void aVoid) {
@@ -139,17 +145,38 @@ public class IncidentGetService extends AsyncTask<Void, Void, Void> {
     }
 
 
-    public void sendOnUrgent(Incident incident) { //View v
-        if (nbOfNotification == MAX_NUMBER_OF_NOTIFICATIONS) nbOfNotification = 0;
-        /*Intent intent = new Intent(getApplicationContext(), IncidentsFragment.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);*/
-        // final String desccription = ((EditText) getView().findViewById(R.id.editTextDescription)).getText().toString();
+    public static void sendOnUrgent(Incident incident, Context mContext) { //View v
+        if (nbOfNotification == MAX_NUMBER_OF_NOTIFICATIONS)
+            nbOfNotification = 0;
         String ns = Context.NOTIFICATION_SERVICE;
         NotificationManager mNotificationManager = (NotificationManager) mContext.getSystemService(ns);
         Notification notification = new NotificationCompat.Builder(mContext, CHANNEL_URGENTE)
                 .setSmallIcon(R.drawable.ic_alert)
                 .setContentText(incident.getNature())
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .build();
+
+        mNotificationManager.notify(nbOfNotification++, notification);
+    }
+
+    public static void sendNotification(Incident incident, Context mContext) {
+        if(SettingsFragment.URGENT_NOTIFICATIONS){
+            sendOnUrgent(incident, mContext);
+        }
+        else{
+            sendOnclassic(incident, mContext);
+        }
+    }
+
+    public static void sendOnclassic(Incident incident, Context mContext) {
+        if (nbOfNotification == MAX_NUMBER_OF_NOTIFICATIONS)
+            nbOfNotification = 0;
+        String ns = Context.NOTIFICATION_SERVICE;
+        NotificationManager mNotificationManager = (NotificationManager) mContext.getSystemService(ns);
+        Notification notification = new NotificationCompat.Builder(mContext, CHANNEL_CLASSIQUE)
+                .setSmallIcon(R.drawable.ic_alert)
+                .setContentText(incident.getNature())
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .build();
 
         mNotificationManager.notify(nbOfNotification++, notification);
