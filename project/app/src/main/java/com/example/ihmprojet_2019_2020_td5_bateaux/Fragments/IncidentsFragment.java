@@ -115,19 +115,25 @@ public class IncidentsFragment extends Fragment {
 
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
+        AdapterView.AdapterContextMenuInfo adapterContextMenuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         if(item.getItemId() == R.id.edit)
         {
 
-
+            Bundle bundle = new Bundle();
+            bundle.putString("nature",incidentArrayList.get(adapterContextMenuInfo.position).getNature());
+            bundle.putString("description",incidentArrayList.get(adapterContextMenuInfo.position).getDescription());
             FragmentTransaction frag = getFragmentManager().beginTransaction();
-            frag.replace(R.id.fragment_container, new PostFragment());
+            Fragment secondFragment = new PostFragment();
+            secondFragment.setArguments(bundle);
+            frag.replace(R.id.fragment_container, secondFragment);
             frag.commit();
+
 
         }
 
         if(item.getItemId() == R.id.delete)
         {
-            AdapterView.AdapterContextMenuInfo adapterContextMenuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+
             if(incidentArrayList.get(adapterContextMenuInfo.position).getAndroid_id().equals(Settings.Secure.getString(getContext().getContentResolver(), Settings.Secure.ANDROID_ID))){
                 DeleteDialog deleteDialog = new DeleteDialog(incidentArrayList.get(adapterContextMenuInfo.position));
                 deleteDialog.show(getFragmentManager(),"gg");

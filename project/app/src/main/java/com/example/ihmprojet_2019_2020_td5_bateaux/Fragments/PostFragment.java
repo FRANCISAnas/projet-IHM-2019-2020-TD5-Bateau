@@ -87,6 +87,7 @@ public PostFragment(boolean fromAddButton) {
         post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(fromAddButton){
                 String nature;
                  nature = spinner.getSelectedItem().toString();
                 if(nature.equals("Autre")){
@@ -104,7 +105,22 @@ public PostFragment(boolean fromAddButton) {
                 frag.replace(R.id.fragment_container, new IncidentsFragment());
                 frag.commit();
 
-            }
+            }else {
+                    //PUT
+                    Bundle bundle = getArguments() ;
+                    for (int i = 0; i < spinner.getAdapter().getCount() ; i++) {
+                        if(bundle.get("nature").toString().equals(spinner.getItemAtPosition(i))){
+                            spinner.setSelection(i);
+                        }
+                    }
+
+
+                    EditText editText = rootView.findViewById(R.id.editTextDescription);
+                    editText.setText(bundle.get("description").toString());
+                    ;
+                }
+
+                }
         });
 
 
