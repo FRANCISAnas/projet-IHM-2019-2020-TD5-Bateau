@@ -15,25 +15,26 @@ import java.util.ArrayList;
 
 public class IncidentListAdapter extends ArrayAdapter {
 
-    private Context mContext;
     int nRessource;
     ArrayList<Incident> items;
-    public IncidentListAdapter( Context context, int resource,  ArrayList<Incident> objects) {
+    private Context mContext;
+
+    public IncidentListAdapter(Context context, int resource, ArrayList<Incident> objects) {
         super(context, resource, objects);
-        mContext=context;
-        nRessource=resource;
+        mContext = context;
+        nRessource = resource;
         items = objects;
 
     }
 
     @NonNull
     @Override
-    public View getView(int position,  View convertView,  ViewGroup parent) {
-        String nature  = items.get(position).getNature();
-        String date  = items.get(position).getDate();
+    public View getView(int position, View convertView, ViewGroup parent) {
+        String nature = items.get(position).getNature();
+        String date = items.get(position).getDate();
 
         LayoutInflater layoutInflater = LayoutInflater.from(mContext);
-        convertView = layoutInflater.inflate(nRessource,parent,false);
+        convertView = layoutInflater.inflate(nRessource, parent, false);
 
 
         TextView textView = (TextView) convertView.findViewById(R.id.date);

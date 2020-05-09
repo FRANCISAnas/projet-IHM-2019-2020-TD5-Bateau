@@ -18,13 +18,13 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_alignParentTop="true"
         android:layout_marginTop="420dp"
+        android:text="@string/welcome"
         android:textColor="#296bff"
-        android:textStyle="italic"
         android:textSize="@dimen/activity_main_Text_size"
-        android:text="@string/welcome" />
+        android:textStyle="italic" />
 
 </RelativeLayout>

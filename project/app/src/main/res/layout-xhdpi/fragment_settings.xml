@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_settings"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    android:id="@+id/fragment_settings"
     android:orientation="vertical">
 
 
@@ -23,9 +22,9 @@
         android:id="@+id/spinnerTemp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/fragment_settings_spinner_1_marginLeft"
         android:layout_marginTop="200dp"
         android:layout_marginEnd="@dimen/fragment_settings_spinner_1_marginEnd"
-        android:layout_marginLeft="@dimen/fragment_settings_spinner_1_marginLeft"
 
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="166dp"
@@ -55,6 +54,7 @@
         android:layout_marginStart="@dimen/fragment_settings_text_view_3_marginStart"
         android:layout_marginTop="270dp"
         android:text="@string/langauage"
+        android:textColor="#000000"
         android:textSize="@dimen/fragment_settings_text_view_3_text_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/natures"
@@ -62,7 +62,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        android:textColor="#000000"
         tools:ignore="MissingConstraints">
 
     </TextView>
@@ -76,7 +75,6 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="166dp"
         tools:layout_editor_absoluteY="183dp" />
-
 
 
     <TextView
@@ -185,8 +183,6 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="166dp"
         tools:layout_editor_absoluteY="183dp" />
-
-
 
 
 </RelativeLayout>

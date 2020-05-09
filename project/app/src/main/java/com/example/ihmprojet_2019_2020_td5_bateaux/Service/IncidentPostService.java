@@ -2,6 +2,7 @@ package com.example.ihmprojet_2019_2020_td5_bateaux.Service;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.provider.Settings;
 import android.widget.Toast;
 
 import com.example.ihmprojet_2019_2020_td5_bateaux.MainActivity;
@@ -45,12 +46,12 @@ public class IncidentPostService extends AsyncTask<String,String, String> {
                 conn.setDoOutput(true);
 
 
-                Map<String, String> params = new HashMap<>();
-                params.put("nature", this.nature);
-                params.put("description", this.description);
-                params.put("longitude", ""+MainActivity.currentLocation.getLongitude());
-                params.put("latitude", ""+MainActivity.currentLocation.getLatitude());
-
+            Map<String, String> params = new HashMap<>();
+            params.put("nature", this.nature);
+            params.put("description", this.description);
+            params.put("longitude", "" + MainActivity.currentLocation.getLongitude());
+            params.put("latitude", "" + MainActivity.currentLocation.getLatitude());
+            params.put("android_id", Settings.Secure.getString(mContext.getContentResolver(), Settings.Secure.ANDROID_ID));
 
                 StringBuilder postData = new StringBuilder();
                 for (Map.Entry<String, String> pa : params.entrySet()) {

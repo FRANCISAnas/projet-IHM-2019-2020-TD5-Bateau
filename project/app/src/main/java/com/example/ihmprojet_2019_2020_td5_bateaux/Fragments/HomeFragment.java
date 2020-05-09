@@ -1,20 +1,12 @@
 package com.example.ihmprojet_2019_2020_td5_bateaux.Fragments;
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.work.ExistingPeriodicWorkPolicy;
@@ -22,26 +14,18 @@ import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkInfo;
 import androidx.work.WorkManager;
 
-import com.example.ihmprojet_2019_2020_td5_bateaux.DirectionsActivity;
-import com.example.ihmprojet_2019_2020_td5_bateaux.HomeActivity;
-import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
-import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.IncidentListAdapter;
 import com.example.ihmprojet_2019_2020_td5_bateaux.R;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentGetService;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Service.MyAsyncTaskWorker;
 
 import java.util.concurrent.TimeUnit;
 
-import static androidx.constraintlayout.widget.Constraints.TAG;
-import static com.example.ihmprojet_2019_2020_td5_bateaux.NeptuneNotification.CHANNEL_URGENTE;
-
 
 public class HomeFragment extends Fragment {
-    private final static String TAG = "FRANCIS" ;
+
     public static final String TAG_MY_WORK = "mywork";
 
-    public HomeFragment(){
-        Log.d(TAG, "Home Fragment");
+    public HomeFragment() {
     }
 
     @Override
@@ -53,7 +37,7 @@ public class HomeFragment extends Fragment {
          *Nous avons donc le IncidentGetSeercie qui récupèrent les données quand l'utilisateur le demande et MyAsyncTaskWorker qui est lancé périodiquement.
          * Nous avons ajouté la variable statique RUNNING pour éviter que les deux tournent en même temps.
          */
-        if(!IncidentGetService.RUNNING) {
+        if (!IncidentGetService.RUNNING) {
             PeriodicWorkRequest.Builder incident =
                     new PeriodicWorkRequest.Builder(MyAsyncTaskWorker.class, 5, TimeUnit.SECONDS);
             PeriodicWorkRequest request = incident
@@ -65,7 +49,7 @@ public class HomeFragment extends Fragment {
                 @Override
                 public void onChanged(WorkInfo workInfo) {
 
-                    if (workInfo.getState().equals(WorkInfo.State.ENQUEUED) && IncidentsFragment.incidentArrayList!=null) {
+                    if (workInfo.getState().equals(WorkInfo.State.ENQUEUED) && IncidentsFragment.incidentArrayList != null) {
                         Toast.makeText(getContext(), "Fetchng data...", Toast.LENGTH_SHORT).show();
 
 
@@ -73,8 +57,6 @@ public class HomeFragment extends Fragment {
                 }
             });
         }
-
-
 
 
         return rootView;

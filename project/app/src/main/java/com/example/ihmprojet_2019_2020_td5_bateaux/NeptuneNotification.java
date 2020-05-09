@@ -11,19 +11,18 @@ public class NeptuneNotification extends Application {
     public static final String CHANNEL_CLASSIQUE = "Classic";
 
 
-
     @Override
-    public void onCreate(){
+    public void onCreate() {
         super.onCreate();
         createNotificationChannels();
     }
 
     private void createNotificationChannels() {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel urgentChannel = new NotificationChannel(CHANNEL_URGENTE, "Urgent Channel", NotificationManager.IMPORTANCE_HIGH);
 
             urgentChannel.setDescription("This is Urgent Channel");
-            NotificationChannel classicChannel =  new NotificationChannel(CHANNEL_CLASSIQUE, "Classic channel", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationChannel classicChannel = new NotificationChannel(CHANNEL_CLASSIQUE, "Classic channel", NotificationManager.IMPORTANCE_DEFAULT);
 
             classicChannel.setDescription("This is Classic Channel");
 
