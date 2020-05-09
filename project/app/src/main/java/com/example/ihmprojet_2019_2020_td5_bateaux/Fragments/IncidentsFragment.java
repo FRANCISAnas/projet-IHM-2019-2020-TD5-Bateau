@@ -27,7 +27,6 @@ import java.util.ArrayList;
 
 public class IncidentsFragment extends Fragment {
 
-    private static final String TAG = "FRANCIS";
     public static ArrayList<Incident> incidentArrayList;
     public static boolean newIncident = false;
     public static ListView listView;

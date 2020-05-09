@@ -22,11 +22,7 @@ import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentPostService;
 
 public class PostFragment extends Fragment {
 
-    public final static String TAG = "FRANCIS";
-    private static final int MAX_NUMBER_OF_NOTIFICATIONS = 3;
-    public static int nbOfNotification = 0;
     boolean fromAddButton = false;
-    private NotificationManagerCompat notificationManager;
 
 
     public PostFragment() {
@@ -43,7 +39,6 @@ public class PostFragment extends Fragment {
         final View rootView = inflater.inflate(R.layout.fragment_incident_submission, container, false);
 
         final Spinner spinner = (Spinner) rootView.findViewById(R.id.natures);
-        notificationManager = NotificationManagerCompat.from(getContext());
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(container.getContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.natures));
         myAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         spinner.setAdapter(myAdapter);

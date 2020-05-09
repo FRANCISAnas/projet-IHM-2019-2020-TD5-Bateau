@@ -33,7 +33,6 @@ import static com.example.ihmprojet_2019_2020_td5_bateaux.NeptuneNotification.CH
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    public final static String TAG = "FRANCIS";
     private static final int MAX_NUMBER_OF_NOTIFICATIONS = 3;
     public static int nbOfNotification = 0;
     NavigationView navigationView;
@@ -101,7 +100,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         /*Intent intent = new Intent(getApplicationContext(), IncidentsFragment.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);*/
         final String desccription = ((EditText) findViewById(R.id.editTextDescription)).getText().toString();
-        Log.d(TAG, desccription + " On est là !!!!! ");
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_URGENTE)
                 .setSmallIcon(R.drawable.ic_alert)
                 .setContentText(desccription)

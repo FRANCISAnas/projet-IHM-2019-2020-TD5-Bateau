@@ -32,10 +32,8 @@ import static com.example.ihmprojet_2019_2020_td5_bateaux.NeptuneNotification.CH
 public class MyAsyncTaskWorker extends Worker {
 
 
-    public final static String TAG = "FRANCIS";
     ArrayList<Incident> incidentArrayList;
     private Context mContext;
-    private boolean newIncident = false;
 
 
     public MyAsyncTaskWorker(@NonNull Context context, WorkerParameters workerParams) {
