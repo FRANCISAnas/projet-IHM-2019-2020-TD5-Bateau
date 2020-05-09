@@ -14,7 +14,6 @@ import android.widget.ListView;
 import androidx.core.app.NotificationCompat;
 
 import com.example.ihmprojet_2019_2020_td5_bateaux.Data;
-import com.example.ihmprojet_2019_2020_td5_bateaux.Fragments.DialogueMessage;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Fragments.IncidentsFragment;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Fragments.SettingsFragment;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;

@@ -69,7 +69,7 @@
     <string name="precipitation">Precipitation</string>
     <string name="windspeed">Vitesse du vent</string>
     <string name="pressure">Pression</string>
-    <string name="notificatin">Notification urgente</string>
+    <string name="notificatin">Notification</string>
     <string name="welcome" translatable="false">Bienvenue</string>
     <string name="about_title"> A propos de nous</string>
     <string name="add_incident">AJOUTER UN INCIDENT</string>
@@ -96,4 +96,6 @@ Sa navigation simple sur les diapositives fait également du suivi des tempêtes
     <string name="option">Vous voulez la poster sur Facebook aussi?</string>
     <string name="yes">Oui</string>
     <string name="No">Non</string>
+    <string name="uregent">Urgente</string>
+
 </resources>

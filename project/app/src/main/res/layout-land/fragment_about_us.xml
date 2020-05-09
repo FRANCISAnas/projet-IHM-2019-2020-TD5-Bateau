@@ -34,14 +34,14 @@
                 android:textColor="#000000"
                 android:textSize="20sp" />
 
-            <Button
+            <ImageView
                 android:id="@+id/facebook"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="@dimen/fragment_about_us_image_1_marginLeft"
-                android:layout_marginTop="310dp"
+                android:layout_width="@dimen/fragment_about_us_image_1_width"
+                android:layout_height="@dimen/fragment_about_us_image_1_height"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="340dp"
                 android:contentDescription="TODO"
-                android:drawableLeft="@drawable/facebook" />
+                app:srcCompat="@drawable/facebook" />
 
             <TextView
                 android:layout_width="@dimen/fragment_about_us_textview3_width"
@@ -53,12 +53,12 @@
                 android:textSize="18sp" />
 
 
-            <Button
+            <ImageView
                 android:id="@+id/twitter"
                 android:layout_width="@dimen/fragment_about_us_image_2_width"
                 android:layout_height="@dimen/fragment_about_us_image_2_height"
-                android:layout_marginLeft="@dimen/fragment_about_us_image_2_marginLeft"
-                android:layout_marginTop="@dimen/fragment_about_us_image_2_marginTop"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="415dp"
                 app:srcCompat="@drawable/twitter" />
 
             <TextView
@@ -70,12 +70,12 @@
                 android:textColor="#000000"
                 android:textSize="18sp" />
 
-            <Button
+            <ImageView
                 android:id="@+id/gmail"
                 android:layout_width="@dimen/fragment_about_us_image_3_width"
                 android:layout_height="@dimen/fragment_about_us_image_3_height"
-                android:layout_marginLeft="@dimen/fragment_about_us_image_3_marginLeft"
-                android:layout_marginTop="@dimen/fragment_about_us_image_3_marginTop"
+                android:layout_marginLeft="400dp"
+                android:layout_marginTop="340dp"
                 app:srcCompat="@drawable/email" />
 
             <TextView
@@ -87,12 +87,12 @@
                 android:textColor="#000000"
                 android:textSize="18sp" />
 
-            <Button
+            <ImageView
                 android:id="@+id/faq"
                 android:layout_width="@dimen/fragment_about_us_image_4_width"
                 android:layout_height="@dimen/fragment_about_us_image_4_height"
-                android:layout_marginLeft="@dimen/fragment_about_us_image_4_marginLeft"
-                android:layout_marginTop="@dimen/fragment_about_us_image_4_marginTop"
+                android:layout_marginLeft="400dp"
+                android:layout_marginTop="415dp"
                 app:srcCompat="@drawable/faq" />
 
             <TextView

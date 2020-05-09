@@ -6,11 +6,13 @@ import android.content.res.Resources;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -25,7 +27,9 @@ import java.util.Locale;
 public class SettingsFragment extends Fragment implements AdapterView.OnItemSelectedListener {
     Locale myLocale;
     String currentLanguage = "en", currentLang;
-    public static boolean URGENT_NOTIFICATIONS = true;
+    public static boolean URGENT_NOTIFICATIONS = false;
+    private CheckBox checkBox;
+    private static final String TAG = "FRANCIS";
     public SettingsFragment() {
         // Empty constructor required
     }
@@ -56,12 +60,15 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
         spinner2.setAdapter(adapter2);
         spinner2.getBackground().setColorFilter(getResources().getColor(R.color.design_default_color_primary_dark), PorterDuff.Mode.SRC_ATOP);
 
-        Spinner spinner3 = rootView.findViewById(R.id.spinnerTempN); // Notifications
-        ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(getActivity(), R.array.notification, android.R.layout.simple_spinner_item);
-        adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner3.setAdapter(adapter3);
-        spinner3.getBackground().setColorFilter(getResources().getColor(R.color.design_default_color_primary_dark), PorterDuff.Mode.SRC_ATOP);
-        notificationsChoice(spinner3);
+        checkBox = (CheckBox) rootView.findViewById(R.id.checkBox);
+        checkBox.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                if(!URGENT_NOTIFICATIONS)URGENT_NOTIFICATIONS = true;
+                else URGENT_NOTIFICATIONS = false;
+            }
+        });
 
 
         Spinner spinner4 = rootView.findViewById(R.id.spinnerTempP);

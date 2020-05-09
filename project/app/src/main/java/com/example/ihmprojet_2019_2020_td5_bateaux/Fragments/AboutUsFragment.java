@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -24,7 +25,7 @@ public class AboutUsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstaceState) {
         View rootView = inflater.inflate(R.layout.fragment_about_us, container, false);
 
-        Button facebook = rootView.findViewById(R.id.facebook);
+        ImageView facebook = rootView.findViewById(R.id.facebook);
         facebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,24 +33,24 @@ public class AboutUsFragment extends Fragment {
             }
 
         });
-        Button twiter = rootView.findViewById(R.id.twitter);
-        facebook.setOnClickListener(new View.OnClickListener() {
+        ImageView twiter = rootView.findViewById(R.id.twitter);
+        twiter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 goToTwitterPage();
             }
 
         });
-        Button gmail = rootView.findViewById(R.id.gmail);
-        facebook.setOnClickListener(new View.OnClickListener() {
+        ImageView gmail = rootView.findViewById(R.id.gmail);
+        gmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 goToGmailPage();
             }
 
         });
-        Button faq = rootView.findViewById(R.id.faq);
-        facebook.setOnClickListener(new View.OnClickListener() {
+        ImageView faq = rootView.findViewById(R.id.faq);
+        faq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 goToFAQPage();
