@@ -22,11 +22,10 @@ import java.util.concurrent.TimeUnit;
 
 
 public class HomeFragment extends Fragment {
+
     public static final String TAG_MY_WORK = "mywork";
-    private final static String TAG = "FRANCIS";
 
     public HomeFragment() {
-        Log.d(TAG, "Home Fragment");
     }
 
     @Override
