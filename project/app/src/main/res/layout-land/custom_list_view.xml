@@ -12,10 +12,11 @@
     android:layout_weight="33.3">
 
     <TextView
+        android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/custom_list_view_height"
         android:layout_weight="33.3"
-        android:id="@+id/Nature" />
+        android:textColor="#60CC1E1E" />
 
     <TextView
         android:id="@+id/Description"

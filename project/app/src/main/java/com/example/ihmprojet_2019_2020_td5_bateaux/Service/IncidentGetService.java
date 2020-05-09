@@ -1,13 +1,19 @@
 package com.example.ihmprojet_2019_2020_td5_bateaux.Service;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.provider.Settings;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ListView;
+
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import com.example.ihmprojet_2019_2020_td5_bateaux.Fragments.IncidentsFragment;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
@@ -27,27 +33,36 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
+import static com.example.ihmprojet_2019_2020_td5_bateaux.NeptuneNotification.CHANNEL_URGENTE;
+
 public class IncidentGetService extends AsyncTask<Void, Void, Void> {
     ArrayList<Incident> incidentArrayList;
     private Context mContext;
 
+    public static boolean RUNNING = false;
 
-
+    boolean newIncident = false;
     private ListView listView;
 
-    private ViewGroup rootView;
+    private View rootView;
     IncidentListAdapter incidentListAdapter;
     private EditText theFilter;
 
 
-    public IncidentGetService(Context context, ListView listView) { //, View view)
+    public static int nbOfNotification = 0;
+
+    public  static final int MAX_NUMBER_OF_NOTIFICATIONS = 3;
+
+
+    public IncidentGetService(Context context, ListView listView,View view) { //, )
         mContext=context;
         this.listView = listView;
-        //rootView = view;
+        rootView = view;
     }
 
     @Override
     protected Void doInBackground(Void... voids) {
+        RUNNING = true;
         String data = "";
         try {
             URL url = new URL("http://www.neptune.dinelhost.com/api/incident.php");
@@ -87,8 +102,9 @@ public class IncidentGetService extends AsyncTask<Void, Void, Void> {
                 Incident incident = new Incident(id,nature,description,date,longitude,latitude,android_id);
                 incidentArrayList.add(incident);
 
-                if(!IncidentsFragment.incidentArrayList.contains(incident)){
-
+                if(IncidentsFragment.incidentArrayList!=null && IncidentsFragment.newIncident(incident.getId())){
+                    if(!incident.getAndroid_id().equals("null") && !incident.getAndroid_id().equals(Settings.Secure.getString(mContext.getContentResolver(), Settings.Secure.ANDROID_ID)))
+                        sendOnUrgent(incident);
                 }
 
 
@@ -103,11 +119,13 @@ public class IncidentGetService extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected void onPostExecute(Void aVoid) {
+        RUNNING = false;
         super.onPostExecute(aVoid);
         theFilter = rootView.findViewById(R.id.filter_incident);
 
         incidentListAdapter = new IncidentListAdapter(mContext, R.layout.custom_list_view, incidentArrayList);
         listView.setAdapter(incidentListAdapter);
+
         theFilter.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -124,15 +142,25 @@ public class IncidentGetService extends AsyncTask<Void, Void, Void> {
                 incidentListAdapter.getFilter().filter(s.toString());
             }
         });
+
+
     }
 
 
 
-    @Override
-    protected void onProgressUpdate(Void... values) {
-        super.onProgressUpdate(values);
-        //ProgressBar progressBar = (ProgressBar) rootView.findViewById(R.id.progressBar);
-        ///progressBar.setMax(10);
-        //progressBar.setProgress(progress,true);
+    public  void sendOnUrgent(Incident incident) { //View v
+        if (nbOfNotification == MAX_NUMBER_OF_NOTIFICATIONS) nbOfNotification = 0;
+        /*Intent intent = new Intent(getApplicationContext(), IncidentsFragment.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);*/
+       // final String desccription = ((EditText) getView().findViewById(R.id.editTextDescription)).getText().toString();
+        String ns = Context.NOTIFICATION_SERVICE;
+        NotificationManager mNotificationManager = (NotificationManager) mContext.getSystemService(ns);
+        Notification notification = new NotificationCompat.Builder(mContext, CHANNEL_URGENTE)
+                .setSmallIcon(R.drawable.ic_alert)
+                .setContentText(incident.getNature())
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .build();
+
+        mNotificationManager.notify(nbOfNotification++, notification);
     }
 }

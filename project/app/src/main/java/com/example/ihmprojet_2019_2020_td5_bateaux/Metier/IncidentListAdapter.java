@@ -36,7 +36,7 @@ public class IncidentListAdapter extends ArrayAdapter {
         convertView = layoutInflater.inflate(nRessource,parent,false);
 
 
-        TextView textView = (TextView) convertView.findViewById(R.id.Nature);
+        TextView textView = (TextView) convertView.findViewById(R.id.date);
         TextView textView2 = (TextView) convertView.findViewById(R.id.Description);
         textView.setText(nature);
         textView2.setText(date);

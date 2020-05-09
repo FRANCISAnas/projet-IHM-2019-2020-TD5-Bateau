@@ -71,7 +71,7 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Edit Report"
+        android:text="@string/Edit_Report"
         android:layout_marginTop="50dp"
         android:layout_marginLeft="150dp"
 
@@ -83,7 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="230dp"
         android:layout_marginTop="300dp"
-        android:text="@string/Apply Changes"
+        android:text="@string/Apply_Changes"
         android:onClick="sendOnUrgent"/>
 
     <EditText

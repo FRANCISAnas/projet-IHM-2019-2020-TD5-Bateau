@@ -67,6 +67,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="temperature">Temperature</string>
+    <string name ="Edit_Report" translatable="false">Edit_eport</string>
+    <string name ="Apply_Changes" translatable="false">Apply_Changes</string>
     <string name="langauage">Language</string>
     <string name="timeformat">Time format</string>
     <string name="precipitation">Precipitation</string>

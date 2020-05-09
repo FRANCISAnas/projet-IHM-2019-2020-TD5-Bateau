@@ -103,8 +103,7 @@ public PostFragment(boolean fromAddButton) {
                 FragmentTransaction frag = getFragmentManager().beginTransaction();
                 frag.replace(R.id.fragment_container, new IncidentsFragment());
                 frag.commit();
-                openDialog(nature, description, container);
-                sendOnUrgent(v);
+
             }
         });
 
@@ -121,17 +120,5 @@ public PostFragment(boolean fromAddButton) {
 
 
 
-    public void sendOnUrgent(View v) {
-        if (nbOfNotification == MAX_NUMBER_OF_NOTIFICATIONS) nbOfNotification = 0;
-        /*Intent intent = new Intent(getApplicationContext(), IncidentsFragment.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);*/
-        final String desccription = ((EditText) getView().findViewById(R.id.editTextDescription)).getText().toString();
 
-        Notification notification = new NotificationCompat.Builder(getContext(), CHANNEL_URGENTE)
-                .setSmallIcon(R.drawable.ic_alert)
-                .setContentText(desccription)
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .build();
-        notificationManager.notify(nbOfNotification++, notification);
-    }
 }
