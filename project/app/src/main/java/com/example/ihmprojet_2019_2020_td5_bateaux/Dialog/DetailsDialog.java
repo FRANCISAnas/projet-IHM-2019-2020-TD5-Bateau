@@ -19,7 +19,7 @@ import com.example.ihmprojet_2019_2020_td5_bateaux.R;
 public class DetailsDialog extends DialogFragment {
     Incident incident;
 
-    public DetailsDialog(Incident incident){
+    public DetailsDialog(Incident incident) {
         this.incident = incident;
     }
 
@@ -28,7 +28,7 @@ public class DetailsDialog extends DialogFragment {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater layoutInflater = getActivity().getLayoutInflater();
-        View view = layoutInflater.inflate(R.layout.details_layout,null);
+        View view = layoutInflater.inflate(R.layout.details_layout, null);
 
         builder.setView(view).setTitle("Details").setPositiveButton("Done", new DialogInterface.OnClickListener() {
             @Override
@@ -51,7 +51,7 @@ public class DetailsDialog extends DialogFragment {
         TextView dateVal = view.findViewById(R.id.dateValue);
         dateVal.setText(incident.getDate());
         TextView desc = view.findViewById(R.id.descValue);
-        if(!incident.getNature().equals("")) {
+        if (!incident.getNature().equals("")) {
             desc.setText(incident.getDescription());
             desc.setVisibility(View.VISIBLE);
         }

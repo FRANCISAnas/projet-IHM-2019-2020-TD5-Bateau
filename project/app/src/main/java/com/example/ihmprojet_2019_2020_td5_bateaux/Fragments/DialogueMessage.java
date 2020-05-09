@@ -26,15 +26,15 @@ import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentPostService;
 import static com.example.ihmprojet_2019_2020_td5_bateaux.NeptuneNotification.CHANNEL_URGENTE;
 
 public class DialogueMessage extends AppCompatDialogFragment {
+    private static final String FACEBOOK_PAGE_ID = "151932215253161";
+    private static final int MAX_NUMBER_OF_NOTIFICATIONS = 3;
+    public static int nbOfNotification = 0;
+    final ViewGroup container;
     private String nature;
     private String description;
-    private static final String FACEBOOK_PAGE_ID = "151932215253161";
     private NotificationManagerCompat notificationManager;
-    public static int nbOfNotification = 0;
-    private static final int MAX_NUMBER_OF_NOTIFICATIONS = 3;
-    final ViewGroup container;
 
-    DialogueMessage(String nature, String desc, ViewGroup container){
+    DialogueMessage(String nature, String desc, ViewGroup container) {
         this.nature = nature;
         this.description = desc;
         this.container = container;
@@ -43,7 +43,7 @@ public class DialogueMessage extends AppCompatDialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        AlertDialog.Builder builder =  new AlertDialog.Builder(getActivity());
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
         final View view = inflater.inflate(R.layout.option_dialog_layout, null);
@@ -64,18 +64,18 @@ public class DialogueMessage extends AppCompatDialogFragment {
         return builder.create();
     }
 
-    private void goToFaceBookPage(String id){
+    private void goToFaceBookPage(String id) {
         portAnIncident();
         try {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/" + id));
             startActivity(intent);
-        }catch (ActivityNotFoundException e){
+        } catch (ActivityNotFoundException e) {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/" + id));
             startActivity(intent);
         }
     }
 
-    private void portAnIncident(){
+    private void portAnIncident() {
         IncidentPostService postService = new IncidentPostService(container.getContext(), nature, description);
         postService.execute();
         FragmentTransaction frag = getFragmentManager().beginTransaction();

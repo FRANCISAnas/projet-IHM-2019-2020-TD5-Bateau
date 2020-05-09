@@ -13,19 +13,19 @@ import com.example.ihmprojet_2019_2020_td5_bateaux.DirectionsActivity;
 import com.example.ihmprojet_2019_2020_td5_bateaux.R;
 
 public class DirectionsFragment extends Fragment {
-    public DirectionsFragment(){
+    public DirectionsFragment() {
         // Empty constructor required
     }
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstaceState){
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstaceState) {
         View rootView = inflater.inflate(R.layout.fragment_directions, container, false);
-        Button btn =(Button) rootView.findViewById( R.id.go_to_Directions_button);
+        Button btn = (Button) rootView.findViewById(R.id.go_to_Directions_button);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in =new Intent(getActivity(), DirectionsActivity.class);
+                Intent in = new Intent(getActivity(), DirectionsActivity.class);
                 startActivity(in);
             }
         });

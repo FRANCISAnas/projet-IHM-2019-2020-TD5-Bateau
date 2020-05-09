@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <Button
         android:id="@+id/addIncident"
@@ -11,9 +11,9 @@
         android:text="@string/add_incident" />
 
     <EditText
+        android:id="@+id/filter_incident"
         android:layout_width="match_parent"
         android:layout_height="@dimen/activity_incidents_height"
-        android:id="@+id/filter_incident"
         android:hint="filter"
 
         />
@@ -23,7 +23,7 @@
         android:id="@+id/myListView"
         android:layout_width="match_parent"
 
-        android:layout_height="@dimen/activity_incidents_heightL" >
+        android:layout_height="@dimen/activity_incidents_heightL">
 
     </ListView>
 

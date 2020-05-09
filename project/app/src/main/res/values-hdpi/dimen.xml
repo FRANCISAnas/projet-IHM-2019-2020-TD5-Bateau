@@ -7,7 +7,7 @@
 
     <!--Button activity_incident -->
     <dimen name="activity_incidents_heightB">57dp</dimen>
-    
+
     <!--EditText activity_incident -->
     <dimen name="activity_incidents_height">50dp</dimen>
 
@@ -21,7 +21,7 @@
     <!--TextView activity_main -->
     <dimen name="activ_main_marginTop">400dp</dimen>
     <dimen name="activity_main_Text_size">30dp</dimen>
-    
+
     <!-- LinearLayout custom_list_view -->
     <dimen name="custom_list_view_layout_weight">33.3</dimen>
 

@@ -18,7 +18,7 @@
     <!--TextView activity_main -->
     <dimen name="activ_main_marginTop">500dp</dimen>
     <dimen name="activity_main_Text_size">30dp</dimen>
-    
+
     <!-- LinearLayout custom_list_view -->
     <dimen name="custom_list_view_layout_weight">33.3</dimen>
 

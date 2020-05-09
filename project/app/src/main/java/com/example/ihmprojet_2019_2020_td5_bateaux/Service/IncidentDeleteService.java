@@ -2,29 +2,26 @@ package com.example.ihmprojet_2019_2020_td5_bateaux.Service;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.provider.Settings;
 
 import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
-public class IncidentDeleteService extends AsyncTask<String,String,String> {
+public class IncidentDeleteService extends AsyncTask<String, String, String> {
 
 
     Incident incident;
 
     private Context mContext;
 
-    public IncidentDeleteService(Context context, Incident incident){
-        mContext=context;
+    public IncidentDeleteService(Context context, Incident incident) {
+        mContext = context;
         this.incident = incident;
     }
 
@@ -40,7 +37,6 @@ public class IncidentDeleteService extends AsyncTask<String,String,String> {
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             conn.setDoInput(true);
             conn.setDoOutput(true);
-
 
 
             Map<String, String> params = new HashMap<>();
@@ -78,7 +74,6 @@ public class IncidentDeleteService extends AsyncTask<String,String,String> {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
 
 
         return null;

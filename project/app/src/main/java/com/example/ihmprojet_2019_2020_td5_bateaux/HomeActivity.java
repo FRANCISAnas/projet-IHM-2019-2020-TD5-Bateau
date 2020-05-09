@@ -11,7 +11,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,14 +33,14 @@ import static com.example.ihmprojet_2019_2020_td5_bateaux.NeptuneNotification.CH
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    public final static String TAG = "FRANCIS";
     private static final int MAX_NUMBER_OF_NOTIFICATIONS = 3;
     public static int nbOfNotification = 0;
-
-    private NotificationManagerCompat notificationManager;
-    private DrawerLayout drawer;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
-    public final static String TAG = "FRANCIS";
+    private NotificationManagerCompat notificationManager;
+    private DrawerLayout drawer;
+
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);

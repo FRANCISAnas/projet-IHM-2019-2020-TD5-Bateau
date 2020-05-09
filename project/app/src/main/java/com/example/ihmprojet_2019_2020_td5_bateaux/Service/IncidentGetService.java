@@ -8,12 +8,10 @@ import android.provider.Settings;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ListView;
 
 import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 
 import com.example.ihmprojet_2019_2020_td5_bateaux.Fragments.IncidentsFragment;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
@@ -36,26 +34,20 @@ import java.util.ArrayList;
 import static com.example.ihmprojet_2019_2020_td5_bateaux.NeptuneNotification.CHANNEL_URGENTE;
 
 public class IncidentGetService extends AsyncTask<Void, Void, Void> {
-    ArrayList<Incident> incidentArrayList;
-    private Context mContext;
-
+    public static final int MAX_NUMBER_OF_NOTIFICATIONS = 3;
     public static boolean RUNNING = false;
-
+    public static int nbOfNotification = 0;
+    ArrayList<Incident> incidentArrayList;
     boolean newIncident = false;
-    private ListView listView;
-
-    private View rootView;
     IncidentListAdapter incidentListAdapter;
+    private Context mContext;
+    private ListView listView;
+    private View rootView;
     private EditText theFilter;
 
 
-    public static int nbOfNotification = 0;
-
-    public  static final int MAX_NUMBER_OF_NOTIFICATIONS = 3;
-
-
-    public IncidentGetService(Context context, ListView listView,View view) { //, )
-        mContext=context;
+    public IncidentGetService(Context context, ListView listView, View view) { //, )
+        mContext = context;
         this.listView = listView;
         rootView = view;
     }
@@ -70,9 +62,9 @@ public class IncidentGetService extends AsyncTask<Void, Void, Void> {
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
             String line = "";
-            while(line!=null){
+            while (line != null) {
                 line = bufferedReader.readLine();
-                data+=line;
+                data += line;
             }
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -99,11 +91,11 @@ public class IncidentGetService extends AsyncTask<Void, Void, Void> {
                 String latitude = jsonObject.getString("latitude");
                 String android_id = jsonObject.getString("android_id");
 
-                Incident incident = new Incident(id,nature,description,date,longitude,latitude,android_id);
+                Incident incident = new Incident(id, nature, description, date, longitude, latitude, android_id);
                 incidentArrayList.add(incident);
 
-                if(IncidentsFragment.incidentArrayList!=null && IncidentsFragment.newIncident(incident.getId())){
-                    if(!incident.getAndroid_id().equals("null") && !incident.getAndroid_id().equals(Settings.Secure.getString(mContext.getContentResolver(), Settings.Secure.ANDROID_ID)))
+                if (IncidentsFragment.incidentArrayList != null && IncidentsFragment.newIncident(incident.getId())) {
+                    if (!incident.getAndroid_id().equals("null") && !incident.getAndroid_id().equals(Settings.Secure.getString(mContext.getContentResolver(), Settings.Secure.ANDROID_ID)))
                         sendOnUrgent(incident);
                 }
 
@@ -147,12 +139,11 @@ public class IncidentGetService extends AsyncTask<Void, Void, Void> {
     }
 
 
-
-    public  void sendOnUrgent(Incident incident) { //View v
+    public void sendOnUrgent(Incident incident) { //View v
         if (nbOfNotification == MAX_NUMBER_OF_NOTIFICATIONS) nbOfNotification = 0;
         /*Intent intent = new Intent(getApplicationContext(), IncidentsFragment.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);*/
-       // final String desccription = ((EditText) getView().findViewById(R.id.editTextDescription)).getText().toString();
+        // final String desccription = ((EditText) getView().findViewById(R.id.editTextDescription)).getText().toString();
         String ns = Context.NOTIFICATION_SERVICE;
         NotificationManager mNotificationManager = (NotificationManager) mContext.getSystemService(ns);
         Notification notification = new NotificationCompat.Builder(mContext, CHANNEL_URGENTE)

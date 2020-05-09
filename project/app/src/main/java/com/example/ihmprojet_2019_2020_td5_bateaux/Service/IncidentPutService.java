@@ -2,7 +2,6 @@ package com.example.ihmprojet_2019_2020_td5_bateaux.Service;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.provider.Settings;
 import android.widget.Toast;
 
 import java.io.DataOutputStream;
@@ -12,17 +11,16 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
-public class IncidentPutService extends AsyncTask<String,String, String> {
+public class IncidentPutService extends AsyncTask<String, String, String> {
     String nature;
     String description;
     private Context mContext;
 
-    public IncidentPutService(Context context, String nature, String description){
-        mContext=context;
+    public IncidentPutService(Context context, String nature, String description) {
+        mContext = context;
         this.nature = nature;
         this.description = description;
     }
-
 
 
     @Override
@@ -30,7 +28,7 @@ public class IncidentPutService extends AsyncTask<String,String, String> {
         super.onPostExecute(s);
 
         // create a Toast
-        Toast.makeText(mContext,"Incident Edited successfully",Toast.LENGTH_SHORT).show();
+        Toast.makeText(mContext, "Incident Edited successfully", Toast.LENGTH_SHORT).show();
     }
 
     @Override

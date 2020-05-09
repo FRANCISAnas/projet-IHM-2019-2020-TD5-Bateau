@@ -1,8 +1,6 @@
 package com.example.ihmprojet_2019_2020_td5_bateaux.Fragments;
 
-import android.app.Notification;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,39 +11,31 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
-import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
 import com.example.ihmprojet_2019_2020_td5_bateaux.R;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentPostService;
-
-import static com.example.ihmprojet_2019_2020_td5_bateaux.NeptuneNotification.CHANNEL_URGENTE;
 
 
 public class PostFragment extends Fragment {
 
-    boolean fromAddButton = false;
-
-
-    private NotificationManagerCompat notificationManager;
-
-    public static int nbOfNotification = 0;
-
-    private static final int MAX_NUMBER_OF_NOTIFICATIONS = 3;
     public final static String TAG = "FRANCIS";
+    private static final int MAX_NUMBER_OF_NOTIFICATIONS = 3;
+    public static int nbOfNotification = 0;
+    boolean fromAddButton = false;
+    private NotificationManagerCompat notificationManager;
 
 
     public PostFragment() {
         // Required empty public constructor
     }
 
-public PostFragment(boolean fromAddButton) {
-    this.fromAddButton = fromAddButton;
-}
+    public PostFragment(boolean fromAddButton) {
+        this.fromAddButton = fromAddButton;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
@@ -76,9 +66,8 @@ public PostFragment(boolean fromAddButton) {
         });
 
 
-
         Button post = rootView.findViewById(R.id.post);
-        if(fromAddButton) {
+        if (fromAddButton) {
             post.setText("Post");
             TextView tv = rootView.findViewById(R.id.textView5);
             tv.setText("Report");
@@ -87,29 +76,29 @@ public PostFragment(boolean fromAddButton) {
         post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(fromAddButton){
-                String nature;
-                 nature = spinner.getSelectedItem().toString();
-                if(nature.equals("Autre")){
-                    EditText editText = rootView.findViewById(R.id.naturetype);
-                    nature = editText.getText().toString();
-                }
-                EditText editText = rootView.findViewById(R.id.editTextDescription);
-                final String description = editText.getText().toString();
+                if (fromAddButton) {
+                    String nature;
+                    nature = spinner.getSelectedItem().toString();
+                    if (nature.equals("Autre")) {
+                        EditText editText = rootView.findViewById(R.id.naturetype);
+                        nature = editText.getText().toString();
+                    }
+                    EditText editText = rootView.findViewById(R.id.editTextDescription);
+                    final String description = editText.getText().toString();
 
-                Incident incident = new Incident(nature,description);
+                    Incident incident = new Incident(nature, description);
 
-                IncidentPostService postService = new IncidentPostService(container.getContext(),nature,description);
-                postService.execute();
-                FragmentTransaction frag = getFragmentManager().beginTransaction();
-                frag.replace(R.id.fragment_container, new IncidentsFragment());
-                frag.commit();
+                    IncidentPostService postService = new IncidentPostService(container.getContext(), nature, description);
+                    postService.execute();
+                    FragmentTransaction frag = getFragmentManager().beginTransaction();
+                    frag.replace(R.id.fragment_container, new IncidentsFragment());
+                    frag.commit();
 
-            }else {
+                } else {
                     //PUT
-                    Bundle bundle = getArguments() ;
-                    for (int i = 0; i < spinner.getAdapter().getCount() ; i++) {
-                        if(bundle.get("nature").toString().equals(spinner.getItemAtPosition(i))){
+                    Bundle bundle = getArguments();
+                    for (int i = 0; i < spinner.getAdapter().getCount(); i++) {
+                        if (bundle.get("nature").toString().equals(spinner.getItemAtPosition(i))) {
                             spinner.setSelection(i);
                         }
                     }
@@ -120,16 +109,12 @@ public PostFragment(boolean fromAddButton) {
                     ;
                 }
 
-                }
+            }
         });
 
 
         return rootView;
     }
-
-
-
-
 
 
 }

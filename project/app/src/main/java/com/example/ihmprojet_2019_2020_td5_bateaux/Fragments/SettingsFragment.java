@@ -22,14 +22,14 @@ import com.example.ihmprojet_2019_2020_td5_bateaux.R;
 import java.util.Locale;
 
 public class SettingsFragment extends Fragment implements AdapterView.OnItemSelectedListener {
-    public SettingsFragment(){
+    Locale myLocale;
+    String currentLanguage = "en", currentLang;
+    public SettingsFragment() {
         // Empty constructor required
     }
 
-    Locale myLocale;
-    String currentLanguage = "en", currentLang;
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstaceState){
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstaceState) {
 
         currentLanguage = getIntent().getStringExtra(currentLang);
 
@@ -39,7 +39,7 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.getBackground().setColorFilter(getResources().getColor(R.color.design_default_color_primary_dark), PorterDuff.Mode.SRC_ATOP);
-       // spinner.setOnItemSelectedListener(this);
+        // spinner.setOnItemSelectedListener(this);
 
         Spinner spinner1 = rootView.findViewById(R.id.spinnerTempL);
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(getActivity(), R.array.langue, android.R.layout.simple_spinner_item);
@@ -89,8 +89,8 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-       // String text = parent.getItemAtPosition(position).toString();
-      //  Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
+        // String text = parent.getItemAtPosition(position).toString();
+        //  Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
 
         Configuration config;
         switch (pos) {
@@ -123,7 +123,6 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
             Toast.makeText(getContext(), "Language already selected!", Toast.LENGTH_SHORT).show();
         }
     }
-
 
 
     public void onBackPressed() {
