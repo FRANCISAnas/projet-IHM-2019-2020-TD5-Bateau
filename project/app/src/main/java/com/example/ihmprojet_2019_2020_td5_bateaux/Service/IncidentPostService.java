@@ -4,6 +4,8 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
+import com.example.ihmprojet_2019_2020_td5_bateaux.MainActivity;
+
 import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -46,6 +48,8 @@ public class IncidentPostService extends AsyncTask<String,String, String> {
                 Map<String, String> params = new HashMap<>();
                 params.put("nature", this.nature);
                 params.put("description", this.description);
+                params.put("longitude", ""+MainActivity.currentLocation.getLongitude());
+                params.put("latitude", ""+MainActivity.currentLocation.getLatitude());
 
                 StringBuilder postData = new StringBuilder();
                 for (Map.Entry<String, String> pa : params.entrySet()) {
