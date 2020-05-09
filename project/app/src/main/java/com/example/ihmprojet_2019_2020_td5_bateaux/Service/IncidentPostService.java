@@ -51,6 +51,7 @@ public class IncidentPostService extends AsyncTask<String,String, String> {
                 params.put("longitude", ""+MainActivity.currentLocation.getLongitude());
                 params.put("latitude", ""+MainActivity.currentLocation.getLatitude());
 
+
                 StringBuilder postData = new StringBuilder();
                 for (Map.Entry<String, String> pa : params.entrySet()) {
                     postData.append("&");

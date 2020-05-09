@@ -22,6 +22,7 @@ import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
 import com.example.ihmprojet_2019_2020_td5_bateaux.R;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentPostService;
+import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentPutService;
 
 import static com.example.ihmprojet_2019_2020_td5_bateaux.NeptuneNotification.CHANNEL_URGENTE;
 
@@ -63,9 +64,12 @@ public PostFragment(boolean fromAddButton) {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String value = (String) parent.getItemAtPosition(position);
 
+                EditText editText = rootView.findViewById(R.id.naturetype);
                 if (value.equals("Autre")) {
-                    EditText editText = rootView.findViewById(R.id.naturetype);
+
                     editText.setVisibility(View.VISIBLE);
+                }else{
+                    editText.setVisibility(View.INVISIBLE);
                 }
             }
 
@@ -82,12 +86,23 @@ public PostFragment(boolean fromAddButton) {
             post.setText("Post");
             TextView tv = rootView.findViewById(R.id.textView5);
             tv.setText("Report");
+        }else{
+            Bundle bundle = getArguments() ;
+            for (int i = 0; i < spinner.getAdapter().getCount() ; i++) {
+                if(bundle.get("nature").toString().equals(spinner.getItemAtPosition(i))){
+                    spinner.setSelection(i);
+                }
+            }
+
+
+            EditText editText = rootView.findViewById(R.id.editTextDescription);
+            editText.setText(bundle.get("description").toString());
         }
 
         post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(fromAddButton){
+
                 String nature;
                  nature = spinner.getSelectedItem().toString();
                 if(nature.equals("Autre")){
@@ -97,28 +112,19 @@ public PostFragment(boolean fromAddButton) {
                 EditText editText = rootView.findViewById(R.id.editTextDescription);
                 final String description = editText.getText().toString();
 
-                Incident incident = new Incident(nature,description);
+                if(fromAddButton) {
+                    IncidentPostService postService = new IncidentPostService(container.getContext(), nature, description);
+                    postService.execute();
+                }else {
+                    IncidentPutService incidentPutService = new IncidentPutService(container.getContext(), nature, description);
+                    incidentPutService.execute();
+                }
 
-                IncidentPostService postService = new IncidentPostService(container.getContext(),nature,description);
-                postService.execute();
                 FragmentTransaction frag = getFragmentManager().beginTransaction();
                 frag.replace(R.id.fragment_container, new IncidentsFragment());
                 frag.commit();
 
-            }else {
-                    //PUT
-                    Bundle bundle = getArguments() ;
-                    for (int i = 0; i < spinner.getAdapter().getCount() ; i++) {
-                        if(bundle.get("nature").toString().equals(spinner.getItemAtPosition(i))){
-                            spinner.setSelection(i);
-                        }
-                    }
 
-
-                    EditText editText = rootView.findViewById(R.id.editTextDescription);
-                    editText.setText(bundle.get("description").toString());
-                    ;
-                }
 
                 }
         });
