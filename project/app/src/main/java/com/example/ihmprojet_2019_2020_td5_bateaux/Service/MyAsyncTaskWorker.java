@@ -10,6 +10,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
+import com.example.ihmprojet_2019_2020_td5_bateaux.Data;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Fragments.IncidentsFragment;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
 import com.example.ihmprojet_2019_2020_td5_bateaux.R;
@@ -76,13 +77,13 @@ public class MyAsyncTaskWorker extends Worker {
         while (i < jsonArray.length()) {
             try {
                 jsonObject = jsonArray.getJSONObject(i);
-                int id = jsonObject.getInt("id");
-                String nature = jsonObject.getString("nature");
-                String description = jsonObject.getString("description");
-                String date = jsonObject.getString("date");
-                String longitude = jsonObject.getString("longitude");
-                String latitude = jsonObject.getString("latitude");
-                String android_id = jsonObject.getString("android_id");
+                int id = jsonObject.getInt(String.valueOf(Data.id));
+                String nature = jsonObject.getString(String.valueOf(Data.nature));
+                String description = jsonObject.getString(String.valueOf(Data.description));
+                String date = jsonObject.getString(String.valueOf(Data.date));
+                String longitude = jsonObject.getString(String.valueOf(Data.longitude));
+                String latitude = jsonObject.getString(String.valueOf(Data.latitude));
+                String android_id = jsonObject.getString(String.valueOf(Data.android_id));
 
                 Incident incident = new Incident(id, nature, description, date, longitude, latitude, android_id);
                 incidentArrayList.add(incident);
@@ -90,7 +91,7 @@ public class MyAsyncTaskWorker extends Worker {
                 if (IncidentsFragment.incidentArrayList != null && IncidentsFragment.newIncident(incident.getId())) {
                     if (!incident.getAndroid_id().equals("null") && !incident.getAndroid_id().equals(Settings.Secure.getString(mContext.getContentResolver(), Settings.Secure.ANDROID_ID)))
                         IncidentsFragment.newIncident = true;
-                    sendOnUrgent(incident);
+                    IncidentGetService.sendNotification(incident,this.mContext);
                 }
 
 
@@ -106,22 +107,7 @@ public class MyAsyncTaskWorker extends Worker {
 
     }
 
-    public void sendOnUrgent(Incident incident) { //View v
-        if (IncidentGetService.nbOfNotification == IncidentGetService.MAX_NUMBER_OF_NOTIFICATIONS)
-            IncidentGetService.nbOfNotification = 0;
-        /*Intent intent = new Intent(getApplicationContext(), IncidentsFragment.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);*/
-        // final String desccription = ((EditText) getView().findViewById(R.id.editTextDescription)).getText().toString();
-        String ns = Context.NOTIFICATION_SERVICE;
-        NotificationManager mNotificationManager = (NotificationManager) mContext.getSystemService(ns);
-        Notification notification = new NotificationCompat.Builder(mContext, CHANNEL_URGENTE)
-                .setSmallIcon(R.drawable.ic_alert)
-                .setContentText(incident.getNature())
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .build();
 
-        mNotificationManager.notify(IncidentGetService.nbOfNotification++, notification);
-    }
 
 
 }

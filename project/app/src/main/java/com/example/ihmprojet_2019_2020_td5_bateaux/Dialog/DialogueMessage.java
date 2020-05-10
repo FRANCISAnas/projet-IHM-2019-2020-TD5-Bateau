@@ -1,4 +1,4 @@
-package com.example.ihmprojet_2019_2020_td5_bateaux.Fragments;
+package com.example.ihmprojet_2019_2020_td5_bateaux.Dialog;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -20,6 +20,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.ihmprojet_2019_2020_td5_bateaux.Fragments.IncidentsFragment;
 import com.example.ihmprojet_2019_2020_td5_bateaux.R;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentPostService;
 
@@ -52,13 +53,11 @@ public class DialogueMessage extends AppCompatDialogFragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 portAnIncident();
-                sendOnUrgent();
             }
         }).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) { // si l'utilsiateur click oui donc on fait appelle à la service de FaceBook
                 goToFaceBookPage(FACEBOOK_PAGE_ID);
-                sendOnUrgent();
             }
         });
         return builder.create();
@@ -83,17 +82,5 @@ public class DialogueMessage extends AppCompatDialogFragment {
         frag.commit();
     }
 
-    public void sendOnUrgent() {
-        if (nbOfNotification == MAX_NUMBER_OF_NOTIFICATIONS) nbOfNotification = 0;
-        /*Intent intent = new Intent(getApplicationContext(), IncidentsFragment.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);*/
-        final String desccription = ((EditText) container.findViewById(R.id.editTextDescription)).getText().toString();
 
-        Notification notification = new NotificationCompat.Builder(container.getContext(), CHANNEL_URGENTE)
-                .setSmallIcon(R.drawable.ic_alert)
-                .setContentText(desccription)
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .build();
-        notificationManager.notify(nbOfNotification++, notification);
-    }
 }

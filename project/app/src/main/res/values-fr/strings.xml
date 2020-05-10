@@ -39,8 +39,8 @@
 
     <string-array name="notification">
         <item></item>
-        <item>Recevoir uniquement des notifications urgentes</item>
-        <item>Recevoir toutes les notifications</item>
+        <item>Notifications urgentes</item>
+        <item>Toutes les Notifications</item>
     </string-array>
 
     <string-array name="precipitation">
@@ -99,4 +99,6 @@ Sa navigation simple sur les diapositives fait également du suivi des tempêtes
     <string name="option">Vous voulez la poster sur Facebook aussi?</string>
     <string name="yes">Oui</string>
     <string name="No">Non</string>
+    <string name="urgent">Urgente</string>
+
 </resources>

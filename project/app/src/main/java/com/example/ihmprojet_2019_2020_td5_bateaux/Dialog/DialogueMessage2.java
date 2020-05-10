@@ -1,4 +1,4 @@
-package com.example.ihmprojet_2019_2020_td5_bateaux.Fragments;
+package com.example.ihmprojet_2019_2020_td5_bateaux.Dialog;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -20,6 +20,8 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.ihmprojet_2019_2020_td5_bateaux.Dialog.DialogueMessage;
+import com.example.ihmprojet_2019_2020_td5_bateaux.Fragments.IncidentsFragment;
 import com.example.ihmprojet_2019_2020_td5_bateaux.R;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentPostService;
 

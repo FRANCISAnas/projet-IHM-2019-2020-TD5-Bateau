@@ -31,18 +31,20 @@ public class DirectionsActivity extends AppCompatActivity {
         map = findViewById(R.id.map);
         map.setTileSource(TileSourceFactory.MAPNIK);
         map.setBuiltInZoomControls(true);
-        GeoPoint startPoint = new GeoPoint(43.65020, 7.00517);
-        IMapController mapController = map.getController();
+        GeoPoint startPoint = new GeoPoint(32.3213840,-64.75737);
+        IMapController mapController=map.getController();
         mapController.setZoom(18.0);
         mapController.setCenter(startPoint);
 
         ArrayList<OverlayItem> items = new ArrayList<>();
-        OverlayItem home = new OverlayItem("position1", "depart", new GeoPoint(43.65020, 7.00517));
+
+        OverlayItem home = new OverlayItem("position1","depart", new GeoPoint(32.3213844, -64.75737));
         //forme marqueur
         Drawable m = home.getMarker(0);
         items.add(home);
-        items.add(new OverlayItem("position2", "arrivee", new GeoPoint(44.65020, 7.00517)));
-        ItemizedOverlayWithFocus<OverlayItem> mOverLay = new ItemizedOverlayWithFocus<OverlayItem>(getApplicationContext(), items, new ItemizedIconOverlay.OnItemGestureListener<OverlayItem>() {
+        items.add(new OverlayItem("position2", "arrivee", new GeoPoint(32.3213840,-64.75730)));
+        ItemizedOverlayWithFocus<OverlayItem> mOverLay= new ItemizedOverlayWithFocus<OverlayItem>(getApplicationContext(), items, new ItemizedIconOverlay.OnItemGestureListener<OverlayItem>() {
+
             @Override
             public boolean onItemSingleTapUp(int index, OverlayItem item) {
                 return true;
