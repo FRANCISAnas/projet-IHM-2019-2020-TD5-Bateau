@@ -11,8 +11,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -86,6 +88,15 @@ public PostFragment(boolean fromAddButton) {
                photoSourceDialogue.show(getFragmentManager(),"ggg");
             }
         });
+
+        /*ImageButton recordButton = rootView.findViewById(R.id.searchImageButton);
+        recordButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Toast.makeText(getContext(), "mic long clicked", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });*/
 
 
 

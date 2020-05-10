@@ -29,7 +29,9 @@ import java.util.ArrayList;
 public class IncidentsFragment extends Fragment {
 
     public static ArrayList<Incident> incidentArrayList;
+    public static IncidentListAdapter incidentListAdapter;
     public static boolean newIncident = false;
+
     public static ListView listView;
 
     public IncidentsFragment() {
@@ -52,7 +54,7 @@ public class IncidentsFragment extends Fragment {
 
         listView = rootView.findViewById(R.id.myListView);
         registerForContextMenu(listView);
-        IncidentListAdapter incidentListAdapter = new IncidentListAdapter(getContext(), R.layout.custom_list_view, incidentArrayList);
+        incidentListAdapter = new IncidentListAdapter(getContext(), R.layout.custom_list_view, incidentArrayList);
         listView.setAdapter(incidentListAdapter);
 
         Button addIncident = rootView.findViewById(R.id.addIncident);

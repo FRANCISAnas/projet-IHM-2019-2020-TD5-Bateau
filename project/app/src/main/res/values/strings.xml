@@ -81,7 +81,7 @@
     <string name="repport">Report</string>
     <string name="uregent_post">Urgent POST</string>
     <string name="classic_post">classic POST</string>
-    <string name="give_des">Give a brief description here about the incident</string>
+    <string name="give_des">describe the incident</string>
     <string name="add_photo">Change Photo</string>
     <string name="city">NICE</string>
     <string name="longitude">Longitude</string>
