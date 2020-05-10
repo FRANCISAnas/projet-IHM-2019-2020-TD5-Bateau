@@ -35,7 +35,7 @@
                 android:textSize="20sp" />
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/facebook"
                 android:layout_width="@dimen/fragment_about_us_image_1_width"
                 android:layout_height="@dimen/fragment_about_us_image_1_height"
                 android:layout_marginLeft="90dp"
@@ -54,7 +54,7 @@
 
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/twitter"
                 android:layout_width="@dimen/fragment_about_us_image_2_width"
                 android:layout_height="@dimen/fragment_about_us_image_2_height"
                 android:layout_marginLeft="90dp"
@@ -71,7 +71,7 @@
                 android:textSize="18sp" />
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/gmail"
                 android:layout_width="@dimen/fragment_about_us_image_3_width"
                 android:layout_height="@dimen/fragment_about_us_image_3_height"
                 android:layout_marginLeft="440dp"
@@ -88,7 +88,7 @@
                 android:textSize="18sp" />
 
             <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/faq"
                 android:layout_width="@dimen/fragment_about_us_image_4_width"
                 android:layout_height="@dimen/fragment_about_us_image_4_height"
                 android:layout_marginLeft="440dp"

@@ -60,8 +60,8 @@
 
     <!--Image fragment_about_us -->
     <dimen name="fragment_about_us_image_1_width">50dp</dimen>
-    <dimen name="fragment_about_us_image_1_height">300dp</dimen>
-    <dimen name="fragment_about_us_image_1_marginTop">330dp</dimen>
+    <dimen name="fragment_about_us_image_1_height">100dp</dimen>
+    <dimen name="fragment_about_us_image_1_marginTop">360dp</dimen>
     <dimen name="fragment_about_us_image_1_marginLeft">10dp</dimen>
     <dimen name="fragment_about_us_image_2_width">50dp</dimen>
     <dimen name="fragment_about_us_image_2_height">300dp</dimen>
