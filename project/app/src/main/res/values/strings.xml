@@ -67,8 +67,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="temperature">Temperature</string>
-    <string name ="Edit_Report" translatable="false">Edit_Report</string>
-    <string name ="Apply_Changes" translatable="false">Apply_Changes</string>
+    <string name ="Edit_Report" translatable="false">Edit Report</string>
+    <string name ="Apply_Changes" translatable="false">Apply Changes</string>
     <string name="langauage">Language</string>
     <string name="timeformat">Time format</string>
     <string name="precipitation">Precipitation</string>
@@ -82,7 +82,7 @@
     <string name="uregent_post">Urgent POST</string>
     <string name="classic_post">classic POST</string>
     <string name="give_des">Give a brief description here about the incident</string>
-    <string name="add_file">ADD FILE</string>
+    <string name="add_photo">Change Photo</string>
     <string name="city">NICE</string>
     <string name="longitude">Longitude</string>
     <string name="humidity">Humidity</string>
@@ -103,4 +103,6 @@
     <string name="yes">yes</string>
     <string name="No">No</string>
     <string name="map_key" translatable="false">AIzaSyB_qsP8AOP_P0MdlPz-48TDaJYjTP3vbjo</string>
+    <string name="take_photo"> Take Photo</string>
+    <string name="from_Gallery"> From Gallery</string>
 </resources>

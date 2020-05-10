@@ -1,6 +1,7 @@
 package com.example.ihmprojet_2019_2020_td5_bateaux.Fragments;
 
 import android.app.Notification;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,6 +19,9 @@ import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.ihmprojet_2019_2020_td5_bateaux.Dialog.DeleteDialog;
+import com.example.ihmprojet_2019_2020_td5_bateaux.Dialog.PhotoSourceDialogue;
+import com.example.ihmprojet_2019_2020_td5_bateaux.Dialog.UseImageDialog;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
 import com.example.ihmprojet_2019_2020_td5_bateaux.R;
@@ -30,7 +34,7 @@ import static com.example.ihmprojet_2019_2020_td5_bateaux.NeptuneNotification.CH
 public class PostFragment extends Fragment {
 
     boolean fromAddButton = false;
-
+    public static Bitmap photo;
 
     private NotificationManagerCompat notificationManager;
 
@@ -81,11 +85,28 @@ public PostFragment(boolean fromAddButton) {
 
 
 
+        Button addPhoto = rootView.findViewById(R.id.addPhoto);
+        addPhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               PhotoSourceDialogue photoSourceDialogue =  new PhotoSourceDialogue() ;
+               photoSourceDialogue.show(getFragmentManager(),"ggg");
+
+
+
+            }
+        });
+
+
+
         Button post = rootView.findViewById(R.id.post);
         if(fromAddButton) {
             post.setText("Post");
             TextView tv = rootView.findViewById(R.id.textView5);
             tv.setText("Report");
+            Button image =rootView.findViewById(R.id.addPhoto);
+            image.setText("Add Photo");
+
         }else{
             Bundle bundle = getArguments() ;
             for (int i = 0; i < spinner.getAdapter().getCount() ; i++) {
@@ -113,7 +134,14 @@ public PostFragment(boolean fromAddButton) {
                 final String description = editText.getText().toString();
 
                 if(fromAddButton) {
-                    IncidentPostService postService = new IncidentPostService(container.getContext(), nature, description);
+                    //pass photo
+                    IncidentPostService postService;
+                    if(photo!=null){
+                         postService = new IncidentPostService(container.getContext(), nature, description,photo);
+                    }else {
+
+                        postService = new IncidentPostService(container.getContext(), nature, description);
+                    }
                     postService.execute();
                 }else {
                     IncidentPutService incidentPutService = new IncidentPutService(container.getContext(), nature, description);
@@ -128,6 +156,10 @@ public PostFragment(boolean fromAddButton) {
 
                 }
         });
+
+
+
+
 
 
         return rootView;

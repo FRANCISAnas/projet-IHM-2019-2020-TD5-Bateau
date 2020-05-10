@@ -1,5 +1,11 @@
 package com.example.ihmprojet_2019_2020_td5_bateaux.Metier;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
+
+import java.io.ByteArrayOutputStream;
+
 public class Incident {
 
     private int id;
@@ -9,6 +15,7 @@ public class Incident {
     private String longitude;
     private String latitude;
     private String android_id;
+    private String encodedImage;
 
     /**
      * @param id
@@ -27,6 +34,18 @@ public class Incident {
         this.longitude = longitude;
         this.latitude = latitude;
         this.android_id = android_id;
+
+    }
+
+    public Incident(int id, String nature, String description, String date, String longitude, String latitude, String android_id,String image) {
+        this.id = id;
+        this.nature = nature;
+        this.description = description;
+        this.date = date;
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.android_id = android_id;
+        this.encodedImage = image;
     }
 
     /**
@@ -85,5 +104,11 @@ public class Incident {
             return true;
         }
         return false;
+    }
+
+
+
+    public String getEncodedImage(){
+        return encodedImage;
     }
 }

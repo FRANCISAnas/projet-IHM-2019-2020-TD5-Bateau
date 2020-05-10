@@ -82,6 +82,7 @@ public class IncidentGetService extends AsyncTask<Void, Void, Void> {
         int i = 0;
         while (i < jsonArray.length()) {
             try {
+                Incident incident;
                 jsonObject = jsonArray.getJSONObject(i);
                 int id = jsonObject.getInt("id");
                 String nature = jsonObject.getString("nature");
@@ -90,8 +91,13 @@ public class IncidentGetService extends AsyncTask<Void, Void, Void> {
                 String longitude = jsonObject.getString("longitude");
                 String latitude = jsonObject.getString("latitude");
                 String android_id = jsonObject.getString("android_id");
+                if( !jsonObject.getString("image").equals("null")) {
+                    String image = jsonObject.getString("image");
+                    incident = new Incident(id, nature, description, date, longitude, latitude, android_id,image);
+                }else{
+                    incident = new Incident(id, nature, description, date, longitude, latitude, android_id);
+                }
 
-                Incident incident = new Incident(id, nature, description, date, longitude, latitude, android_id);
                 incidentArrayList.add(incident);
 
                 if (IncidentsFragment.incidentArrayList != null && IncidentsFragment.newIncident(incident.getId())) {

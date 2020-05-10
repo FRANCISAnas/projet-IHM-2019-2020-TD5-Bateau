@@ -36,12 +36,12 @@
         tools:layout_editor_absoluteY="252dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/addPhoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="300dp"
-        android:text="@string/add_file"
+        android:text="@string/add_photo"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

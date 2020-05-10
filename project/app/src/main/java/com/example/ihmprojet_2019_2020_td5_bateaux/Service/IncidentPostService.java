@@ -1,12 +1,15 @@
 package com.example.ihmprojet_2019_2020_td5_bateaux.Service;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.provider.Settings;
+import android.util.Base64;
 import android.widget.Toast;
 
 import com.example.ihmprojet_2019_2020_td5_bateaux.MainActivity;
 
+import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -19,17 +22,24 @@ public class IncidentPostService extends AsyncTask<String,String, String> {
     String nature;
     String description;
     private Context mContext;
+    Bitmap photo;
 
+    public IncidentPostService(Context context, String nature, String description,Bitmap photo){
+        mContext=context;
+        this.nature = nature;
+        this.description = description;
+        this.photo = photo;
+    }
     public IncidentPostService(Context context, String nature, String description){
         mContext=context;
         this.nature = nature;
         this.description = description;
+        this.photo = photo;
     }
 
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
-
         // create a Toast
         Toast.makeText(mContext,"Incident Submited successfully",Toast.LENGTH_SHORT).show();
     }
@@ -45,13 +55,18 @@ public class IncidentPostService extends AsyncTask<String,String, String> {
                 conn.setDoInput(true);
                 conn.setDoOutput(true);
 
-
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                photo.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
+                String encodedImage = Base64.encodeToString(byteArrayOutputStream.toByteArray(),Base64.DEFAULT);
             Map<String, String> params = new HashMap<>();
             params.put("nature", this.nature);
             params.put("description", this.description);
+            params.put("image", encodedImage);
             params.put("longitude", "" + MainActivity.currentLocation.getLongitude());
             params.put("latitude", "" + MainActivity.currentLocation.getLatitude());
             params.put("android_id", Settings.Secure.getString(mContext.getContentResolver(), Settings.Secure.ANDROID_ID));
+
+
 
                 StringBuilder postData = new StringBuilder();
                 for (Map.Entry<String, String> pa : params.entrySet()) {
@@ -66,6 +81,7 @@ public class IncidentPostService extends AsyncTask<String,String, String> {
                 DataOutputStream os = new DataOutputStream(conn.getOutputStream());
 
                 os.write(paramBytes);
+
 
                 os.flush();
                 os.close();

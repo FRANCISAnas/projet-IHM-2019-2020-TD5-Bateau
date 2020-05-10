@@ -4,9 +4,13 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,6 +19,8 @@ import androidx.fragment.app.DialogFragment;
 
 import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
 import com.example.ihmprojet_2019_2020_td5_bateaux.R;
+
+import java.io.ByteArrayOutputStream;
 
 public class DetailsDialog extends DialogFragment {
     Incident incident;
@@ -54,6 +60,16 @@ public class DetailsDialog extends DialogFragment {
         if (!incident.getNature().equals("")) {
             desc.setText(incident.getDescription());
             desc.setVisibility(View.VISIBLE);
+        }
+
+
+        if(!incident.getEncodedImage().equals("null")){
+            ImageView imageView = view.findViewById(R.id.image);
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            byte[] imageBytes = baos.toByteArray();
+            imageBytes = Base64.decode(incident.getEncodedImage(), Base64.DEFAULT);
+            Bitmap decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+            imageView.setImageBitmap(decodedImage);
         }
 
         return builder.create();
