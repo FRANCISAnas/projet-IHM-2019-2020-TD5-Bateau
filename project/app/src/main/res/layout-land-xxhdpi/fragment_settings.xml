@@ -189,7 +189,7 @@
                 android:id="@+id/checkBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="470dp"
+                android:layout_marginLeft="500dp"
                 android:layout_marginTop="@dimen/fragment_settings_text_view_2_marginTop"
                 android:buttonTint="@color/black"
                 android:shadowColor="@color/colorPrimaryDark"
