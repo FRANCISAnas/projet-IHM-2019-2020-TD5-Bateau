@@ -190,7 +190,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="400dp"
                 android:layout_marginTop="@dimen/fragment_settings_spinner_3_marginTop"
-                android:text="@string/uregent"
+                android:text="@string/urgent"
                 android:textColor="#000000"/>
 
 

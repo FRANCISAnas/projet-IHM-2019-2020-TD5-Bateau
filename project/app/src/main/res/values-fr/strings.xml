@@ -96,6 +96,6 @@ Sa navigation simple sur les diapositives fait également du suivi des tempêtes
     <string name="option">Vous voulez la poster sur Facebook aussi?</string>
     <string name="yes">Oui</string>
     <string name="No">Non</string>
-    <string name="uregent">Urgente</string>
+    <string name="urgent">Urgente</string>
 
 </resources>
