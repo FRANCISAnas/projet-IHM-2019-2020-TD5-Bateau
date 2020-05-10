@@ -80,8 +80,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/fragment_settings_text_view_4_marginStart"
-        android:layout_marginTop="@dimen/fragment_settings_text_view_4_marginTop"
+        android:layout_marginStart="@dimen/fragment_settings_text_view_5_marginStart"
+        android:layout_marginTop="@dimen/fragment_settings_text_view_5_marginTop"
         android:text="@string/timeformat"
         android:textColor="#000000"
         android:textSize="@dimen/fragment_settings_text_view_4_text_size">
@@ -92,8 +92,8 @@
         android:id="@+id/spinnerTempF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/fragment_settings_spinner_3_marginTop"
-        android:layout_marginEnd="@dimen/fragment_settings_spinner_3_marginEnd"
+        android:layout_marginTop="@dimen/fragment_settings_spinner_4_marginTop"
+        android:layout_marginEnd="@dimen/fragment_settings_spinner_4_marginEnd"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="166dp"
         tools:layout_editor_absoluteY="183dp" />
@@ -102,8 +102,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/fragment_settings_text_view_5_marginStart"
-        android:layout_marginTop="@dimen/fragment_settings_text_view_5_marginTop"
+        android:layout_marginStart="@dimen/fragment_settings_text_view_7_marginStart"
+        android:layout_marginTop="@dimen/fragment_settings_text_view_7_marginTop"
         android:text="@string/precipitation"
         android:textColor="#000000"
         android:textSize="@dimen/fragment_settings_text_view_5_text_size">
@@ -114,8 +114,8 @@
         android:id="@+id/spinnerTempP"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/fragment_settings_spinner_4_marginTop"
-        android:layout_marginEnd="@dimen/fragment_settings_spinner_4_marginEnd"
+        android:layout_marginTop="@dimen/fragment_settings_spinner_6_marginTop"
+        android:layout_marginEnd="@dimen/fragment_settings_spinner_6_marginEnd"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="166dp"
         tools:layout_editor_absoluteY="183dp" />
@@ -145,8 +145,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/fragment_settings_text_view_7_marginStart"
-        android:layout_marginTop="@dimen/fragment_settings_text_view_7_marginTop"
+        android:layout_marginStart="@dimen/fragment_settings_text_view_4_marginStart"
+        android:layout_marginTop="@dimen/fragment_settings_text_view_4_marginTop"
         android:text="@string/notificatin"
         android:textColor="#000000"
         android:textSize="@dimen/fragment_settings_text_view_7_text_size">
@@ -157,8 +157,8 @@
         android:id="@+id/spinnerTempN"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/fragment_settings_spinner_6_marginTop"
-        android:layout_marginEnd="@dimen/fragment_settings_spinner_6_marginEnd"
+        android:layout_marginTop="@dimen/fragment_settings_spinner_3_marginTop"
+        android:layout_marginEnd="@dimen/fragment_settings_spinner_3_marginEnd"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="166dp"
         tools:layout_editor_absoluteY="183dp" />
