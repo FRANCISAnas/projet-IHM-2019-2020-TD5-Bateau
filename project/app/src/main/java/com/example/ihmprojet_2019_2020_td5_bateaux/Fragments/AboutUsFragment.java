@@ -83,7 +83,7 @@ public class AboutUsFragment extends Fragment {
 
     private void goToFaceBookPage(String id) {
         try {
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/" + id));
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("facebook://page/" + id));
             startActivity(intent);
         } catch (ActivityNotFoundException e) {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/" + id));

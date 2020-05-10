@@ -25,14 +25,14 @@
         android:textColor="#000000"
         android:textSize="@dimen/fragment_about_us_textview2_text_size" />
 
-    <Button
+    <ImageView
         android:id="@+id/facebook"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="@dimen/fragment_about_us_image_1_marginLeft"
-        android:layout_marginTop="310dp"
+        android:layout_width="@dimen/fragment_about_us_image_1_width"
+        android:layout_height="@dimen/fragment_about_us_image_1_height"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="520dp"
         android:contentDescription="TODO"
-        android:drawableLeft="@drawable/facebook" />
+        android:srcCompact="@drawable/facebook" />
 
     <TextView
         android:layout_width="@dimen/fragment_about_us_textview3_width"
@@ -44,11 +44,11 @@
         android:textSize="@dimen/fragment_about_us_textview3_text_size" />
 
 
-    <Button
+    <ImageView
         android:id="@+id/twitter"
         android:layout_width="@dimen/fragment_about_us_image_2_width"
         android:layout_height="@dimen/fragment_about_us_image_2_height"
-        android:layout_marginLeft="@dimen/fragment_about_us_image_2_marginLeft"
+        android:layout_marginLeft="130dp"
         android:layout_marginTop="@dimen/fragment_about_us_image_2_marginTop"
         app:srcCompat="@drawable/twitter" />
 
@@ -61,7 +61,7 @@
         android:textColor="#000000"
         android:textSize="@dimen/fragment_about_us_textview4_text_size" />
 
-    <Button
+    <ImageView
         android:id="@+id/gmail"
         android:layout_width="@dimen/fragment_about_us_image_3_width"
         android:layout_height="@dimen/fragment_about_us_image_3_height"
@@ -78,7 +78,7 @@
         android:textColor="#000000"
         android:textSize="@dimen/fragment_about_us_textview5_text_size" />
 
-    <Button
+    <ImageView
         android:id="@+id/faq"
         android:layout_width="@dimen/fragment_about_us_image_4_width"
         android:layout_height="@dimen/fragment_about_us_image_4_height"

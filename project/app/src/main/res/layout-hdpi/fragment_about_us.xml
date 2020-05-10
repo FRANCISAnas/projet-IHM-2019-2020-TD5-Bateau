@@ -27,10 +27,10 @@
 
     <ImageView
         android:id="@+id/facebook"
-        android:layout_width="@dimen/fragment_about_us_image_1_width"
-        android:layout_height="@dimen/fragment_about_us_image_1_height"
-        android:layout_marginLeft="@dimen/fragment_about_us_image_1_marginLeft"
-        android:layout_marginTop="@dimen/fragment_about_us_image_1_marginTop"
+        android:layout_width="30dp"
+        android:layout_height="300dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="260dp"
         android:contentDescription="TODO"
         app:srcCompat="@drawable/facebook" />
 
@@ -48,7 +48,7 @@
         android:id="@+id/twitter"
         android:layout_width="@dimen/fragment_about_us_image_2_width"
         android:layout_height="@dimen/fragment_about_us_image_2_height"
-        android:layout_marginLeft="@dimen/fragment_about_us_image_2_marginLeft"
+        android:layout_marginLeft="70dp"
         android:layout_marginTop="@dimen/fragment_about_us_image_2_marginTop"
         app:srcCompat="@drawable/twitter" />
 
