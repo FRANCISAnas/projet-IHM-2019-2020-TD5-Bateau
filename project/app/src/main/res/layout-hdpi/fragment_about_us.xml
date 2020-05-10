@@ -27,16 +27,16 @@
 
     <ImageView
         android:id="@+id/facebook"
-        android:layout_width="30dp"
-        android:layout_height="300dp"
+        android:layout_width="47dp"
+        android:layout_height="63dp"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="260dp"
         android:contentDescription="TODO"
         app:srcCompat="@drawable/facebook" />
 
     <TextView
-        android:layout_width="@dimen/fragment_about_us_textview3_width"
-        android:layout_height="@dimen/fragment_about_us_textview3_height"
+        android:layout_width="109dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/fragment_about_us_textview3_MarginLeft"
         android:layout_marginTop="@dimen/fragment_about_us_textview3_MarginTop"
         android:text="FACEBOOK"
@@ -46,15 +46,15 @@
 
     <ImageView
         android:id="@+id/twitter"
-        android:layout_width="@dimen/fragment_about_us_image_2_width"
-        android:layout_height="@dimen/fragment_about_us_image_2_height"
+        android:layout_width="47dp"
+        android:layout_height="79dp"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="@dimen/fragment_about_us_image_2_marginTop"
         app:srcCompat="@drawable/twitter" />
 
     <TextView
-        android:layout_width="@dimen/fragment_about_us_textview4_width"
-        android:layout_height="@dimen/fragment_about_us_textview4_height"
+        android:layout_width="109dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/fragment_about_us_textview4_MarginLeft"
         android:layout_marginTop="@dimen/fragment_about_us_textview4_MarginTop"
         android:text="TWITTER"
@@ -63,15 +63,15 @@
 
     <ImageView
         android:id="@+id/gmail"
-        android:layout_width="@dimen/fragment_about_us_image_3_width"
-        android:layout_height="@dimen/fragment_about_us_image_3_height"
+        android:layout_width="48dp"
+        android:layout_height="57dp"
         android:layout_marginLeft="@dimen/fragment_about_us_image_3_marginLeft"
         android:layout_marginTop="@dimen/fragment_about_us_image_3_marginTop"
         app:srcCompat="@drawable/email" />
 
     <TextView
-        android:layout_width="@dimen/fragment_about_us_textview5_width"
-        android:layout_height="@dimen/fragment_about_us_textview5_height"
+        android:layout_width="107dp"
+        android:layout_height="28dp"
         android:layout_marginLeft="@dimen/fragment_about_us_textview5_MarginLeft"
         android:layout_marginTop="@dimen/fragment_about_us_textview5_MarginTop"
         android:text="EMAIL"
@@ -80,15 +80,15 @@
 
     <ImageView
         android:id="@+id/faq"
-        android:layout_width="@dimen/fragment_about_us_image_4_width"
-        android:layout_height="@dimen/fragment_about_us_image_4_height"
+        android:layout_width="42dp"
+        android:layout_height="58dp"
         android:layout_marginLeft="@dimen/fragment_about_us_image_4_marginLeft"
         android:layout_marginTop="@dimen/fragment_about_us_image_4_marginTop"
         app:srcCompat="@drawable/faq" />
 
     <TextView
-        android:layout_width="@dimen/fragment_about_us_textview6_width"
-        android:layout_height="@dimen/fragment_about_us_textview6_height"
+        android:layout_width="77dp"
+        android:layout_height="30dp"
         android:layout_marginLeft="@dimen/fragment_about_us_textview6_MarginLeft"
         android:layout_marginTop="@dimen/fragment_about_us_textview6_MarginTop"
         android:text="FAQ"

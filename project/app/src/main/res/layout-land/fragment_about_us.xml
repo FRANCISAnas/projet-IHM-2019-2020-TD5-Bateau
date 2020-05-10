@@ -36,16 +36,16 @@
 
             <ImageView
                 android:id="@+id/facebook"
-                android:layout_width="@dimen/fragment_about_us_image_1_width"
-                android:layout_height="@dimen/fragment_about_us_image_1_height"
+                android:layout_width="61dp"
+                android:layout_height="60dp"
                 android:layout_marginLeft="80dp"
                 android:layout_marginTop="340dp"
                 android:contentDescription="TODO"
                 app:srcCompat="@drawable/facebook" />
 
             <TextView
-                android:layout_width="@dimen/fragment_about_us_textview3_width"
-                android:layout_height="@dimen/fragment_about_us_textview3_height"
+                android:layout_width="185dp"
+                android:layout_height="37dp"
                 android:layout_marginLeft="@dimen/fragment_about_us_textview3_MarginLeft"
                 android:layout_marginTop="400dp"
                 android:text="Facebook"
@@ -55,15 +55,15 @@
 
             <ImageView
                 android:id="@+id/twitter"
-                android:layout_width="@dimen/fragment_about_us_image_2_width"
-                android:layout_height="@dimen/fragment_about_us_image_2_height"
+                android:layout_width="53dp"
+                android:layout_height="66dp"
                 android:layout_marginLeft="80dp"
                 android:layout_marginTop="415dp"
                 app:srcCompat="@drawable/twitter" />
 
             <TextView
-                android:layout_width="@dimen/fragment_about_us_textview4_width"
-                android:layout_height="@dimen/fragment_about_us_textview4_height"
+                android:layout_width="161dp"
+                android:layout_height="38dp"
                 android:layout_marginLeft="@dimen/fragment_about_us_textview4_MarginLeft"
                 android:layout_marginTop="480dp"
                 android:text="Twitter"

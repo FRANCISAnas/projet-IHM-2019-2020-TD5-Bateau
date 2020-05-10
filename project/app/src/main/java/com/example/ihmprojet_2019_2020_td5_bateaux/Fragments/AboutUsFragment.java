@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -23,13 +24,13 @@ public class AboutUsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstaceState) {
-        View rootView = inflater.inflate(R.layout.fragment_about_us, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_about_us, container, false);
 
         ImageView facebook = rootView.findViewById(R.id.facebook);
         facebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToFaceBookPage(FACEBOOK_PAGE_ID);
+                goToFaceBookPage();
             }
 
         });
@@ -45,7 +46,7 @@ public class AboutUsFragment extends Fragment {
         gmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToGmailPage();
+                goToGmailPage(rootView);
             }
 
         });
@@ -65,7 +66,7 @@ public class AboutUsFragment extends Fragment {
 
     private void goToTwitterPage() {
 
-        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/#!/[user_name]")));
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/#!/[user_name]"))); // remplacer cette chaine par l'adresse de page sur Twitter
 
     }
 
@@ -73,12 +74,20 @@ public class AboutUsFragment extends Fragment {
         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.neptune.dinelhost.com/index.html")));
     }
 
-    private void goToGmailPage() {
-
+    private void goToGmailPage(View rootView) {
+        try {
+            Intent intent = new Intent (Intent.ACTION_VIEW , Uri.parse("mailto:" + "anas?francis@etu.univ-cotedazur.fr"));
+            intent.putExtra(Intent.EXTRA_SUBJECT, "your_subject");
+            intent.putExtra(Intent.EXTRA_TEXT, "your_text");
+            startActivity(intent);
+        } catch(Exception e) {
+            Toast.makeText(rootView.getContext(), "Sorry...You don't have any mail app", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
     }
 
 
-    private void goToFaceBookPage(String id) {
+    private void goToFaceBookPage() {
 
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/Neptune-Incidents-105901411124436"));
             startActivity(intent);
