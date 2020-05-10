@@ -34,10 +34,13 @@ public class HomeFragment extends Fragment {
 
         /*
          *Cette partie du code est chargée de récupérer les données toutes les 15 minutes (Contrainte du Work Manager)
-         *Nous avons donc le IncidentGetSeercie qui récupèrent les données quand l'utilisateur le demande et MyAsyncTaskWorker qui est lancé périodiquement.
+         *Nous avons donc le IncidentGetService qui récupèrent les données quand l'utilisateur le demande et MyAsyncTaskWorker qui est lancé périodiquement.
          * Nous avons ajouté la variable statique RUNNING pour éviter que les deux tournent en même temps.
          */
-        if (!IncidentGetService.RUNNING) {
+
+
+
+       /* if (!IncidentGetService.RUNNING) {
             PeriodicWorkRequest.Builder incident =
                     new PeriodicWorkRequest.Builder(MyAsyncTaskWorker.class, 5, TimeUnit.SECONDS);
             PeriodicWorkRequest request = incident
@@ -50,13 +53,14 @@ public class HomeFragment extends Fragment {
                 public void onChanged(WorkInfo workInfo) {
 
                     if (workInfo.getState().equals(WorkInfo.State.ENQUEUED) && IncidentsFragment.incidentArrayList != null) {
-                        Toast.makeText(getContext(), "Fetchng data...", Toast.LENGTH_SHORT).show();
-
 
                     }
                 }
             });
-        }
+        }*/
+
+        IncidentGetService incidentGetService = new  IncidentGetService(rootView);
+        incidentGetService.execute();
 
 
         return rootView;
