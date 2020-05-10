@@ -84,9 +84,6 @@ public PostFragment(boolean fromAddButton) {
             public void onClick(View v) {
                PhotoSourceDialogue photoSourceDialogue =  new PhotoSourceDialogue() ;
                photoSourceDialogue.show(getFragmentManager(),"ggg");
-
-
-
             }
         });
 
