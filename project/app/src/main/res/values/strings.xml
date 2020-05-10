@@ -69,7 +69,7 @@
     <string name="temperature">Temperature</string>
     <string name ="Edit_Report" translatable="false">Edit Report</string>
     <string name ="Apply_Changes" translatable="false">Apply Changes</string>
-    <string name="langauage">Language</string>
+    <string name="language">Language</string>
     <string name="timeformat">Time format</string>
     <string name="precipitation">Precipitation</string>
     <string name="windspeed">Wind speed</string>
