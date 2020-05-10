@@ -90,15 +90,19 @@ public class IncidentsFragment extends Fragment {
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         AdapterView.AdapterContextMenuInfo adapterContextMenuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         if (item.getItemId() == R.id.edit) {
-
+            //if (incidentArrayList.get(adapterContextMenuInfo.position).getAndroid_id().equals(Settings.Secure.getString(getContext().getContentResolver(), Settings.Secure.ANDROID_ID))) {
             Bundle bundle = new Bundle();
             bundle.putString("nature", incidentArrayList.get(adapterContextMenuInfo.position).getNature());
             bundle.putString("description", incidentArrayList.get(adapterContextMenuInfo.position).getDescription());
+            bundle.putInt("id", incidentArrayList.get(adapterContextMenuInfo.position).getId());
             FragmentTransaction frag = getFragmentManager().beginTransaction();
             Fragment secondFragment = new PostFragment();
             secondFragment.setArguments(bundle);
             frag.replace(R.id.fragment_container, secondFragment);
             frag.commit();
+            //}else{
+            Toast.makeText(getContext(), "You are not allowed to edit an incident you didn't publish.", Toast.LENGTH_SHORT).show();
+        //}
 
 
         }

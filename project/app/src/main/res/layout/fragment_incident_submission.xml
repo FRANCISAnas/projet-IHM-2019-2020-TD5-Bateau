@@ -15,8 +15,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_marginTop="230dp"
-        android:src="@android:drawable/ic_menu_search"
-        tools:src="@mipmap/micraphone" />
+        android:src="@mipmap/micraphone"
+         />
 
     <EditText
         android:id="@+id/editTextDescription"
