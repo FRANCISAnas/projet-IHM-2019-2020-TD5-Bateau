@@ -20,6 +20,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Dialog.DeleteDialog;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Dialog.DetailsDialog;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
+import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.IncidentListAdapter;
 import com.example.ihmprojet_2019_2020_td5_bateaux.R;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentGetService;
 
@@ -47,10 +48,12 @@ public class IncidentsFragment extends Fragment {
         final View rootView = inflater.inflate(R.layout.activity_incidents, container, false);
         setHasOptionsMenu(true);
 
+
+
         listView = rootView.findViewById(R.id.myListView);
         registerForContextMenu(listView);
-        IncidentGetService incidentGetService = new IncidentGetService(rootView.getContext(), listView, rootView);
-        incidentGetService.execute();
+        IncidentListAdapter incidentListAdapter = new IncidentListAdapter(getContext(), R.layout.custom_list_view, incidentArrayList);
+        listView.setAdapter(incidentListAdapter);
 
         Button addIncident = rootView.findViewById(R.id.addIncident);
         addIncident.setOnClickListener(new View.OnClickListener() {

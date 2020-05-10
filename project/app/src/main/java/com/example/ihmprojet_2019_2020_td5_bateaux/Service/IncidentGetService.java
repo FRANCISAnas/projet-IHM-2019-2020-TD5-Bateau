@@ -49,9 +49,8 @@ public class IncidentGetService extends AsyncTask<Void, Void, Void> {
     private EditText theFilter;
 
 
-    public IncidentGetService(Context context, ListView listView, View view) { //, )
-        mContext = context;
-        this.listView = listView;
+    public IncidentGetService(View view) { //, )
+        mContext = view.getContext();
         rootView = view;
     }
 
@@ -122,12 +121,11 @@ public class IncidentGetService extends AsyncTask<Void, Void, Void> {
     protected void onPostExecute(Void aVoid) {
         RUNNING = false;
         super.onPostExecute(aVoid);
-        theFilter = rootView.findViewById(R.id.filter_incident);
+        //theFilter = rootView.findViewById(R.id.filter_incident);
 
-        incidentListAdapter = new IncidentListAdapter(mContext, R.layout.custom_list_view, incidentArrayList);
-        listView.setAdapter(incidentListAdapter);
 
-        theFilter.addTextChangedListener(new TextWatcher() {
+
+    /*        theFilter.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -143,7 +141,7 @@ public class IncidentGetService extends AsyncTask<Void, Void, Void> {
                 incidentListAdapter.getFilter().filter(s.toString());
             }
         });
-
+    */
 
     }
 
