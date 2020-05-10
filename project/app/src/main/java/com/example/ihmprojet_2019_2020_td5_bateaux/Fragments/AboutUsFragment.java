@@ -16,7 +16,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.ihmprojet_2019_2020_td5_bateaux.R;
 
 public class AboutUsFragment extends Fragment {
-    private static final String FACEBOOK_PAGE_ID = "151932215253161";
+    private static final String FACEBOOK_PAGE_ID = "105901411124436";
     public AboutUsFragment() {
         // Empty constructor required
     }
@@ -64,16 +64,13 @@ public class AboutUsFragment extends Fragment {
     }
 
     private void goToTwitterPage() {
-        try {
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?screen_name=[user_name]"));
-            startActivity(intent);
-        } catch (Exception e) {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/#!/[user_name]")));
-        }
+
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/#!/[user_name]")));
 
     }
 
     private void goToFAQPage() {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.neptune.dinelhost.com/index.html")));
     }
 
     private void goToGmailPage() {
@@ -82,12 +79,9 @@ public class AboutUsFragment extends Fragment {
 
 
     private void goToFaceBookPage(String id) {
-        try {
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("facebook://page/" + id));
+
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/Neptune-Incidents-105901411124436"));
             startActivity(intent);
-        } catch (ActivityNotFoundException e) {
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/" + id));
-            startActivity(intent);
-        }
+
     }
 }

@@ -74,7 +74,7 @@
     <string name="precipitation">Precipitation</string>
     <string name="windspeed">Wind speed</string>
     <string name="pressure">Pressure</string>
-    <string name="notificatin">Notification </string>
+    <string name="notificatin">Urgent notifications</string>
     <string name="about_title">About Us</string>
     <string name="add_incident">ADD INCIDENT</string>
     <string name="select_nature">Select the nature</string>
