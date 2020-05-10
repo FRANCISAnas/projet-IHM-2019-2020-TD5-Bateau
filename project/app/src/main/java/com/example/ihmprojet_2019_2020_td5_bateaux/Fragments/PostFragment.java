@@ -33,13 +33,8 @@ import static com.example.ihmprojet_2019_2020_td5_bateaux.NeptuneNotification.CH
 
 public class PostFragment extends Fragment {
 
-    public final static String TAG = "FRANCIS";
-    private static final int MAX_NUMBER_OF_NOTIFICATIONS = 3;
-    public static int nbOfNotification = 0;
     boolean fromAddButton = false;
     public static Bitmap photo;
-
-    private NotificationManagerCompat notificationManager;
 
     private final static String AUTRE= "Autre";
 
@@ -69,7 +64,6 @@ public PostFragment(boolean fromAddButton) {
 
                 EditText editText = rootView.findViewById(R.id.naturetype);
                 if (value.equals(AUTRE)) {
-
                     editText.setVisibility(View.VISIBLE);
                 }else{
                     editText.setVisibility(View.INVISIBLE);

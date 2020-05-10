@@ -29,7 +29,6 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
     String currentLanguage = "en", currentLang;
     public static boolean URGENT_NOTIFICATIONS = false;
     private CheckBox checkBox;
-    private static final String TAG = "FRANCIS";
     public SettingsFragment() {
         // Empty constructor required
     }
