@@ -62,5 +62,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    public Location getCurrentLocation(){
+        return currentLocation;
+    }
 
 }

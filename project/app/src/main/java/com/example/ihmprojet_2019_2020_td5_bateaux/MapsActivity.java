@@ -61,14 +61,15 @@ public class MapsActivity extends FragmentActivity implements IGPSActivity, OnMa
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+
     }
 
     @Override
     public void moveCamera() {
         try {
-            gpsFragment.setPlaceName("Ville"+gpsFragment.getPlaceName());
+            gpsFragment.setPlaceName("Position : "+gpsFragment.getPlaceName());
         }catch (IOException e){
-            gpsFragment.setPlaceName("ville inconnue");
+            gpsFragment.setPlaceName("Position  inconnue");
         }
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(gpsFragment.getPosition(),15f));
 
@@ -85,7 +86,7 @@ public class MapsActivity extends FragmentActivity implements IGPSActivity, OnMa
         }
         gpsFragment=new GPSFragment(this);
         FragmentTransaction gpsTransaction=getSupportFragmentManager().beginTransaction();
-        gpsTransaction.replace(R.id.gpsLocation, gpsFragment);
+        gpsTransaction.replace(R.id.gpsLocation,gpsFragment);
         gpsTransaction.addToBackStack(null);
         gpsTransaction.commit();
     }

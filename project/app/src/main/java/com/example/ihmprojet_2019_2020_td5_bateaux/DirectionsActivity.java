@@ -31,11 +31,8 @@ public class DirectionsActivity extends AppCompatActivity {
         map = findViewById(R.id.map);
         map.setTileSource(TileSourceFactory.MAPNIK);
         map.setBuiltInZoomControls(true);
-
         GeoPoint startPoint = new GeoPoint(32.3213840,-64.75737);
         IMapController mapController=map.getController();
-
-
         mapController.setZoom(18.0);
         mapController.setCenter(startPoint);
 
