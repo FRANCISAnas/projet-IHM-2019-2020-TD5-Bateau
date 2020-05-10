@@ -183,16 +183,14 @@
                 android:textSize="@dimen/fragment_settings_text_view_8_text_size">
 
             </TextView>
-
-            <Spinner
-                android:id="@+id/spinnerTempN"
-                android:layout_width="match_parent"
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="350dp"
                 android:layout_marginTop="@dimen/fragment_settings_spinner_3_marginTop"
-                android:layout_marginEnd="@dimen/fragment_settings_spinner_3_marginEnd"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="166dp"
-                tools:layout_editor_absoluteY="183dp" />
+                android:text="@string/uregent"
+                android:textColor="#000000"/>
 
 
         </RelativeLayout>
