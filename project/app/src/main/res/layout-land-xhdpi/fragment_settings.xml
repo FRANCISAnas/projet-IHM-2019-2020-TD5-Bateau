@@ -5,7 +5,7 @@
     android:id="@+id/fragment_settings"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="#DCDCE1">
 
 
     <ScrollView
@@ -30,7 +30,7 @@
                 android:id="@+id/spinnerTemp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/fragment_settings_spinner_1_marginTop"
+                android:layout_marginTop="@dimen/fragment_settings_text_view_4_marginTop"
                 android:layout_marginEnd="@dimen/fragment_settings_spinner_1_marginEnd"
 
                 tools:ignore="MissingConstraints"
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="@dimen/fragment_settings_text_view_2_marginStart"
-                android:layout_marginTop="@dimen/fragment_settings_text_view_2_marginTop"
+                android:layout_marginTop="@dimen/fragment_settings_text_view_4_marginTop"
                 android:layout_marginEnd="@dimen/fragment_settings_text_view_2_marginEnd"
                 android:text="@string/temperature"
                 android:textColor="#000000"
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/fragment_settings_text_view_3_marginStart"
                 android:layout_marginTop="@dimen/fragment_settings_text_view_3_marginTop"
-                android:text="@string/langauage"
+                android:text="@string/language"
                 android:textColor="#000000"
                 android:textSize="@dimen/fragment_settings_text_view_3_text_size"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -177,7 +177,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/fragment_settings_text_view_4_marginStart"
-                android:layout_marginTop="@dimen/fragment_settings_text_view_4_marginTop"
+                android:layout_marginTop="@dimen/fragment_settings_spinner_1_marginTop"
                 android:text="@string/notificatin"
                 android:textColor="#000000"
                 android:textSize="@dimen/fragment_settings_text_view_8_text_size">
@@ -188,10 +188,11 @@
                 android:id="@+id/checkBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="700dp"
-                android:layout_marginTop="@dimen/fragment_settings_spinner_3_marginTop"
-                android:text="@string/urgent"
-                android:textColor="#000000"/>
+                android:layout_marginLeft="400dp"
+                android:layout_marginTop="@dimen/fragment_settings_spinner_1_marginTop"
+                android:buttonTint="@color/black"
+                android:textColor="#000000"
+                android:shadowColor="#000000"/>
 
 
         </RelativeLayout>

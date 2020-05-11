@@ -36,16 +36,16 @@
 
             <ImageView
                 android:id="@+id/facebook"
-                android:layout_width="@dimen/fragment_about_us_image_1_width"
-                android:layout_height="@dimen/fragment_about_us_image_1_height"
+                android:layout_width="63dp"
+                android:layout_height="59dp"
                 android:layout_marginLeft="135dp"
                 android:layout_marginTop="260dp"
                 android:contentDescription="TODO"
                 app:srcCompat="@drawable/facebook" />
 
             <TextView
-                android:layout_width="@dimen/fragment_about_us_textview3_width"
-                android:layout_height="@dimen/fragment_about_us_textview3_height"
+                android:layout_width="145dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/fragment_about_us_textview3_MarginLeft"
                 android:layout_marginTop="400dp"
                 android:text="Facebook"
@@ -55,15 +55,15 @@
 
             <ImageView
                 android:id="@+id/twitter"
-                android:layout_width="35dp"
-                android:layout_height="@dimen/fragment_about_us_image_2_height"
+                android:layout_width="49dp"
+                android:layout_height="57dp"
                 android:layout_marginLeft="135dp"
                 android:layout_marginTop="350dp"
                 app:srcCompat="@drawable/twitter" />
 
             <TextView
-                android:layout_width="@dimen/fragment_about_us_textview4_width"
-                android:layout_height="@dimen/fragment_about_us_textview4_height"
+                android:layout_width="156dp"
+                android:layout_height="40dp"
                 android:layout_marginLeft="@dimen/fragment_about_us_textview4_MarginLeft"
                 android:layout_marginTop="480dp"
                 android:text="Twitter"
@@ -89,15 +89,15 @@
 
             <ImageView
                 android:id="@+id/faq"
-                android:layout_width="@dimen/fragment_about_us_image_4_width"
-                android:layout_height="@dimen/fragment_about_us_image_4_height"
+                android:layout_width="63dp"
+                android:layout_height="59dp"
                 android:layout_marginLeft="760dp"
                 android:layout_marginTop="300dp"
                 app:srcCompat="@drawable/faq" />
 
             <TextView
-                android:layout_width="@dimen/fragment_about_us_textview6_width"
-                android:layout_height="@dimen/fragment_about_us_textview6_height"
+                android:layout_width="63dp"
+                android:layout_height="59dp"
                 android:layout_marginLeft="700dp"
                 android:layout_marginTop="480dp"
                 android:text="FAQ"
