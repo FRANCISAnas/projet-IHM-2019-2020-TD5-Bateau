@@ -15,8 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_marginTop="230dp"
-        android:src="@mipmap/micraphone"
-         />
+        android:src="@mipmap/android_cam" />
 
     <EditText
         android:id="@+id/editTextDescription"
