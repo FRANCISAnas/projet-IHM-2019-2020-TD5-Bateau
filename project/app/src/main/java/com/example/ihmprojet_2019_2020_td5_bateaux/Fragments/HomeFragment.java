@@ -14,6 +14,7 @@ import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkInfo;
 import androidx.work.WorkManager;
 
+import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.IncidentListAdapter;
 import com.example.ihmprojet_2019_2020_td5_bateaux.R;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentGetService;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Service.MyAsyncTaskWorker;
@@ -40,7 +41,7 @@ public class HomeFragment extends Fragment {
 
 
 
-        if (!IncidentGetService.RUNNING) {
+       /* if (!IncidentGetService.RUNNING) {
             PeriodicWorkRequest.Builder incident =
                     new PeriodicWorkRequest.Builder(MyAsyncTaskWorker.class, 5, TimeUnit.SECONDS);
             PeriodicWorkRequest request = incident
@@ -57,7 +58,8 @@ public class HomeFragment extends Fragment {
                     }
                 }
             });
-        }
+        }*/
+
 
         IncidentGetService incidentGetService = new  IncidentGetService(rootView);
         incidentGetService.execute();

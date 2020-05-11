@@ -50,14 +50,24 @@ public class IncidentsFragment extends Fragment {
         final View rootView = inflater.inflate(R.layout.activity_incidents, container, false);
         setHasOptionsMenu(true);
 
+
+
         IncidentGetService incidentGetService = new  IncidentGetService(rootView);
         incidentGetService.execute();
-
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         listView = rootView.findViewById(R.id.myListView);
-        registerForContextMenu(listView);
         incidentListAdapter = new IncidentListAdapter(getContext(), R.layout.custom_list_view, incidentArrayList);
         listView.setAdapter(incidentListAdapter);
+
+
+
+        registerForContextMenu(listView);
+
 
         Button addIncident = rootView.findViewById(R.id.addIncident);
         addIncident.setOnClickListener(new View.OnClickListener() {
@@ -92,7 +102,7 @@ public class IncidentsFragment extends Fragment {
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         AdapterView.AdapterContextMenuInfo adapterContextMenuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         if (item.getItemId() == R.id.edit) {
-            //if (incidentArrayList.get(adapterContextMenuInfo.position).getAndroid_id().equals(Settings.Secure.getString(getContext().getContentResolver(), Settings.Secure.ANDROID_ID))) {
+            if (incidentArrayList.get(adapterContextMenuInfo.position).getAndroid_id().equals(Settings.Secure.getString(getContext().getContentResolver(), Settings.Secure.ANDROID_ID))) {
             Bundle bundle = new Bundle();
             bundle.putString("nature", incidentArrayList.get(adapterContextMenuInfo.position).getNature());
             bundle.putString("description", incidentArrayList.get(adapterContextMenuInfo.position).getDescription());
@@ -102,9 +112,9 @@ public class IncidentsFragment extends Fragment {
             secondFragment.setArguments(bundle);
             frag.replace(R.id.fragment_container, secondFragment);
             frag.commit();
-            //}else{
+            }else{
             Toast.makeText(getContext(), "You are not allowed to edit an incident you didn't publish.", Toast.LENGTH_SHORT).show();
-        //}
+        }
 
 
         }
@@ -124,6 +134,7 @@ public class IncidentsFragment extends Fragment {
 
         return super.onContextItemSelected(item);
     }
+
 
 
 }

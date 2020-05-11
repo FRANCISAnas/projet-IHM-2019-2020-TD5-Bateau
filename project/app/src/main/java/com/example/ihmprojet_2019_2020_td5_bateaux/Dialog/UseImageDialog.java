@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
@@ -36,6 +37,7 @@ public class UseImageDialog extends DialogFragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 PostFragment.photo = photo;
+                Toast.makeText(getContext(), "Image loaded successfully", Toast.LENGTH_SHORT).show();
             }
         }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override

@@ -89,14 +89,7 @@ public PostFragment(boolean fromAddButton) {
             }
         });
 
-        ImageButton recordButton = rootView.findViewById(R.id.searchImageButton);
-        recordButton.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                Toast.makeText(getContext(), "mic long clicked", Toast.LENGTH_SHORT).show();
-                return false;
-            }
-        });
+
 
 
 
@@ -105,6 +98,8 @@ public PostFragment(boolean fromAddButton) {
             post.setText("Post");
             TextView tv = rootView.findViewById(R.id.textView5);
             tv.setText("Report");
+            Button button = rootView.findViewById(R.id.addPhoto);
+            button.setVisibility(View.VISIBLE);
 
 
         }else{
@@ -134,7 +129,6 @@ public PostFragment(boolean fromAddButton) {
                 final String description = des.getText().toString();
 
                 if(fromAddButton) {
-                    //pass photo
                     IncidentPostService postService;
                     if(photo!=null){
                          postService = new IncidentPostService(container.getContext(), nature, description,photo);
@@ -144,9 +138,7 @@ public PostFragment(boolean fromAddButton) {
                     }
                     postService.execute();
                 }else {
-                    System.out.println();
-                    EditText naturen  = rootView.findViewById(R.id.naturetype);
-                    IncidentPutService incidentPutService = new IncidentPutService(container.getContext(), naturen.getText().toString(),description, (int) bundle.get("id"));
+                    IncidentPutService incidentPutService = new IncidentPutService(container.getContext(), nature,description, (int) bundle.get("id"));
                     incidentPutService.execute();
                 }
 

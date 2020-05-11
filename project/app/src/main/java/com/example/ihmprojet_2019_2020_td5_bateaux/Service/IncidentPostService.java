@@ -56,23 +56,36 @@ public class IncidentPostService extends AsyncTask<String,String, String> {
                 conn.setDoInput(true);
                 conn.setDoOutput(true);
 
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                photo.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
-                String encodedImage = Base64.encodeToString(byteArrayOutputStream.toByteArray(),Base64.DEFAULT);
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("nature",this.nature);
                 jsonObject.put("description",this.description);
-                jsonObject.put("image", encodedImage);
+                if(photo!=null) {
+                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                    photo.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+                    String encodedImage = Base64.encodeToString(byteArrayOutputStream.toByteArray(), Base64.DEFAULT);
+                    jsonObject.put("image", encodedImage);
+                }else{
+                    jsonObject.put("image", "null");
+                }
                 jsonObject.put("longitude","" + MainActivity.currentLocation.getLongitude());
                 jsonObject.put("latitude", "" + MainActivity.currentLocation.getLatitude());
                 jsonObject.put("android_id",  Settings.Secure.getString(mContext.getContentResolver(), Settings.Secure.ANDROID_ID));
-           /* Map<String, String> params = new HashMap<>();
-            params.put("nature", this.nature);
-            params.put("description", this.description);
-            params.put("image", encodedImage);
-            params.put("longitude", "" + MainActivity.currentLocation.getLongitude());
-            params.put("latitude", "" + MainActivity.currentLocation.getLatitude());
-            params.put("android_id", Settings.Secure.getString(mContext.getContentResolver(), Settings.Secure.ANDROID_ID));
+
+               /*Map<String, String> params = new HashMap<>();
+               params.put("nature", this.nature);
+               params.put("description", this.description);
+               if(photo!=null) {
+                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                    photo.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+                    String encodedImage = Base64.encodeToString(byteArrayOutputStream.toByteArray(), Base64.DEFAULT);
+                    params.put("image", encodedImage);
+                }else{
+                    params.put("image", "null");
+                }
+
+                params.put("longitude", "" + MainActivity.currentLocation.getLongitude());
+                params.put("latitude", "" + MainActivity.currentLocation.getLatitude());
+                params.put("android_id", Settings.Secure.getString(mContext.getContentResolver(), Settings.Secure.ANDROID_ID));
 
 
 

@@ -41,13 +41,6 @@ public class IncidentDeleteService extends AsyncTask<String, String, String> {
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             conn.setDoInput(true);
             conn.setDoOutput(true);
-
-
-
-
-
-            //
-
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("id",this.incident.getId());
 
@@ -83,7 +76,7 @@ public class IncidentDeleteService extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
-        IncidentGetService incidentGetService = new IncidentGetService(this.view);
-        incidentGetService.execute();
+        //IncidentGetService incidentGetService = new IncidentGetService(this.view);
+        //incidentGetService.execute();
     }
 }
