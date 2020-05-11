@@ -1,6 +1,5 @@
 package com.example.ihmprojet_2019_2020_td5_bateaux;
 
-import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.os.Bundle;
 

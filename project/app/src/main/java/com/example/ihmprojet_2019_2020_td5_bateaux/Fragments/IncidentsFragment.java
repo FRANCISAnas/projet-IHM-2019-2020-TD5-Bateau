@@ -110,7 +110,6 @@ public class IncidentsFragment extends Fragment {
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         AdapterView.AdapterContextMenuInfo adapterContextMenuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         if (item.getItemId() == R.id.edit) {
-            //if (incidentArrayList.get(adapterContextMenuInfo.position).getAndroid_id().equals(Settings.Secure.getString(getContext().getContentResolver(), Settings.Secure.ANDROID_ID))) {
             Bundle bundle = new Bundle();
             bundle.putString("nature", incidentArrayList.get(adapterContextMenuInfo.position).getNature());
             bundle.putString("description", incidentArrayList.get(adapterContextMenuInfo.position).getDescription());

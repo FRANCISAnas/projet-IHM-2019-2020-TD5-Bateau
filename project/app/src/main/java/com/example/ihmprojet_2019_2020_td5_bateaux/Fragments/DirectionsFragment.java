@@ -24,15 +24,7 @@ public class DirectionsFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstaceState) {
         View rootView = inflater.inflate(R.layout.fragment_directions, container, false);
-        /*Button btn = (Button) rootView.findViewById(R.id.go_to_Directions_button);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in = new Intent(getActivity(), DirectionsActivity.class);
 
-                startActivity(in);
-            }
-        });*/
         Intent in =new Intent(getActivity(), DirectionsActivity.class);
         startActivity(in);
 
