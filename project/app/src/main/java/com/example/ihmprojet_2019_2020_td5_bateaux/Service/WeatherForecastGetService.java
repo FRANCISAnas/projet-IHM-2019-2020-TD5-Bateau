@@ -17,6 +17,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,7 +30,7 @@ public class WeatherForecastGetService extends AsyncTask<Void, Void, Void> {
 
     private static final String CITY_NAME = "name";
     private static final String LATITUDE = "latitude";
-    private static final String LONGITUDE ="longitude";
+    private static final String LONGITUDE = "longitude";
     private static final String VISIBILITY = "visibility";
     private static final String TIMEZONE = "timezone";
     private static final String DESCRIPTION = "description";
@@ -40,6 +42,7 @@ public class WeatherForecastGetService extends AsyncTask<Void, Void, Void> {
     private static final String TEMPERATURE_MAX = "temp_max";
     private static final String PRESSURE = "pressure";
     private static final String HUMIDITY = "humidity";
+    private static final String TIME_FORMAT = "HH:mm:ss";
 
 
     public WeatherForecastGetService(Location location, View view) {
@@ -85,10 +88,10 @@ public class WeatherForecastGetService extends AsyncTask<Void, Void, Void> {
                 values.put(CITY_NAME, jsonObject.getString(CITY_NAME));
             }
             if (jsonObject.has(VISIBILITY)) {
-                values.put(VISIBILITY, jsonObject.getString(VISIBILITY));
+                values.put(VISIBILITY, jsonObject.getString(VISIBILITY) + " m");
             }
             if (jsonObject.has(TIMEZONE)) {
-                values.put(TIMEZONE, jsonObject.getString(TIMEZONE));
+                values.put(TIMEZONE, "GMT " + jsonObject.getInt(TIMEZONE) / 3600);
             }
 
             if (jsonObject.has("weather")) {
@@ -104,32 +107,32 @@ public class WeatherForecastGetService extends AsyncTask<Void, Void, Void> {
             if (jsonObject.has("sys")) {
                 JSONObject sys = jsonObject.getJSONObject("sys");
                 if (sys.has(SUNRISE)) {
-                    values.put(SUNRISE, sys.getString(SUNRISE));
+                    values.put(SUNRISE, new SimpleDateFormat(TIME_FORMAT).format(new Date(sys.getInt(SUNRISE))));
                 }
                 if (sys.has(SUNSET)) {
-                    values.put(SUNSET, sys.getString(SUNSET));
+                    values.put(SUNSET, new SimpleDateFormat(TIME_FORMAT).format(new Date(sys.getInt(SUNSET))));
                 }
             }
 
             if (jsonObject.has("main")) {
                 JSONObject main = jsonObject.getJSONObject("main");
                 if (main.has(TEMPERATURE)) {
-                    values.put(TEMPERATURE, main.getString(TEMPERATURE));
+                    values.put(TEMPERATURE, main.getString(TEMPERATURE) + " °F");
                 }
                 if (main.has(FEELS_LIKE)) {
-                    values.put(FEELS_LIKE, main.getString(FEELS_LIKE));
+                    values.put(FEELS_LIKE, main.getString(FEELS_LIKE) + " °F");
                 }
                 if (main.has(TEMPERATURE_MIN)) {
-                    values.put(TEMPERATURE_MIN, main.getString(TEMPERATURE_MIN));
+                    values.put(TEMPERATURE_MIN, main.getString(TEMPERATURE_MIN) + " °F");
                 }
                 if (main.has(TEMPERATURE_MAX)) {
-                    values.put(TEMPERATURE_MAX, main.getString(TEMPERATURE_MAX));
+                    values.put(TEMPERATURE_MAX, main.getString(TEMPERATURE_MAX) + " °F");
                 }
                 if (main.has(PRESSURE)) {
-                    values.put(PRESSURE, main.getString(PRESSURE));
+                    values.put(PRESSURE, main.getString(PRESSURE) + " hPa");
                 }
                 if (main.has(HUMIDITY)) {
-                    values.put(HUMIDITY, main.getString(HUMIDITY));
+                    values.put(HUMIDITY, main.getString(HUMIDITY) + "%");
                 }
             }
 
@@ -142,7 +145,7 @@ public class WeatherForecastGetService extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-        for(Map.Entry<String, String> e : values.entrySet()){
+        for (Map.Entry<String, String> e : values.entrySet()) {
             textViews.get(e.getKey()).setText(e.getValue());
         }
     }
