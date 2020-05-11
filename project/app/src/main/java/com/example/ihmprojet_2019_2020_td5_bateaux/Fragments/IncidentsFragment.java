@@ -2,6 +2,8 @@ package com.example.ihmprojet_2019_2020_td5_bateaux.Fragments;
 
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -32,6 +35,7 @@ public class IncidentsFragment extends Fragment {
     public static IncidentListAdapter incidentListAdapter;
     public static boolean newIncident = false;
 
+    private EditText editText;
     public static ListView listView;
 
     public IncidentsFragment() {
@@ -51,12 +55,28 @@ public class IncidentsFragment extends Fragment {
         setHasOptionsMenu(true);
 
 
-
+        editText = rootView.findViewById(R.id.filter_incident);
         listView = rootView.findViewById(R.id.myListView);
         registerForContextMenu(listView);
         incidentListAdapter = new IncidentListAdapter(getContext(), R.layout.custom_list_view, incidentArrayList);
         listView.setAdapter(incidentListAdapter);
 
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                IncidentsFragment.incidentListAdapter.getFilter().filter(s);
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
         Button addIncident = rootView.findViewById(R.id.addIncident);
         addIncident.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,7 +110,6 @@ public class IncidentsFragment extends Fragment {
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         AdapterView.AdapterContextMenuInfo adapterContextMenuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         if (item.getItemId() == R.id.edit) {
-            //if (incidentArrayList.get(adapterContextMenuInfo.position).getAndroid_id().equals(Settings.Secure.getString(getContext().getContentResolver(), Settings.Secure.ANDROID_ID))) {
             Bundle bundle = new Bundle();
             bundle.putString("nature", incidentArrayList.get(adapterContextMenuInfo.position).getNature());
             bundle.putString("description", incidentArrayList.get(adapterContextMenuInfo.position).getDescription());

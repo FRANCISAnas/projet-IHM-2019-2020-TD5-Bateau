@@ -5,19 +5,13 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.provider.Settings;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ListView;
 
 import androidx.core.app.NotificationCompat;
 
-import com.example.ihmprojet_2019_2020_td5_bateaux.Data;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Fragments.IncidentsFragment;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Fragments.SettingsFragment;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
-import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.IncidentListAdapter;
 import com.example.ihmprojet_2019_2020_td5_bateaux.R;
 
 import org.json.JSONArray;
@@ -119,28 +113,6 @@ public class IncidentGetService extends AsyncTask<Void, Void, Void> {
     protected void onPostExecute(Void aVoid) {
         RUNNING = false;
         super.onPostExecute(aVoid);
-        //theFilter = rootView.findViewById(R.id.filter_incident);
-
-
-
-    /*        theFilter.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                (IncidentGetService.this).incidentListAdapter.getFilter().filter(s);
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                incidentListAdapter.getFilter().filter(s.toString());
-            }
-        });
-    */
-
     }
 
 

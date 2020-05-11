@@ -59,7 +59,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_home);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        setNotficationManagerCompat();
 
         drawer = findViewById(R.id.drawer_layout);
 
@@ -79,37 +78,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
 
 
-    private void setNotficationManagerCompat() {
-        this.notificationManager = NotificationManagerCompat.from(this);
-        EditText editText = findViewById(R.id.incident_description);
-    }
 
-
-    public void sendOnUrgent(View v) {
-        if (nbOfNotification == MAX_NUMBER_OF_NOTIFICATIONS) nbOfNotification = 0;
-        /*Intent intent = new Intent(getApplicationContext(), IncidentsFragment.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);*/
-        final String desccription = ((EditText) findViewById(R.id.editTextDescription)).getText().toString();
-        Notification notification = new NotificationCompat.Builder(this, CHANNEL_URGENTE)
-                .setSmallIcon(R.drawable.ic_alert)
-                .setContentText(desccription)
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .build();
-        notificationManager.notify(nbOfNotification++, notification);
-    }
-
-    public void sendOnClassic(View v) {
-        if (nbOfNotification == MAX_NUMBER_OF_NOTIFICATIONS) nbOfNotification = 0;
-        Intent intent = new Intent(getApplicationContext(), IncidentsFragment.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
-        final String desccription = ((EditText) findViewById(R.id.editTextDescription)).getText().toString();
-        Notification notification = new NotificationCompat.Builder(this, CHANNEL_CLASSIQUE)
-                .setSmallIcon(R.drawable.ic_alert)
-                .setContentIntent(pendingIntent)
-                .setContentTitle(desccription)
-                .setPriority(NotificationCompat.PRIORITY_LOW).build();
-        notificationManager.notify(nbOfNotification++, notification);
-    }
 
     @Override
     public void onBackPressed() {

@@ -5,21 +5,17 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 
 import androidx.fragment.app.DialogFragment;
 
-import com.example.ihmprojet_2019_2020_td5_bateaux.Fragments.PostFragment;
 import com.example.ihmprojet_2019_2020_td5_bateaux.R;
 
 public class PhotoSourceDialogue extends DialogFragment {
