@@ -6,15 +6,21 @@ $db = new Database();
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 
 if ($requestMethod == 'POST') {
-    $nature = isset($_POST['nature']) ? $_POST['nature'] : null;
-    $description = isset($_POST['description']) ? $_POST['description'] : null;
-    $latitude = isset($_POST['latitude']) ? $_POST['latitude'] : null;
-    $longitude = isset($_POST['longitude']) ? $_POST['longitude'] : null;
-    $android_id = isset($_POST['android_id']) ? $_POST['android_id'] : null;
-    $android_id = isset($_POST['android_id']) ? $_POST['android_id'] : null;
+    $fd = fopen('php://input', 'r');
+    $data = '';
+    while ($str = fread($fd, 1024))
+        $data .= $str;
+    fclose($fd);
+    $data_array = json_decode($data, true);
+    $nature = isset($data_array['nature']) ? $data_array['nature'] : null;
+    $description = isset($data_array['description']) ? $data_array['description'] : null;
+    $latitude = isset($data_array['latitude']) ? $data_array['latitude'] : null;
+    $longitude = isset($data_array['longitude']) ? $data_array['longitude'] : null;
+    $android_id = isset($data_array['android_id']) ? $data_array['android_id'] : null;
+    $android_id = isset($data_array['android_id']) ? $data_array['android_id'] : null;
     $unique_id = null;
     try{
-        $image = isset($_POST['image']) ? base64_decode($_POST['image']) : null;
+        $image = isset($data_array['image']) ? base64_decode($data_array['image']) : null;
         if($image){
             $unique_id = uniqid('', true);
             file_put_contents("../images/$unique_id.JPG", $image);
