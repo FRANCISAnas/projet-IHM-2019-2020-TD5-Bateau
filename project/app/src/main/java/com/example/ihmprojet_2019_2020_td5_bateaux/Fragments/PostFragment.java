@@ -11,8 +11,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -35,7 +37,7 @@ public class PostFragment extends Fragment {
 
     boolean fromAddButton = false;
     public static Bitmap photo;
-
+    Bundle bundle;
     private final static String AUTRE= "Autre";
 
 
@@ -87,6 +89,15 @@ public PostFragment(boolean fromAddButton) {
             }
         });
 
+        ImageButton recordButton = rootView.findViewById(R.id.searchImageButton);
+        recordButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Toast.makeText(getContext(), "mic long clicked", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+
 
 
         Button post = rootView.findViewById(R.id.post);
@@ -94,11 +105,11 @@ public PostFragment(boolean fromAddButton) {
             post.setText("Post");
             TextView tv = rootView.findViewById(R.id.textView5);
             tv.setText("Report");
-            Button image =rootView.findViewById(R.id.addPhoto);
-            image.setText("Add Photo");
+
 
         }else{
-            Bundle bundle = getArguments() ;
+
+             bundle = getArguments() ;
             for (int i = 0; i < spinner.getAdapter().getCount() ; i++) {
                 if(bundle.get("nature").toString().equals(spinner.getItemAtPosition(i))){
                     spinner.setSelection(i);
@@ -114,14 +125,13 @@ public PostFragment(boolean fromAddButton) {
             @Override
             public void onClick(View v) {
 
-                String nature;
-                 nature = spinner.getSelectedItem().toString();
+                String nature = spinner.getSelectedItem().toString();
                 if(nature.equals("Autre")){
                     EditText editText = rootView.findViewById(R.id.naturetype);
                     nature = editText.getText().toString();
                 }
-                EditText editText = rootView.findViewById(R.id.editTextDescription);
-                final String description = editText.getText().toString();
+                EditText des = rootView.findViewById(R.id.editTextDescription);
+                final String description = des.getText().toString();
 
                 if(fromAddButton) {
                     //pass photo
@@ -134,7 +144,9 @@ public PostFragment(boolean fromAddButton) {
                     }
                     postService.execute();
                 }else {
-                    IncidentPutService incidentPutService = new IncidentPutService(container.getContext(), nature, description);
+                    System.out.println();
+                    EditText naturen  = rootView.findViewById(R.id.naturetype);
+                    IncidentPutService incidentPutService = new IncidentPutService(container.getContext(), naturen.getText().toString(),description, (int) bundle.get("id"));
                     incidentPutService.execute();
                 }
 

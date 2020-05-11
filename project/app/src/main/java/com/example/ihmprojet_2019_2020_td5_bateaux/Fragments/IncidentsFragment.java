@@ -29,7 +29,9 @@ import java.util.ArrayList;
 public class IncidentsFragment extends Fragment {
 
     public static ArrayList<Incident> incidentArrayList;
+    public static IncidentListAdapter incidentListAdapter;
     public static boolean newIncident = false;
+
     public static ListView listView;
 
     public IncidentsFragment() {
@@ -52,7 +54,7 @@ public class IncidentsFragment extends Fragment {
 
         listView = rootView.findViewById(R.id.myListView);
         registerForContextMenu(listView);
-        IncidentListAdapter incidentListAdapter = new IncidentListAdapter(getContext(), R.layout.custom_list_view, incidentArrayList);
+        incidentListAdapter = new IncidentListAdapter(getContext(), R.layout.custom_list_view, incidentArrayList);
         listView.setAdapter(incidentListAdapter);
 
         Button addIncident = rootView.findViewById(R.id.addIncident);
@@ -88,15 +90,19 @@ public class IncidentsFragment extends Fragment {
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         AdapterView.AdapterContextMenuInfo adapterContextMenuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         if (item.getItemId() == R.id.edit) {
-
+            //if (incidentArrayList.get(adapterContextMenuInfo.position).getAndroid_id().equals(Settings.Secure.getString(getContext().getContentResolver(), Settings.Secure.ANDROID_ID))) {
             Bundle bundle = new Bundle();
             bundle.putString("nature", incidentArrayList.get(adapterContextMenuInfo.position).getNature());
             bundle.putString("description", incidentArrayList.get(adapterContextMenuInfo.position).getDescription());
+            bundle.putInt("id", incidentArrayList.get(adapterContextMenuInfo.position).getId());
             FragmentTransaction frag = getFragmentManager().beginTransaction();
             Fragment secondFragment = new PostFragment();
             secondFragment.setArguments(bundle);
             frag.replace(R.id.fragment_container, secondFragment);
             frag.commit();
+            //}else{
+            Toast.makeText(getContext(), "You are not allowed to edit an incident you didn't publish.", Toast.LENGTH_SHORT).show();
+        //}
 
 
         }

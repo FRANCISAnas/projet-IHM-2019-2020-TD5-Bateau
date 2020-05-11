@@ -18,5 +18,12 @@
 
     </ListView>
 
+    <EditText
+        android:id="@+id/filter_incident"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_incidents_height"
+        android:hint="filter"
+        />
+
 
 </LinearLayout>

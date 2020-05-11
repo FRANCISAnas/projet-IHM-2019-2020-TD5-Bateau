@@ -41,12 +41,10 @@ public class IncidentGetService extends AsyncTask<Void, Void, Void> {
     public static boolean RUNNING = false;
     public static int nbOfNotification = 0;
     ArrayList<Incident> incidentArrayList;
-    boolean newIncident = false;
-    IncidentListAdapter incidentListAdapter;
+
     private Context mContext;
-    private ListView listView;
     private View rootView;
-    private EditText theFilter;
+
 
 
     public IncidentGetService(View view) { //, )

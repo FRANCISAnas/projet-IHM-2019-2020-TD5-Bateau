@@ -2,8 +2,12 @@ package com.example.ihmprojet_2019_2020_td5_bateaux.Service;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.view.View;
 
 import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -17,11 +21,12 @@ public class IncidentDeleteService extends AsyncTask<String, String, String> {
 
 
     Incident incident;
+    View view;
 
     private Context mContext;
 
-    public IncidentDeleteService(Context context, Incident incident) {
-        mContext = context;
+    public IncidentDeleteService(View view, Incident incident) {
+        this.view = view;
         this.incident = incident;
     }
 
@@ -30,7 +35,6 @@ public class IncidentDeleteService extends AsyncTask<String, String, String> {
     protected String doInBackground(String... strings) {
         try {
 
-            //URL url = new URL(String.format("%s/&id=%d","http://www.neptune.dinelhost.com/api/incident.php",incident.getId()));
             URL url = new URL("http://www.neptune.dinelhost.com/api/incident.php");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("DELETE");
@@ -39,20 +43,17 @@ public class IncidentDeleteService extends AsyncTask<String, String, String> {
             conn.setDoOutput(true);
 
 
-            Map<String, String> params = new HashMap<>();
-            params.put("nature", Integer.toString(this.incident.getId()));
+
+
 
             //
 
-            StringBuilder postData = new StringBuilder();
-            for (Map.Entry<String, String> pa : params.entrySet()) {
-                postData.append("&");
-                postData.append(URLEncoder.encode(pa.getKey(), "UTF-8"));
-                postData.append("=");
-                postData.append(URLEncoder.encode(pa.getValue(), "UTF-8"));
-            }
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("id",this.incident.getId());
 
-            byte[] paramBytes = postData.toString().getBytes("UTF-8");
+
+
+            byte[] paramBytes = jsonObject.toString().getBytes("UTF-8");
 
             DataOutputStream os = new DataOutputStream(conn.getOutputStream());
 
@@ -71,11 +72,18 @@ public class IncidentDeleteService extends AsyncTask<String, String, String> {
             } else
                 return "";
 
-        } catch (IOException e) {
+        } catch (IOException | JSONException e) {
             e.printStackTrace();
         }
 
 
         return null;
+    }
+
+    @Override
+    protected void onPostExecute(String s) {
+        super.onPostExecute(s);
+        IncidentGetService incidentGetService = new IncidentGetService(this.view);
+        incidentGetService.execute();
     }
 }
