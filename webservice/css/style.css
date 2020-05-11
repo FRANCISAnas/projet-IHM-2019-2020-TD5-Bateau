@@ -1,0 +1,22 @@
+body,body *{
+    box-sizing: border-box;
+}
+
+/*header*/
+
+.bg{
+    transition: 750ms ease;
+    background: transparent;
+}
+
+.bg-scrolled{
+    background-color: #313634;
+}
+
+.navbar-toggler-icon {
+    background-image: url("../resources/internal/image/icons/icons8-menu-50.png");
+}
+
+.active{
+    color: #BB3301;
+}
