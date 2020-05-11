@@ -18,6 +18,18 @@ public class WeatherForecastGetService extends AsyncTask<Void, Void, Void> {
 
     private double longitude;
     private double latitude;
+    private String  city_name;
+    private String  visibility;
+    private String  timezone;
+    private String  description;
+    private String  sunrise;
+    private String  sunset;
+    private String  temp;
+    private String  feels_like;
+    private String  temp_min;
+    private String  temp_max;
+    private String  pressure;
+    private String  humidity;
 
     public WeatherForecastGetService(Location location) {
         longitude = location.getLongitude();
@@ -28,7 +40,7 @@ public class WeatherForecastGetService extends AsyncTask<Void, Void, Void> {
     protected Void doInBackground(Void... voids) {
         String data = "";
         try {
-            URL url = new URL("api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&appid=edd48555b608285b51b1abb1d4cc1a8e");
+            URL url = new URL("https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&appid=edd48555b608285b51b1abb1d4cc1a8e");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
@@ -37,41 +49,63 @@ public class WeatherForecastGetService extends AsyncTask<Void, Void, Void> {
                 line = bufferedReader.readLine();
                 data += line;
             }
-            JSONArray jsonArray = null;
-            try {
-                jsonArray = new JSONArray(data);
-            } catch (JSONException e) {
-                e.printStackTrace();
+
+            JSONObject jsonObject = new JSONObject(data);
+
+
+            if (jsonObject.has("name")) {
+                city_name = jsonObject.getString("name");
             }
-            JSONObject jsonObject;
-            int i = 0;
-            while (i < jsonArray.length()) {
-                try {
-                    jsonObject = jsonArray.getJSONObject(i);
+            if (jsonObject.has("visibility")) {
+                visibility = jsonObject.getString("visibility");
+            }
+            if (jsonObject.has("timezone")) {
+                timezone = jsonObject.getString("timezone");
+            }
 
-                    String city_name = jsonObject.getString("name");
-                    String visibility = jsonObject.getString("visibility");
-
-                    JSONObject main = jsonObject.getJSONObject("main");
-                    String temp = main.getString("temp");
-                    String feels_like = main.getString("feels_like");
-                    String temp_min = main.getString("temp_min");
-                    String temp_max = main.getString("temp_max");
-                    String pressure = main.getString("pressure");
-                    String humidity = main.getString("humidity");
-
-                    JSONArray weather = jsonObject.getJSONArray("weather");
-                    if(weather.length() > 0){
-                        JSONObject element = (JSONObject) weather.get(0);
-                        String description = element.getString("description");
+            if (jsonObject.has("weather")) {
+                JSONArray weather = jsonObject.getJSONArray("weather");
+                if (weather.length() > 0) {
+                    JSONObject element = (JSONObject) weather.get(0);
+                    if (element.has("description")) {
+                        description = element.getString("description");
                     }
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
                 }
-                i++;
             }
-        } catch (IOException e) {
+
+            if (jsonObject.has("sys")) {
+                JSONObject sys = jsonObject.getJSONObject("sys");
+                if (sys.has("sunrise")) {
+                    sunrise = sys.getString("sunrise");
+                }
+                if (sys.has("sunset")) {
+                    sunset = sys.getString("sunset");
+                }
+            }
+
+            if (jsonObject.has("main")) {
+                JSONObject main = jsonObject.getJSONObject("main");
+                if (main.has("temp")) {
+                    temp = main.getString("temp");
+                }
+                if (main.has("feels_like")) {
+                    feels_like = main.getString("feels_like");
+                }
+                if (main.has("temp_min")) {
+                    temp_min = main.getString("temp_min");
+                }
+                if (main.has("temp_max")) {
+                    temp_max = main.getString("temp_max");
+                }
+                if (main.has("pressure")) {
+                    pressure = main.getString("pressure");
+                }
+                if (main.has("humidity")) {
+                    humidity = main.getString("humidity");
+                }
+            }
+
+        } catch (IOException | JSONException e) {
             e.printStackTrace();
         }
         return null;

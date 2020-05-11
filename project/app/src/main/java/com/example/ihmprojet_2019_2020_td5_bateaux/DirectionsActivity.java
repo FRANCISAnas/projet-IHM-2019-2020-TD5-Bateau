@@ -25,16 +25,13 @@ import java.util.ArrayList;
 import static java.sql.Types.FLOAT;
 
 public class DirectionsActivity extends AppCompatActivity {
-    private static String TAG = "OSM_ACTIVITY";
     private MapView map;
-    private IncidentsFragment incidentsFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Configuration.getInstance().load(getApplicationContext(), PreferenceManager.getDefaultSharedPreferences(getApplicationContext()));
         setContentView(R.layout.activity_directions);
-        Log.d(TAG, "onCreat() start");
         map = findViewById(R.id.map);
         map.setTileSource(TileSourceFactory.MAPNIK);
         map.setBuiltInZoomControls(true);
