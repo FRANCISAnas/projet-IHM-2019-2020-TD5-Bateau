@@ -40,7 +40,7 @@ public class HomeFragment extends Fragment {
 
 
 
-       /* if (!IncidentGetService.RUNNING) {
+        if (!IncidentGetService.RUNNING) {
             PeriodicWorkRequest.Builder incident =
                     new PeriodicWorkRequest.Builder(MyAsyncTaskWorker.class, 5, TimeUnit.SECONDS);
             PeriodicWorkRequest request = incident
@@ -57,7 +57,7 @@ public class HomeFragment extends Fragment {
                     }
                 }
             });
-        }*/
+        }
 
         IncidentGetService incidentGetService = new  IncidentGetService(rootView);
         incidentGetService.execute();

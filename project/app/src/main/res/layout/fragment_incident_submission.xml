@@ -8,11 +8,20 @@
     tools:context=".HomeActivity">
 
     <!-- A completer ici  -->
+    <ImageButton
+        android:id="@+id/searchImageButton"
+        android:layout_width="46dp"
+        android:layout_height="42dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="230dp"
+        android:src="@mipmap/micraphone"
+         />
 
     <EditText
         android:id="@+id/editTextDescription"
-        android:layout_width="388dp"
-        android:layout_height="48dp"
+        android:layout_width="314dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="230dp"
         android:layout_marginEnd="7dp"

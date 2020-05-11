@@ -4,6 +4,8 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
+import org.json.JSONObject;
+
 import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -13,11 +15,13 @@ import java.util.Map;
 
 public class IncidentPutService extends AsyncTask<String, String, String> {
     String nature;
+    int id;
     String description;
     private Context mContext;
 
-    public IncidentPutService(Context context, String nature, String description) {
+    public IncidentPutService(Context context, String nature, String description,int id) {
         mContext = context;
+        this.id= id;
         this.nature = nature;
         this.description = description;
     }
@@ -43,12 +47,16 @@ public class IncidentPutService extends AsyncTask<String, String, String> {
             conn.setDoOutput(true);
 
 
-            Map<String, String> params = new HashMap<>();
+           /* Map<String, String> params = new HashMap<>();
             params.put("nature", this.nature);
             params.put("description", this.description);
+*/
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("id",this.id);
+            jsonObject.put("nature",this.nature);
+            jsonObject.put("description",this.description);
 
-
-            StringBuilder postData = new StringBuilder();
+  /*          StringBuilder postData = new StringBuilder();
             for (Map.Entry<String, String> pa : params.entrySet()) {
                 postData.append("&");
                 postData.append(URLEncoder.encode(pa.getKey(), "UTF-8"));
@@ -56,12 +64,11 @@ public class IncidentPutService extends AsyncTask<String, String, String> {
                 postData.append(URLEncoder.encode(pa.getValue(), "UTF-8"));
             }
 
-            byte[] paramBytes = postData.toString().getBytes("UTF-8");
 
+ */
+            byte[] paramBytes = jsonObject.toString().getBytes("UTF-8");
             DataOutputStream os = new DataOutputStream(conn.getOutputStream());
-
             os.write(paramBytes);
-
             os.flush();
             os.close();
 
