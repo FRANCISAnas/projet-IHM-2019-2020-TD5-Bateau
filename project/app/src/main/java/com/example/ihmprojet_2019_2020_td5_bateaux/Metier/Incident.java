@@ -30,6 +30,7 @@ public class Incident {
         this.longitude = longitude;
         this.latitude = latitude;
         this.android_id = android_id;
+        this.encodedImage = "null";
 
     }
 
@@ -41,7 +42,7 @@ public class Incident {
         this.longitude = longitude;
         this.latitude = latitude;
         this.android_id = android_id;
-        this.encodedImage = image;
+
     }
 
     /**

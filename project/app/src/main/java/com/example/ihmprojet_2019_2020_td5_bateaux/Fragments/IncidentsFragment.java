@@ -2,8 +2,6 @@ package com.example.ihmprojet_2019_2020_td5_bateaux.Fragments;
 
 import android.os.Bundle;
 import android.provider.Settings;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -11,8 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,7 +23,6 @@ import com.example.ihmprojet_2019_2020_td5_bateaux.Dialog.DetailsDialog;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.IncidentListAdapter;
 import com.example.ihmprojet_2019_2020_td5_bateaux.R;
-import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentGetService;
 
 import java.util.ArrayList;
 
@@ -35,7 +32,7 @@ public class IncidentsFragment extends Fragment {
     public static IncidentListAdapter incidentListAdapter;
     public static boolean newIncident = false;
 
-    private EditText editText;
+    private SearchView searchView;
     public static ListView listView;
 
     public IncidentsFragment() {
@@ -55,28 +52,26 @@ public class IncidentsFragment extends Fragment {
         setHasOptionsMenu(true);
 
 
-        editText = rootView.findViewById(R.id.filter_incident);
+        searchView = rootView.findViewById(R.id.filter_incident);
         listView = rootView.findViewById(R.id.myListView);
         registerForContextMenu(listView);
         incidentListAdapter = new IncidentListAdapter(getContext(), R.layout.custom_list_view, incidentArrayList);
         listView.setAdapter(incidentListAdapter);
 
-        editText.addTextChangedListener(new TextWatcher() {
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                IncidentsFragment.incidentListAdapter.getFilter().filter(s);
+            public boolean onQueryTextSubmit(String query) {
+                return false;
             }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
+            public boolean onQueryTextChange(String newText) {
+                IncidentsFragment.incidentListAdapter.getFilter().filter(newText);
+                return false;
             }
         });
+
+
         Button addIncident = rootView.findViewById(R.id.addIncident);
         addIncident.setOnClickListener(new View.OnClickListener() {
             @Override

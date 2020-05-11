@@ -10,7 +10,7 @@
         android:layout_height="@dimen/activity_incidents_heightB"
         android:text="@string/add_incident" />
 
-    <EditText
+    <SearchView
         android:id="@+id/filter_incident"
         android:layout_width="match_parent"
         android:layout_height="@dimen/activity_incidents_height"
