@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                 startActivity(intent);
                 finish();
-                System.out.println("splash screen");
             }
         }, 3000);
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);

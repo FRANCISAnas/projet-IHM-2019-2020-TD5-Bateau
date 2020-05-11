@@ -44,7 +44,7 @@ public class DirectionsActivity extends AppCompatActivity {
 
         items.add(home);
         for (Incident in : IncidentsFragment.incidentArrayList) {
-            items.add(new OverlayItem(in.getNature(), " ", new GeoPoint(Float.parseFloat(in.getLatitude()), Float.parseFloat(in.getLongitude()))));
+            items.add(new OverlayItem(in.getNature(), "A snippet", new GeoPoint(Float.parseFloat(in.getLatitude()), Float.parseFloat(in.getLongitude()))));
 
         }
 
@@ -59,6 +59,7 @@ public class DirectionsActivity extends AppCompatActivity {
                 return false;
             }
         });
+
         mOverLay.setFocusItemsOnTap(true);
         map.getOverlays().add(mOverLay);
     }
