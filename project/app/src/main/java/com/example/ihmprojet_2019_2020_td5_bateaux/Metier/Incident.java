@@ -107,6 +107,10 @@ public class Incident {
     }
 
 
+    @Override
+    public String toString(){
+        return this.nature;
+    }
 
     public String getEncodedImage(){
         return encodedImage;
