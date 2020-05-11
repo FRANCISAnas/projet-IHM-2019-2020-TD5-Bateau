@@ -17,7 +17,6 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.ihmprojet_2019_2020_td5_bateaux.R;
 
 public class AboutUsFragment extends Fragment {
-    private static final String FACEBOOK_PAGE_ID = "105901411124436";
     public AboutUsFragment() {
         // Empty constructor required
     }
@@ -34,6 +33,7 @@ public class AboutUsFragment extends Fragment {
             }
 
         });
+
         ImageView twiter = rootView.findViewById(R.id.twitter);
         twiter.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +42,7 @@ public class AboutUsFragment extends Fragment {
             }
 
         });
+
         ImageView gmail = rootView.findViewById(R.id.gmail);
         gmail.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +51,7 @@ public class AboutUsFragment extends Fragment {
             }
 
         });
+
         ImageView faq = rootView.findViewById(R.id.faq);
         faq.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +68,7 @@ public class AboutUsFragment extends Fragment {
 
     private void goToTwitterPage() {
 
-        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/#!/[user_name]"))); // remplacer cette chaine par l'adresse de page sur Twitter
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/NIncidents?s=09")));
 
     }
 
