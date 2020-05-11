@@ -2,9 +2,10 @@ package com.example.ihmprojet_2019_2020_td5_bateaux.Service;
 
 import android.location.Location;
 import android.os.AsyncTask;
+import android.view.View;
 import android.widget.TextView;
 
-import com.example.ihmprojet_2019_2020_td5_bateaux.Fragments.HomeFragment;
+import com.example.ihmprojet_2019_2020_td5_bateaux.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,6 +18,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.Map;
 
 public class WeatherForecastGetService extends AsyncTask<Void, Void, Void> {
 
@@ -24,12 +26,42 @@ public class WeatherForecastGetService extends AsyncTask<Void, Void, Void> {
     private HashMap<String, TextView> textViews;
     private HashMap<String, String> values;
 
+    private static final String CITY_NAME = "name";
+    private static final String LATITUDE = "latitude";
+    private static final String LONGITUDE ="longitude";
+    private static final String VISIBILITY = "visibility";
+    private static final String TIMEZONE = "timezone";
+    private static final String DESCRIPTION = "description";
+    private static final String SUNRISE = "sunrise";
+    private static final String SUNSET = "sunset";
+    private static final String TEMPERATURE = "temp";
+    private static final String FEELS_LIKE = "feels_like";
+    private static final String TEMPERATURE_MIN = "temp_min";
+    private static final String TEMPERATURE_MAX = "temp_max";
+    private static final String PRESSURE = "pressure";
+    private static final String HUMIDITY = "humidity";
 
-    public WeatherForecastGetService(Location location, HashMap<String, TextView> textViews) {
+
+    public WeatherForecastGetService(Location location, View view) {
         this.location = location;
-        this.textViews = textViews;
-        values.put(HomeFragment.LATITUDE, "" + location.getLatitude());
-        values.put(HomeFragment.LONGITUDE, "" + location.getLongitude());
+        values = new HashMap<>();
+        values.put(LATITUDE, "" + location.getLatitude());
+        values.put(LONGITUDE, "" + location.getLongitude());
+        textViews = new HashMap<>();
+        textViews.put(CITY_NAME, (TextView) view.findViewById(R.id.city_name));
+        textViews.put(LATITUDE, (TextView) view.findViewById(R.id.latitude));
+        textViews.put(LONGITUDE, (TextView) view.findViewById(R.id.longitude));
+        textViews.put(VISIBILITY, (TextView) view.findViewById(R.id.visibility));
+        textViews.put(TIMEZONE, (TextView) view.findViewById(R.id.timezone));
+        textViews.put(DESCRIPTION, (TextView) view.findViewById(R.id.description));
+        textViews.put(SUNRISE, (TextView) view.findViewById(R.id.sunrise));
+        textViews.put(SUNSET, (TextView) view.findViewById(R.id.sunset));
+        textViews.put(TEMPERATURE, (TextView) view.findViewById(R.id.temp));
+        textViews.put(FEELS_LIKE, (TextView) view.findViewById(R.id.feels_like));
+        textViews.put(TEMPERATURE_MIN, (TextView) view.findViewById(R.id.temp_min));
+        textViews.put(TEMPERATURE_MAX, (TextView) view.findViewById(R.id.temp_max));
+        textViews.put(PRESSURE, (TextView) view.findViewById(R.id.pressure));
+        textViews.put(HUMIDITY, (TextView) view.findViewById(R.id.humidity));
     }
 
     @Override
@@ -49,55 +81,55 @@ public class WeatherForecastGetService extends AsyncTask<Void, Void, Void> {
             JSONObject jsonObject = new JSONObject(data);
 
 
-            if (jsonObject.has(HomeFragment.CITY_NAME)) {
-                values.put(HomeFragment.CITY_NAME, jsonObject.getString(HomeFragment.CITY_NAME));
+            if (jsonObject.has(CITY_NAME)) {
+                values.put(CITY_NAME, jsonObject.getString(CITY_NAME));
             }
-            if (jsonObject.has(HomeFragment.VISIBILITY)) {
-                values.put(HomeFragment.VISIBILITY, jsonObject.getString(HomeFragment.VISIBILITY));
+            if (jsonObject.has(VISIBILITY)) {
+                values.put(VISIBILITY, jsonObject.getString(VISIBILITY));
             }
-            if (jsonObject.has(HomeFragment.TIMEZONE)) {
-                values.put(HomeFragment.TIMEZONE, jsonObject.getString(HomeFragment.TIMEZONE));
+            if (jsonObject.has(TIMEZONE)) {
+                values.put(TIMEZONE, jsonObject.getString(TIMEZONE));
             }
 
             if (jsonObject.has("weather")) {
                 JSONArray weather = jsonObject.getJSONArray("weather");
                 if (weather.length() > 0) {
                     JSONObject element = (JSONObject) weather.get(0);
-                    if (element.has(HomeFragment.DESCRIPTION)) {
-                        values.put(HomeFragment.DESCRIPTION, element.getString(HomeFragment.DESCRIPTION));
+                    if (element.has(DESCRIPTION)) {
+                        values.put(DESCRIPTION, element.getString(DESCRIPTION));
                     }
                 }
             }
 
             if (jsonObject.has("sys")) {
                 JSONObject sys = jsonObject.getJSONObject("sys");
-                if (sys.has(HomeFragment.SUNRISE)) {
-                    values.put(HomeFragment.SUNRISE, sys.getString(HomeFragment.SUNRISE));
+                if (sys.has(SUNRISE)) {
+                    values.put(SUNRISE, sys.getString(SUNRISE));
                 }
-                if (sys.has(HomeFragment.SUNSET)) {
-                    values.put(HomeFragment.SUNSET, sys.getString(HomeFragment.SUNSET));
+                if (sys.has(SUNSET)) {
+                    values.put(SUNSET, sys.getString(SUNSET));
                 }
             }
 
             if (jsonObject.has("main")) {
                 JSONObject main = jsonObject.getJSONObject("main");
-                if (main.has(HomeFragment.TEMPERATURE)) {
-                    values.put(HomeFragment.TEMPERATURE, main.getString(HomeFragment.TEMPERATURE));
+                if (main.has(TEMPERATURE)) {
+                    values.put(TEMPERATURE, main.getString(TEMPERATURE));
                 }
-                if (main.has(HomeFragment.FEELS_LIKE)) {
-                    values.put(HomeFragment.FEELS_LIKE, main.getString(HomeFragment.FEELS_LIKE));
+                if (main.has(FEELS_LIKE)) {
+                    values.put(FEELS_LIKE, main.getString(FEELS_LIKE));
                 }
-                if (main.has(HomeFragment.TEMPERATURE_MIN)) {
-                    values.put(HomeFragment.TEMPERATURE_MIN, main.getString(HomeFragment.TEMPERATURE_MIN));
+                if (main.has(TEMPERATURE_MIN)) {
+                    values.put(TEMPERATURE_MIN, main.getString(TEMPERATURE_MIN));
                 }
-                if (main.has(HomeFragment.TEMPERATURE_MAX)) {
-                    values.put(HomeFragment.TEMPERATURE_MAX, main.getString(HomeFragment.TEMPERATURE_MAX));
+                if (main.has(TEMPERATURE_MAX)) {
+                    values.put(TEMPERATURE_MAX, main.getString(TEMPERATURE_MAX));
                 }
-                if (main.has(HomeFragment.PRESSURE)) {
-                    values.put(HomeFragment.PRESSURE, main.getString(HomeFragment.PRESSURE));
+                if (main.has(PRESSURE)) {
+                    values.put(PRESSURE, main.getString(PRESSURE));
                 }
-                if (main.has(HomeFragment.HUMIDITY)) {
-                    values.put(HomeFragment.HUMIDITY, main.getString(HomeFragment.HUMIDITY));
+                if (main.has(HUMIDITY)) {
+                    values.put(HUMIDITY, main.getString(HUMIDITY));
                 }
             }
 
@@ -110,7 +142,9 @@ public class WeatherForecastGetService extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-
+        for(Map.Entry<String, String> e : values.entrySet()){
+            textViews.get(e.getKey()).setText(e.getValue());
+        }
     }
 
     public void setLocation(Location location) {
