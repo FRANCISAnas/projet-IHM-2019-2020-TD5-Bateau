@@ -1,10 +1,6 @@
 package com.example.ihmprojet_2019_2020_td5_bateaux.Metier;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.Base64;
 
-import java.io.ByteArrayOutputStream;
 
 public class Incident {
 
@@ -46,7 +42,7 @@ public class Incident {
         this.longitude = longitude;
         this.latitude = latitude;
         this.android_id = android_id;
-        this.encodedImage = image;
+
     }
 
     /**
@@ -108,6 +104,10 @@ public class Incident {
     }
 
 
+    @Override
+    public String toString(){
+        return this.nature;
+    }
 
     public String getEncodedImage(){
         return encodedImage;

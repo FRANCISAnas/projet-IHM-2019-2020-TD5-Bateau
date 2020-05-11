@@ -83,7 +83,6 @@ public class PhotoSourceDialogue extends DialogFragment {
             //PostFragment.photo = photo;
             UseImageDialog useImageDialog = new UseImageDialog(photo);
             useImageDialog.show(getFragmentManager(),"use image dialog");
-
             this.dismiss();
         }
 

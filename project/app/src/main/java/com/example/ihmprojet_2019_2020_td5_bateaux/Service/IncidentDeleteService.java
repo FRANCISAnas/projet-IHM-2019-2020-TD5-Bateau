@@ -13,9 +13,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.Map;
+
 
 public class IncidentDeleteService extends AsyncTask<String, String, String> {
 

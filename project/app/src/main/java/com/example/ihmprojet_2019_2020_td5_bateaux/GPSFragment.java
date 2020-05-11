@@ -24,8 +24,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-import static com.example.ihmprojet_2019_2020_td5_bateaux.MainActivity.*;
-import static com.example.ihmprojet_2019_2020_td5_bateaux.MainActivity.currentLocation;
 
 public class GPSFragment extends Fragment {
     private IGPSActivity igpsActivity; //able to move camera

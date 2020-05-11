@@ -1,11 +1,13 @@
 package com.example.ihmprojet_2019_2020_td5_bateaux;
 
-import android.graphics.drawable.Drawable;
+import android.location.Location;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
+
+import com.example.ihmprojet_2019_2020_td5_bateaux.Fragments.IncidentsFragment;
+import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
 
 import org.osmdroid.api.IMapController;
 import org.osmdroid.config.Configuration;
@@ -19,7 +21,6 @@ import org.osmdroid.views.overlay.OverlayItem;
 import java.util.ArrayList;
 
 public class DirectionsActivity extends AppCompatActivity {
-    private static String TAG = "OSM_ACTIVITY";
     private MapView map;
 
     @Override
@@ -27,24 +28,26 @@ public class DirectionsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Configuration.getInstance().load(getApplicationContext(), PreferenceManager.getDefaultSharedPreferences(getApplicationContext()));
         setContentView(R.layout.activity_directions);
-        Log.d(TAG, "onCreat() start");
         map = findViewById(R.id.map);
         map.setTileSource(TileSourceFactory.MAPNIK);
         map.setBuiltInZoomControls(true);
-        GeoPoint startPoint = new GeoPoint(32.3213840,-64.75737);
-        IMapController mapController=map.getController();
+
+        Location location = MainActivity.currentLocation;
+        GeoPoint startPoint = new GeoPoint(location.getLatitude(), location.getLongitude());
+        IMapController mapController = map.getController();
         mapController.setZoom(18.0);
         mapController.setCenter(startPoint);
 
         ArrayList<OverlayItem> items = new ArrayList<>();
+        OverlayItem home = new OverlayItem("You are here", "Departure point", startPoint);
 
-        OverlayItem home = new OverlayItem("position1","depart", new GeoPoint(32.3213844, -64.75737));
-        //forme marqueur
-        Drawable m = home.getMarker(0);
         items.add(home);
-        items.add(new OverlayItem("position2", "arrivee", new GeoPoint(32.3213840,-64.75730)));
-        ItemizedOverlayWithFocus<OverlayItem> mOverLay= new ItemizedOverlayWithFocus<OverlayItem>(getApplicationContext(), items, new ItemizedIconOverlay.OnItemGestureListener<OverlayItem>() {
+        for (Incident in : IncidentsFragment.incidentArrayList) {
+            items.add(new OverlayItem(in.getNature(), "A snippet", new GeoPoint(Float.parseFloat(in.getLatitude()), Float.parseFloat(in.getLongitude()))));
 
+        }
+
+        ItemizedOverlayWithFocus<OverlayItem> mOverLay = new ItemizedOverlayWithFocus<OverlayItem>(getApplicationContext(), items, new ItemizedIconOverlay.OnItemGestureListener<OverlayItem>() {
             @Override
             public boolean onItemSingleTapUp(int index, OverlayItem item) {
                 return true;
@@ -55,12 +58,10 @@ public class DirectionsActivity extends AppCompatActivity {
                 return false;
             }
         });
+
         mOverLay.setFocusItemsOnTap(true);
         map.getOverlays().add(mOverLay);
-
-
     }
-
 
     @Override
     public void onPause() {
@@ -70,6 +71,8 @@ public class DirectionsActivity extends AppCompatActivity {
 
     public void onResume() {
         super.onResume();
+        MainActivity.fusedLocationProviderClient.getLastLocation();
         map.onResume();
     }
+
 }

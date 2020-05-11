@@ -13,11 +13,11 @@
 
     <TextView
 
-        android:id="@+id/city_name_id"
+        android:id="@+id/city_name"
         android:layout_width="@dimen/fragment_home_text_1_width"
         android:layout_height="@dimen/fragment_home_text_1_height"
         android:gravity="center"
-        android:text="@string/city"
+        android:text="@string/not_available"
         android:textColor="#000"
         android:textSize="@dimen/fragment_home_text_1_size"
         tools:ignore="MissingConstraints"
@@ -39,7 +39,31 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent">
 
-        <TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:padding="@dimen/fragment_home_text_2_padding"
+                android:text="@string/latitude"
+                android:textColor="#000"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/latitude"
+                android:layout_height="match_parent"
+                android:layout_column="10"
+                android:gravity="right"
+                android:padding="@dimen/fragment_home_text_3_padding"
+                android:text="@string/not_available"
+                android:textColor="#000"
+                android:textSize="17sp"
+                tools:ignore="RtlHardcoded" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <TextView
                 android:padding="@dimen/fragment_home_text_2_padding"
@@ -48,16 +72,15 @@
                 android:textSize="17sp" />
 
             <TextView
-                android:id="@+id/attribut_1"
+                android:id="@+id/longitude"
                 android:layout_height="match_parent"
                 android:layout_column="10"
                 android:gravity="right"
                 android:padding="@dimen/fragment_home_text_3_padding"
-                android:text="attribut1"
+                android:text="@string/not_available"
                 android:textColor="#000"
                 android:textSize="17sp" />
         </TableRow>
-
 
         <View
             android:layout_height="@dimen/fragment_home_layout_view_1_height"
@@ -72,15 +95,97 @@
                 android:textSize="17sp" />
 
             <TextView
-                android:id="@+id/attribut_2"
+                android:id="@+id/description"
                 android:layout_column="10"
                 android:gravity="right"
                 android:padding="@dimen/fragment_home_text_5_padding"
-                android:text="attribut2"
+                android:text="@string/not_available"
                 android:textColor="#000"
                 android:textSize="17sp" />
 
         </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:padding="@dimen/fragment_home_text_4_padding"
+                android:text="@string/timezone"
+                android:textColor="#000"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/timezone"
+                android:layout_column="10"
+                android:gravity="right"
+                android:padding="@dimen/fragment_home_text_5_padding"
+                android:text="@string/not_available"
+                android:textColor="#000"
+                android:textSize="17sp" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:padding="@dimen/fragment_home_text_4_padding"
+                android:text="@string/visibility"
+                android:textColor="#000"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/visibility"
+                android:layout_column="10"
+                android:gravity="right"
+                android:padding="@dimen/fragment_home_text_5_padding"
+                android:text="@string/not_available"
+                android:textColor="#000"
+                android:textSize="17sp" />
+
+        </TableRow>
+
+        <View
+            android:layout_height="@dimen/fragment_home_layout_view_1_height"
+            android:background="#FF909090" />
+
+        <TableRow>
+
+            <TextView
+                android:padding="@dimen/fragment_home_text_20_padding"
+                android:text="@string/sunrise"
+                android:textColor="#000"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/sunrise"
+                android:layout_column="10"
+                android:gravity="right"
+                android:padding="@dimen/fragment_home_text_21_padding"
+                android:text="@string/not_available"
+                android:textColor="#000"
+                android:textSize="17sp" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:padding="@dimen/fragment_home_text_20_padding"
+                android:text="@string/sunset"
+                android:textColor="#000"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/sunset"
+                android:layout_column="10"
+                android:gravity="right"
+                android:padding="@dimen/fragment_home_text_21_padding"
+                android:text="@string/not_available"
+                android:textColor="#000"
+                android:textSize="17sp" />
+        </TableRow>
+
+        <View
+            android:layout_height="@dimen/fragment_home_layout_view_1_height"
+            android:background="#FF909090" />
 
         <TableRow>
 
@@ -91,11 +196,11 @@
                 android:textSize="17sp" />
 
             <TextView
-                android:id="@+id/attribut_3"
+                android:id="@+id/temp"
                 android:layout_column="10"
                 android:gravity="right"
                 android:padding="@dimen/fragment_home_text_7_padding"
-                android:text="attribut3"
+                android:text="@string/not_available"
                 android:textColor="#000"
                 android:textSize="17sp" />
         </TableRow>
@@ -103,17 +208,17 @@
         <TableRow>
 
             <TextView
-                android:padding="@dimen/fragment_home_text_8_padding"
-                android:text="@string/pressure"
+                android:padding="@dimen/fragment_home_text_6_padding"
+                android:text="@string/feels_like"
                 android:textColor="#000"
                 android:textSize="17sp" />
 
             <TextView
-                android:id="@+id/attribut_4"
+                android:id="@+id/feels_like"
                 android:layout_column="10"
                 android:gravity="right"
-                android:padding="@dimen/fragment_home_text_9_padding"
-                android:text="attribut4"
+                android:padding="@dimen/fragment_home_text_7_padding"
+                android:text="@string/not_available"
                 android:textColor="#000"
                 android:textSize="17sp" />
         </TableRow>
@@ -123,16 +228,16 @@
             <TextView
                 android:gravity="left"
                 android:padding="@dimen/fragment_home_text_10_padding"
-                android:text="Temp_min"
+                android:text="@string/temp_min"
                 android:textColor="#000"
                 android:textSize="17sp" />
 
             <TextView
-                android:id="@+id/attribut_6"
+                android:id="@+id/temp_min"
                 android:layout_column="10"
                 android:gravity="right"
                 android:padding="@dimen/fragment_home_text_11_padding"
-                android:text="attribut6"
+                android:text="@string/not_available"
                 android:textColor="#000"
                 android:textSize="17sp" />
         </TableRow>
@@ -142,16 +247,36 @@
             <TextView
                 android:gravity="left"
                 android:padding="@dimen/fragment_home_text_12_padding"
-                android:text="Temp_max"
+                android:text="@string/temp_max"
                 android:textColor="#000"
                 android:textSize="17sp" />
 
             <TextView
-                android:id="@+id/attribut_7"
+                android:id="@+id/temp_max"
                 android:layout_column="10"
                 android:gravity="right"
                 android:padding="@dimen/fragment_home_text_13_padding"
-                android:text="attribut7"
+                android:text="@string/not_available"
+                android:textColor="#000"
+                android:textSize="17sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:padding="@dimen/fragment_home_text_8_padding"
+                android:text="@string/pressure"
+                android:textColor="#000"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/pressure"
+                android:layout_column="10"
+                android:gravity="right"
+                android:padding="@dimen/fragment_home_text_9_padding"
+                android:text="@string/not_available"
                 android:textColor="#000"
                 android:textSize="17sp" />
         </TableRow>
@@ -161,88 +286,20 @@
             <TextView
                 android:gravity="left"
                 android:padding="@dimen/fragment_home_text_14_padding"
-                android:text="@string/sea"
+                android:text="@string/humidity"
                 android:textColor="#000"
                 android:textSize="17sp" />
 
             <TextView
-                android:id="@+id/attribut_8"
+                android:id="@+id/humidity"
                 android:layout_column="10"
                 android:gravity="right"
                 android:padding="@dimen/fragment_home_text_15_padding"
-                android:text="attribut8"
+                android:text="@string/not_available"
                 android:textColor="#000"
                 android:textSize="17sp" />
         </TableRow>
 
-        <TableRow>
-
-            <TextView
-                android:gravity="left"
-                android:padding="@dimen/fragment_home_text_16_padding"
-                android:text="@string/ground"
-                android:textColor="#000"
-                android:textSize="17sp" />
-
-            <TextView
-                android:id="@+id/attribut_9"
-                android:layout_column="10"
-                android:gravity="right"
-                android:padding="@dimen/fragment_home_text_17_padding"
-                android:text="attribut9"
-                android:textColor="#000"
-                android:textSize="17sp" />
-        </TableRow>
-
-        <View
-            android:layout_height="@dimen/fragment_home_layout_view_2_height"
-            android:background="#FF909090" />
-
-
-        <TableRow>
-
-            <TextView
-                android:padding="@dimen/fragment_home_text_18_padding"
-                android:text="@string/windspeed"
-                android:textColor="#000"
-                android:textSize="17sp" />
-
-            <TextView
-                android:id="@+id/attribut_10"
-                android:layout_column="10"
-                android:gravity="right"
-                android:padding="@dimen/fragment_home_text_19_padding"
-                android:text="attribut10"
-                android:textColor="#000"
-                android:textSize="17sp" />
-        </TableRow>
-
-        <View
-            android:layout_height="@dimen/fragment_home_layout_view_3_height"
-            android:background="#FF909090" />
-
-        <TableRow>
-
-            <TextView
-                android:padding="@dimen/fragment_home_text_20_padding"
-                android:text="@string/time_zone"
-                android:textColor="#000"
-                android:textSize="17sp" />
-
-            <TextView
-                android:id="@+id/attribut_11"
-                android:layout_column="10"
-                android:gravity="right"
-                android:padding="@dimen/fragment_home_text_21_padding"
-                android:text="attribut11"
-                android:textColor="#000"
-                android:textSize="17sp" />
-        </TableRow>
-
-
-        <View
-            android:layout_height="@dimen/fragment_home_layout_view_4_height"
-            android:background="#FF909090" />
 
     </TableLayout>
 

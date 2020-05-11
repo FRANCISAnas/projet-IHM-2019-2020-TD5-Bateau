@@ -1,19 +1,16 @@
 package com.example.ihmprojet_2019_2020_td5_bateaux.Service;
 
-import android.app.Notification;
-import android.app.NotificationManager;
+
 import android.content.Context;
 import android.provider.Settings;
 
 import androidx.annotation.NonNull;
-import androidx.core.app.NotificationCompat;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
 import com.example.ihmprojet_2019_2020_td5_bateaux.Data;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Fragments.IncidentsFragment;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
-import com.example.ihmprojet_2019_2020_td5_bateaux.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,7 +25,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-import static com.example.ihmprojet_2019_2020_td5_bateaux.NeptuneNotification.CHANNEL_URGENTE;
 
 public class MyAsyncTaskWorker extends Worker {
 

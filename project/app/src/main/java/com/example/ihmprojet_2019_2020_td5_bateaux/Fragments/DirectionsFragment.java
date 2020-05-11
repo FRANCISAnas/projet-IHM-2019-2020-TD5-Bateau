@@ -22,26 +22,10 @@ public class DirectionsFragment extends Fragment {
 
     @Override
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstaceState){
-        View rootView = inflater.inflate(R.layout.activity_maps, container, false);
-       /*Button btn =(Button) rootView.findViewById( R.id.go_to_Directions_button2);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in =new Intent(getActivity(), MapsActivity.class);
-=======
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstaceState) {
         View rootView = inflater.inflate(R.layout.fragment_directions, container, false);
-        Button btn = (Button) rootView.findViewById(R.id.go_to_Directions_button);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in = new Intent(getActivity(), DirectionsActivity.class);
->>>>>>> c11b9143cf493ddcc8622f1e87ebf2f664991963
-                startActivity(in);
-            }
-        });*/
-        Intent in =new Intent(getActivity(), MapsActivity.class);
+
+        Intent in =new Intent(getActivity(), DirectionsActivity.class);
         startActivity(in);
 
         return rootView;

@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -32,6 +33,7 @@ public class IncidentsFragment extends Fragment {
     public static IncidentListAdapter incidentListAdapter;
     public static boolean newIncident = false;
 
+    private SearchView searchView;
     public static ListView listView;
 
     public IncidentsFragment() {
@@ -60,13 +62,24 @@ public class IncidentsFragment extends Fragment {
             e.printStackTrace();
         }
 
+        searchView = rootView.findViewById(R.id.filter_incident);
         listView = rootView.findViewById(R.id.myListView);
+        registerForContextMenu(listView);
         incidentListAdapter = new IncidentListAdapter(getContext(), R.layout.custom_list_view, incidentArrayList);
         listView.setAdapter(incidentListAdapter);
 
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
 
-
-        registerForContextMenu(listView);
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                IncidentsFragment.incidentListAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
 
 
         Button addIncident = rootView.findViewById(R.id.addIncident);
@@ -134,7 +147,6 @@ public class IncidentsFragment extends Fragment {
 
         return super.onContextItemSelected(item);
     }
-
 
 
 }

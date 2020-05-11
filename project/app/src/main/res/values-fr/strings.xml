@@ -100,5 +100,6 @@ Sa navigation simple sur les diapositives fait également du suivi des tempêtes
     <string name="yes">Oui</string>
     <string name="No">Non</string>
     <string name="urgent">Urgente</string>
+    <string name="feels_like">Feels like</string>
 
 </resources>

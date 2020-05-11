@@ -47,7 +47,6 @@ public class IncidentListAdapter extends ArrayAdapter {
         textView2.setText(date);
         if(android_id.equals(Settings.Secure.getString(mContext.getContentResolver(), Settings.Secure.ANDROID_ID))) {
             textView.setTextColor(Color.YELLOW);
-            //textView2.setTextColor(Color.BLUE);
 
         }
 

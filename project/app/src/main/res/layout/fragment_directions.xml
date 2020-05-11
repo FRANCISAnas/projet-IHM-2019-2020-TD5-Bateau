@@ -6,27 +6,6 @@
     android:background="#FFFFFF">
 
 
-    <Button
-        android:id="@+id/go_to_Directions_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/fragment_direction_marginTop"
-        android:text="go" />
-
-    <EditText
-        android:id="@+id/depart_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/departure"
-        android:textColorHint="#2196F3" />
-
-    <EditText
-        android:id="@+id/arrivee_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:hint="@string/arrival"
-        android:textColorHint="#2196F3" />
 
 
 </RelativeLayout>
