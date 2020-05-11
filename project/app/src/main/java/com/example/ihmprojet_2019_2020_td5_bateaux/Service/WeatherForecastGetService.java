@@ -2,6 +2,7 @@ package com.example.ihmprojet_2019_2020_td5_bateaux.Service;
 
 import android.location.Location;
 import android.os.AsyncTask;
+import android.view.View;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -16,8 +17,8 @@ import java.net.URL;
 
 public class WeatherForecastGetService extends AsyncTask<Void, Void, Void> {
 
-    private double longitude;
-    private double latitude;
+    private Location location;
+    private View view;
     private String  city_name;
     private String  visibility;
     private String  timezone;
@@ -31,16 +32,16 @@ public class WeatherForecastGetService extends AsyncTask<Void, Void, Void> {
     private String  pressure;
     private String  humidity;
 
-    public WeatherForecastGetService(Location location) {
-        longitude = location.getLongitude();
-        latitude = location.getLatitude();
+    public WeatherForecastGetService(Location location, View view) {
+        this.location = location;
+        this.view = view;
     }
 
     @Override
     protected Void doInBackground(Void... voids) {
         String data = "";
         try {
-            URL url = new URL("https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&appid=edd48555b608285b51b1abb1d4cc1a8e");
+            URL url = new URL("https://api.openweathermap.org/data/2.5/weather?lat=" + location.getLatitude() + "&lon=" + location.getLongitude() + "&appid=edd48555b608285b51b1abb1d4cc1a8e");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
@@ -111,8 +112,12 @@ public class WeatherForecastGetService extends AsyncTask<Void, Void, Void> {
         return null;
     }
 
+    @Override
+    protected void onPostExecute(Void aVoid) {
+
+    }
+
     public void setLocation(Location location) {
-        longitude = location.getLongitude();
-        latitude = location.getLatitude();
+        this.location = location;
     }
 }
