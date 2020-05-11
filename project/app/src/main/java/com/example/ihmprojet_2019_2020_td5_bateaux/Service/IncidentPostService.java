@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import com.example.ihmprojet_2019_2020_td5_bateaux.MainActivity;
 
+import org.json.JSONObject;
+
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
@@ -34,7 +36,6 @@ public class IncidentPostService extends AsyncTask<String,String, String> {
         mContext=context;
         this.nature = nature;
         this.description = description;
-        this.photo = photo;
     }
 
     @Override
@@ -58,7 +59,14 @@ public class IncidentPostService extends AsyncTask<String,String, String> {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 photo.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
                 String encodedImage = Base64.encodeToString(byteArrayOutputStream.toByteArray(),Base64.DEFAULT);
-            Map<String, String> params = new HashMap<>();
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("nature",this.nature);
+                jsonObject.put("description",this.description);
+                jsonObject.put("image", encodedImage);
+                jsonObject.put("longitude","" + MainActivity.currentLocation.getLongitude());
+                jsonObject.put("latitude", "" + MainActivity.currentLocation.getLatitude());
+                jsonObject.put("android_id",  Settings.Secure.getString(mContext.getContentResolver(), Settings.Secure.ANDROID_ID));
+           /* Map<String, String> params = new HashMap<>();
             params.put("nature", this.nature);
             params.put("description", this.description);
             params.put("image", encodedImage);
@@ -74,9 +82,9 @@ public class IncidentPostService extends AsyncTask<String,String, String> {
                     postData.append(URLEncoder.encode(pa.getKey(), "UTF-8"));
                     postData.append("=");
                     postData.append(URLEncoder.encode(pa.getValue(), "UTF-8"));
-                }
+                }*/
 
-                byte[] paramBytes = postData.toString().getBytes("UTF-8");
+                byte[] paramBytes = jsonObject.toString().getBytes("UTF-8");
 
                 DataOutputStream os = new DataOutputStream(conn.getOutputStream());
 

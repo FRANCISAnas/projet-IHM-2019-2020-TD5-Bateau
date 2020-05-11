@@ -50,6 +50,8 @@ public class IncidentsFragment extends Fragment {
         final View rootView = inflater.inflate(R.layout.activity_incidents, container, false);
         setHasOptionsMenu(true);
 
+        IncidentGetService incidentGetService = new  IncidentGetService(rootView);
+        incidentGetService.execute();
 
 
         listView = rootView.findViewById(R.id.myListView);
