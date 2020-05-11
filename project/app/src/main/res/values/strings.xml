@@ -67,8 +67,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="temperature">Temperature</string>
-    <string name ="Edit_Report" translatable="false">Edit Report</string>
-    <string name ="Apply_Changes" translatable="false">Apply Changes</string>
+    <string name="Edit_Report" translatable="false">Edit Report</string>
+    <string name="Apply_Changes" translatable="false">Apply Changes</string>
     <string name="language">Language</string>
     <string name="timeformat">Time format</string>
     <string name="precipitation">Precipitation</string>
@@ -85,10 +85,13 @@
     <string name="add_photo">Add Photo</string>
     <string name="city">NICE</string>
     <string name="longitude">Longitude</string>
+    <string name="latitude" translatable="false">Latitude</string>
     <string name="humidity">Humidity</string>
     <string name="description">Description</string>
-    <string name="sea">Sea_level</string>
-    <string name="ground">Ground_level</string>
+    <string name="sea">Sea level</string>
+    <string name="temp_min" translatable="false">Temp min</string>
+    <string name="temp_max" translatable="false">Temp max</string>
+    <string name="ground">Ground level</string>
     <string name="time_zone">Timezone</string>
     <string name="setting">SETTINGS</string>
     <string name="des_frag">hello from directions page</string>
@@ -102,6 +105,7 @@
     <string name="option">Do you want to post it on Facebook too?</string>
     <string name="yes">yes</string>
     <string name="No">No</string>
+    <string name="not_available" translatable="false">N/A</string>
 
     <string name="title_activity_maps" translatable="false">Map</string>
     <string name="placeName" translatable="false">Ville:inconnue</string>

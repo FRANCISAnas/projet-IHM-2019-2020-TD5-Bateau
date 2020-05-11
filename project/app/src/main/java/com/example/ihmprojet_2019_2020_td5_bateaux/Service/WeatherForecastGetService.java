@@ -2,7 +2,6 @@ package com.example.ihmprojet_2019_2020_td5_bateaux.Service;
 
 import android.location.Location;
 import android.os.AsyncTask;
-import android.util.JsonReader;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -13,7 +12,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class WeatherForecastGetService extends AsyncTask<Void, Void, Void> {
@@ -50,6 +48,10 @@ public class WeatherForecastGetService extends AsyncTask<Void, Void, Void> {
             while (i < jsonArray.length()) {
                 try {
                     jsonObject = jsonArray.getJSONObject(i);
+
+                    String city_name = jsonObject.getString("name");
+                    String visibility = jsonObject.getString("visibility");
+
                     JSONObject main = jsonObject.getJSONObject("main");
                     String temp = main.getString("temp");
                     String feels_like = main.getString("feels_like");
@@ -57,8 +59,12 @@ public class WeatherForecastGetService extends AsyncTask<Void, Void, Void> {
                     String temp_max = main.getString("temp_max");
                     String pressure = main.getString("pressure");
                     String humidity = main.getString("humidity");
-                    String visibility = jsonObject.getString("visibility");
+
                     JSONArray weather = jsonObject.getJSONArray("weather");
+                    if(weather.length() > 0){
+                        JSONObject element = (JSONObject) weather.get(0);
+                        String description = element.getString("description");
+                    }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
