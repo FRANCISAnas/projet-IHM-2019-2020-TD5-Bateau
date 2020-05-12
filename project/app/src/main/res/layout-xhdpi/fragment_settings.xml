@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_settings"
@@ -7,6 +7,12 @@
     android:layout_height="match_parent"
     android:background="#DCDCE1"
     android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
 
 
     <TextView
@@ -22,8 +28,9 @@
         android:id="@+id/spinnerTemp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
         android:layout_marginLeft="@dimen/fragment_settings_spinner_1_marginLeft"
-        android:layout_marginTop="340dp"
+        android:layout_marginTop="650dp"
         android:layout_marginEnd="@dimen/fragment_settings_spinner_1_marginEnd"
 
         tools:ignore="MissingConstraints"
@@ -35,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/fragment_settings_text_view_2_marginStart"
-        android:layout_marginTop="340dp"
+        android:layout_marginTop="650dp"
         android:layout_marginEnd="@dimen/fragment_settings_text_view_2_marginEnd"
         android:text="@string/temperature"
         android:textColor="#000000"
@@ -52,7 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/fragment_settings_text_view_3_marginStart"
-        android:layout_marginTop="270dp"
+        android:layout_marginTop="450dp"
         android:text="@string/language"
         android:textColor="#000000"
         android:textSize="@dimen/fragment_settings_text_view_3_text_size"
@@ -70,77 +77,13 @@
         android:id="@+id/spinnerTempL"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="270dp"
+        android:layout_marginTop="450dp"
+        android:layout_marginStart="200dp"
         android:layout_marginEnd="@dimen/fragment_settings_spinner_2_marginEnd"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="166dp"
         tools:layout_editor_absoluteY="183dp" />
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/fragment_settings_text_view_5_marginStart"
-        android:layout_marginTop="410dp"
-        android:text="@string/timeformat"
-        android:textColor="#000000"
-        android:textSize="@dimen/fragment_settings_text_view_4_text_size">
-
-    </TextView>
-
-    <Spinner
-        android:id="@+id/spinnerTempF"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="410dp"
-        android:layout_marginEnd="@dimen/fragment_settings_spinner_3_marginEnd"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="166dp"
-        tools:layout_editor_absoluteY="183dp" />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/fragment_settings_text_view_7_marginStart"
-        android:layout_marginTop="550dp"
-        android:text="@string/precipitation"
-        android:textColor="#000000"
-        android:textSize="@dimen/fragment_settings_text_view_5_text_size">
-
-    </TextView>
-
-    <Spinner
-        android:id="@+id/spinnerTempP"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="550dp"
-        android:layout_marginEnd="@dimen/fragment_settings_spinner_7_marginEnd"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="166dp"
-        tools:layout_editor_absoluteY="183dp" />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/fragment_settings_text_view_6_marginStart"
-        android:layout_marginTop="480dp"
-        android:text="@string/windspeed"
-        android:textColor="#000000"
-        android:textSize="@dimen/fragment_settings_text_view_6_text_size">
-
-    </TextView>
-
-    <Spinner
-        android:id="@+id/spinnerTempWSP"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="480dp"
-        android:layout_marginEnd="@dimen/fragment_settings_spinner_5_marginEnd"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="166dp"
-        tools:layout_editor_absoluteY="183dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -155,27 +98,6 @@
     </TextView>
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/fragment_settings_text_view_8_marginStart"
-        android:layout_marginTop="620dp"
-        android:text="@string/pressure"
-        android:textColor="#000000"
-        android:textSize="@dimen/fragment_settings_text_view_8_text_size">
-
-    </TextView>
-
-    <Spinner
-        android:id="@+id/spinnerTempPR"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="620dp"
-        android:layout_marginEnd="@dimen/fragment_settings_spinner_7_marginEnd"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="166dp"
-        tools:layout_editor_absoluteY="183dp" />
-
     <CheckBox
         android:id="@+id/checkBox"
         android:layout_width="wrap_content"
@@ -186,5 +108,7 @@
         android:textColor="#000000"
         android:shadowColor="#000000" />
 
+    </RelativeLayout>
 
-</RelativeLayout>
+
+</ScrollView>

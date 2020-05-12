@@ -114,6 +114,7 @@
     <string name="take_photo"> Take Photo</string>
     <string name="from_Gallery"> From Gallery</string>
     <string name="urgent">Urgent</string>
+    <string name="add_post">Post</string>
     <string name="timezone" translatable="false">Timezone</string>
     <string name="visibility" translatable="false">Visibility</string>
     <string name="sunrise" translatable="false">Sunrise</string>

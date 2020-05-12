@@ -15,16 +15,12 @@
         android:layout_height="match_parent">
 
 
-
-
         <TextView
 
             android:id="@+id/city_name"
             android:layout_width="@dimen/fragment_home_text_1_width"
             android:layout_height="@dimen/fragment_home_text_1_height"
             android:gravity="center"
-            android:layout_marginStart="60dp"
-            android:layout_marginLeft="150dp"
             android:text="@string/not_available"
             android:textColor="#000"
             android:textSize="@dimen/fragment_home_text_1_size"
@@ -39,8 +35,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/fragment_home_layout_marginStart"
-            android:layout_marginTop="60dp"
             android:layout_marginEnd="@dimen/fragment_home_layout_marginEnd"
+            android:layout_marginTop="100dp"
             android:layout_marginBottom="@dimen/fragment_home_layout_marginBottom"
             android:stretchColumns="2"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -311,7 +307,6 @@
 
 
         </TableLayout>
-
 
     </RelativeLayout>
 

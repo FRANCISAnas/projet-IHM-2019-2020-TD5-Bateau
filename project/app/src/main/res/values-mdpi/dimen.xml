@@ -179,14 +179,14 @@
     <!--TextView fragment_settings -->
     <dimen name="fragment_settings_text_view_1_marginTop">15dp</dimen>
     <dimen name="fragment_settings_text_view_1_text_size">30sp</dimen>
-    <dimen name="fragment_settings_text_view_2_marginTop">70dp</dimen>
-    <dimen name="fragment_settings_text_view_2_marginStart">30dp</dimen>
+    <dimen name="fragment_settings_text_view_2_marginTop">90dp</dimen>
+    <dimen name="fragment_settings_text_view_2_marginStart">20dp</dimen>
     <dimen name="fragment_settings_text_view_2_marginEnd">106dp</dimen>
     <dimen name="fragment_settings_text_view_2_text_size">24sp</dimen>
     <dimen name="fragment_settings_text_view_2_horizonatl_bias">0.0</dimen>
     <dimen name="fragment_settings_text_view_2_vertical_bias">0.0</dimen>
-    <dimen name="fragment_settings_text_view_3_marginTop">120dp</dimen>
-    <dimen name="fragment_settings_text_view_3_marginStart">30dp</dimen>
+    <dimen name="fragment_settings_text_view_3_marginTop">200dp</dimen>
+    <dimen name="fragment_settings_text_view_3_marginStart">20dp</dimen>
     <dimen name="fragment_settings_text_view_3_text_size">24sp</dimen>
     <dimen name="fragment_settings_text_view_3_horizonatl_bias">0.0</dimen>
     <dimen name="fragment_settings_text_view_3_vertical_bias">0.0</dimen>
@@ -200,7 +200,7 @@
     <dimen name="fragment_settings_text_view_6_marginStart">30dp</dimen>
     <dimen name="fragment_settings_text_view_6_text_size">24sp</dimen>
     <dimen name="fragment_settings_text_view_7_marginTop">320dp</dimen>
-    <dimen name="fragment_settings_text_view_7_marginStart">30dp</dimen>
+    <dimen name="fragment_settings_text_view_7_marginStart">20dp</dimen>
     <dimen name="fragment_settings_text_view_7_text_size">24sp</dimen>
     <dimen name="fragment_settings_text_view_8_marginTop">370dp</dimen>
     <dimen name="fragment_settings_text_view_8_marginStart">30dp</dimen>
@@ -211,7 +211,7 @@
     <dimen name="fragment_settings_spinner_1_marginEnd">50dp</dimen>
     <dimen name="fragment_settings_spinner_1_absolutex">166dp</dimen>
     <dimen name="fragment_settings_spinner_1_absolutey">183dp</dimen>
-    <dimen name="fragment_settings_spinner_2_marginTop">120dp</dimen>
+    <dimen name="fragment_settings_spinner_2_marginTop">200dp</dimen>
     <dimen name="fragment_settings_spinner_2_marginEnd">50dp</dimen>
     <dimen name="fragment_settings_spinner_2_absolutex">166dp</dimen>
     <dimen name="fragment_settings_spinner_2_absolutey">183dp</dimen>

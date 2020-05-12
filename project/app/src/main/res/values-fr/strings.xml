@@ -5,7 +5,7 @@
     <string-array name="natures">
         <item>Pluie forte</item>
         <item>Tempête</item>
-        <item>Nature 3</item>
+        <item>Autre</item>
     </string-array>
 
     <string name="navigation_drawer_open">Ouvrir le tiroir de navigation</string>
@@ -64,6 +64,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Bonjour, fragment vierge</string>
     <string name="temperature">Température</string>
+    <string name ="Edit_Report" translatable="false">Modifier le rapport</string>
+    <string name ="Apply_Changes" translatable="false">appliquer les modifications</string>
     <string name="language">Langues</string>
     <string name="timeformat">Format de l\'heure</string>
     <string name="precipitation">Precipitation</string>
@@ -100,6 +102,20 @@ Sa navigation simple sur les diapositives fait également du suivi des tempêtes
     <string name="yes">Oui</string>
     <string name="No">Non</string>
     <string name="urgent">Urgente</string>
-    <string name="feels_like">Feels like</string>
+    <string name="feels_like">Se sent comme</string>
+
+
+    <string name="title_activity_maps" translatable="false">carte</string>
+    <string name="placeName" translatable="false">Ville:inconnue</string>
+
+    <string name="map_key" translatable="false">AIzaSyB_qsP8AOP_P0MdlPz-48TDaJYjTP3vbjo</string>
+
+    <string name="add_post">Poster</string>
+
+    <string name="sunrise">lever du soleil</string>
+    <string name="sunset">Le coucher du soleil</string>
+    <string name="visibility">Visibilité</string>
+    <string name="timezone">Fuseau horaire</string>
+
 
 </resources>

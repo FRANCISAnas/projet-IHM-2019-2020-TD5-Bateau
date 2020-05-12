@@ -36,10 +36,10 @@
 
             <ImageView
                 android:id="@+id/facebook"
-                android:layout_width="63dp"
+                android:layout_width="49dp"
                 android:layout_height="59dp"
                 android:layout_marginLeft="135dp"
-                android:layout_marginTop="260dp"
+                android:layout_marginTop="380dp"
                 android:contentDescription="TODO"
                 app:srcCompat="@drawable/facebook" />
 
@@ -58,7 +58,7 @@
                 android:layout_width="49dp"
                 android:layout_height="57dp"
                 android:layout_marginLeft="135dp"
-                android:layout_marginTop="350dp"
+                android:layout_marginTop="460dp"
                 app:srcCompat="@drawable/twitter" />
 
             <TextView
@@ -92,7 +92,7 @@
                 android:layout_width="63dp"
                 android:layout_height="59dp"
                 android:layout_marginLeft="760dp"
-                android:layout_marginTop="300dp"
+                android:layout_marginTop="460dp"
                 app:srcCompat="@drawable/faq" />
 
             <TextView

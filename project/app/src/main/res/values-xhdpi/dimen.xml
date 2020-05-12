@@ -123,7 +123,7 @@
     <!--TableLayout fragment_home -->
     <dimen name="fragment_home_layout_width">400dp</dimen>
     <dimen name="fragment_home_layout_height">560dp</dimen>
-    <dimen name="fragment_home_layout_marginStart">6dp</dimen>
+    <dimen name="fragment_home_layout_marginStart">50dp</dimen>
     <dimen name="fragment_home_layout_marginEnd">6dp</dimen>
     <dimen name="fragment_home_layout_marginBottom">50dp</dimen>
     <dimen name="fragment_home_layout_column">2</dimen>
