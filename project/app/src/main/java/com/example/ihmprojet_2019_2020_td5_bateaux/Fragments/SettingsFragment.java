@@ -53,11 +53,6 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
         spinner1.getBackground().setColorFilter(getResources().getColor(R.color.design_default_color_primary_dark), PorterDuff.Mode.SRC_ATOP);
         spinner1.setOnItemSelectedListener(this);
 
-        Spinner spinner2 = rootView.findViewById(R.id.spinnerTempF);
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(getActivity(), R.array.format, android.R.layout.simple_spinner_item);
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner2.setAdapter(adapter2);
-        spinner2.getBackground().setColorFilter(getResources().getColor(R.color.design_default_color_primary_dark), PorterDuff.Mode.SRC_ATOP);
 
         checkBox = (CheckBox) rootView.findViewById(R.id.checkBox);
         checkBox.setOnClickListener(new View.OnClickListener() {
@@ -69,24 +64,6 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
             }
         });
 
-
-        Spinner spinner4 = rootView.findViewById(R.id.spinnerTempP);
-        ArrayAdapter<CharSequence> adapter4 = ArrayAdapter.createFromResource(getActivity(), R.array.precipitation, android.R.layout.simple_spinner_item);
-        adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner4.setAdapter(adapter4);
-        spinner4.getBackground().setColorFilter(getResources().getColor(R.color.design_default_color_primary_dark), PorterDuff.Mode.SRC_ATOP);
-
-        Spinner spinner5 = rootView.findViewById(R.id.spinnerTempWSP);
-        ArrayAdapter<CharSequence> adapter5 = ArrayAdapter.createFromResource(getActivity(), R.array.windspeed, android.R.layout.simple_spinner_item);
-        adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner5.setAdapter(adapter5);
-        spinner5.getBackground().setColorFilter(getResources().getColor(R.color.design_default_color_primary_dark), PorterDuff.Mode.SRC_ATOP);
-
-        Spinner spinner6 = rootView.findViewById(R.id.spinnerTempPR);
-        ArrayAdapter<CharSequence> adapter6 = ArrayAdapter.createFromResource(getActivity(), R.array.pressure, android.R.layout.simple_spinner_item);
-        adapter6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner6.setAdapter(adapter6);
-        spinner6.getBackground().setColorFilter(getResources().getColor(R.color.design_default_color_primary_dark), PorterDuff.Mode.SRC_ATOP);
 
         return rootView;
     }
