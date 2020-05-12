@@ -26,13 +26,11 @@
     <string name="welcome_from_home_activity">Welcome from Home Activity</string>
 
     <string-array name="tempSpinner">
-        <item></item>
         <item>Fehrnhite</item>
         <item>Celecius</item>
     </string-array>
 
     <string-array name="langue">
-        <item></item>
         <item>English</item>
         <item>French</item>
     </string-array>
