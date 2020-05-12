@@ -19,11 +19,13 @@
     <string name="welcome_from_home_activity">Bienvenue à l\'activité d\'accueil</string>
 
     <string-array name="tempSpinner">
+        <item></item>
         <item>Fehrnhite</item>
         <item>Celesius</item>
     </string-array>
 
     <string-array name="langue">
+        <item></item>
         <item>Anglais</item>
         <item>Français</item>
     </string-array>
