@@ -120,7 +120,7 @@ public class IncidentGetService extends AsyncTask<Void, Void, Void> {
                 String longitude = jsonObject.getString("longitude");
                 String latitude = jsonObject.getString("latitude");
                 String android_id = jsonObject.getString("android_id");
-                String image = null;
+                String image = "null";
                 if (!jsonObject.getString("image").equals("null")) {
                     image = jsonObject.getString("image");
                 }

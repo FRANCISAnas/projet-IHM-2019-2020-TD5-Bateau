@@ -80,7 +80,7 @@ public class MyAsyncTaskWorker extends Worker {
                 String longitude = jsonObject.getString(String.valueOf(Data.longitude));
                 String latitude = jsonObject.getString(String.valueOf(Data.latitude));
                 String android_id = jsonObject.getString(String.valueOf(Data.android_id));
-                String image = null;
+                String image = "null";
                 if (!jsonObject.getString("image").equals("null")) {
                     image = jsonObject.getString("image");
                 }
