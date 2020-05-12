@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity"
+    tools:oppenDrawer="start">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+
+        <TextView
+
+            android:id="@+id/city_name"
+            android:layout_width="@dimen/fragment_home_text_1_width"
+            android:layout_height="@dimen/fragment_home_text_1_height"
+            android:gravity="center"
+            android:layout_marginStart="60dp"
+            android:layout_marginLeft="150dp"
+            android:text="@string/not_available"
+            android:textColor="#000"
+            android:textSize="@dimen/fragment_home_text_1_size"
+            tools:ignore="MissingConstraints"
+
+            tools:layout_editor_absoluteX="30dp"
+            tools:layout_editor_absoluteY="28dp" />
+
+
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/fragment_home_layout_marginStart"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="@dimen/fragment_home_layout_marginEnd"
+            android:layout_marginBottom="@dimen/fragment_home_layout_marginBottom"
+            android:stretchColumns="2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:padding="@dimen/fragment_home_text_2_padding"
+                    android:text="@string/latitude"
+                    android:textColor="#000"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/latitude"
+                    android:layout_height="match_parent"
+                    android:layout_column="10"
+                    android:gravity="right"
+                    android:padding="@dimen/fragment_home_text_3_padding"
+                    android:text="@string/not_available"
+                    android:textColor="#000"
+                    android:textSize="17sp"
+                    tools:ignore="RtlHardcoded" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:padding="@dimen/fragment_home_text_2_padding"
+                    android:text="@string/longitude"
+                    android:textColor="#000"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/longitude"
+                    android:layout_height="match_parent"
+                    android:layout_column="10"
+                    android:gravity="right"
+                    android:padding="@dimen/fragment_home_text_3_padding"
+                    android:text="@string/not_available"
+                    android:textColor="#000"
+                    android:textSize="17sp" />
+            </TableRow>
+
+            <View
+                android:layout_height="@dimen/fragment_home_layout_view_1_height"
+                android:background="#FF909090" />
+
+            <TableRow>
+
+                <TextView
+                    android:padding="@dimen/fragment_home_text_4_padding"
+                    android:text="@string/description"
+                    android:textColor="#000"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_column="10"
+                    android:gravity="right"
+                    android:padding="@dimen/fragment_home_text_5_padding"
+                    android:text="@string/not_available"
+                    android:textColor="#000"
+                    android:textSize="17sp" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:padding="@dimen/fragment_home_text_4_padding"
+                    android:text="@string/timezone"
+                    android:textColor="#000"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/timezone"
+                    android:layout_column="10"
+                    android:gravity="right"
+                    android:padding="@dimen/fragment_home_text_5_padding"
+                    android:text="@string/not_available"
+                    android:textColor="#000"
+                    android:textSize="17sp" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:padding="@dimen/fragment_home_text_4_padding"
+                    android:text="@string/visibility"
+                    android:textColor="#000"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/visibility"
+                    android:layout_column="10"
+                    android:gravity="right"
+                    android:padding="@dimen/fragment_home_text_5_padding"
+                    android:text="@string/not_available"
+                    android:textColor="#000"
+                    android:textSize="17sp" />
+
+            </TableRow>
+
+            <View
+                android:layout_height="@dimen/fragment_home_layout_view_1_height"
+                android:background="#FF909090" />
+
+            <TableRow>
+
+                <TextView
+                    android:padding="@dimen/fragment_home_text_20_padding"
+                    android:text="@string/sunrise"
+                    android:textColor="#000"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/sunrise"
+                    android:layout_column="10"
+                    android:gravity="right"
+                    android:padding="@dimen/fragment_home_text_21_padding"
+                    android:text="@string/not_available"
+                    android:textColor="#000"
+                    android:textSize="17sp" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:padding="@dimen/fragment_home_text_20_padding"
+                    android:text="@string/sunset"
+                    android:textColor="#000"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/sunset"
+                    android:layout_column="10"
+                    android:gravity="right"
+                    android:padding="@dimen/fragment_home_text_21_padding"
+                    android:text="@string/not_available"
+                    android:textColor="#000"
+                    android:textSize="17sp" />
+            </TableRow>
+
+            <View
+                android:layout_height="@dimen/fragment_home_layout_view_1_height"
+                android:background="#FF909090" />
+
+            <TableRow>
+
+                <TextView
+                    android:padding="@dimen/fragment_home_text_6_padding"
+                    android:text="@string/temperature"
+                    android:textColor="#000"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/temp"
+                    android:layout_column="10"
+                    android:gravity="right"
+                    android:padding="@dimen/fragment_home_text_7_padding"
+                    android:text="@string/not_available"
+                    android:textColor="#000"
+                    android:textSize="17sp" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:padding="@dimen/fragment_home_text_6_padding"
+                    android:text="@string/feels_like"
+                    android:textColor="#000"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/feels_like"
+                    android:layout_column="10"
+                    android:gravity="right"
+                    android:padding="@dimen/fragment_home_text_7_padding"
+                    android:text="@string/not_available"
+                    android:textColor="#000"
+                    android:textSize="17sp" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:gravity="left"
+                    android:padding="@dimen/fragment_home_text_10_padding"
+                    android:text="@string/temp_min"
+                    android:textColor="#000"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/temp_min"
+                    android:layout_column="10"
+                    android:gravity="right"
+                    android:padding="@dimen/fragment_home_text_11_padding"
+                    android:text="@string/not_available"
+                    android:textColor="#000"
+                    android:textSize="17sp" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:gravity="left"
+                    android:padding="@dimen/fragment_home_text_12_padding"
+                    android:text="@string/temp_max"
+                    android:textColor="#000"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/temp_max"
+                    android:layout_column="10"
+                    android:gravity="right"
+                    android:padding="@dimen/fragment_home_text_13_padding"
+                    android:text="@string/not_available"
+                    android:textColor="#000"
+                    android:textSize="17sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:padding="@dimen/fragment_home_text_8_padding"
+                    android:text="@string/pressure"
+                    android:textColor="#000"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/pressure"
+                    android:layout_column="10"
+                    android:gravity="right"
+                    android:padding="@dimen/fragment_home_text_9_padding"
+                    android:text="@string/not_available"
+                    android:textColor="#000"
+                    android:textSize="17sp" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:gravity="left"
+                    android:padding="@dimen/fragment_home_text_14_padding"
+                    android:text="@string/humidity"
+                    android:textColor="#000"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/humidity"
+                    android:layout_column="10"
+                    android:gravity="right"
+                    android:padding="@dimen/fragment_home_text_15_padding"
+                    android:text="@string/not_available"
+                    android:textColor="#000"
+                    android:textSize="17sp" />
+            </TableRow>
+
+
+        </TableLayout>
+
+
+    </RelativeLayout>
+
+
+</ScrollView>
