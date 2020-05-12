@@ -27,13 +27,14 @@ import java.util.concurrent.TimeUnit;
 public class HomeFragment extends Fragment {
 
     private WeatherForecastGetService weatherForecastGetService;
+    View rootView;
 
     public HomeFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+        rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
         weatherForecastGetService = new WeatherForecastGetService(MainActivity.currentLocation, rootView);
         weatherForecastGetService.execute();
@@ -50,7 +51,7 @@ public class HomeFragment extends Fragment {
             PeriodicWorkRequest request = incident
                     .build();
             WorkManager.getInstance().enqueueUniquePeriodicWork("TAG", ExistingPeriodicWorkPolicy.KEEP, request);
-            //WorkManager.getInstance().enqueue(request);
+           // WorkManager.getInstance().enqueue(request);
 
             WorkManager.getInstance().getWorkInfoByIdLiveData(request.getId()).observe(getViewLifecycleOwner(), new Observer<WorkInfo>() {
                 @Override
@@ -73,10 +74,14 @@ public class HomeFragment extends Fragment {
     public void onResume() {
         super.onResume();
         MainActivity.fusedLocationProviderClient.getLastLocation();
-        weatherForecastGetService.setLocation(MainActivity.currentLocation);
+       // weatherForecastGetService.setLocation(MainActivity.currentLocation);
+        WeatherForecastGetService ws = new WeatherForecastGetService(MainActivity.currentLocation, rootView);
         if (weatherForecastGetService.getStatus() == AsyncTask.Status.FINISHED) {
-            weatherForecastGetService.execute();
+            ws.execute();
         }
+        /*if (weatherForecastGetService.getStatus() == AsyncTask.Status.FINISHED) {
+            weatherForecastGetService.execute();
+        }*/
     }
 
 }
