@@ -40,10 +40,45 @@ public class IncidentGetService extends AsyncTask<Void, Void, Void> {
     private View rootView;
 
 
-
     public IncidentGetService(View view) { //, )
         mContext = view.getContext();
         rootView = view;
+    }
+
+    public static void sendOnUrgent(Incident incident, Context mContext) { //View v
+        if (nbOfNotification == MAX_NUMBER_OF_NOTIFICATIONS)
+            nbOfNotification = 0;
+        String ns = Context.NOTIFICATION_SERVICE;
+        NotificationManager mNotificationManager = (NotificationManager) mContext.getSystemService(ns);
+        Notification notification = new NotificationCompat.Builder(mContext, CHANNEL_URGENTE)
+                .setSmallIcon(R.drawable.ic_alert)
+                .setContentText(incident.getNature())
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .build();
+
+        mNotificationManager.notify(nbOfNotification++, notification);
+    }
+
+    public static void sendNotification(Incident incident, Context mContext) {
+        if (SettingsFragment.URGENT_NOTIFICATIONS) {
+            sendOnUrgent(incident, mContext);
+        } else {
+            sendOnclassic(incident, mContext);
+        }
+    }
+
+    public static void sendOnclassic(Incident incident, Context mContext) {
+        if (nbOfNotification == MAX_NUMBER_OF_NOTIFICATIONS)
+            nbOfNotification = 0;
+        String ns = Context.NOTIFICATION_SERVICE;
+        NotificationManager mNotificationManager = (NotificationManager) mContext.getSystemService(ns);
+        Notification notification = new NotificationCompat.Builder(mContext, CHANNEL_CLASSIQUE)
+                .setSmallIcon(R.drawable.ic_alert)
+                .setContentText(incident.getNature())
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .build();
+
+        mNotificationManager.notify(nbOfNotification++, notification);
     }
 
     @Override
@@ -85,12 +120,11 @@ public class IncidentGetService extends AsyncTask<Void, Void, Void> {
                 String longitude = jsonObject.getString("longitude");
                 String latitude = jsonObject.getString("latitude");
                 String android_id = jsonObject.getString("android_id");
-                if( !jsonObject.getString("image").equals("null")) {
-                    String image = jsonObject.getString("image");
-                    incident = new Incident(id, nature, description, date, longitude, latitude, android_id,image);
-                }else{
-                    incident = new Incident(id, nature, description, date, longitude, latitude, android_id);
+                String image = "null";
+                if (!jsonObject.getString("image").equals("null")) {
+                    image = jsonObject.getString("image");
                 }
+                incident = new Incident(id, nature, description, date, longitude, latitude, android_id, image);
 
                 incidentArrayList.add(incident);
 
@@ -113,43 +147,5 @@ public class IncidentGetService extends AsyncTask<Void, Void, Void> {
     protected void onPostExecute(Void aVoid) {
         RUNNING = false;
         super.onPostExecute(aVoid);
-    }
-
-
-    public static void sendOnUrgent(Incident incident, Context mContext) { //View v
-        if (nbOfNotification == MAX_NUMBER_OF_NOTIFICATIONS)
-            nbOfNotification = 0;
-        String ns = Context.NOTIFICATION_SERVICE;
-        NotificationManager mNotificationManager = (NotificationManager) mContext.getSystemService(ns);
-        Notification notification = new NotificationCompat.Builder(mContext, CHANNEL_URGENTE)
-                .setSmallIcon(R.drawable.ic_alert)
-                .setContentText(incident.getNature())
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .build();
-
-        mNotificationManager.notify(nbOfNotification++, notification);
-    }
-
-    public static void sendNotification(Incident incident, Context mContext) {
-        if(SettingsFragment.URGENT_NOTIFICATIONS){
-            sendOnUrgent(incident, mContext);
-        }
-        else{
-            sendOnclassic(incident, mContext);
-        }
-    }
-
-    public static void sendOnclassic(Incident incident, Context mContext) {
-        if (nbOfNotification == MAX_NUMBER_OF_NOTIFICATIONS)
-            nbOfNotification = 0;
-        String ns = Context.NOTIFICATION_SERVICE;
-        NotificationManager mNotificationManager = (NotificationManager) mContext.getSystemService(ns);
-        Notification notification = new NotificationCompat.Builder(mContext, CHANNEL_CLASSIQUE)
-                .setSmallIcon(R.drawable.ic_alert)
-                .setContentText(incident.getNature())
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .build();
-
-        mNotificationManager.notify(nbOfNotification++, notification);
     }
 }

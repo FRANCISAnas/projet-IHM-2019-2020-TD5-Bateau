@@ -9,9 +9,6 @@ import org.json.JSONObject;
 import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.Map;
 
 public class IncidentPutService extends AsyncTask<String, String, String> {
     String nature;
@@ -19,9 +16,9 @@ public class IncidentPutService extends AsyncTask<String, String, String> {
     String description;
     private Context mContext;
 
-    public IncidentPutService(Context context, String nature, String description,int id) {
+    public IncidentPutService(Context context, String nature, String description, int id) {
         mContext = context;
-        this.id= id;
+        this.id = id;
         this.nature = nature;
         this.description = description;
     }
@@ -32,7 +29,7 @@ public class IncidentPutService extends AsyncTask<String, String, String> {
         super.onPostExecute(s);
 
         // create a Toast
-        Toast.makeText(mContext, "Incident Edited successfully", Toast.LENGTH_SHORT).show();
+        Toast.makeText(mContext, "Incident edited successfully", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -52,9 +49,9 @@ public class IncidentPutService extends AsyncTask<String, String, String> {
             params.put("description", this.description);
 */
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("id",this.id);
-            jsonObject.put("nature",this.nature);
-            jsonObject.put("description",this.description);
+            jsonObject.put("id", this.id);
+            jsonObject.put("nature", this.nature);
+            jsonObject.put("description", this.description);
 
   /*          StringBuilder postData = new StringBuilder();
             for (Map.Entry<String, String> pa : params.entrySet()) {

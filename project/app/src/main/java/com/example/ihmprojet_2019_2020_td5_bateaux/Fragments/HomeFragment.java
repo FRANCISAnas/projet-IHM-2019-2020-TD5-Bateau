@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
@@ -20,14 +19,13 @@ import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentGetService;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Service.MyAsyncTaskWorker;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Service.WeatherForecastGetService;
 
-import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 
 public class HomeFragment extends Fragment {
 
-    private WeatherForecastGetService weatherForecastGetService;
     View rootView;
+    private WeatherForecastGetService weatherForecastGetService;
 
     public HomeFragment() {
     }
@@ -74,7 +72,7 @@ public class HomeFragment extends Fragment {
     public void onResume() {
         super.onResume();
         MainActivity.fusedLocationProviderClient.getLastLocation();
-       // weatherForecastGetService.setLocation(MainActivity.currentLocation);
+        // weatherForecastGetService.setLocation(MainActivity.currentLocation);
         WeatherForecastGetService ws = new WeatherForecastGetService(MainActivity.currentLocation, rootView);
         if (weatherForecastGetService.getStatus() == AsyncTask.Status.FINISHED) {
             ws.execute();

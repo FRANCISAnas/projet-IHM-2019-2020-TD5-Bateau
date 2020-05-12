@@ -5,24 +5,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
     android:gravity="center"
+    android:orientation="horizontal"
     tools:context=".NavigationFragment">
 
     <Button
         android:id="@+id/buttonCheckPermission"
-        android:text="check"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="check" />
+
     <Button
         android:id="@+id/buttonSwitchOnOffGPS"
-        android:text="GPS on/off"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="GPS on/off" />
+
     <Button
         android:id="@+id/buttonSettings"
-        android:text="App Settings"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="App Settings" />
 
 </LinearLayout>

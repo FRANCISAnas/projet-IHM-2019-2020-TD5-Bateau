@@ -94,15 +94,15 @@
                 android:layout_marginLeft="270dp"
                 android:layout_marginTop="@dimen/fragment_settings_spinner_1_marginTop"
                 android:buttonTint="@color/black"
-                android:textColor="#000000"
-                android:shadowColor="#000000" />
+                android:shadowColor="#000000"
+                android:textColor="#000000" />
 
             <Spinner
                 android:id="@+id/spinnerTempL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/fragment_settings_spinner_2_marginTop"
                 android:layout_marginLeft="200dp"
+                android:layout_marginTop="@dimen/fragment_settings_spinner_2_marginTop"
                 tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteX="166dp"
                 tools:layout_editor_absoluteY="183dp" />

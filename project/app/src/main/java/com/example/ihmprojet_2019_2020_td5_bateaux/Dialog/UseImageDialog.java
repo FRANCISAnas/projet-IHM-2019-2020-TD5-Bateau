@@ -19,7 +19,8 @@ import com.example.ihmprojet_2019_2020_td5_bateaux.R;
 public class UseImageDialog extends DialogFragment {
 
     Bitmap photo;
-    public UseImageDialog(Bitmap photo){
+
+    public UseImageDialog(Bitmap photo) {
         this.photo = photo;
     }
 
@@ -42,7 +43,7 @@ public class UseImageDialog extends DialogFragment {
         }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                PostFragment.photo=null;
+                PostFragment.photo = null;
             }
         });
 

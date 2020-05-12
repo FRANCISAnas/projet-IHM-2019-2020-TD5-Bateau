@@ -29,23 +29,29 @@ public class GPSFragment extends Fragment {
     private IGPSActivity igpsActivity; //able to move camera
     private TextView placeNameTextView;
     private Location currentLocation;
+
     //default constructor
-    public GPSFragment() { }
-    public GPSFragment(IGPSActivity activity) {igpsActivity=activity; }
+    public GPSFragment() {
+    }
+
+    public GPSFragment(IGPSActivity activity) {
+        igpsActivity = activity;
+    }
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View rootView=inflater.inflate(R.layout.fragment_gps,container,false);
-        placeNameTextView=rootView.findViewById(R.id.placeName);
-        final ImageView imageGPSGranted=rootView.findViewById(R.id.imageGPSGranted);
-        final ImageView imageGPSActivated=rootView.findViewById(R.id.imageGpsActivated);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_gps, container, false);
+        placeNameTextView = rootView.findViewById(R.id.placeName);
+        final ImageView imageGPSGranted = rootView.findViewById(R.id.imageGPSGranted);
+        final ImageView imageGPSActivated = rootView.findViewById(R.id.imageGpsActivated);
         //check permission
-        boolean permissionGranted =ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager.PERMISSION_GRANTED;
-        if (permissionGranted){
+        boolean permissionGranted = ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
+        if (permissionGranted) {
             imageGPSGranted.setImageResource(R.drawable.unlocked);
             LocationListener listner = new LocationListener() {
                 @Override
                 public void onLocationChanged(Location location) {
-                    currentLocation=location;
+                    currentLocation = location;
                     igpsActivity.moveCamera();
                 }
 
@@ -66,10 +72,10 @@ public class GPSFragment extends Fragment {
 
                 }
             };
-            LocationManager locationManager =(LocationManager)(getActivity().getSystemService(Context.LOCATION_SERVICE));
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,5000,1,listner);
-            imageGPSActivated.setImageResource(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)? R.drawable.unlocked : R.drawable.locked);
-        }else {
+            LocationManager locationManager = (LocationManager) (getActivity().getSystemService(Context.LOCATION_SERVICE));
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 1, listner);
+            imageGPSActivated.setImageResource(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) ? R.drawable.unlocked : R.drawable.locked);
+        } else {
             imageGPSActivated.setImageResource(R.drawable.locked);
             imageGPSGranted.setImageResource(R.drawable.unlocked);
         }
@@ -78,16 +84,18 @@ public class GPSFragment extends Fragment {
     }
 
 
-    LatLng getPosition(){
+    LatLng getPosition() {
 
-        return new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude());
+        return new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
     }
-    String getPlaceName() throws IOException{
+
+    String getPlaceName() throws IOException {
         Geocoder geocoder = new Geocoder(getContext(), Locale.getDefault());
-        List<Address> adresses = geocoder.getFromLocation(currentLocation.getLatitude(),currentLocation.getLongitude(),1);
+        List<Address> adresses = geocoder.getFromLocation(currentLocation.getLatitude(), currentLocation.getLongitude(), 1);
         return adresses.get(0).getLocality();
     }
-    void setPlaceName(String placeName){
+
+    void setPlaceName(String placeName) {
         placeNameTextView.setText(placeName);
     }
 

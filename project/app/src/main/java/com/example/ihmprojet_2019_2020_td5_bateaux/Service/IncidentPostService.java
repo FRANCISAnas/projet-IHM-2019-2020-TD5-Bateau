@@ -15,25 +15,23 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.Map;
 
-public class IncidentPostService extends AsyncTask<String,String, String> {
+public class IncidentPostService extends AsyncTask<String, String, String> {
 
     String nature;
     String description;
-    private Context mContext;
     Bitmap photo;
+    private Context mContext;
 
-    public IncidentPostService(Context context, String nature, String description,Bitmap photo){
-        mContext=context;
+    public IncidentPostService(Context context, String nature, String description, Bitmap photo) {
+        mContext = context;
         this.nature = nature;
         this.description = description;
         this.photo = photo;
     }
-    public IncidentPostService(Context context, String nature, String description){
-        mContext=context;
+
+    public IncidentPostService(Context context, String nature, String description) {
+        mContext = context;
         this.nature = nature;
         this.description = description;
     }
@@ -42,34 +40,34 @@ public class IncidentPostService extends AsyncTask<String,String, String> {
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
         // create a Toast
-        Toast.makeText(mContext,"Incident Submited successfully",Toast.LENGTH_SHORT).show();
+        Toast.makeText(mContext, "Incident Submited successfully", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     protected String doInBackground(String... strings) {
-            try {
+        try {
 
-                URL url = new URL("http://www.neptune.dinelhost.com/api/incident.php");
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                conn.setRequestMethod("POST");
-                conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-                conn.setDoInput(true);
-                conn.setDoOutput(true);
+            URL url = new URL("http://www.neptune.dinelhost.com/api/incident.php");
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            conn.setDoInput(true);
+            conn.setDoOutput(true);
 
-                JSONObject jsonObject = new JSONObject();
-                jsonObject.put("nature",this.nature);
-                jsonObject.put("description",this.description);
-                if(photo!=null) {
-                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    photo.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-                    String encodedImage = Base64.encodeToString(byteArrayOutputStream.toByteArray(), Base64.DEFAULT);
-                    jsonObject.put("image", encodedImage);
-                }else{
-                    jsonObject.put("image", "null");
-                }
-                jsonObject.put("longitude","" + MainActivity.currentLocation.getLongitude());
-                jsonObject.put("latitude", "" + MainActivity.currentLocation.getLatitude());
-                jsonObject.put("android_id",  Settings.Secure.getString(mContext.getContentResolver(), Settings.Secure.ANDROID_ID));
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("nature", this.nature);
+            jsonObject.put("description", this.description);
+            if (photo != null) {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                photo.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+                String encodedImage = Base64.encodeToString(byteArrayOutputStream.toByteArray(), Base64.DEFAULT);
+                jsonObject.put("image", encodedImage);
+            } else {
+                jsonObject.put("image", "null");
+            }
+            jsonObject.put("longitude", "" + MainActivity.currentLocation.getLongitude());
+            jsonObject.put("latitude", "" + MainActivity.currentLocation.getLatitude());
+            jsonObject.put("android_id", Settings.Secure.getString(mContext.getContentResolver(), Settings.Secure.ANDROID_ID));
 
                /*Map<String, String> params = new HashMap<>();
                params.put("nature", this.nature);
@@ -97,27 +95,27 @@ public class IncidentPostService extends AsyncTask<String,String, String> {
                     postData.append(URLEncoder.encode(pa.getValue(), "UTF-8"));
                 }*/
 
-                byte[] paramBytes = jsonObject.toString().getBytes("UTF-8");
+            byte[] paramBytes = jsonObject.toString().getBytes("UTF-8");
 
-                DataOutputStream os = new DataOutputStream(conn.getOutputStream());
+            DataOutputStream os = new DataOutputStream(conn.getOutputStream());
 
-                os.write(paramBytes);
+            os.write(paramBytes);
 
 
-                os.flush();
-                os.close();
+            os.flush();
+            os.close();
 
-                int responseCode = conn.getResponseCode();
-                conn.disconnect();
-                if (responseCode == HttpURLConnection.HTTP_OK) {
-                    System.out.println("success");
-                    return "success";
+            int responseCode = conn.getResponseCode();
+            conn.disconnect();
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                System.out.println("success");
+                return "success";
 
-                } else
-                    return "";
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            } else
+                return "";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
         return null;

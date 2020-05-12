@@ -1,23 +1,13 @@
 package com.example.ihmprojet_2019_2020_td5_bateaux;
 
-import android.app.FragmentTransaction;
-import android.app.Notification;
-import android.app.PendingIntent;
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -30,9 +20,6 @@ import com.example.ihmprojet_2019_2020_td5_bateaux.Fragments.HomeFragment;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Fragments.IncidentsFragment;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Fragments.SettingsFragment;
 import com.google.android.material.navigation.NavigationView;
-
-import static com.example.ihmprojet_2019_2020_td5_bateaux.NeptuneNotification.CHANNEL_CLASSIQUE;
-import static com.example.ihmprojet_2019_2020_td5_bateaux.NeptuneNotification.CHANNEL_URGENTE;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -75,9 +62,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 .replace(R.id.fragment_container, mFragment).commit();
 
     }
-
-
-
 
 
     @Override

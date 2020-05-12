@@ -1,19 +1,16 @@
 package com.example.ihmprojet_2019_2020_td5_bateaux;
 
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.google.android.gms.maps.CameraUpdate;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
 
@@ -30,19 +27,19 @@ public class MapsActivity extends FragmentActivity implements IGPSActivity, OnMa
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        gpsFragment=(GPSFragment) getSupportFragmentManager().findFragmentById(R.id.gpsLocation);
-        if(gpsFragment==null){
-            gpsFragment=new  GPSFragment(this);
-            FragmentTransaction gpsTransaction=getSupportFragmentManager().beginTransaction();
-            gpsTransaction.replace(R.id.gpsLocation,gpsFragment);
+        gpsFragment = (GPSFragment) getSupportFragmentManager().findFragmentById(R.id.gpsLocation);
+        if (gpsFragment == null) {
+            gpsFragment = new GPSFragment(this);
+            FragmentTransaction gpsTransaction = getSupportFragmentManager().beginTransaction();
+            gpsTransaction.replace(R.id.gpsLocation, gpsFragment);
             gpsTransaction.addToBackStack(null);
             gpsTransaction.commit();
         }
-        NavigationFragment navigationFragment=(NavigationFragment) getSupportFragmentManager().findFragmentById(R.id.navigation);
-        if(navigationFragment==null){
-            navigationFragment=new  NavigationFragment();
-            FragmentTransaction navTransaction=getSupportFragmentManager().beginTransaction();
-            navTransaction.replace(R.id.navigation,navigationFragment);
+        NavigationFragment navigationFragment = (NavigationFragment) getSupportFragmentManager().findFragmentById(R.id.navigation);
+        if (navigationFragment == null) {
+            navigationFragment = new NavigationFragment();
+            FragmentTransaction navTransaction = getSupportFragmentManager().beginTransaction();
+            navTransaction.replace(R.id.navigation, navigationFragment);
             navTransaction.addToBackStack(null);
             navTransaction.commit();
         }
@@ -67,26 +64,28 @@ public class MapsActivity extends FragmentActivity implements IGPSActivity, OnMa
     @Override
     public void moveCamera() {
         try {
-            gpsFragment.setPlaceName("Position : "+gpsFragment.getPlaceName());
-        }catch (IOException e){
+            gpsFragment.setPlaceName("Position : " + gpsFragment.getPlaceName());
+        } catch (IOException e) {
             gpsFragment.setPlaceName("Position  inconnue");
         }
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(gpsFragment.getPosition(),15f));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(gpsFragment.getPosition(), 15f));
 
     }
+
     @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int [] grantedResults){
-        switch(requestCode){
-            case REQUEST_CODE:{
-                if (grantedResults.length>0 && grantedResults[0]== PackageManager.PERMISSION_GRANTED){
-                    Toast toast =Toast.makeText(getApplicationContext(),"FINE_LOCATION granted",Toast.LENGTH_LONG);
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantedResults) {
+        switch (requestCode) {
+            case REQUEST_CODE: {
+                if (grantedResults.length > 0 && grantedResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "FINE_LOCATION granted", Toast.LENGTH_LONG);
                     toast.show();
                 }
-            }break;
+            }
+            break;
         }
-        gpsFragment=new GPSFragment(this);
-        FragmentTransaction gpsTransaction=getSupportFragmentManager().beginTransaction();
-        gpsTransaction.replace(R.id.gpsLocation,gpsFragment);
+        gpsFragment = new GPSFragment(this);
+        FragmentTransaction gpsTransaction = getSupportFragmentManager().beginTransaction();
+        gpsTransaction.replace(R.id.gpsLocation, gpsFragment);
         gpsTransaction.addToBackStack(null);
         gpsTransaction.commit();
     }

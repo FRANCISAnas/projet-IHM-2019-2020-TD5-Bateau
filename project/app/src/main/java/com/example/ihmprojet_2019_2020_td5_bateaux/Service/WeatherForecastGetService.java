@@ -24,10 +24,6 @@ import java.util.Map;
 
 public class WeatherForecastGetService extends AsyncTask<Void, Void, Void> {
 
-    private Location location;
-    private HashMap<String, TextView> textViews;
-    private HashMap<String, String> values;
-
     private static final String CITY_NAME = "name";
     private static final String LATITUDE = "latitude";
     private static final String LONGITUDE = "longitude";
@@ -43,6 +39,9 @@ public class WeatherForecastGetService extends AsyncTask<Void, Void, Void> {
     private static final String PRESSURE = "pressure";
     private static final String HUMIDITY = "humidity";
     private static final String TIME_FORMAT = "HH:mm:ss";
+    private Location location;
+    private HashMap<String, TextView> textViews;
+    private HashMap<String, String> values;
 
 
     public WeatherForecastGetService(Location location, View view) {

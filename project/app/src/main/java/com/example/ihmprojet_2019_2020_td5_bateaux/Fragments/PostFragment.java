@@ -1,9 +1,7 @@
 package com.example.ihmprojet_2019_2020_td5_bateaux.Fragments;
 
-import android.app.Notification;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,43 +9,33 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.ihmprojet_2019_2020_td5_bateaux.Dialog.DeleteDialog;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Dialog.PhotoSourceDialogue;
-import com.example.ihmprojet_2019_2020_td5_bateaux.Dialog.UseImageDialog;
-import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
-import com.example.ihmprojet_2019_2020_td5_bateaux.Metier.Incident;
 import com.example.ihmprojet_2019_2020_td5_bateaux.R;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentPostService;
 import com.example.ihmprojet_2019_2020_td5_bateaux.Service.IncidentPutService;
 
-import static com.example.ihmprojet_2019_2020_td5_bateaux.NeptuneNotification.CHANNEL_URGENTE;
-
 
 public class PostFragment extends Fragment {
 
-    boolean fromAddButton = false;
+    private final static String AUTRE = "Other";
     public static Bitmap photo;
+    boolean fromAddButton = false;
     Bundle bundle;
-    private final static String AUTRE= "Autre";
 
 
     public PostFragment() {
         // Required empty public constructor
     }
 
-public PostFragment(boolean fromAddButton) {
-    this.fromAddButton = fromAddButton;
-}
+    public PostFragment(boolean fromAddButton) {
+        this.fromAddButton = fromAddButton;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
@@ -67,7 +55,7 @@ public PostFragment(boolean fromAddButton) {
                 EditText editText = rootView.findViewById(R.id.naturetype);
                 if (value.equals(AUTRE)) {
                     editText.setVisibility(View.VISIBLE);
-                }else{
+                } else {
                     editText.setVisibility(View.INVISIBLE);
                 }
             }
@@ -79,21 +67,18 @@ public PostFragment(boolean fromAddButton) {
         });
 
 
-
         Button addPhoto = rootView.findViewById(R.id.addPhoto);
         addPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               PhotoSourceDialogue photoSourceDialogue =  new PhotoSourceDialogue() ;
-               photoSourceDialogue.show(getFragmentManager(),"ggg");
+                PhotoSourceDialogue photoSourceDialogue = new PhotoSourceDialogue();
+                photoSourceDialogue.show(getFragmentManager(), "ggg");
             }
         });
 
 
-
-
         Button post = rootView.findViewById(R.id.post);
-        if(fromAddButton) {
+        if (fromAddButton) {
             post.setText("Post");
             TextView tv = rootView.findViewById(R.id.textView5);
             tv.setText("Report");
@@ -101,11 +86,11 @@ public PostFragment(boolean fromAddButton) {
             button.setVisibility(View.VISIBLE);
 
 
-        }else{
+        } else {
 
-             bundle = getArguments() ;
-            for (int i = 0; i < spinner.getAdapter().getCount() ; i++) {
-                if(bundle.get("nature").toString().equals(spinner.getItemAtPosition(i))){
+            bundle = getArguments();
+            for (int i = 0; i < spinner.getAdapter().getCount(); i++) {
+                if (bundle.get("nature").toString().equals(spinner.getItemAtPosition(i))) {
                     spinner.setSelection(i);
                 }
             }
@@ -120,24 +105,24 @@ public PostFragment(boolean fromAddButton) {
             public void onClick(View v) {
 
                 String nature = spinner.getSelectedItem().toString();
-                if(nature.equals("Autre")){
+                if (nature.equals(AUTRE)) {
                     EditText editText = rootView.findViewById(R.id.naturetype);
                     nature = editText.getText().toString();
                 }
                 EditText des = rootView.findViewById(R.id.editTextDescription);
                 final String description = des.getText().toString();
 
-                if(fromAddButton) {
+                if (fromAddButton) {
                     IncidentPostService postService;
-                    if(photo!=null){
-                         postService = new IncidentPostService(container.getContext(), nature, description,photo);
-                    }else {
+                    if (photo != null) {
+                        postService = new IncidentPostService(container.getContext(), nature, description, photo);
+                    } else {
 
                         postService = new IncidentPostService(container.getContext(), nature, description);
                     }
                     postService.execute();
-                }else {
-                    IncidentPutService incidentPutService = new IncidentPutService(container.getContext(), nature,description, (int) bundle.get("id"));
+                } else {
+                    IncidentPutService incidentPutService = new IncidentPutService(container.getContext(), nature, description, (int) bundle.get("id"));
                     incidentPutService.execute();
                 }
 
@@ -146,14 +131,12 @@ public PostFragment(boolean fromAddButton) {
                 frag.commit();
 
 
-
-                }
+            }
         });
 
 
         return rootView;
     }
-
 
 
 }

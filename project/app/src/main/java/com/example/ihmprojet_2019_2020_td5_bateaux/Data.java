@@ -10,5 +10,4 @@ public enum Data {
     android_id,
 
 
-
 }

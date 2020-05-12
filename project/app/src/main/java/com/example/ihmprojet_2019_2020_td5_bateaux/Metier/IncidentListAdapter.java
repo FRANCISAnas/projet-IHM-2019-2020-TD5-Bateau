@@ -1,7 +1,6 @@
 package com.example.ihmprojet_2019_2020_td5_bateaux.Metier;
 
 import android.content.Context;
-
 import android.graphics.Color;
 import android.provider.Settings;
 import android.view.LayoutInflater;
@@ -41,15 +40,14 @@ public class IncidentListAdapter extends ArrayAdapter {
         convertView = layoutInflater.inflate(nRessource, parent, false);
 
 
-        TextView textView =  convertView.findViewById(R.id.date);
-        TextView textView2 =  convertView.findViewById(R.id.Description);
+        TextView textView = convertView.findViewById(R.id.date);
+        TextView textView2 = convertView.findViewById(R.id.Description);
         textView.setText(nature);
         textView2.setText(date);
-        if(android_id.equals(Settings.Secure.getString(mContext.getContentResolver(), Settings.Secure.ANDROID_ID))) {
+        if (android_id.equals(Settings.Secure.getString(mContext.getContentResolver(), Settings.Secure.ANDROID_ID))) {
             textView.setTextColor(Color.YELLOW);
 
         }
-
 
 
         return convertView;

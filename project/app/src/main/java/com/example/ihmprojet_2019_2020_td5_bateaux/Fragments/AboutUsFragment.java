@@ -59,7 +59,6 @@ public class AboutUsFragment extends Fragment {
         });
 
 
-
         return rootView;
     }
 
@@ -75,11 +74,11 @@ public class AboutUsFragment extends Fragment {
 
     private void goToGmailPage(View rootView) {
         try {
-            Intent intent = new Intent (Intent.ACTION_VIEW , Uri.parse("mailto:" + "anas?francis@etu.univ-cotedazur.fr"));
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + "anas?francis@etu.univ-cotedazur.fr"));
             intent.putExtra(Intent.EXTRA_SUBJECT, "your_subject");
             intent.putExtra(Intent.EXTRA_TEXT, "your_text");
             startActivity(intent);
-        } catch(Exception e) {
+        } catch (Exception e) {
             Toast.makeText(rootView.getContext(), "Sorry...You don't have any mail app", Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
@@ -88,8 +87,8 @@ public class AboutUsFragment extends Fragment {
 
     private void goToFaceBookPage() {
 
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/Neptune-Incidents-105901411124436"));
-            startActivity(intent);
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/Neptune-Incidents-105901411124436"));
+        startActivity(intent);
 
     }
 }
