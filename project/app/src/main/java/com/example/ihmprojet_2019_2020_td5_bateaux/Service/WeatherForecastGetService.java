@@ -145,9 +145,12 @@ public class WeatherForecastGetService extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
+
         for (Map.Entry<String, String> e : values.entrySet()) {
             textViews.get(e.getKey()).setText(e.getValue());
         }
+
+
     }
 
     public void setLocation(Location location) {

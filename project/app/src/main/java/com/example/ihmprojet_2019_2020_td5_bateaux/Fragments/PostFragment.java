@@ -92,7 +92,6 @@ public PostFragment(boolean fromAddButton) {
 
 
 
-
         Button post = rootView.findViewById(R.id.post);
         if(fromAddButton) {
             post.setText("Post");
@@ -154,9 +153,6 @@ public PostFragment(boolean fromAddButton) {
 
         return rootView;
     }
-
-
-
 
 
 
