@@ -39,7 +39,6 @@ public class DeleteDialog extends DialogFragment {
                 IncidentsFragment.incidentListAdapter.notifyDataSetChanged();
 
 
-
             }
         }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override

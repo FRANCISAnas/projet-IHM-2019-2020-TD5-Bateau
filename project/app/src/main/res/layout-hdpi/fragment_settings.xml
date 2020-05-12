@@ -13,97 +13,96 @@
         android:layout_height="match_parent">
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/fragment_settings_text_view_1_marginTop"
-        android:gravity="center"
-        android:text="@string/setting"
-        android:textColor="#000000"
-        android:textSize="40sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/fragment_settings_text_view_1_marginTop"
+            android:gravity="center"
+            android:text="@string/setting"
+            android:textColor="#000000"
+            android:textSize="40sp" />
 
-    <Spinner
-        android:id="@+id/spinnerTemp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="180dp"
-        android:layout_marginLeft="@dimen/fragment_settings_spinner_1_marginLeft"
-        android:layout_marginTop="@dimen/fragment_settings_text_view_4_marginTop"
-        android:layout_marginEnd="@dimen/fragment_settings_spinner_1_marginEnd"
+        <Spinner
+            android:id="@+id/spinnerTemp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="180dp"
+            android:layout_marginLeft="@dimen/fragment_settings_spinner_1_marginLeft"
+            android:layout_marginTop="@dimen/fragment_settings_text_view_4_marginTop"
+            android:layout_marginEnd="@dimen/fragment_settings_spinner_1_marginEnd"
 
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="166dp"
-        tools:layout_editor_absoluteY="183dp" />
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="166dp"
+            tools:layout_editor_absoluteY="183dp" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/fragment_settings_text_view_2_marginStart"
-        android:layout_marginTop="@dimen/fragment_settings_text_view_4_marginTop"
-        android:layout_marginEnd="@dimen/fragment_settings_text_view_2_marginEnd"
-        android:text="@string/temperature"
-        android:textColor="#000000"
-        android:textSize="@dimen/fragment_settings_text_view_2_text_size"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/natures"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/fragment_settings_text_view_2_marginStart"
+            android:layout_marginTop="@dimen/fragment_settings_text_view_4_marginTop"
+            android:layout_marginEnd="@dimen/fragment_settings_text_view_2_marginEnd"
+            android:text="@string/temperature"
+            android:textColor="#000000"
+            android:textSize="@dimen/fragment_settings_text_view_2_text_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/natures"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/fragment_settings_text_view_3_marginStart"
-        android:layout_marginTop="@dimen/fragment_settings_text_view_3_marginTop"
-        android:text="@string/language"
-        android:textColor="#000000"
-        android:textSize="@dimen/fragment_settings_text_view_3_text_size"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/natures"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="MissingConstraints">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/fragment_settings_text_view_3_marginStart"
+            android:layout_marginTop="@dimen/fragment_settings_text_view_3_marginTop"
+            android:text="@string/language"
+            android:textColor="#000000"
+            android:textSize="@dimen/fragment_settings_text_view_3_text_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/natures"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints">
 
-    </TextView>
+        </TextView>
 
-    <Spinner
-        android:id="@+id/spinnerTempL"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/fragment_settings_spinner_2_marginTop"
-        android:layout_marginStart="180dp"
-        android:layout_marginEnd="@dimen/fragment_settings_spinner_2_marginEnd"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="166dp"
-        tools:layout_editor_absoluteY="183dp" />
+        <Spinner
+            android:id="@+id/spinnerTempL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="180dp"
+            android:layout_marginTop="@dimen/fragment_settings_spinner_2_marginTop"
+            android:layout_marginEnd="@dimen/fragment_settings_spinner_2_marginEnd"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="166dp"
+            tools:layout_editor_absoluteY="183dp" />
 
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/fragment_settings_text_view_4_marginStart"
+            android:layout_marginTop="@dimen/fragment_settings_text_view_2_marginTop"
+            android:text="@string/notificatin"
+            android:textColor="#000000"
+            android:textSize="@dimen/fragment_settings_text_view_7_text_size">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/fragment_settings_text_view_4_marginStart"
-        android:layout_marginTop="@dimen/fragment_settings_text_view_2_marginTop"
-        android:text="@string/notificatin"
-        android:textColor="#000000"
-        android:textSize="@dimen/fragment_settings_text_view_7_text_size">
+        </TextView>
 
-    </TextView>
-
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="240dp"
-        android:layout_marginTop="@dimen/fragment_settings_text_view_2_marginTop"
-        android:buttonTint="@color/black"
-        android:textColor="#000000"
-        android:shadowColor="#000000"/>
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="240dp"
+            android:layout_marginTop="@dimen/fragment_settings_text_view_2_marginTop"
+            android:buttonTint="@color/black"
+            android:shadowColor="#000000"
+            android:textColor="#000000" />
 
 
     </RelativeLayout>

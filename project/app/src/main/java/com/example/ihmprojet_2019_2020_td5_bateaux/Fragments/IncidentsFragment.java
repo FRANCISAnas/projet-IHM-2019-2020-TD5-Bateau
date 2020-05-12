@@ -32,9 +32,8 @@ public class IncidentsFragment extends Fragment {
     public static ArrayList<Incident> incidentArrayList;
     public static IncidentListAdapter incidentListAdapter;
     public static boolean newIncident = false;
-
-    private SearchView searchView;
     public static ListView listView;
+    private SearchView searchView;
 
     public IncidentsFragment() {
     }
@@ -53,8 +52,7 @@ public class IncidentsFragment extends Fragment {
         setHasOptionsMenu(true);
 
 
-
-        IncidentGetService incidentGetService = new  IncidentGetService(rootView);
+        IncidentGetService incidentGetService = new IncidentGetService(rootView);
         incidentGetService.execute();
         try {
             Thread.sleep(5000);
@@ -116,25 +114,25 @@ public class IncidentsFragment extends Fragment {
         AdapterView.AdapterContextMenuInfo adapterContextMenuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         if (item.getItemId() == R.id.edit) {
             if (incidentArrayList.get(adapterContextMenuInfo.position).getAndroid_id().equals(Settings.Secure.getString(getContext().getContentResolver(), Settings.Secure.ANDROID_ID))) {
-            Bundle bundle = new Bundle();
-            bundle.putString("nature", incidentArrayList.get(adapterContextMenuInfo.position).getNature());
-            bundle.putString("description", incidentArrayList.get(adapterContextMenuInfo.position).getDescription());
-            bundle.putInt("id", incidentArrayList.get(adapterContextMenuInfo.position).getId());
-            FragmentTransaction frag = getFragmentManager().beginTransaction();
-            Fragment secondFragment = new PostFragment();
-            secondFragment.setArguments(bundle);
-            frag.replace(R.id.fragment_container, secondFragment);
-            frag.commit();
-            }else{
-            Toast.makeText(getContext(), "You are not allowed to edit an incident you didn't publish.", Toast.LENGTH_SHORT).show();
-        }
+                Bundle bundle = new Bundle();
+                bundle.putString("nature", incidentArrayList.get(adapterContextMenuInfo.position).getNature());
+                bundle.putString("description", incidentArrayList.get(adapterContextMenuInfo.position).getDescription());
+                bundle.putInt("id", incidentArrayList.get(adapterContextMenuInfo.position).getId());
+                FragmentTransaction frag = getFragmentManager().beginTransaction();
+                Fragment secondFragment = new PostFragment();
+                secondFragment.setArguments(bundle);
+                frag.replace(R.id.fragment_container, secondFragment);
+                frag.commit();
+            } else {
+                Toast.makeText(getContext(), "You are not allowed to edit an incident you didn't publish.", Toast.LENGTH_SHORT).show();
+            }
 
 
         }
 
         if (item.getItemId() == R.id.delete) {
 
-           if (incidentArrayList.get(adapterContextMenuInfo.position).getAndroid_id().equals(Settings.Secure.getString(getContext().getContentResolver(), Settings.Secure.ANDROID_ID))) {
+            if (incidentArrayList.get(adapterContextMenuInfo.position).getAndroid_id().equals(Settings.Secure.getString(getContext().getContentResolver(), Settings.Secure.ANDROID_ID))) {
                 DeleteDialog deleteDialog = new DeleteDialog(incidentArrayList.get(adapterContextMenuInfo.position));
                 deleteDialog.show(getFragmentManager(), "gg");
             } else {

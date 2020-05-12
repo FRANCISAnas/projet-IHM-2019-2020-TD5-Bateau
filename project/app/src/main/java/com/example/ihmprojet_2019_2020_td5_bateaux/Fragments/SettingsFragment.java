@@ -6,14 +6,12 @@ import android.content.res.Resources;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -25,10 +23,11 @@ import com.example.ihmprojet_2019_2020_td5_bateaux.R;
 import java.util.Locale;
 
 public class SettingsFragment extends Fragment implements AdapterView.OnItemSelectedListener {
+    public static boolean URGENT_NOTIFICATIONS = false;
     Locale myLocale;
     String currentLanguage = "en", currentLang;
-    public static boolean URGENT_NOTIFICATIONS = false;
     private CheckBox checkBox;
+
     public SettingsFragment() {
         // Empty constructor required
     }
@@ -59,7 +58,7 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
 
             @Override
             public void onClick(View v) {
-                if(!URGENT_NOTIFICATIONS)URGENT_NOTIFICATIONS = true;
+                if (!URGENT_NOTIFICATIONS) URGENT_NOTIFICATIONS = true;
                 else URGENT_NOTIFICATIONS = false;
             }
         });
@@ -73,7 +72,7 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String value = (String) parent.getItemAtPosition(position);
-                if (value.equals("All notifications") || value.equals("Toutes les Notifications")){
+                if (value.equals("All notifications") || value.equals("Toutes les Notifications")) {
                     URGENT_NOTIFICATIONS = false;
                 }
             }

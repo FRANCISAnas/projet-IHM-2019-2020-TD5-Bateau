@@ -87,7 +87,7 @@ public class MyAsyncTaskWorker extends Worker {
                 if (IncidentsFragment.incidentArrayList != null && IncidentsFragment.newIncident(incident.getId())) {
                     if (!incident.getAndroid_id().equals("null") && !incident.getAndroid_id().equals(Settings.Secure.getString(mContext.getContentResolver(), Settings.Secure.ANDROID_ID)))
                         IncidentsFragment.newIncident = true;
-                    IncidentGetService.sendNotification(incident,this.mContext);
+                    IncidentGetService.sendNotification(incident, this.mContext);
                 }
 
 
@@ -102,8 +102,6 @@ public class MyAsyncTaskWorker extends Worker {
         return Result.success();
 
     }
-
-
 
 
 }

@@ -2,13 +2,11 @@ package com.example.ihmprojet_2019_2020_td5_bateaux;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.Settings;
 import android.view.WindowManager;
 import android.widget.Toast;
 
@@ -55,13 +53,13 @@ public class MainActivity extends AppCompatActivity {
             public void onSuccess(Location location) {
                 if (location != null) {
                     currentLocation = location;
-                    Toast.makeText(getApplicationContext(), currentLocation.getLatitude()
-                            + "" + currentLocation.getLatitude(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Location detected", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
-    public Location getCurrentLocation(){
+
+    public Location getCurrentLocation() {
         return currentLocation;
     }
 

@@ -63,7 +63,7 @@ public class DetailsDialog extends DialogFragment {
         }
 
 
-        if(!incident.getEncodedImage().equals("null")){
+        if (!incident.getEncodedImage().equals("null")) {
             ImageView imageView = view.findViewById(R.id.image);
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             byte[] imageBytes = baos.toByteArray();

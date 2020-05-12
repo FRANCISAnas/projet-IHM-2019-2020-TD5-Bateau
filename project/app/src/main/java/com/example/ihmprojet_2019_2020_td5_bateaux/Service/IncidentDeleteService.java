@@ -40,8 +40,7 @@ public class IncidentDeleteService extends AsyncTask<String, String, String> {
             conn.setDoInput(true);
             conn.setDoOutput(true);
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("id",this.incident.getId());
-
+            jsonObject.put("id", this.incident.getId());
 
 
             byte[] paramBytes = jsonObject.toString().getBytes("UTF-8");

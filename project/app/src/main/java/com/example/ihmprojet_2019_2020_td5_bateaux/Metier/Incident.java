@@ -1,7 +1,6 @@
 package com.example.ihmprojet_2019_2020_td5_bateaux.Metier;
 
 
-
 public class Incident {
 
     private int id;
@@ -34,7 +33,7 @@ public class Incident {
 
     }
 
-    public Incident(int id, String nature, String description, String date, String longitude, String latitude, String android_id,String image) {
+    public Incident(int id, String nature, String description, String date, String longitude, String latitude, String android_id, String image) {
         this.id = id;
         this.nature = nature;
         this.description = description;
@@ -105,11 +104,11 @@ public class Incident {
 
 
     @Override
-    public String toString(){
+    public String toString() {
         return this.nature;
     }
 
-    public String getEncodedImage(){
+    public String getEncodedImage() {
         return encodedImage;
     }
 }
