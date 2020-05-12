@@ -51,7 +51,7 @@ public class HomeFragment extends Fragment {
             PeriodicWorkRequest request = incident
                     .build();
             WorkManager.getInstance().enqueueUniquePeriodicWork("TAG", ExistingPeriodicWorkPolicy.KEEP, request);
-           // WorkManager.getInstance().enqueue(request);
+            WorkManager.getInstance().enqueue(request);
 
             WorkManager.getInstance().getWorkInfoByIdLiveData(request.getId()).observe(getViewLifecycleOwner(), new Observer<WorkInfo>() {
                 @Override

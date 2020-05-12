@@ -3,8 +3,11 @@
     <string name="app_name">IHMProjet_2019_2020_TD5_Bateaux_2</string>
 
     <string-array name="natures">
-        <item>Pluie forte</item>
-        <item>Tempête</item>
+        <item>Entrée non autorisée</item>
+        <item>Feu</item>
+        <item>Pêche non autorisé</item>
+        <item>Pluie battante</item>
+        <item>Pollution</item>
         <item>Autre</item>
     </string-array>
 

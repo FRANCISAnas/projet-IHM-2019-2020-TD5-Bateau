@@ -4,9 +4,13 @@
     <string name="app_name">IHMProjet_2019_2020_TD5_Bateaux</string>
 
     <string-array name="natures">
+        <item>Fire</item>
         <item>Heavy Rain</item>
+        <item>Pollution</item>
+        <item>Sailing or Fishing in unauthorized area </item>
         <item>Storm</item>
-        <item>Autre</item>
+        <item>Unauthorized entry</item>
+        <item>Other</item>
     </string-array>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>

@@ -134,7 +134,7 @@ public class IncidentsFragment extends Fragment {
 
         if (item.getItemId() == R.id.delete) {
 
-            if (incidentArrayList.get(adapterContextMenuInfo.position).getAndroid_id().equals(Settings.Secure.getString(getContext().getContentResolver(), Settings.Secure.ANDROID_ID))) {
+           if (incidentArrayList.get(adapterContextMenuInfo.position).getAndroid_id().equals(Settings.Secure.getString(getContext().getContentResolver(), Settings.Secure.ANDROID_ID))) {
                 DeleteDialog deleteDialog = new DeleteDialog(incidentArrayList.get(adapterContextMenuInfo.position));
                 deleteDialog.show(getFragmentManager(), "gg");
             } else {
