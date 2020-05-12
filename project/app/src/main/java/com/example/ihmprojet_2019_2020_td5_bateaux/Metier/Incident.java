@@ -21,18 +21,6 @@ public class Incident {
      * @param latitude
      * @param android_id
      */
-    public Incident(int id, String nature, String description, String date, String longitude, String latitude, String android_id) {
-        this.id = id;
-        this.nature = nature;
-        this.description = description;
-        this.date = date;
-        this.longitude = longitude;
-        this.latitude = latitude;
-        this.android_id = android_id;
-        this.encodedImage = "null";
-
-    }
-
     public Incident(int id, String nature, String description, String date, String longitude, String latitude, String android_id, String image) {
         this.id = id;
         this.nature = nature;
@@ -41,7 +29,7 @@ public class Incident {
         this.longitude = longitude;
         this.latitude = latitude;
         this.android_id = android_id;
-
+        this.encodedImage = image;
     }
 
     /**
